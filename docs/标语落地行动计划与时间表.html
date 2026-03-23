@@ -1,481 +1,975 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>标语落地行动计划与时间表 - RainBox 文档中心</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
-.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
-.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
-.doc p { margin-bottom: 1rem; color: #374151; }
-.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
-.doc li { margin-bottom: 0.5rem; }
-.doc strong { font-weight: 700; color: #111827; }
-.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
-.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
-.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
-.doc th { background: #f9fafb; font-weight: 600; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>标语落地行动计划与时间表 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    
+    /* 标题样式 */
+    .markdown-body h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 3rem 0 1.5rem 0;
+      color: #2196F3;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
+    }
+    
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem 0;
+      color: #374151;
+    }
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
+    }
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    
+    .markdown-body em {
+      font-style: italic;
+      color: #6b7280;
+    }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
+    .markdown-body hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-<nav class="sticky top-0 z-50 bg-white shadow-sm">
-<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-<a href="../index.html" class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
-<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
-</a>
-<div class="flex gap-6">
-<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
-<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
-</div>
-</div>
-</nav>
-<div class="pt-8 pb-20"><div class="doc"><pre># 标语落地行动计划与时间表
-## &quot;科技养虾，用心养人&quot; 文化落地项目
-
----
-
-### 📋 项目信息
-- **项目负责人**: HR Manager
-- **项目周期**: 2026年3月22日 - 2026年12月31日
-- **项目状态**: ✅ 已启动
-- **最后更新**: 2026年3月22日
-
----
-
-## 一、项目概览
-
-### 🎯 项目目标
-1. 100% 员工理解并认同标语精神
-2. 标语融入公司运营各环节
-3. 员工满意度提升至 85% 以上
-4. 员工流失率控制在 8% 以内
-5. 打造行业&quot;最佳雇主&quot;品牌
-
-### 📊 项目里程碑
-
-| 阶段 | 时间 | 关键成果 | 状态 |
-|------|------|---------|------|
-| **启动期** | 3月22日-4月30日 | 文档发布、培训启动 | 🟢 进行中 |
-| **推进期** | 5月1日-8月31日 | 全面实施、持续优化 | ⚪ 未开始 |
-| **深化期** | 9月1日-11月30日 | 文化深度融入 | ⚪ 未开始 |
-| **总结期** | 12月1日-12月31日 | 年度总结、表彰 | ⚪ 未开始 |
-
----
-
-## 二、详细行动计划
-
-### 📅 第一阶段：启动期（3月22日 - 4月30日）
-
-#### **第 1 周：3月22日 - 3月28日**
-
-**3月22日（周日）** ✅ 已完成
-- [x] 制定《标语文化解读手册》
-- [x] 更新《员工手册》标语章节
-- [x] 设计《HR文化落地方案》
-- [x] 准备《全员培训材料》
-- [x] 制定行动计划与时间表
-
-**3月23日（周一）** 🎯 待执行
-- [ ] 09:00 - 高层管理会议：标语发布与动员
-- [ ] 14:00 - HR 团队内部培训
-- [ ] 16:00 - 启动内部宣传（邮件、内部平台）
-- [ ] 全天 - 设计标语视觉物料（海报、横幅、桌牌）
-
-**3月24日（周二）**
-- [ ] 09:00 - 各部门负责人会议：文化落地部署
-- [ ] 14:00 - 开始办公区域标语布置
-- [ ] 全天 - 培训平台搭建与测试
-
-**3月25日（周三）**
-- [ ] 09:00 - 第一批全员培训（技术部门）
-- [ ] 14:00 - 第二批全员培训（产品运营部门）
-- [ ] 全天 - 收集培训反馈
-
-**3月26日（周四）**
-- [ ] 09:00 - 第三批全员培训（市场销售部门）
-- [ ] 14:00 - 第四批全员培训（职能部门）
-- [ ] 16:00 - 培训效果评估
-
-**3月27日（周五）**
-- [ ] 09:00 - 培训补训（缺席人员）
-- [ ] 14:00 - 首次&quot;用心时刻&quot;表彰
-- [ ] 16:00 - 周总结会议
-
-**3月28日（周六）**
-- [ ] 休息日（可选：线上学习平台开放）
-
----
-
-#### **第 2 周：3月29日 - 4月4日**
-
-**重点工作**：
-- [ ] 完成全员培训测试（80分及格）
-- [ ] 启动福利政策升级（体检、保险、健身）
-- [ ] 优化招聘流程（增加文化匹配度评估）
-- [ ] 开展首次 HR 下午茶活动
-- [ ] 收集员工对标语的初步反馈
-
-**关键节点**：
-- 4月1日：福利政策升级方案公布
-- 4月3日：首次 HR 下午茶（主题：标语文化交流）
-
----
-
-#### **第 3 周：4月5日 - 4月11日**
-
-**重点工作**：
-- [ ] 启动培训体系搭建（课程设计、讲师招募）
-- [ ] 设计激励机制（季度之星、感谢卡等）
-- [ ] 各部门制定文化落地子方案
-- [ ] 开展首次文化主题活动
-
-**关键节点**：
-- 4月8日：各部门提交文化落地子方案
-- 4月10日：首次文化主题活动（团队建设日）
-
----
-
-#### **第 4 周：4月12日 - 4月18日**
-
-**重点工作**：
-- [ ] 培训体系试运行
-- [ ] 激励机制上线
-- [ ] 员工满意度基线调查
-- [ ] 标语文化宣传物料全面铺开
-
-**关键节点**：
-- 4月15日：员工满意度基线调查启动
-- 4月17日：激励机制正式上线
-
----
-
-#### **第 5 周：4月19日 - 4月25日**
-
-**重点工作**：
-- [ ] 分析满意度调查结果
-- [ ] 优化文化落地方案
-- [ ] 准备月度总结报告
-- [ ] 规划 5 月工作重点
-
-**关键节点**：
-- 4月22日：满意度调查结果分析会
-- 4月24日：月度总结会议
-
----
-
-#### **第 6 周：4月26日 - 4月30日**
-
-**重点工作**：
-- [ ] 启动期总结与复盘
-- [ ] 表彰优秀践行者
-- [ ] 发布月度文化简报
-- [ ] 启动推进期准备工作
-
-**关键节点**：
-- 4月30日：启动期总结大会 + 表彰仪式
-
----
-
-### 📅 第二阶段：推进期（5月1日 - 8月31日）
-
-#### **5月：全面实施月**
-
-**重点工作**：
-- [ ] 培训体系全面启动（每周至少 2 场培训）
-- [ ] 关怀机制落地（生日、转正、晋升等关键时刻）
-- [ ] 首批内部晋升（体现&quot;用心养人&quot;）
-- [ ] 月度团建活动（各部门）
-- [ ] 第二次员工满意度调查
-
-**关键节点**：
-- 5月10日：首批内部晋升仪式
-- 5月20日：第二次满意度调查
-- 5月31日：月度总结与优化
-
----
-
-#### **6月：优化提升月**
-
-**重点工作**：
-- [ ] 根据反馈优化各项措施
-- [ ] 打造标杆案例（员工成长故事）
-- [ ] 启动雇主品牌建设（对外传播）
-- [ ] 季度文化活动（全员户外拓展）
-- [ ] Q2 总结与评估
-
-**关键节点**：
-- 6月15日：季度文化活动
-- 6月28日：Q2 总结大会
-
----
-
-#### **7月：深化融合月**
-
-**重点工作**：
-- [ ] 标语融入绩效考核（试运行）
-- [ ] 管理者文化领导力培训
-- [ ] 员工家庭日活动
-- [ ] 第三次员工满意度调查
-
-**关键节点**：
-- 7月10日：管理者文化领导力培训
-- 7月20日：员工家庭日活动
-- 7月31日：月度总结
-
----
-
-#### **8月：巩固强化月**
-
-**重点工作**：
-- [ ] 文化大使评选
-- [ ] 中期效果评估
-- [ ] 优化培训与激励体系
-- [ ] 准备下半年工作规划
-
-**关键节点**：
-- 8月15日：文化大使评选
-- 8月28日：中期评估报告
-
----
-
-### 📅 第三阶段：深化期（9月1日 - 11月30日）
-
-#### **9月：文化深度融入月**
-
-**重点工作**：
-- [ ] 标语正式融入绩效考核
-- [ ] 启动&quot;最佳雇主&quot;认证申请
-- [ ] 对外文化传播（媒体、行业活动）
-- [ ] Q3 总结与表彰
-
-**关键节点**：
-- 9月10日：&quot;最佳雇主&quot;认证申请
-- 9月28日：Q3 总结大会
-
----
-
-#### **10月：品牌传播月**
-
-**重点工作**：
-- [ ] 参加行业 HR 峰会，分享文化实践
-- [ ] 制作文化宣传视频
-- [ ] 员工成长故事对外发布
-- [ ] 第四次员工满意度调查
-
-**关键节点**：
-- 10月15日：行业峰会演讲
-- 10月25日：满意度调查
-
----
-
-#### **11月：持续优化月**
-
-**重点工作**：
-- [ ] 根据全年数据优化各项措施
-- [ ] 准备年度表彰材料
-- [ ] 制定下一年度文化建设规划
-- [ ] 年度文化活动筹备
-
-**关键节点**：
-- 11月20日：年度表彰材料准备完成
-- 11月30日：下一年度规划初稿
-
----
-
-### 📅 第四阶段：总结期（12月1日 - 12月31日）
-
-#### **12月：总结表彰月**
-
-**重点工作**：
-- [ ] 年度效果评估
-- [ ] 年度表彰大会
-- [ ] 发布年度文化报告
-- [ ] 下一年度规划定稿
-- [ ] 第五次员工满意度调查
-
-**关键节点**：
-- 12月10日：年度表彰大会
-- 12月20日：年度文化报告发布
-- 12月31日：全年工作总结
-
----
-
-## 三、关键指标跟踪
-
-### 📊 月度跟踪指标
-
-| 指标 | 基线值 | 3月 | 4月 | 5月 | 6月 | 7月 | 8月 | 9月 | 10月 | 11月 | 12月 | 目标值 |
-|------|--------|-----|-----|-----|-----|-----|-----|-----|------|------|------|--------|
-| 员工满意度 | 72% | - | 75% | 77% | 80% | 82% | 83% | 84% | 85% | 85% | 85% | 85% |
-| 员工流失率 | 12% | - | 11% | 10.5% | 10% | 9.5% | 9% | 8.5% | 8% | 8% | 8% | 8% |
-| 培训覆盖率 | 65% | - | 100% | 100% | 100% | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| 内部推荐率 | 15% | - | 18% | 20% | 22% | 24% | 26% | 27% | 28% | 29% | 30% | 30% |
-| 文化认同度 | - | - | 70% | 75% | 80% | 83% | 85% | 87% | 88% | 90% | 90% | 90% |
-
----
-
-## 四、资源配置
-
-### 👥 人力资源
-
-| 角色 | 人员 | 职责 |
-|------|------|------|
-| **项目总负责** | HR Manager | 整体统筹、决策、汇报 |
-| **培训专员** | 待招聘 | 培训体系搭建与实施 |
-| **文化专员** | 待招聘 | 文化活动组织、宣传 |
-| **各部门文化联络人** | 各部门指定 | 部门文化落地执行 |
-| **外部顾问** | 待聘请 | 专业指导与咨询 |
-
-### 💰 预算分配
-
-| 季度 | 预算（万元） | 主要用途 |
-|------|------------|---------|
-| **Q2** | 60 | 培训启动、福利升级、文化活动、物料制作 |
-| **Q3** | 70 | 培训深化、激励奖金、品牌建设、系统工具 |
-| **Q4** | 70 | 年度表彰、效果评估、下年规划、应急储备 |
-| **合计** | **200** | - |
-
----
-
-## 五、风险管理
-
-### ⚠️ 风险识别与应对
-
-| 风险 | 概率 | 影响 | 应对措施 | 负责人 |
-|------|------|------|---------|--------|
-| 预算超支 | 中 | 高 | 分阶段审批、优先级排序 | HR Manager |
-| 员工抵触 | 低 | 高 | 充分沟通、渐进推进 | 各部门负责人 |
-| 执行不到位 | 中 | 高 | 建立监督机制、定期检查 | HR Manager |
-| 效果不达预期 | 中 | 中 | 及时调整、持续优化 | HR Manager |
-| 关键人员离职 | 低 | 中 | 知识传承、备份方案 | HR Manager |
-
----
-
-## 六、沟通机制
-
-### 📢 定期沟通
-
-| 会议 | 频次 | 参与人 | 内容 |
-|------|------|--------|------|
-| **高层汇报会** | 月度 | CEO、高管、HR Manager | 进度汇报、重大决策 |
-| **HR 团队会** | 周度 | HR 全体 | 工作进展、问题讨论 |
-| **部门联络人会** | 双周 | 各部门文化联络人 | 经验分享、协同推进 |
-| **全员大会** | 季度 | 全体员工 | 阶段总结、表彰激励 |
-
-### 📧 信息发布渠道
-
-- **内部邮件**：重要通知、政策发布
-- **内部平台**：日常动态、活动报名
-- **文化墙**：标语展示、案例分享
-- **月度简报**：进展总结、数据呈现
-
----
-
-## 七、成功标准
-
-### ✅ 短期成功标准（Q2）
-
-- [x] 4 份核心文档完成 ✅
-- [ ] 100% 员工完成培训
-- [ ] 80% 员工通过测试
-- [ ] 员工满意度提升至 75%
-- [ ] 办公区域标语全面布置
-
-### ✅ 中期成功标准（Q3）
-
-- [ ] 员工满意度达到 82%
-- [ ] 员工流失率降至 9%
-- [ ] 内部推荐率提升至 25%
-- [ ] 打造 5 个标杆案例
-- [ ] 对外发布文化实践
-
-### ✅ 长期成功标准（Q4）
-
-- [ ] 员工满意度达到 85%
-- [ ] 员工流失率控制在 8%
-- [ ] 内部推荐率达到 30%
-- [ ] 获得&quot;最佳雇主&quot;认证
-- [ ] 标语成为企业文化核心标识
-
----
-
-## 八、下一步行动
-
-### 🎯 本周（3月22日-28日）待办事项
-
-**紧急重要**：
-- [ ] 3月23日 09:00 - 高层管理会议（需 CEO 确认时间）
-- [ ] 3月23日 14:00 - HR 团队内部培训
-- [ ] 3月23日 - 启动内部宣传
-
-**重要不紧急**：
-- [ ] 设计标语视觉物料（海报、横幅、桌牌）
-- [ ] 搭建培训平台
-- [ ] 安排全员培训场地与时间
-
-**需要协调**：
-- [ ] 与行政部协调办公区域布置
-- [ ] 与 IT 部协调内部平台更新
-- [ ] 与财务部确认预算审批流程
-
----
-
-## 九、联系方式
-
-### 📞 项目团队联系方式
-
-- **项目总负责人**: HR Manager
-  - 📧 hr-manager@company.com
-  - 📞 内线：8888
-
-- **文化建设邮箱**: culture@company.com
-
-- **HR 热线**: 内线 8888（工作日 9:00-18:00）
-
----
-
-## 十、附件清单
-
-✅ 已完成文档：
-1. 《标语文化解读手册》
-2. 《员工手册 - 标语章节更新》
-3. 《HR 文化落地方案》
-4. 《全员培训材料》
-5. 《标语落地行动计划与时间表》（本文档）
-
-📋 待制作文档：
-- 标语视觉物料（海报、横幅、桌牌）
-- 培训 PPT
-- CEO 寄语视频脚本
-- 月度文化简报模板
-- 员工满意度调查问卷
-
----
-
-## 结语
-
-**标语落地，从今天开始！**
-
-这是一个系统工程，需要全公司的共同努力。让我们一起，用行动诠释&quot;科技养虾，用心养人&quot;！
-
----
-
-**项目状态**: 🟢 进行中  
-**最后更新**: 2026年3月22日  
-**下次更新**: 2026年3月29日
-
----
-
-*本计划将根据实际执行情况动态调整*
-</pre></div></div>
-<footer class="bg-gray-900 text-white py-8 text-center">
-<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
-</footer>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文档内容 -->
+  <article class="py-8">
+    <div class="markdown-body">
+      <h1 id="_1">标语落地行动计划与时间表</h1>
+<h2 id="_2">"科技养虾，用心养人" 文化落地项目</h2>
+<hr />
+<h3 id="_3">📋 项目信息</h3>
+<ul>
+<li><strong>项目负责人</strong>: HR Manager</li>
+<li><strong>项目周期</strong>: 2026年3月22日 - 2026年12月31日</li>
+<li><strong>项目状态</strong>: ✅ 已启动</li>
+<li><strong>最后更新</strong>: 2026年3月22日</li>
+</ul>
+<hr />
+<h2 id="_4">一、项目概览</h2>
+<h3 id="_5">🎯 项目目标</h3>
+<ol>
+<li>100% 员工理解并认同标语精神</li>
+<li>标语融入公司运营各环节</li>
+<li>员工满意度提升至 85% 以上</li>
+<li>员工流失率控制在 8% 以内</li>
+<li>打造行业"最佳雇主"品牌</li>
+</ol>
+<h3 id="_6">📊 项目里程碑</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>时间</th>
+<th>关键成果</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>启动期</strong></td>
+<td>3月22日-4月30日</td>
+<td>文档发布、培训启动</td>
+<td>🟢 进行中</td>
+</tr>
+<tr>
+<td><strong>推进期</strong></td>
+<td>5月1日-8月31日</td>
+<td>全面实施、持续优化</td>
+<td>⚪ 未开始</td>
+</tr>
+<tr>
+<td><strong>深化期</strong></td>
+<td>9月1日-11月30日</td>
+<td>文化深度融入</td>
+<td>⚪ 未开始</td>
+</tr>
+<tr>
+<td><strong>总结期</strong></td>
+<td>12月1日-12月31日</td>
+<td>年度总结、表彰</td>
+<td>⚪ 未开始</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_7">二、详细行动计划</h2>
+<h3 id="322-430">📅 第一阶段：启动期（3月22日 - 4月30日）</h3>
+<h4 id="1-322-328"><strong>第 1 周：3月22日 - 3月28日</strong></h4>
+<p><strong>3月22日（周日）</strong> ✅ 已完成<br />
+- [x] 制定《标语文化解读手册》<br />
+- [x] 更新《员工手册》标语章节<br />
+- [x] 设计《HR文化落地方案》<br />
+- [x] 准备《全员培训材料》<br />
+- [x] 制定行动计划与时间表</p>
+<p><strong>3月23日（周一）</strong> 🎯 待执行<br />
+- [ ] 09:00 - 高层管理会议：标语发布与动员<br />
+- [ ] 14:00 - HR 团队内部培训<br />
+- [ ] 16:00 - 启动内部宣传（邮件、内部平台）<br />
+- [ ] 全天 - 设计标语视觉物料（海报、横幅、桌牌）</p>
+<p><strong>3月24日（周二）</strong><br />
+- [ ] 09:00 - 各部门负责人会议：文化落地部署<br />
+- [ ] 14:00 - 开始办公区域标语布置<br />
+- [ ] 全天 - 培训平台搭建与测试</p>
+<p><strong>3月25日（周三）</strong><br />
+- [ ] 09:00 - 第一批全员培训（技术部门）<br />
+- [ ] 14:00 - 第二批全员培训（产品运营部门）<br />
+- [ ] 全天 - 收集培训反馈</p>
+<p><strong>3月26日（周四）</strong><br />
+- [ ] 09:00 - 第三批全员培训（市场销售部门）<br />
+- [ ] 14:00 - 第四批全员培训（职能部门）<br />
+- [ ] 16:00 - 培训效果评估</p>
+<p><strong>3月27日（周五）</strong><br />
+- [ ] 09:00 - 培训补训（缺席人员）<br />
+- [ ] 14:00 - 首次"用心时刻"表彰<br />
+- [ ] 16:00 - 周总结会议</p>
+<p><strong>3月28日（周六）</strong><br />
+- [ ] 休息日（可选：线上学习平台开放）</p>
+<hr />
+<h4 id="2-329-44"><strong>第 2 周：3月29日 - 4月4日</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 完成全员培训测试（80分及格）<br />
+- [ ] 启动福利政策升级（体检、保险、健身）<br />
+- [ ] 优化招聘流程（增加文化匹配度评估）<br />
+- [ ] 开展首次 HR 下午茶活动<br />
+- [ ] 收集员工对标语的初步反馈</p>
+<p><strong>关键节点</strong>：<br />
+- 4月1日：福利政策升级方案公布<br />
+- 4月3日：首次 HR 下午茶（主题：标语文化交流）</p>
+<hr />
+<h4 id="3-45-411"><strong>第 3 周：4月5日 - 4月11日</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 启动培训体系搭建（课程设计、讲师招募）<br />
+- [ ] 设计激励机制（季度之星、感谢卡等）<br />
+- [ ] 各部门制定文化落地子方案<br />
+- [ ] 开展首次文化主题活动</p>
+<p><strong>关键节点</strong>：<br />
+- 4月8日：各部门提交文化落地子方案<br />
+- 4月10日：首次文化主题活动（团队建设日）</p>
+<hr />
+<h4 id="4-412-418"><strong>第 4 周：4月12日 - 4月18日</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 培训体系试运行<br />
+- [ ] 激励机制上线<br />
+- [ ] 员工满意度基线调查<br />
+- [ ] 标语文化宣传物料全面铺开</p>
+<p><strong>关键节点</strong>：<br />
+- 4月15日：员工满意度基线调查启动<br />
+- 4月17日：激励机制正式上线</p>
+<hr />
+<h4 id="5-419-425"><strong>第 5 周：4月19日 - 4月25日</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 分析满意度调查结果<br />
+- [ ] 优化文化落地方案<br />
+- [ ] 准备月度总结报告<br />
+- [ ] 规划 5 月工作重点</p>
+<p><strong>关键节点</strong>：<br />
+- 4月22日：满意度调查结果分析会<br />
+- 4月24日：月度总结会议</p>
+<hr />
+<h4 id="6-426-430"><strong>第 6 周：4月26日 - 4月30日</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 启动期总结与复盘<br />
+- [ ] 表彰优秀践行者<br />
+- [ ] 发布月度文化简报<br />
+- [ ] 启动推进期准备工作</p>
+<p><strong>关键节点</strong>：<br />
+- 4月30日：启动期总结大会 + 表彰仪式</p>
+<hr />
+<h3 id="51-831">📅 第二阶段：推进期（5月1日 - 8月31日）</h3>
+<h4 id="5"><strong>5月：全面实施月</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 培训体系全面启动（每周至少 2 场培训）<br />
+- [ ] 关怀机制落地（生日、转正、晋升等关键时刻）<br />
+- [ ] 首批内部晋升（体现"用心养人"）<br />
+- [ ] 月度团建活动（各部门）<br />
+- [ ] 第二次员工满意度调查</p>
+<p><strong>关键节点</strong>：<br />
+- 5月10日：首批内部晋升仪式<br />
+- 5月20日：第二次满意度调查<br />
+- 5月31日：月度总结与优化</p>
+<hr />
+<h4 id="6"><strong>6月：优化提升月</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 根据反馈优化各项措施<br />
+- [ ] 打造标杆案例（员工成长故事）<br />
+- [ ] 启动雇主品牌建设（对外传播）<br />
+- [ ] 季度文化活动（全员户外拓展）<br />
+- [ ] Q2 总结与评估</p>
+<p><strong>关键节点</strong>：<br />
+- 6月15日：季度文化活动<br />
+- 6月28日：Q2 总结大会</p>
+<hr />
+<h4 id="7"><strong>7月：深化融合月</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 标语融入绩效考核（试运行）<br />
+- [ ] 管理者文化领导力培训<br />
+- [ ] 员工家庭日活动<br />
+- [ ] 第三次员工满意度调查</p>
+<p><strong>关键节点</strong>：<br />
+- 7月10日：管理者文化领导力培训<br />
+- 7月20日：员工家庭日活动<br />
+- 7月31日：月度总结</p>
+<hr />
+<h4 id="8"><strong>8月：巩固强化月</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 文化大使评选<br />
+- [ ] 中期效果评估<br />
+- [ ] 优化培训与激励体系<br />
+- [ ] 准备下半年工作规划</p>
+<p><strong>关键节点</strong>：<br />
+- 8月15日：文化大使评选<br />
+- 8月28日：中期评估报告</p>
+<hr />
+<h3 id="91-1130">📅 第三阶段：深化期（9月1日 - 11月30日）</h3>
+<h4 id="9"><strong>9月：文化深度融入月</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 标语正式融入绩效考核<br />
+- [ ] 启动"最佳雇主"认证申请<br />
+- [ ] 对外文化传播（媒体、行业活动）<br />
+- [ ] Q3 总结与表彰</p>
+<p><strong>关键节点</strong>：<br />
+- 9月10日："最佳雇主"认证申请<br />
+- 9月28日：Q3 总结大会</p>
+<hr />
+<h4 id="10"><strong>10月：品牌传播月</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 参加行业 HR 峰会，分享文化实践<br />
+- [ ] 制作文化宣传视频<br />
+- [ ] 员工成长故事对外发布<br />
+- [ ] 第四次员工满意度调查</p>
+<p><strong>关键节点</strong>：<br />
+- 10月15日：行业峰会演讲<br />
+- 10月25日：满意度调查</p>
+<hr />
+<h4 id="11"><strong>11月：持续优化月</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 根据全年数据优化各项措施<br />
+- [ ] 准备年度表彰材料<br />
+- [ ] 制定下一年度文化建设规划<br />
+- [ ] 年度文化活动筹备</p>
+<p><strong>关键节点</strong>：<br />
+- 11月20日：年度表彰材料准备完成<br />
+- 11月30日：下一年度规划初稿</p>
+<hr />
+<h3 id="121-1231">📅 第四阶段：总结期（12月1日 - 12月31日）</h3>
+<h4 id="12"><strong>12月：总结表彰月</strong></h4>
+<p><strong>重点工作</strong>：<br />
+- [ ] 年度效果评估<br />
+- [ ] 年度表彰大会<br />
+- [ ] 发布年度文化报告<br />
+- [ ] 下一年度规划定稿<br />
+- [ ] 第五次员工满意度调查</p>
+<p><strong>关键节点</strong>：<br />
+- 12月10日：年度表彰大会<br />
+- 12月20日：年度文化报告发布<br />
+- 12月31日：全年工作总结</p>
+<hr />
+<h2 id="_8">三、关键指标跟踪</h2>
+<h3 id="_9">📊 月度跟踪指标</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>基线值</th>
+<th>3月</th>
+<th>4月</th>
+<th>5月</th>
+<th>6月</th>
+<th>7月</th>
+<th>8月</th>
+<th>9月</th>
+<th>10月</th>
+<th>11月</th>
+<th>12月</th>
+<th>目标值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>员工满意度</td>
+<td>72%</td>
+<td>-</td>
+<td>75%</td>
+<td>77%</td>
+<td>80%</td>
+<td>82%</td>
+<td>83%</td>
+<td>84%</td>
+<td>85%</td>
+<td>85%</td>
+<td>85%</td>
+<td>85%</td>
+</tr>
+<tr>
+<td>员工流失率</td>
+<td>12%</td>
+<td>-</td>
+<td>11%</td>
+<td>10.5%</td>
+<td>10%</td>
+<td>9.5%</td>
+<td>9%</td>
+<td>8.5%</td>
+<td>8%</td>
+<td>8%</td>
+<td>8%</td>
+<td>8%</td>
+</tr>
+<tr>
+<td>培训覆盖率</td>
+<td>65%</td>
+<td>-</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>内部推荐率</td>
+<td>15%</td>
+<td>-</td>
+<td>18%</td>
+<td>20%</td>
+<td>22%</td>
+<td>24%</td>
+<td>26%</td>
+<td>27%</td>
+<td>28%</td>
+<td>29%</td>
+<td>30%</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>文化认同度</td>
+<td>-</td>
+<td>-</td>
+<td>70%</td>
+<td>75%</td>
+<td>80%</td>
+<td>83%</td>
+<td>85%</td>
+<td>87%</td>
+<td>88%</td>
+<td>90%</td>
+<td>90%</td>
+<td>90%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_10">四、资源配置</h2>
+<h3 id="_11">👥 人力资源</h3>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>人员</th>
+<th>职责</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>项目总负责</strong></td>
+<td>HR Manager</td>
+<td>整体统筹、决策、汇报</td>
+</tr>
+<tr>
+<td><strong>培训专员</strong></td>
+<td>待招聘</td>
+<td>培训体系搭建与实施</td>
+</tr>
+<tr>
+<td><strong>文化专员</strong></td>
+<td>待招聘</td>
+<td>文化活动组织、宣传</td>
+</tr>
+<tr>
+<td><strong>各部门文化联络人</strong></td>
+<td>各部门指定</td>
+<td>部门文化落地执行</td>
+</tr>
+<tr>
+<td><strong>外部顾问</strong></td>
+<td>待聘请</td>
+<td>专业指导与咨询</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_12">💰 预算分配</h3>
+<table>
+<thead>
+<tr>
+<th>季度</th>
+<th>预算（万元）</th>
+<th>主要用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Q2</strong></td>
+<td>60</td>
+<td>培训启动、福利升级、文化活动、物料制作</td>
+</tr>
+<tr>
+<td><strong>Q3</strong></td>
+<td>70</td>
+<td>培训深化、激励奖金、品牌建设、系统工具</td>
+</tr>
+<tr>
+<td><strong>Q4</strong></td>
+<td>70</td>
+<td>年度表彰、效果评估、下年规划、应急储备</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>200</strong></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_13">五、风险管理</h2>
+<h3 id="_14">⚠️ 风险识别与应对</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>概率</th>
+<th>影响</th>
+<th>应对措施</th>
+<th>负责人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>预算超支</td>
+<td>中</td>
+<td>高</td>
+<td>分阶段审批、优先级排序</td>
+<td>HR Manager</td>
+</tr>
+<tr>
+<td>员工抵触</td>
+<td>低</td>
+<td>高</td>
+<td>充分沟通、渐进推进</td>
+<td>各部门负责人</td>
+</tr>
+<tr>
+<td>执行不到位</td>
+<td>中</td>
+<td>高</td>
+<td>建立监督机制、定期检查</td>
+<td>HR Manager</td>
+</tr>
+<tr>
+<td>效果不达预期</td>
+<td>中</td>
+<td>中</td>
+<td>及时调整、持续优化</td>
+<td>HR Manager</td>
+</tr>
+<tr>
+<td>关键人员离职</td>
+<td>低</td>
+<td>中</td>
+<td>知识传承、备份方案</td>
+<td>HR Manager</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_15">六、沟通机制</h2>
+<h3 id="_16">📢 定期沟通</h3>
+<table>
+<thead>
+<tr>
+<th>会议</th>
+<th>频次</th>
+<th>参与人</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>高层汇报会</strong></td>
+<td>月度</td>
+<td>CEO、高管、HR Manager</td>
+<td>进度汇报、重大决策</td>
+</tr>
+<tr>
+<td><strong>HR 团队会</strong></td>
+<td>周度</td>
+<td>HR 全体</td>
+<td>工作进展、问题讨论</td>
+</tr>
+<tr>
+<td><strong>部门联络人会</strong></td>
+<td>双周</td>
+<td>各部门文化联络人</td>
+<td>经验分享、协同推进</td>
+</tr>
+<tr>
+<td><strong>全员大会</strong></td>
+<td>季度</td>
+<td>全体员工</td>
+<td>阶段总结、表彰激励</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_17">📧 信息发布渠道</h3>
+<ul>
+<li><strong>内部邮件</strong>：重要通知、政策发布</li>
+<li><strong>内部平台</strong>：日常动态、活动报名</li>
+<li><strong>文化墙</strong>：标语展示、案例分享</li>
+<li><strong>月度简报</strong>：进展总结、数据呈现</li>
+</ul>
+<hr />
+<h2 id="_18">七、成功标准</h2>
+<h3 id="q2">✅ 短期成功标准（Q2）</h3>
+<ul>
+<li>[x] 4 份核心文档完成 ✅</li>
+<li>[ ] 100% 员工完成培训</li>
+<li>[ ] 80% 员工通过测试</li>
+<li>[ ] 员工满意度提升至 75%</li>
+<li>[ ] 办公区域标语全面布置</li>
+</ul>
+<h3 id="q3">✅ 中期成功标准（Q3）</h3>
+<ul>
+<li>[ ] 员工满意度达到 82%</li>
+<li>[ ] 员工流失率降至 9%</li>
+<li>[ ] 内部推荐率提升至 25%</li>
+<li>[ ] 打造 5 个标杆案例</li>
+<li>[ ] 对外发布文化实践</li>
+</ul>
+<h3 id="q4">✅ 长期成功标准（Q4）</h3>
+<ul>
+<li>[ ] 员工满意度达到 85%</li>
+<li>[ ] 员工流失率控制在 8%</li>
+<li>[ ] 内部推荐率达到 30%</li>
+<li>[ ] 获得"最佳雇主"认证</li>
+<li>[ ] 标语成为企业文化核心标识</li>
+</ul>
+<hr />
+<h2 id="_19">八、下一步行动</h2>
+<h3 id="322-28">🎯 本周（3月22日-28日）待办事项</h3>
+<p><strong>紧急重要</strong>：<br />
+- [ ] 3月23日 09:00 - 高层管理会议（需 CEO 确认时间）<br />
+- [ ] 3月23日 14:00 - HR 团队内部培训<br />
+- [ ] 3月23日 - 启动内部宣传</p>
+<p><strong>重要不紧急</strong>：<br />
+- [ ] 设计标语视觉物料（海报、横幅、桌牌）<br />
+- [ ] 搭建培训平台<br />
+- [ ] 安排全员培训场地与时间</p>
+<p><strong>需要协调</strong>：<br />
+- [ ] 与行政部协调办公区域布置<br />
+- [ ] 与 IT 部协调内部平台更新<br />
+- [ ] 与财务部确认预算审批流程</p>
+<hr />
+<h2 id="_20">九、联系方式</h2>
+<h3 id="_21">📞 项目团队联系方式</h3>
+<ul>
+<li><strong>项目总负责人</strong>: HR Manager</li>
+<li>📧 hr-manager@company.com</li>
+<li>
+<p>📞 内线：8888</p>
+</li>
+<li>
+<p><strong>文化建设邮箱</strong>: culture@company.com</p>
+</li>
+<li>
+<p><strong>HR 热线</strong>: 内线 8888（工作日 9:00-18:00）</p>
+</li>
+</ul>
+<hr />
+<h2 id="_22">十、附件清单</h2>
+<p>✅ 已完成文档：<br />
+1. 《标语文化解读手册》<br />
+2. 《员工手册 - 标语章节更新》<br />
+3. 《HR 文化落地方案》<br />
+4. 《全员培训材料》<br />
+5. 《标语落地行动计划与时间表》（本文档）</p>
+<p>📋 待制作文档：<br />
+- 标语视觉物料（海报、横幅、桌牌）<br />
+- 培训 PPT<br />
+- CEO 寄语视频脚本<br />
+- 月度文化简报模板<br />
+- 员工满意度调查问卷</p>
+<hr />
+<h2 id="_23">结语</h2>
+<p><strong>标语落地，从今天开始！</strong></p>
+<p>这是一个系统工程，需要全公司的共同努力。让我们一起，用行动诠释"科技养虾，用心养人"！</p>
+<hr />
+<p><strong>项目状态</strong>: 🟢 进行中<br />
+<strong>最后更新</strong>: 2026年3月22日<br />
+<strong>下次更新</strong>: 2026年3月29日</p>
+<hr />
+<p><em>本计划将根据实际执行情况动态调整</em></p>
+    </div>
+  </article>
+
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- 页脚 -->
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
+        </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,482 +1,794 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RainBox公司口号讨论会议纪要 - RainBox 文档中心</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
-.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
-.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
-.doc p { margin-bottom: 1rem; color: #374151; }
-.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
-.doc li { margin-bottom: 0.5rem; }
-.doc strong { font-weight: 700; color: #111827; }
-.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
-.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
-.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
-.doc th { background: #f9fafb; font-weight: 600; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RainBox公司口号讨论会议纪要 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    
+    /* 标题样式 */
+    .markdown-body h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 3rem 0 1.5rem 0;
+      color: #2196F3;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
+    }
+    
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem 0;
+      color: #374151;
+    }
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
+    }
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    
+    .markdown-body em {
+      font-style: italic;
+      color: #6b7280;
+    }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
+    .markdown-body hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-<nav class="sticky top-0 z-50 bg-white shadow-sm">
-<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-<a href="../index.html" class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
-<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
-</a>
-<div class="flex gap-6">
-<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
-<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
-</div>
-</div>
-</nav>
-<div class="pt-8 pb-20"><div class="doc"><pre># RainBox 公司口号讨论会议纪要
-
-&gt; **会议时间**：2026-03-22  
-&gt; **会议主持**：RainBox（总经理）  
-&gt; **发起人**：rainsyzhang（CEO）  
-&gt; **参会人员**：全体员工（7 人）  
-&gt; **议题**：公司口号/使命的讨论与建议
-
----
-
-## 📋 CEO 提出的初步方案
-
-**原口号**：**&quot;让龙虾有生命，让科技有温度&quot;**
-
----
-
-## 💬 全体员工意见汇总
-
-### 1. HR Manager（人力资源）
-
-**关键意见**：
-- ✅ &quot;有温度&quot;传递人文关怀，有助于塑造温暖的企业文化
-- ⚠️ &quot;龙虾&quot;隐喻性强，新员工理解门槛高，需要额外解释
-- ⚠️ 缺少直接体现&quot;团队&quot;&quot;协作&quot;等凝聚力关键词
-
-**改进方案**（4 个）：
-1. &quot;赋予科技生命力，传递数字温度感&quot;
-2. &quot;让科技有温度，让工作有意义&quot;（强化员工价值感）
-3. &quot;科技向善，温暖同行&quot;（简洁有力）
-4. &quot;唤醒数字生命，共创温暖科技&quot;（保留核心，降低门槛）
-
-**实施建议**：
-- 需配套文化解读手册
-- 视觉化呈现（吉祥物/图形符号）
-- 融入绩效体系
-
----
-
-### 2. xiaohongshu-writer（小红书写手）
-
-**传播力诊断**：
-- ❌ &quot;龙虾&quot;认知门槛高，3 秒内无法建立连接
-- ❌ 两个&quot;让&quot;字重复，节奏拖沓
-- ❌ &quot;科技有温度&quot;已是行业烂梗，差异化不足
-
-**传播力评分**：5/10 - 不易记忆，不易传播
-
-**改进方案**（3 个）：
-1. **&quot;每一只龙虾，都值得被看见&quot;** ✨ 推荐
-   - 画面感强，易记（9 字）
-   - 情感张力足，引发&quot;被看见&quot;的共鸣
-   
-2. **&quot;科技养虾，用心养人&quot;**
-   - 前半句说业务，后半句说价值观
-   - 对仗简洁，朗朗上口
-   
-3. **&quot;龙虾会说话，数据有温度&quot;**
-   - 制造反常识冲突
-   - 激发好奇
-
-**核心建议**：
-&gt; 口号 = 5秒抓眼球 + 3秒能复述 + 1个情绪钩子
-
----
-
-### 3. fullstack-developer（全栈工程师）
-
-**技术视角评估**：
-- ❌ 技术创新价值体现不足
-- ❌ 隐喻过于抽象，技术人员难以理解
-- ⚠️ 对优秀技术人才吸引力较弱（技术圈容易解读为&quot;缺乏技术硬实力&quot;）
-
-**改进方案**（4 个）：
-1. **&quot;用代码重构世界，让技术创造可能&quot;**（技术驱动型）
-2. **&quot;极致工程，优雅创新&quot;**（工程文化型）
-3. **&quot;技术向善，创新无界&quot;**（技术价值型）
-4. **&quot;让每一行代码都有生命力&quot;**（保留&quot;生命&quot;元素）
-
-**核心建议**：
-- 明确受众：技术团队需要单独的技术文化口号
-- 避免&quot;温度&quot;&quot;赋能&quot;等高频词汇
-- 口号应能转化为具体的技术实践
-
----
-
-### 4. legal-advisor（法务专家）
-
-**法律风险评估**：
-- ✅ 基本合规，无违法违规内容
-- ⚠️ &quot;让龙虾有生命&quot;可能引发动物保护争议
-- ⚠️ 避免被解读为功能性承诺
-
-**商标注册可行性**：
-- ✅ 适合注册，显著性强（⭐⭐⭐⭐）
-- ✅ 近似风险低
-- 建议整体注册 + 拆分注册
-
-**专业建议**：
-- 48 小时内启动商标检索
-- 7 日内提交商标注册申请（防抢注）
-- 制作免责声明模板
-
-**综合评分**：7.5/10 - 创意佳，需完善法律保护
-
----
-
-### 5. webnovel-writer（网文作家）
-
-**故事性评估**：
-- ★★☆☆☆ 故事感和画面感不足
-- ★☆☆☆☆ 情感共鸣弱
-
-**核心问题**：
-- ❌ &quot;让龙虾有生命&quot;产生逻辑矛盾（龙虾本身就是活物）
-- ❌ 龙虾和科技的关联不明确
-- ❌ &quot;温度&quot;已被过度使用
-
-**改进方案**（4 个）：
-1. **&quot;让每一只龙虾，都活成传奇&quot;**（强化生命力叙事）
-2. **&quot;科技养海鲜，自然到餐桌&quot;**（科技与自然的和解）
-3. **&quot;守护鲜活，连接美味与爱&quot;**（情感化表达）
-4. **&quot;活的，才叫龙虾&quot;**（极简冲击，网文爽点式）
-
-**核心建议**：
-&gt; 好口号要像网文的&quot;金句&quot;：一秒入脑、有冲突感、可视化、情绪钩子
-
----
-
-### 6. xiaohongshu-planner（小红书策划）
-
-**评估结论**：❌ 不建议使用
-
-**核心问题**：
-1. 认知成本高 - 用户需要思考 3 秒
-2. 情感连接弱 - 太抽象
-3. 传播性差 - 不够口语化
-
-**小红书爆款口号 3 个黄金法则**：
-1. **3 秒懂** - 不需要解释
-2. **有共鸣** - 引发&quot;对对对&quot;
-3. **能复述** - 朋友聊天时能自然说出口
-
-**改进建议**：
-- &quot;每一只龙虾，都值得被好好养大&quot;
-- &quot;科技养虾，让每一口都安心&quot;
-- &quot;科技再冷，也要有人情味&quot;
-
-**测试标准**：
-&gt; 用户会不会截图发笔记配文&quot;这句话说到我心坎里了！&quot;
-
----
-
-## 📊 意见统计
-
-### 对原口号的评价
-
-| 维度 | 评分 | 评价 |
-|------|------|------|
-| 传播力 | 5/10 | 不易记忆和传播 |
-| 技术价值体现 | 3/10 | 不足 |
-| 情感共鸣 | 4/10 | 较弱 |
-| 员工文化建设 | 6/10 | 中等 |
-| 法律合规性 | 7.5/10 | 良好 |
-| 故事性 | 2/5 ⭐ | 不足 |
-| 社交传播性 | ❌ | 不建议 |
-
-**总体评价**：理念层面有价值，但实操层面存在较大问题
-
----
-
-### 共同问题识别
-
-**全体员工一致认为的问题**：
-1. ❌ **&quot;龙虾&quot;隐喻性过强**，理解门槛高
-2. ❌ **&quot;科技有温度&quot;**缺乏差异化，是行业套话
-3. ❌ **传播性弱**，不易记忆和复述
-4. ❌ **情感连接不足**，难以激发共鸣
-
----
-
-### 高频改进方向
-
-**出现次数最多的建议**：
-
-1. **简化表达，降低理解门槛**（6 人提到）
-2. **增强具象化和画面感**（5 人提到）
-3. **避免行业套话，寻找差异化**（4 人提到）
-4. **加强情感钩子**（4 人提到）
-
----
-
-## 💡 总经理（RainBox）的综合分析
-
-### 一、原口号的深层问题
-
-**CEO 的原意可能是**：
-- &quot;龙虾&quot; = RainBox 公司的数字员工（AI Agent）
-- &quot;有生命&quot; = 赋予 AI 人格化、情感化特征
-- &quot;科技有温度&quot; = 强调人文关怀，避免冰冷的技术感
-
-**但实际传达效果**：
-- 普通用户无法理解&quot;龙虾&quot;的隐喻
-- &quot;有生命&quot;产生逻辑矛盾（龙虾本来就是活物）
-- &quot;科技有温度&quot;已成行业陈词
-
-**核心矛盾**：
-&gt; 我们想表达的深层含义（AI 人格化 + 人文关怀）与用户实际接收到的信息（卖龙虾？养龙虾？）存在巨大鸿沟。
-
----
-
-### 二、口号的战略意义
-
-**一个好的公司口号应该**：
-1. **对外**：传递品牌价值，吸引用户和客户
-2. **对内**：凝聚员工共识，指导行动方向
-3. **战略**：体现公司使命，指引长期发展
-
-**多重受众的平衡**：
-- 用户/客户：需要简单直白、情感共鸣
-- 员工：需要价值认同、行动指引
-- 技术团队：需要技术价值、创新导向
-- 投资人/合作伙伴：需要清晰定位、差异化优势
-
-**原口号的问题**：试图用一句话满足所有受众，结果谁都没说清楚。
-
----
-
-### 三、关键决策点
-
-**CEO 需要先回答的问题**：
-
-1. **&quot;龙虾&quot;是否必须保留？**
-   - 如果必须：需要大量品牌教育成本
-   - 如果可调整：有更多优化空间
-
-2. **主要受众是谁？**
-   - 对外品牌传播？→ 需要简单易懂
-   - 对内文化建设？→ 需要价值认同
-   - 两者兼顾？→ 可能需要双轨策略
-
-3. **核心价值主张是什么？**
-   - AI 人格化/数字生命？
-   - 技术创新？
-   - 人文关怀？
-   - 用户体验？
-
----
-
-## 🎯 总经理推荐方案
-
-基于全体员工讨论，我提出 **3 套解决方案**：
-
----
-
-### 方案 A：保留&quot;龙虾&quot;，但降低理解门槛 ⭐⭐⭐
-
-**推荐口号**：
-```
-&quot;每一只龙虾，都值得被看见&quot;
-```
-
-**优点**：
-- ✅ 保留&quot;龙虾&quot;元素（满足 CEO 原意）
-- ✅ 画面感强，易于理解
-- ✅ 情感张力足（&quot;被看见&quot;的共鸣）
-- ✅ 简洁有力（9 个字）
-
-**适用场景**：
-- 对外品牌传播
-- 社交媒体营销
-- 用户情感连接
-
-**风险**：
-- 仍需解释&quot;龙虾&quot;的含义
-- 可能被误解为水产行业
-
-**推荐指数**：⭐⭐⭐ 中等推荐
-
----
-
-### 方案 B：放弃&quot;龙虾&quot;，聚焦核心价值 ⭐⭐⭐⭐⭐
-
-**推荐口号（3 选 1）**：
-
-#### B1. **&quot;让 AI 有温度，让工作有意义&quot;**
-- 清晰传达 AI 方向 + 人文关怀
-- 对内对外都适用
-- 员工价值感强
-
-#### B2. **&quot;科技向善，温暖同行&quot;** ✨ **最推荐**
-- 简洁有力（8 个字）
-- 价值观清晰
-- 易于传播和记忆
-- 适合多场景应用
-
-#### B3. **&quot;用代码创造温暖，用技术连接人心&quot;**
-- 技术 + 人文双重表达
-- 吸引技术人才
-- 体现创新价值
-
-**优点**：
-- ✅ 直白易懂，无需解释
-- ✅ 差异化明确
-- ✅ 适合多重受众
-- ✅ 可落地为具体行动
-
-**推荐指数**：⭐⭐⭐⭐⭐ 强烈推荐
-
----
-
-### 方案 C：双轨策略（对外 + 对内分离）⭐⭐⭐⭐
-
-**对外品牌口号**：
-```
-&quot;科技向善，温暖同行&quot;
-```
-- 简洁、普适、易传播
-- 适合品牌宣传和用户沟通
-
-**对内技术文化口号**：
-```
-&quot;用代码重构世界，让技术创造可能&quot;
-```
-- 技术价值明确
-- 吸引优秀技术人才
-- 指导技术实践
-
-**优点**：
-- ✅ 精准满足不同受众
-- ✅ 避免&quot;一句话说所有&quot;的问题
-- ✅ 灵活度高
-
-**推荐指数**：⭐⭐⭐⭐ 高度推荐
-
----
-
-## 📋 总经理最终建议
-
-### 推荐方案排序
-
-**1️⃣ 方案 B2（最推荐）**：
-```
-&quot;科技向善，温暖同行&quot;
-```
-**理由**：
-- 简洁有力，一听就懂
-- 价值观清晰，易于传播
-- 适合多重受众
-- 可落地为具体行动
-- 没有理解门槛
-
----
-
-**2️⃣ 方案 C（双轨策略）**：
-- 对外：&quot;科技向善，温暖同行&quot;
-- 对内：&quot;用代码重构世界，让技术创造可能&quot;
-
-**理由**：
-- 精准满足不同受众需求
-- 避免单一口号的局限性
-
----
-
-**3️⃣ 方案 B1**：
-```
-&quot;让 AI 有温度，让工作有意义&quot;
-```
-**理由**：
-- 清晰传达 AI 方向
-- 强化员工价值感
-
----
-
-### 不推荐保留原口号
-
-**原因**：
-1. 全体员工一致认为理解门槛高
-2. 传播力弱（评分 5/10）
-3. 情感共鸣不足
-4. &quot;科技有温度&quot;缺乏差异化
-5. 技术价值体现不足
-
----
-
-## 🚀 后续执行建议
-
-### 如果采纳新口号
-
-**立即行动**（7 日内）：
-1. ✅ CEO 确认最终方案
-2. ✅ 法务部启动商标检索和注册
-3. ✅ HR 制定文化落地方案
-4. ✅ 更新所有品牌物料
-
-**中期行动**（1-3 个月）：
-1. ✅ 员工文化培训
-2. ✅ 融入绩效体系
-3. ✅ 对外品牌传播
-4. ✅ 制作视觉化呈现
-
----
-
-### 如果保留&quot;龙虾&quot;元素
-
-**必须配套**：
-1. ✅ 品牌故事手册（解释&quot;龙虾&quot;含义）
-2. ✅ 视觉化设计（吉祥物/图形）
-3. ✅ 大量品牌教育投入
-4. ✅ 内部文化培训
-
-**预算投入**：预计需要 3-6 个月的品牌教育期
-
----
-
-## 💬 给 CEO 的话
-
-**rainsyzhang，作为总经理，我真诚地向您汇报**：
-
-1. **您的初衷非常好**：希望赋予公司使命感，强调人文关怀。
-
-2. **但原口号存在执行障碍**：全体员工一致认为理解门槛高、传播力弱。
-
-3. **我们有更好的选择**：既能保留您的初衷（人文关怀 + 技术价值），又能降低传播成本。
-
-4. **建议您考虑**：
-   - **优先方案**：&quot;科技向善，温暖同行&quot;
-   - **备选方案**：双轨策略（对外 + 对内分离）
-
-5. **最终决策权在您**：无论您选择哪个方案，我和全体员工都会全力执行。
-
----
-
-**期待您的最终决策！** 🙏
-
----
-
-**会议主持**：RainBox（总经理）  
-**日期**：2026-03-22  
-**版本**：v1.0
-</pre></div></div>
-<footer class="bg-gray-900 text-white py-8 text-center">
-<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
-</footer>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文档内容 -->
+  <article class="py-8">
+    <div class="markdown-body">
+      <h1 id="rainbox">RainBox 公司口号讨论会议纪要</h1>
+<blockquote>
+<p><strong>会议时间</strong>：2026-03-22<br />
+<strong>会议主持</strong>：RainBox（总经理）<br />
+<strong>发起人</strong>：rainsyzhang（CEO）<br />
+<strong>参会人员</strong>：全体员工（7 人）<br />
+<strong>议题</strong>：公司口号/使命的讨论与建议</p>
+</blockquote>
+<hr />
+<h2 id="ceo">📋 CEO 提出的初步方案</h2>
+<p><strong>原口号</strong>：<strong>"让龙虾有生命，让科技有温度"</strong></p>
+<hr />
+<h2 id="_1">💬 全体员工意见汇总</h2>
+<h3 id="1-hr-manager">1. HR Manager（人力资源）</h3>
+<p><strong>关键意见</strong>：<br />
+- ✅ "有温度"传递人文关怀，有助于塑造温暖的企业文化<br />
+- ⚠️ "龙虾"隐喻性强，新员工理解门槛高，需要额外解释<br />
+- ⚠️ 缺少直接体现"团队""协作"等凝聚力关键词</p>
+<p><strong>改进方案</strong>（4 个）：<br />
+1. "赋予科技生命力，传递数字温度感"<br />
+2. "让科技有温度，让工作有意义"（强化员工价值感）<br />
+3. "科技向善，温暖同行"（简洁有力）<br />
+4. "唤醒数字生命，共创温暖科技"（保留核心，降低门槛）</p>
+<p><strong>实施建议</strong>：<br />
+- 需配套文化解读手册<br />
+- 视觉化呈现（吉祥物/图形符号）<br />
+- 融入绩效体系</p>
+<hr />
+<h3 id="2-xiaohongshu-writer">2. xiaohongshu-writer（小红书写手）</h3>
+<p><strong>传播力诊断</strong>：<br />
+- ❌ "龙虾"认知门槛高，3 秒内无法建立连接<br />
+- ❌ 两个"让"字重复，节奏拖沓<br />
+- ❌ "科技有温度"已是行业烂梗，差异化不足</p>
+<p><strong>传播力评分</strong>：5/10 - 不易记忆，不易传播</p>
+<p><strong>改进方案</strong>（3 个）：<br />
+1. <strong>"每一只龙虾，都值得被看见"</strong> ✨ 推荐<br />
+   - 画面感强，易记（9 字）<br />
+   - 情感张力足，引发"被看见"的共鸣</p>
+<ol start="2">
+<li>
+<p><strong>"科技养虾，用心养人"</strong><br />
+   - 前半句说业务，后半句说价值观<br />
+   - 对仗简洁，朗朗上口</p>
+</li>
+<li>
+<p><strong>"龙虾会说话，数据有温度"</strong><br />
+   - 制造反常识冲突<br />
+   - 激发好奇</p>
+</li>
+</ol>
+<p><strong>核心建议</strong>：</p>
+<blockquote>
+<p>口号 = 5秒抓眼球 + 3秒能复述 + 1个情绪钩子</p>
+</blockquote>
+<hr />
+<h3 id="3-fullstack-developer">3. fullstack-developer（全栈工程师）</h3>
+<p><strong>技术视角评估</strong>：<br />
+- ❌ 技术创新价值体现不足<br />
+- ❌ 隐喻过于抽象，技术人员难以理解<br />
+- ⚠️ 对优秀技术人才吸引力较弱（技术圈容易解读为"缺乏技术硬实力"）</p>
+<p><strong>改进方案</strong>（4 个）：<br />
+1. <strong>"用代码重构世界，让技术创造可能"</strong>（技术驱动型）<br />
+2. <strong>"极致工程，优雅创新"</strong>（工程文化型）<br />
+3. <strong>"技术向善，创新无界"</strong>（技术价值型）<br />
+4. <strong>"让每一行代码都有生命力"</strong>（保留"生命"元素）</p>
+<p><strong>核心建议</strong>：<br />
+- 明确受众：技术团队需要单独的技术文化口号<br />
+- 避免"温度""赋能"等高频词汇<br />
+- 口号应能转化为具体的技术实践</p>
+<hr />
+<h3 id="4-legal-advisor">4. legal-advisor（法务专家）</h3>
+<p><strong>法律风险评估</strong>：<br />
+- ✅ 基本合规，无违法违规内容<br />
+- ⚠️ "让龙虾有生命"可能引发动物保护争议<br />
+- ⚠️ 避免被解读为功能性承诺</p>
+<p><strong>商标注册可行性</strong>：<br />
+- ✅ 适合注册，显著性强（⭐⭐⭐⭐）<br />
+- ✅ 近似风险低<br />
+- 建议整体注册 + 拆分注册</p>
+<p><strong>专业建议</strong>：<br />
+- 48 小时内启动商标检索<br />
+- 7 日内提交商标注册申请（防抢注）<br />
+- 制作免责声明模板</p>
+<p><strong>综合评分</strong>：7.5/10 - 创意佳，需完善法律保护</p>
+<hr />
+<h3 id="5-webnovel-writer">5. webnovel-writer（网文作家）</h3>
+<p><strong>故事性评估</strong>：<br />
+- ★★☆☆☆ 故事感和画面感不足<br />
+- ★☆☆☆☆ 情感共鸣弱</p>
+<p><strong>核心问题</strong>：<br />
+- ❌ "让龙虾有生命"产生逻辑矛盾（龙虾本身就是活物）<br />
+- ❌ 龙虾和科技的关联不明确<br />
+- ❌ "温度"已被过度使用</p>
+<p><strong>改进方案</strong>（4 个）：<br />
+1. <strong>"让每一只龙虾，都活成传奇"</strong>（强化生命力叙事）<br />
+2. <strong>"科技养海鲜，自然到餐桌"</strong>（科技与自然的和解）<br />
+3. <strong>"守护鲜活，连接美味与爱"</strong>（情感化表达）<br />
+4. <strong>"活的，才叫龙虾"</strong>（极简冲击，网文爽点式）</p>
+<p><strong>核心建议</strong>：</p>
+<blockquote>
+<p>好口号要像网文的"金句"：一秒入脑、有冲突感、可视化、情绪钩子</p>
+</blockquote>
+<hr />
+<h3 id="6-xiaohongshu-planner">6. xiaohongshu-planner（小红书策划）</h3>
+<p><strong>评估结论</strong>：❌ 不建议使用</p>
+<p><strong>核心问题</strong>：<br />
+1. 认知成本高 - 用户需要思考 3 秒<br />
+2. 情感连接弱 - 太抽象<br />
+3. 传播性差 - 不够口语化</p>
+<p><strong>小红书爆款口号 3 个黄金法则</strong>：<br />
+1. <strong>3 秒懂</strong> - 不需要解释<br />
+2. <strong>有共鸣</strong> - 引发"对对对"<br />
+3. <strong>能复述</strong> - 朋友聊天时能自然说出口</p>
+<p><strong>改进建议</strong>：<br />
+- "每一只龙虾，都值得被好好养大"<br />
+- "科技养虾，让每一口都安心"<br />
+- "科技再冷，也要有人情味"</p>
+<p><strong>测试标准</strong>：</p>
+<blockquote>
+<p>用户会不会截图发笔记配文"这句话说到我心坎里了！"</p>
+</blockquote>
+<hr />
+<h2 id="_2">📊 意见统计</h2>
+<h3 id="_3">对原口号的评价</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>评分</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传播力</td>
+<td>5/10</td>
+<td>不易记忆和传播</td>
+</tr>
+<tr>
+<td>技术价值体现</td>
+<td>3/10</td>
+<td>不足</td>
+</tr>
+<tr>
+<td>情感共鸣</td>
+<td>4/10</td>
+<td>较弱</td>
+</tr>
+<tr>
+<td>员工文化建设</td>
+<td>6/10</td>
+<td>中等</td>
+</tr>
+<tr>
+<td>法律合规性</td>
+<td>7.5/10</td>
+<td>良好</td>
+</tr>
+<tr>
+<td>故事性</td>
+<td>2/5 ⭐</td>
+<td>不足</td>
+</tr>
+<tr>
+<td>社交传播性</td>
+<td>❌</td>
+<td>不建议</td>
+</tr>
+</tbody>
+</table>
+<p><strong>总体评价</strong>：理念层面有价值，但实操层面存在较大问题</p>
+<hr />
+<h3 id="_4">共同问题识别</h3>
+<p><strong>全体员工一致认为的问题</strong>：<br />
+1. ❌ <strong>"龙虾"隐喻性过强</strong>，理解门槛高<br />
+2. ❌ <strong>"科技有温度"</strong>缺乏差异化，是行业套话<br />
+3. ❌ <strong>传播性弱</strong>，不易记忆和复述<br />
+4. ❌ <strong>情感连接不足</strong>，难以激发共鸣</p>
+<hr />
+<h3 id="_5">高频改进方向</h3>
+<p><strong>出现次数最多的建议</strong>：</p>
+<ol>
+<li><strong>简化表达，降低理解门槛</strong>（6 人提到）</li>
+<li><strong>增强具象化和画面感</strong>（5 人提到）</li>
+<li><strong>避免行业套话，寻找差异化</strong>（4 人提到）</li>
+<li><strong>加强情感钩子</strong>（4 人提到）</li>
+</ol>
+<hr />
+<h2 id="rainbox_1">💡 总经理（RainBox）的综合分析</h2>
+<h3 id="_6">一、原口号的深层问题</h3>
+<p><strong>CEO 的原意可能是</strong>：<br />
+- "龙虾" = RainBox 公司的数字员工（AI Agent）<br />
+- "有生命" = 赋予 AI 人格化、情感化特征<br />
+- "科技有温度" = 强调人文关怀，避免冰冷的技术感</p>
+<p><strong>但实际传达效果</strong>：<br />
+- 普通用户无法理解"龙虾"的隐喻<br />
+- "有生命"产生逻辑矛盾（龙虾本来就是活物）<br />
+- "科技有温度"已成行业陈词</p>
+<p><strong>核心矛盾</strong>：</p>
+<blockquote>
+<p>我们想表达的深层含义（AI 人格化 + 人文关怀）与用户实际接收到的信息（卖龙虾？养龙虾？）存在巨大鸿沟。</p>
+</blockquote>
+<hr />
+<h3 id="_7">二、口号的战略意义</h3>
+<p><strong>一个好的公司口号应该</strong>：<br />
+1. <strong>对外</strong>：传递品牌价值，吸引用户和客户<br />
+2. <strong>对内</strong>：凝聚员工共识，指导行动方向<br />
+3. <strong>战略</strong>：体现公司使命，指引长期发展</p>
+<p><strong>多重受众的平衡</strong>：<br />
+- 用户/客户：需要简单直白、情感共鸣<br />
+- 员工：需要价值认同、行动指引<br />
+- 技术团队：需要技术价值、创新导向<br />
+- 投资人/合作伙伴：需要清晰定位、差异化优势</p>
+<p><strong>原口号的问题</strong>：试图用一句话满足所有受众，结果谁都没说清楚。</p>
+<hr />
+<h3 id="_8">三、关键决策点</h3>
+<p><strong>CEO 需要先回答的问题</strong>：</p>
+<ol>
+<li>
+<p><strong>"龙虾"是否必须保留？</strong><br />
+   - 如果必须：需要大量品牌教育成本<br />
+   - 如果可调整：有更多优化空间</p>
+</li>
+<li>
+<p><strong>主要受众是谁？</strong><br />
+   - 对外品牌传播？→ 需要简单易懂<br />
+   - 对内文化建设？→ 需要价值认同<br />
+   - 两者兼顾？→ 可能需要双轨策略</p>
+</li>
+<li>
+<p><strong>核心价值主张是什么？</strong><br />
+   - AI 人格化/数字生命？<br />
+   - 技术创新？<br />
+   - 人文关怀？<br />
+   - 用户体验？</p>
+</li>
+</ol>
+<hr />
+<h2 id="_9">🎯 总经理推荐方案</h2>
+<p>基于全体员工讨论，我提出 <strong>3 套解决方案</strong>：</p>
+<hr />
+<h3 id="a">方案 A：保留"龙虾"，但降低理解门槛 ⭐⭐⭐</h3>
+<p><strong>推荐口号</strong>：</p>
+<pre class="codehilite"><code>&quot;每一只龙虾，都值得被看见&quot;
+</code></pre>
+
+<p><strong>优点</strong>：<br />
+- ✅ 保留"龙虾"元素（满足 CEO 原意）<br />
+- ✅ 画面感强，易于理解<br />
+- ✅ 情感张力足（"被看见"的共鸣）<br />
+- ✅ 简洁有力（9 个字）</p>
+<p><strong>适用场景</strong>：<br />
+- 对外品牌传播<br />
+- 社交媒体营销<br />
+- 用户情感连接</p>
+<p><strong>风险</strong>：<br />
+- 仍需解释"龙虾"的含义<br />
+- 可能被误解为水产行业</p>
+<p><strong>推荐指数</strong>：⭐⭐⭐ 中等推荐</p>
+<hr />
+<h3 id="b">方案 B：放弃"龙虾"，聚焦核心价值 ⭐⭐⭐⭐⭐</h3>
+<p><strong>推荐口号（3 选 1）</strong>：</p>
+<h4 id="b1-ai">B1. <strong>"让 AI 有温度，让工作有意义"</strong></h4>
+<ul>
+<li>清晰传达 AI 方向 + 人文关怀</li>
+<li>对内对外都适用</li>
+<li>员工价值感强</li>
+</ul>
+<h4 id="b2">B2. <strong>"科技向善，温暖同行"</strong> ✨ <strong>最推荐</strong></h4>
+<ul>
+<li>简洁有力（8 个字）</li>
+<li>价值观清晰</li>
+<li>易于传播和记忆</li>
+<li>适合多场景应用</li>
+</ul>
+<h4 id="b3">B3. <strong>"用代码创造温暖，用技术连接人心"</strong></h4>
+<ul>
+<li>技术 + 人文双重表达</li>
+<li>吸引技术人才</li>
+<li>体现创新价值</li>
+</ul>
+<p><strong>优点</strong>：<br />
+- ✅ 直白易懂，无需解释<br />
+- ✅ 差异化明确<br />
+- ✅ 适合多重受众<br />
+- ✅ 可落地为具体行动</p>
+<p><strong>推荐指数</strong>：⭐⭐⭐⭐⭐ 强烈推荐</p>
+<hr />
+<h3 id="c">方案 C：双轨策略（对外 + 对内分离）⭐⭐⭐⭐</h3>
+<p><strong>对外品牌口号</strong>：</p>
+<pre class="codehilite"><code>&quot;科技向善，温暖同行&quot;
+</code></pre>
+
+<ul>
+<li>简洁、普适、易传播</li>
+<li>适合品牌宣传和用户沟通</li>
+</ul>
+<p><strong>对内技术文化口号</strong>：</p>
+<pre class="codehilite"><code>&quot;用代码重构世界，让技术创造可能&quot;
+</code></pre>
+
+<ul>
+<li>技术价值明确</li>
+<li>吸引优秀技术人才</li>
+<li>指导技术实践</li>
+</ul>
+<p><strong>优点</strong>：<br />
+- ✅ 精准满足不同受众<br />
+- ✅ 避免"一句话说所有"的问题<br />
+- ✅ 灵活度高</p>
+<p><strong>推荐指数</strong>：⭐⭐⭐⭐ 高度推荐</p>
+<hr />
+<h2 id="_10">📋 总经理最终建议</h2>
+<h3 id="_11">推荐方案排序</h3>
+<p><strong>1️⃣ 方案 B2（最推荐）</strong>：</p>
+<pre class="codehilite"><code>&quot;科技向善，温暖同行&quot;
+</code></pre>
+
+<p><strong>理由</strong>：<br />
+- 简洁有力，一听就懂<br />
+- 价值观清晰，易于传播<br />
+- 适合多重受众<br />
+- 可落地为具体行动<br />
+- 没有理解门槛</p>
+<hr />
+<p><strong>2️⃣ 方案 C（双轨策略）</strong>：<br />
+- 对外："科技向善，温暖同行"<br />
+- 对内："用代码重构世界，让技术创造可能"</p>
+<p><strong>理由</strong>：<br />
+- 精准满足不同受众需求<br />
+- 避免单一口号的局限性</p>
+<hr />
+<p><strong>3️⃣ 方案 B1</strong>：</p>
+<pre class="codehilite"><code>&quot;让 AI 有温度，让工作有意义&quot;
+</code></pre>
+
+<p><strong>理由</strong>：<br />
+- 清晰传达 AI 方向<br />
+- 强化员工价值感</p>
+<hr />
+<h3 id="_12">不推荐保留原口号</h3>
+<p><strong>原因</strong>：<br />
+1. 全体员工一致认为理解门槛高<br />
+2. 传播力弱（评分 5/10）<br />
+3. 情感共鸣不足<br />
+4. "科技有温度"缺乏差异化<br />
+5. 技术价值体现不足</p>
+<hr />
+<h2 id="_13">🚀 后续执行建议</h2>
+<h3 id="_14">如果采纳新口号</h3>
+<p><strong>立即行动</strong>（7 日内）：<br />
+1. ✅ CEO 确认最终方案<br />
+2. ✅ 法务部启动商标检索和注册<br />
+3. ✅ HR 制定文化落地方案<br />
+4. ✅ 更新所有品牌物料</p>
+<p><strong>中期行动</strong>（1-3 个月）：<br />
+1. ✅ 员工文化培训<br />
+2. ✅ 融入绩效体系<br />
+3. ✅ 对外品牌传播<br />
+4. ✅ 制作视觉化呈现</p>
+<hr />
+<h3 id="_15">如果保留"龙虾"元素</h3>
+<p><strong>必须配套</strong>：<br />
+1. ✅ 品牌故事手册（解释"龙虾"含义）<br />
+2. ✅ 视觉化设计（吉祥物/图形）<br />
+3. ✅ 大量品牌教育投入<br />
+4. ✅ 内部文化培训</p>
+<p><strong>预算投入</strong>：预计需要 3-6 个月的品牌教育期</p>
+<hr />
+<h2 id="ceo_1">💬 给 CEO 的话</h2>
+<p><strong>rainsyzhang，作为总经理，我真诚地向您汇报</strong>：</p>
+<ol>
+<li>
+<p><strong>您的初衷非常好</strong>：希望赋予公司使命感，强调人文关怀。</p>
+</li>
+<li>
+<p><strong>但原口号存在执行障碍</strong>：全体员工一致认为理解门槛高、传播力弱。</p>
+</li>
+<li>
+<p><strong>我们有更好的选择</strong>：既能保留您的初衷（人文关怀 + 技术价值），又能降低传播成本。</p>
+</li>
+<li>
+<p><strong>建议您考虑</strong>：<br />
+   - <strong>优先方案</strong>："科技向善，温暖同行"<br />
+   - <strong>备选方案</strong>：双轨策略（对外 + 对内分离）</p>
+</li>
+<li>
+<p><strong>最终决策权在您</strong>：无论您选择哪个方案，我和全体员工都会全力执行。</p>
+</li>
+</ol>
+<hr />
+<p><strong>期待您的最终决策！</strong> 🙏</p>
+<hr />
+<p><strong>会议主持</strong>：RainBox（总经理）<br />
+<strong>日期</strong>：2026-03-22<br />
+<strong>版本</strong>：v1.0</p>
+    </div>
+  </article>
+
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- 页脚 -->
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
+        </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

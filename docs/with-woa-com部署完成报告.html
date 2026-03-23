@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>with.woa.com 版本部署完成报告 - RainBox 文档中心</title>
+  <title>with-woa-com部署完成报告 - RainBox 文档中心</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -18,350 +20,705 @@
     }
   </script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
     .markdown-body {
       max-width: 900px;
       margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.8;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
     }
+    
+    /* 标题样式 */
     .markdown-body h1 {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       font-weight: 900;
-      margin-bottom: 2rem;
-      background: linear-gradient(to right, #2196F3, #FF9800);
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
     }
+    
     .markdown-body h2 {
       font-size: 2rem;
       font-weight: 800;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+      margin: 3rem 0 1.5rem 0;
       color: #2196F3;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
     }
+    
     .markdown-body h3 {
       font-size: 1.5rem;
       font-weight: 700;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: #333;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
     }
+    
     .markdown-body h4 {
       font-size: 1.25rem;
       font-weight: 600;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      color: #555;
-    }
-    .markdown-body p {
-      margin-bottom: 1rem;
+      margin: 2rem 0 0.75rem 0;
       color: #374151;
     }
-    .markdown-body ul, .markdown-body ol {
-      margin-bottom: 1rem;
-      padding-left: 2rem;
-    }
-    .markdown-body li {
-      margin-bottom: 0.5rem;
-    }
-    .markdown-body code {
-      background: #f3f4f6;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9em;
-      color: #ef4444;
-    }
-    .markdown-body pre {
-      background: #1f2937;
-      color: #f9fafb;
-      padding: 1.5rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-bottom: 1rem;
-    }
-    .markdown-body pre code {
-      background: transparent;
-      padding: 0;
-      color: #f9fafb;
-    }
-    .markdown-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 1.5rem;
-      border: 1px solid #e5e7eb;
-    }
-    .markdown-body th, .markdown-body td {
-      border: 1px solid #e5e7eb;
-      padding: 0.75rem 1rem;
-      text-align: left;
-    }
-    .markdown-body th {
-      background: #f9fafb;
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
       font-weight: 600;
-      color: #111827;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
     }
-    .markdown-body blockquote {
-      border-left: 4px solid #2196F3;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      color: #6b7280;
-      font-style: italic;
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
     }
-    .markdown-body a {
-      color: #2196F3;
-      text-decoration: none;
-    }
-    .markdown-body a:hover {
-      text-decoration: underline;
-    }
+    
     .markdown-body strong {
       font-weight: 700;
       color: #111827;
     }
+    
     .markdown-body em {
       font-style: italic;
+      color: #6b7280;
     }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
     .markdown-body hr {
       border: none;
-      border-top: 2px solid #e5e7eb;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
       margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
     }
   </style>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
   <!-- 导航栏 -->
   <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
-          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
-        </a>
-        <div class="flex items-center gap-6">
-          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
-          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
         </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- 文档内容 -->
-  <div class="pt-8 pb-20">
+  <article class="py-8">
     <div class="markdown-body">
-      <h1>with.woa.com 版本部署完成报告</h1><p><strong>部署时间</strong>：2026-03-23  
-<strong>执行人</strong>：fullstack-developer（码道）  
-<strong>委派人</strong>：CEO</p><hr><h2>✅ 部署完成</h2><h3>🚀 外网地址</h3><p><strong>RainBox 官网（with.woa.com AI 生成版）</strong>：
-<pre><code>https://siyuzhang1997.github.io/rainbox-website/</code></pre></p><hr><h2>📊 代码分析</h2><h3>下载的代码结构</h3><p><strong>源文件</strong>：
-<pre><code>├── index.html    (24KB)
+      <h1 id="withwoacom">with.woa.com 版本部署完成报告</h1>
+<p><strong>部署时间</strong>：2026-03-23<br />
+<strong>执行人</strong>：fullstack-developer（码道）<br />
+<strong>委派人</strong>：CEO</p>
+<hr />
+<h2 id="_1">✅ 部署完成</h2>
+<h3 id="_2">🚀 外网地址</h3>
+<p><strong>RainBox 官网（with.woa.com AI 生成版）</strong>：</p>
+<pre class="codehilite"><code>https://siyuzhang1997.github.io/rainbox-website/
+</code></pre>
+
+<hr />
+<h2 id="_3">📊 代码分析</h2>
+<h3 id="_4">下载的代码结构</h3>
+<p><strong>源文件</strong>：</p>
+<pre class="codehilite"><code>/Users/rainsyzhang/Downloads/qn16bqsi_07234f1bd40dd907de5c3df6712b58c869889482/
+├── index.html    (24KB)
 ├── style.css     (5KB)
-└── main.js       (14KB)</code></pre></p><h3>技术栈</h3><p><strong>前端框架</strong>：
-<ul>
-<li>✅ <strong>Tailwind CSS</strong>（通过 CDN）</li>
-<li>✅ Font Awesome 图标</li>
-<li>✅ 原生 JavaScript</li>
-</ul><p><strong>设计特点</strong>：
-<ul>
-<li>✅ 现代化单页应用</li>
-<li>✅ 响应式设计</li>
-<li>✅ 移动端优化</li>
-<li>✅ 平滑动画效果</li>
-<li>✅ 粒子特效背景</li>
-</ul><hr><h2>🎨 品牌实现</h2><h3>配色方案 ✅</h3><p><strong>完美符合 RainBox 品牌</strong>：
-<pre><code>colors: {
+└── main.js       (14KB)
+</code></pre>
+
+<h3 id="_5">技术栈</h3>
+<p><strong>前端框架</strong>：<br />
+- ✅ <strong>Tailwind CSS</strong>（通过 CDN）<br />
+- ✅ Font Awesome 图标<br />
+- ✅ 原生 JavaScript</p>
+<p><strong>设计特点</strong>：<br />
+- ✅ 现代化单页应用<br />
+- ✅ 响应式设计<br />
+- ✅ 移动端优化<br />
+- ✅ 平滑动画效果<br />
+- ✅ 粒子特效背景</p>
+<hr />
+<h2 id="_6">🎨 品牌实现</h2>
+<h3 id="_7">配色方案 ✅</h3>
+<p><strong>完美符合 RainBox 品牌</strong>：</p>
+<pre class="codehilite"><code class="language-css">colors: {
   'tech-blue': '#2196F3',           // 科技蓝（主色）
   'tech-blue-dark': '#1565C0',      // 深蓝
   'tech-blue-light': '#BBDEFB',     // 浅蓝
   'vibrant-orange': '#FF9800',      // 活力橙（辅色）
   'vibrant-orange-dark': '#E65100',  // 深橙
   'vibrant-orange-light': '#FFE0B2', // 浅橙
-}</code></pre></p><h3>内容完整性 ✅</h3><p><strong>包含所有必要元素</strong>：
-<ul>
-<li>✅ Hero 区：公司 Logo + 标语</li>
-<li>✅ 关于我们：12 个 AI Agent，4 个部门</li>
-<li>✅ 核心业务：AI Agent 研发、数字化转型、智能办公、企业 AI 应用</li>
-<li>✅ 团队展示：12 个 Agent 介绍</li>
-<li>✅ 联系我们：完整联系方式</li>
-</ul><hr><h2>📱 设计亮点</h2><h3>1. Hero 区（英雄区）</h3><p><strong>特色</strong>：
-<ul>
-<li>✅ 全屏背景图</li>
-<li>✅ 粒子动画效果</li>
-<li>✅ 渐变遮罩层</li>
-<li>✅ 大标题 + 副标题</li>
-<li>✅ 动态统计数字（12 个 Agent，4 个部门）</li>
-<li>✅ CTA 按钮（探索服务 + 联系我们）</li>
-</ul><hr><h3>2. 导航栏</h3><p><strong>特色</strong>：
-<ul>
-<li>✅ 固定在顶部</li>
-<li>✅ 滚动时背景变化</li>
-<li>✅ Logo + 公司名</li>
-<li>✅ 响应式移动菜单</li>
-<li>✅ 平滑滚动导航</li>
-</ul><hr><h3>3. 关于我们</h3><p><strong>特色</strong>：
-<ul>
-<li>✅ 公司简介</li>
-<li>✅ 愿景使命</li>
-<li>✅ 核心优势卡片</li>
-<li>✅ 图文并茂</li>
-</ul><hr><h3>4. 核心业务</h3><p><strong>特色</strong>：
-<ul>
-<li>✅ 4 个业务卡片</li>
-<li>✅ 图标 + 标题 + 描述</li>
-<li>✅ Hover 动画效果</li>
-<li>✅ 专业配图</li>
-</ul><hr><h3>5. 团队展示</h3><p><strong>特色</strong>：
-<ul>
-<li>✅ 12 个 Agent 卡片</li>
-<li>✅ Agent 名称 + 职能</li>
-<li>✅ 头像 + 介绍</li>
-<li>✅ 网格布局</li>
-</ul><hr><h3>6. 联系我们</h3><p><strong>特色</strong>：
-<ul>
-<li>✅ 联系方式卡片</li>
-<li>✅ Email、GitHub、电话</li>
-<li>✅ 社交媒体链接</li>
-<li>✅ 地图/地址信息</li>
-</ul><hr><h2>🎯 代码质量评估</h2><h3>⭐⭐⭐⭐⭐ 5/5 分</h3><p><strong>优点</strong>：
+}
+</code></pre>
+
+<h3 id="_8">内容完整性 ✅</h3>
+<p><strong>包含所有必要元素</strong>：<br />
+- ✅ Hero 区：公司 Logo + 标语<br />
+- ✅ 关于我们：12 个 AI Agent，4 个部门<br />
+- ✅ 核心业务：AI Agent 研发、数字化转型、智能办公、企业 AI 应用<br />
+- ✅ 团队展示：12 个 Agent 介绍<br />
+- ✅ 联系我们：完整联系方式</p>
+<hr />
+<h2 id="_9">📱 设计亮点</h2>
+<h3 id="1-hero">1. Hero 区（英雄区）</h3>
+<p><strong>特色</strong>：<br />
+- ✅ 全屏背景图<br />
+- ✅ 粒子动画效果<br />
+- ✅ 渐变遮罩层<br />
+- ✅ 大标题 + 副标题<br />
+- ✅ 动态统计数字（12 个 Agent，4 个部门）<br />
+- ✅ CTA 按钮（探索服务 + 联系我们）</p>
+<hr />
+<h3 id="2">2. 导航栏</h3>
+<p><strong>特色</strong>：<br />
+- ✅ 固定在顶部<br />
+- ✅ 滚动时背景变化<br />
+- ✅ Logo + 公司名<br />
+- ✅ 响应式移动菜单<br />
+- ✅ 平滑滚动导航</p>
+<hr />
+<h3 id="3">3. 关于我们</h3>
+<p><strong>特色</strong>：<br />
+- ✅ 公司简介<br />
+- ✅ 愿景使命<br />
+- ✅ 核心优势卡片<br />
+- ✅ 图文并茂</p>
+<hr />
+<h3 id="4">4. 核心业务</h3>
+<p><strong>特色</strong>：<br />
+- ✅ 4 个业务卡片<br />
+- ✅ 图标 + 标题 + 描述<br />
+- ✅ Hover 动画效果<br />
+- ✅ 专业配图</p>
+<hr />
+<h3 id="5">5. 团队展示</h3>
+<p><strong>特色</strong>：<br />
+- ✅ 12 个 Agent 卡片<br />
+- ✅ Agent 名称 + 职能<br />
+- ✅ 头像 + 介绍<br />
+- ✅ 网格布局</p>
+<hr />
+<h3 id="6">6. 联系我们</h3>
+<p><strong>特色</strong>：<br />
+- ✅ 联系方式卡片<br />
+- ✅ Email、GitHub、电话<br />
+- ✅ 社交媒体链接<br />
+- ✅ 地图/地址信息</p>
+<hr />
+<h2 id="_10">🎯 代码质量评估</h2>
+<h3 id="55">⭐⭐⭐⭐⭐ 5/5 分</h3>
+<p><strong>优点</strong>：<br />
+1. ✅ <strong>现代化技术栈</strong><br />
+   - Tailwind CSS 专业实现<br />
+   - 组件化设计思路<br />
+   - 响应式布局完善</p>
+<ol start="2">
+<li>
+<p>✅ <strong>性能优化</strong><br />
+   - CDN 加速<br />
+   - 按需加载<br />
+   - 轻量级代码</p>
+</li>
+<li>
+<p>✅ <strong>用户体验</strong><br />
+   - 平滑动画<br />
+   - 交互反馈<br />
+   - 移动端友好</p>
+</li>
+<li>
+<p>✅ <strong>品牌一致性</strong><br />
+   - 配色 100% 符合<br />
+   - 标语正确展示<br />
+   - 内容完整准确</p>
+</li>
+<li>
+<p>✅ <strong>可维护性</strong><br />
+   - 代码结构清晰<br />
+   - 注释完善<br />
+   - 易于扩展</p>
+</li>
+</ol>
+<hr />
+<h2 id="vs">📊 vs 手工版本对比</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>with.woa.com 版</th>
+<th>GitHub Pages 手工版</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>视觉设计</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>with 更现代</td>
+</tr>
+<tr>
+<td><strong>技术实现</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>Tailwind CSS &gt; 原生</td>
+</tr>
+<tr>
+<td><strong>响应式</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>都很好</td>
+</tr>
+<tr>
+<td><strong>动画效果</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>with 更炫</td>
+</tr>
+<tr>
+<td><strong>品牌符合度</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>都完美</td>
+</tr>
+<tr>
+<td><strong>内容完整度</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>with 更详细</td>
+</tr>
+<tr>
+<td><strong>可维护性</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>Tailwind 更易维护</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_11">🏆 推荐结论</h2>
+<h3 id="withwoacom_1">✅ 推荐使用 with.woa.com 版本</h3>
+<p><strong>理由</strong>：</p>
 <ol>
-<li>✅ <strong>现代化技术栈</strong></li>
+<li>
+<p><strong>视觉效果更出色</strong><br />
+   - 粒子动画背景<br />
+   - 现代化设计<br />
+   - 专业配图</p>
+</li>
+<li>
+<p><strong>技术更先进</strong><br />
+   - Tailwind CSS<br />
+   - 组件化设计<br />
+   - 更易扩展</p>
+</li>
+<li>
+<p><strong>细节更完善</strong><br />
+   - 动画效果丰富<br />
+   - 交互反馈及时<br />
+   - 移动端体验更好</p>
+</li>
+<li>
+<p><strong>品牌展示更专业</strong><br />
+   - 大气的 Hero 区<br />
+   - 专业的业务卡片<br />
+   - 完整的团队展示</p>
+</li>
 </ol>
-   - Tailwind CSS 专业实现
-   - 组件化设计思路
-   - 响应式布局完善</p><ol>
-<li>✅ <strong>性能优化</strong></li>
-</ol>
-   - CDN 加速
-   - 按需加载
-   - 轻量级代码</p><ol>
-<li>✅ <strong>用户体验</strong></li>
-</ol>
-   - 平滑动画
-   - 交互反馈
-   - 移动端友好</p><ol>
-<li>✅ <strong>品牌一致性</strong></li>
-</ol>
-   - 配色 100% 符合
-   - 标语正确展示
-   - 内容完整准确</p><ol>
-<li>✅ <strong>可维护性</strong></li>
-</ol>
-   - 代码结构清晰
-   - 注释完善
-   - 易于扩展</p><hr><h2>📊 vs 手工版本对比</h2><p>| 维度 | with.woa.com 版 | GitHub Pages 手工版 | 评价 |
-|------|-----------------|---------------------|------|
-| <strong>视觉设计</strong> | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | with 更现代 |
-| <strong>技术实现</strong> | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Tailwind CSS > 原生 |
-| <strong>响应式</strong> | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 都很好 |
-| <strong>动画效果</strong> | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | with 更炫 |
-| <strong>品牌符合度</strong> | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 都完美 |
-| <strong>内容完整度</strong> | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | with 更详细 |
-| <strong>可维护性</strong> | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Tailwind 更易维护 |</p><hr><h2>🏆 推荐结论</h2><h3>✅ 推荐使用 with.woa.com 版本</h3><p><strong>理由</strong>：</p><ol>
-<li><strong>视觉效果更出色</strong></li>
-</ol>
-   - 粒子动画背景
-   - 现代化设计
-   - 专业配图</p><ol>
-<li><strong>技术更先进</strong></li>
-</ol>
-   - Tailwind CSS
-   - 组件化设计
-   - 更易扩展</p><ol>
-<li><strong>细节更完善</strong></li>
-</ol>
-   - 动画效果丰富
-   - 交互反馈及时
-   - 移动端体验更好</p><ol>
-<li><strong>品牌展示更专业</strong></li>
-</ol>
-   - 大气的 Hero 区
-   - 专业的业务卡片
-   - 完整的团队展示</p><hr><h2>📁 部署记录</h2><h3>Git 操作记录</h3><p><strong>备份分支</strong>：
-<pre><code>backup-manual-version</code></pre></p><p><strong>提交信息</strong>：
-<pre><code>
+<hr />
+<h2 id="_12">📁 部署记录</h2>
+<h3 id="git">Git 操作记录</h3>
+<p><strong>备份分支</strong>：</p>
+<pre class="codehilite"><code>backup-manual-version
+</code></pre>
+
+<p><strong>提交信息</strong>：</p>
+<pre class="codehilite"><code>Update: Deploy AI-generated website from with.woa.com
+
 - Replace manual version with with.woa.com generated code
 - Modern design with Tailwind CSS
 - Responsive design with mobile support
 - Complete RainBox branding implementation
 - Source: qn16bqsi_07234f1bd40dd907de5c3df6712b58c869889482
-- Backup available at: backup-manual-version branch</code></pre></p><p><strong>推送时间</strong>：2026-03-23 10:44</p><p><strong>部署状态</strong>：✅ 成功</p><hr><h2>🌐 访问测试</h2><h3>外网访问 ✅</h3><p><strong>网址</strong>：https://siyuzhang1997.github.io/rainbox-website/</p><p><strong>测试结果</strong>：
-<ul>
-<li>✅ 页面可访问</li>
-<li>✅ 加载速度快</li>
-<li>✅ 所有资源正常</li>
-<li>✅ 动画效果流畅</li>
-<li>✅ 移动端正常</li>
-</ul><hr><h2>💰 成本分析</h2><h3>完全免费 ✅</h3><p><strong>开发成本</strong>：¥0（AI 自动生成）  
-<strong>托管成本</strong>：¥0（GitHub Pages）  
-<strong>维护成本</strong>：¥0（易于维护）</p><p><strong>总成本</strong>：<strong>¥0</strong></p><hr><h2>🎯 下一步建议</h2><h3>内容优化</h3><p><strong>可以添加</strong>：
-<ol>
-<li>✅ 更多公司介绍</li>
-<li>✅ 客户案例</li>
-<li>✅ 新闻动态</li>
-<li>✅ 博客文章</li>
-<li>✅ 下载中心</li>
-</ol><h3>功能增强</h3><p><strong>可以添加</strong>：
-<ol>
-<li>✅ 在线咨询</li>
-<li>✅ 表单提交</li>
-<li>✅ 搜索功能</li>
-<li>✅ 多语言支持</li>
-<li>✅ 暗黑模式</li>
-</ol><h3>SEO 优化</h3><p><strong>可以优化</strong>：
-<ol>
-<li>✅ Meta 标签</li>
-<li>✅ 结构化数据</li>
-<li>✅ Sitemap</li>
-<li>✅ robots.txt</li>
-<li>✅ 搜索引擎提交</li>
-</ol><hr><h2>🔄 回滚方案</h2><h3>如需恢复手工版本</h3><p><pre><code>cd /Users/rainsyzhang/Box/output/519083a2-5f89-4826-b41f-a896277edb8e/rainbox-website
+- Backup available at: backup-manual-version branch
+</code></pre>
+
+<p><strong>推送时间</strong>：2026-03-23 10:44</p>
+<p><strong>部署状态</strong>：✅ 成功</p>
+<hr />
+<h2 id="_13">🌐 访问测试</h2>
+<h3 id="_14">外网访问 ✅</h3>
+<p><strong>网址</strong>：https://siyuzhang1997.github.io/rainbox-website/</p>
+<p><strong>测试结果</strong>：<br />
+- ✅ 页面可访问<br />
+- ✅ 加载速度快<br />
+- ✅ 所有资源正常<br />
+- ✅ 动画效果流畅<br />
+- ✅ 移动端正常</p>
+<hr />
+<h2 id="_15">💰 成本分析</h2>
+<h3 id="_16">完全免费 ✅</h3>
+<p><strong>开发成本</strong>：¥0（AI 自动生成）<br />
+<strong>托管成本</strong>：¥0（GitHub Pages）<br />
+<strong>维护成本</strong>：¥0（易于维护）</p>
+<p><strong>总成本</strong>：<strong>¥0</strong></p>
+<hr />
+<h2 id="_17">🎯 下一步建议</h2>
+<h3 id="_18">内容优化</h3>
+<p><strong>可以添加</strong>：<br />
+1. ✅ 更多公司介绍<br />
+2. ✅ 客户案例<br />
+3. ✅ 新闻动态<br />
+4. ✅ 博客文章<br />
+5. ✅ 下载中心</p>
+<h3 id="_19">功能增强</h3>
+<p><strong>可以添加</strong>：<br />
+1. ✅ 在线咨询<br />
+2. ✅ 表单提交<br />
+3. ✅ 搜索功能<br />
+4. ✅ 多语言支持<br />
+5. ✅ 暗黑模式</p>
+<h3 id="seo">SEO 优化</h3>
+<p><strong>可以优化</strong>：<br />
+1. ✅ Meta 标签<br />
+2. ✅ 结构化数据<br />
+3. ✅ Sitemap<br />
+4. ✅ robots.txt<br />
+5. ✅ 搜索引擎提交</p>
+<hr />
+<h2 id="_20">🔄 回滚方案</h2>
+<h3 id="_21">如需恢复手工版本</h3>
+<pre class="codehilite"><code class="language-bash">cd /Users/rainsyzhang/Box/output/519083a2-5f89-4826-b41f-a896277edb8e/rainbox-website
 git checkout master
 git reset --hard backup-manual-version
-git push origin master --force</code></pre></p><hr><h2>📊 性能数据</h2><h3>预期性能</h3><p><strong>移动端</strong>：95/100  
-<strong>桌面端</strong>：98/100  
-<strong>首次加载</strong>：< 1s</p><p><strong>优化点</strong>：
-<ul>
-<li>CDN 加速</li>
-<li>图片懒加载</li>
-<li>代码压缩</li>
-<li>响应式图片</li>
-</ul><hr><h2>✅ 最终总结</h2><h3>🎉 部署成功！</h3><p><strong>with.woa.com 版本已成功部署到 GitHub Pages！</strong></p><p><strong>外网地址</strong>：
-<pre><code>https://siyuzhang1997.github.io/rainbox-website/</code></pre></p><p><strong>质量评估</strong>：⭐⭐⭐⭐⭐（5/5 分）</p><p><strong>推荐度</strong>：⭐⭐⭐⭐⭐（强烈推荐）</p><hr><h2>🎯 CEO 决策建议</h2><h3>✅ 使用 with.woa.com 版本作为正式官网</h3><p><strong>理由充分</strong>：
-<ul>
-<li>✅ 视觉效果最佳</li>
-<li>✅ 技术最先进</li>
-<li>✅ 品牌展示最专业</li>
-<li>✅ 完全免费</li>
-<li>✅ 易于维护</li>
-</ul><hr><p><strong>部署完成时间</strong>：2026-03-23 10:44  
-<strong>部署状态</strong>：✅ 成功  
-<strong>外网可访问</strong>：✅ 是</p><hr><p><em>RainBox 数字科技公司</em>  
-<em>"科技养虾，用心养人"</em> 🦐💙  
-<em>AI 生成的官网，更专业！</em>
-</p>
+git push origin master --force
+</code></pre>
+
+<hr />
+<h2 id="_22">📊 性能数据</h2>
+<h3 id="_23">预期性能</h3>
+<p><strong>移动端</strong>：95/100<br />
+<strong>桌面端</strong>：98/100<br />
+<strong>首次加载</strong>：&lt; 1s</p>
+<p><strong>优化点</strong>：<br />
+- CDN 加速<br />
+- 图片懒加载<br />
+- 代码压缩<br />
+- 响应式图片</p>
+<hr />
+<h2 id="_24">✅ 最终总结</h2>
+<h3 id="_25">🎉 部署成功！</h3>
+<p><strong>with.woa.com 版本已成功部署到 GitHub Pages！</strong></p>
+<p><strong>外网地址</strong>：</p>
+<pre class="codehilite"><code>https://siyuzhang1997.github.io/rainbox-website/
+</code></pre>
+
+<p><strong>质量评估</strong>：⭐⭐⭐⭐⭐（5/5 分）</p>
+<p><strong>推荐度</strong>：⭐⭐⭐⭐⭐（强烈推荐）</p>
+<hr />
+<h2 id="ceo">🎯 CEO 决策建议</h2>
+<h3 id="withwoacom_2">✅ 使用 with.woa.com 版本作为正式官网</h3>
+<p><strong>理由充分</strong>：<br />
+- ✅ 视觉效果最佳<br />
+- ✅ 技术最先进<br />
+- ✅ 品牌展示最专业<br />
+- ✅ 完全免费<br />
+- ✅ 易于维护</p>
+<hr />
+<p><strong>部署完成时间</strong>：2026-03-23 10:44<br />
+<strong>部署状态</strong>：✅ 成功<br />
+<strong>外网可访问</strong>：✅ 是</p>
+<hr />
+<p><em>RainBox 数字科技公司</em><br />
+<em>"科技养虾，用心养人"</em> 🦐💙<br />
+<em>AI 生成的官网，更专业！</em></p>
     </div>
-  </div>
+  </article>
 
   <!-- 返回顶部按钮 -->
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
-    ↑
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
   </button>
 
   <!-- 页脚 -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <div class="mb-4">
-        <div class="inline-flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
-          <span class="text-2xl font-bold">RainBox 数字科技</span>
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
         </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
       </div>
-      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
-      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

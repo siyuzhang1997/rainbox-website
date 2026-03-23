@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RainBox 数字科技公司 - 全员配置同步报告 - RainBox 文档中心</title>
+  <title>RainBox公司-全员配置同步报告 - RainBox 文档中心</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -18,205 +20,545 @@
     }
   </script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
     .markdown-body {
       max-width: 900px;
       margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.8;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
     }
+    
+    /* 标题样式 */
     .markdown-body h1 {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       font-weight: 900;
-      margin-bottom: 2rem;
-      background: linear-gradient(to right, #2196F3, #FF9800);
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
     }
+    
     .markdown-body h2 {
       font-size: 2rem;
       font-weight: 800;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+      margin: 3rem 0 1.5rem 0;
       color: #2196F3;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
     }
+    
     .markdown-body h3 {
       font-size: 1.5rem;
       font-weight: 700;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: #333;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
     }
+    
     .markdown-body h4 {
       font-size: 1.25rem;
       font-weight: 600;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      color: #555;
-    }
-    .markdown-body p {
-      margin-bottom: 1rem;
+      margin: 2rem 0 0.75rem 0;
       color: #374151;
     }
-    .markdown-body ul, .markdown-body ol {
-      margin-bottom: 1rem;
-      padding-left: 2rem;
-    }
-    .markdown-body li {
-      margin-bottom: 0.5rem;
-    }
-    .markdown-body code {
-      background: #f3f4f6;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9em;
-      color: #ef4444;
-    }
-    .markdown-body pre {
-      background: #1f2937;
-      color: #f9fafb;
-      padding: 1.5rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-bottom: 1rem;
-    }
-    .markdown-body pre code {
-      background: transparent;
-      padding: 0;
-      color: #f9fafb;
-    }
-    .markdown-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 1.5rem;
-      border: 1px solid #e5e7eb;
-    }
-    .markdown-body th, .markdown-body td {
-      border: 1px solid #e5e7eb;
-      padding: 0.75rem 1rem;
-      text-align: left;
-    }
-    .markdown-body th {
-      background: #f9fafb;
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
       font-weight: 600;
-      color: #111827;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
     }
-    .markdown-body blockquote {
-      border-left: 4px solid #2196F3;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      color: #6b7280;
-      font-style: italic;
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
     }
-    .markdown-body a {
-      color: #2196F3;
-      text-decoration: none;
-    }
-    .markdown-body a:hover {
-      text-decoration: underline;
-    }
+    
     .markdown-body strong {
       font-weight: 700;
       color: #111827;
     }
+    
     .markdown-body em {
       font-style: italic;
+      color: #6b7280;
     }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
     .markdown-body hr {
       border: none;
-      border-top: 2px solid #e5e7eb;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
       margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
     }
   </style>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
   <!-- 导航栏 -->
   <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
-          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
-        </a>
-        <div class="flex items-center gap-6">
-          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
-          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
         </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- 文档内容 -->
-  <div class="pt-8 pb-20">
+  <article class="py-8">
     <div class="markdown-body">
-      <h1>RainBox 数字科技公司 - 全员配置同步报告</h1><p><strong>执行日期</strong>：2026年3月22日  
-<strong>执行人</strong>：RainBox（总经理）  
-<strong>审核人</strong>：rainsyzhang（CEO）  
-<strong>任务类型</strong>：配置同步与标准化</p><hr><h2>📋 任务背景</h2><h3>CEO 指示</h3><p>> "保持 rainbox 的现状，但是其他所有 agent 应该模仿 rainbox，目前看来只有两个 writer 是符合要求的，其他 agent 都和 rainbox 一致，包括 HR。请 rainbox 解决一下这个问题。"</p><h3>任务目标</h3><p>确保<strong>所有 Agent</strong> 都像 rainbox 一样：
-<ul>
-<li>✅ 系统配置目录有完整配置</li>
-<li>✅ 工作目录也有完整配置</li>
-<li>✅ 两边配置完全同步</li>
-</ul><hr><h2>🔍 初始检查结果</h2><h3>检查时间</h3>
-2026-03-22 18:15:50</p><h3>检查范围</h3>
-RainBox 数字科技公司全部 10 个 user Agent（不含 5 个 builtin Agent）</p><h3>检查发现</h3><p>| Agent | 系统配置 | 工作目录 | 初始状态 |
-|-------|----------|----------|----------|
-| <strong>hr-manager</strong> | 7+1 ✅ | 0+0 ❌ | ❌ 需同步 |
-| <strong>fullstack-developer</strong> | 7+1 ✅ | 0+0 ❌ | ❌ 需同步 |
-| <strong>legal-advisor</strong> | 7+1 ✅ | 0+0 ❌ | ❌ 需同步 |
-| <strong>xiaohongshu-planner</strong> | 7+1 ✅ | 0+0 ❌ | ❌ 需同步 |
-| xiaohongshu-writer | 7+1 ✅ | 7+1 ✅ | ✅ 同步 |
-| xiaohongshu-editor | 7+1 ✅ | 7+1 ✅ | ✅ 同步 |
-| webnovel-planner | 7+1 ✅ | 7+1 ✅ | ✅ 同步 |
-| webnovel-writer | 7+1 ✅ | 7+1 ✅ | ✅ 同步 |
-| webnovel-editor | 7+1 ✅ | 7+1 ✅ | ✅ 同步 |
-| rainbox | 7+1 ✅ | 7+1 ✅ | ✅ 同步 |</p><p><strong>统计</strong>：
-<ul>
-<li>✅ <strong>同步</strong>：6 个 Agent（60%）</li>
-<li>❌ <strong>需同步</strong>：4 个 Agent（40%）</li>
-</ul><h3>问题分析</h3><p><strong>为什么有4个 Agent 工作目录缺少配置？</strong></p><ol>
-<li><strong>hr-manager</strong>、<strong>fullstack-developer</strong>、<strong>legal-advisor</strong>：</li>
+      <h1 id="rainbox-">RainBox 数字科技公司 - 全员配置同步报告</h1>
+<p><strong>执行日期</strong>：2026年3月22日<br />
+<strong>执行人</strong>：RainBox（总经理）<br />
+<strong>审核人</strong>：rainsyzhang（CEO）<br />
+<strong>任务类型</strong>：配置同步与标准化</p>
+<hr />
+<h2 id="_1">📋 任务背景</h2>
+<h3 id="ceo">CEO 指示</h3>
+<blockquote>
+<p>"保持 rainbox 的现状，但是其他所有 agent 应该模仿 rainbox，目前看来只有两个 writer 是符合要求的，其他 agent 都和 rainbox 一致，包括 HR。请 rainbox 解决一下这个问题。"</p>
+</blockquote>
+<h3 id="_2">任务目标</h3>
+<p>确保<strong>所有 Agent</strong> 都像 rainbox 一样：<br />
+- ✅ 系统配置目录有完整配置<br />
+- ✅ 工作目录也有完整配置<br />
+- ✅ 两边配置完全同步</p>
+<hr />
+<h2 id="_3">🔍 初始检查结果</h2>
+<h3 id="_4">检查时间</h3>
+<p>2026-03-22 18:15:50</p>
+<h3 id="_5">检查范围</h3>
+<p>RainBox 数字科技公司全部 10 个 user Agent（不含 5 个 builtin Agent）</p>
+<h3 id="_6">检查发现</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>系统配置</th>
+<th>工作目录</th>
+<th>初始状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>hr-manager</strong></td>
+<td>7+1 ✅</td>
+<td>0+0 ❌</td>
+<td>❌ 需同步</td>
+</tr>
+<tr>
+<td><strong>fullstack-developer</strong></td>
+<td>7+1 ✅</td>
+<td>0+0 ❌</td>
+<td>❌ 需同步</td>
+</tr>
+<tr>
+<td><strong>legal-advisor</strong></td>
+<td>7+1 ✅</td>
+<td>0+0 ❌</td>
+<td>❌ 需同步</td>
+</tr>
+<tr>
+<td><strong>xiaohongshu-planner</strong></td>
+<td>7+1 ✅</td>
+<td>0+0 ❌</td>
+<td>❌ 需同步</td>
+</tr>
+<tr>
+<td>xiaohongshu-writer</td>
+<td>7+1 ✅</td>
+<td>7+1 ✅</td>
+<td>✅ 同步</td>
+</tr>
+<tr>
+<td>xiaohongshu-editor</td>
+<td>7+1 ✅</td>
+<td>7+1 ✅</td>
+<td>✅ 同步</td>
+</tr>
+<tr>
+<td>webnovel-planner</td>
+<td>7+1 ✅</td>
+<td>7+1 ✅</td>
+<td>✅ 同步</td>
+</tr>
+<tr>
+<td>webnovel-writer</td>
+<td>7+1 ✅</td>
+<td>7+1 ✅</td>
+<td>✅ 同步</td>
+</tr>
+<tr>
+<td>webnovel-editor</td>
+<td>7+1 ✅</td>
+<td>7+1 ✅</td>
+<td>✅ 同步</td>
+</tr>
+<tr>
+<td>rainbox</td>
+<td>7+1 ✅</td>
+<td>7+1 ✅</td>
+<td>✅ 同步</td>
+</tr>
+</tbody>
+</table>
+<p><strong>统计</strong>：<br />
+- ✅ <strong>同步</strong>：6 个 Agent（60%）<br />
+- ❌ <strong>需同步</strong>：4 个 Agent（40%）</p>
+<h3 id="_7">问题分析</h3>
+<p><strong>为什么有4个 Agent 工作目录缺少配置？</strong></p>
+<ol>
+<li>
+<p><strong>hr-manager</strong>、<strong>fullstack-developer</strong>、<strong>legal-advisor</strong>：<br />
+   - 原因：这3个是<strong>最早创建的 Agent</strong><br />
+   - 创建时可能使用的是旧的流程，没有同步到工作目录<br />
+   - 只在系统配置目录有配置</p>
+</li>
+<li>
+<p><strong>xiaohongshu-planner</strong>：<br />
+   - 原因：Level 3 架构升级时新创建<br />
+   - 可能创建流程有遗漏，没有同步到工作目录</p>
+</li>
+<li>
+<p><strong>为什么其他 Agent 是同步的？</strong><br />
+   - xiaohongshu-writer、xiaohongshu-editor：Level 3 升级时创建/更新，流程完整<br />
+   - webnovel-*：Level 3 升级时创建，流程完整<br />
+   - rainbox：刚刚升级时特别处理，确保同步</p>
+</li>
 </ol>
-   - 原因：这3个是<strong>最早创建的 Agent</strong>
-   - 创建时可能使用的是旧的流程，没有同步到工作目录
-   - 只在系统配置目录有配置</p><ol>
-<li><strong>xiaohongshu-planner</strong>：</li>
-</ol>
-   - 原因：Level 3 架构升级时新创建
-   - 可能创建流程有遗漏，没有同步到工作目录</p><ol>
-<li><strong>为什么其他 Agent 是同步的？</strong></li>
-</ol>
-   - xiaohongshu-writer、xiaohongshu-editor：Level 3 升级时创建/更新，流程完整
-   - webnovel-*：Level 3 升级时创建，流程完整
-   - rainbox：刚刚升级时特别处理，确保同步</p><hr><h2>🔧 执行过程</h2><h3>步骤 1：全面检查（✅ 已完成）</h3><p><strong>工具</strong>：Shell 脚本批量检查  
-<strong>范围</strong>：全部 10 个 user Agent  
-<strong>结果</strong>：识别出 4 个需要同步的 Agent</p><h3>步骤 2：批量同步（✅ 已完成）</h3><p><strong>同步命令</strong>：
-<pre><code>cp -r ~/Library/Application\ Support/Box/engine/agents/user/{agent}/* \
-      /Users/rainsyzhang/Box/agents/{agent}/</code></pre></p><p><strong>同步过程</strong>：</p><h4>2.1 hr-manager</h4>
-<pre><code>配置文件：7个.md + 1个.json
-memory/ 目录：已包含</code></pre></p><h4>2.2 fullstack-developer</h4>
-<pre><code>配置文件：7个.md + 1个.json
-memory/ 目录：已包含</code></pre></p><h4>2.3 legal-advisor</h4>
-<pre><code>配置文件：7个.md + 1个.json
-memory/ 目录：已包含</code></pre></p><h4>2.4 xiaohongshu-planner</h4>
-<pre><code>配置文件：7个.md + 1个.json
-memory/ 目录：已包含</code></pre></p><h3>步骤 3：全面验证（✅ 已完成）</h3><p><strong>验证时间</strong>：2026-03-22 18:17:20</p><p><strong>验证结果</strong>：</p><p>| Agent | 验证状态 |
-|-------|----------|
-| hr-manager | ✅ 同步完美（7个配置文件） |
-| fullstack-developer | ✅ 同步完美（7个配置文件） |
-| legal-advisor | ✅ 同步完美（7个配置文件） |
-| xiaohongshu-planner | ✅ 同步完美（7个配置文件） |
-| xiaohongshu-writer | ✅ 同步完美（7个配置文件） |
-| xiaohongshu-editor | ✅ 同步完美（7个配置文件） |
-| webnovel-planner | ✅ 同步完美（7个配置文件） |
-| webnovel-writer | ✅ 同步完美（7个配置文件） |
-| webnovel-editor | ✅ 同步完美（7个配置文件） |
-| rainbox | ✅ 同步完美（7个配置文件） |</p><hr><h2>📊 执行结果</h2><h3>配置同步率</h3><p><strong>同步前</strong>：60%（6/10）  
-<strong>同步后</strong>：<strong>100%</strong>（10/10）✅</p><h3>前后对比</h3><h4>同步前</h4>
-<pre><code>   - xiaohongshu-writer
+<hr />
+<h2 id="_8">🔧 执行过程</h2>
+<h3 id="1">步骤 1：全面检查（✅ 已完成）</h3>
+<p><strong>工具</strong>：Shell 脚本批量检查<br />
+<strong>范围</strong>：全部 10 个 user Agent<br />
+<strong>结果</strong>：识别出 4 个需要同步的 Agent</p>
+<h3 id="2">步骤 2：批量同步（✅ 已完成）</h3>
+<p><strong>同步命令</strong>：</p>
+<pre class="codehilite"><code class="language-bash">cp -r ~/Library/Application\ Support/Box/engine/agents/user/{agent}/* \
+      /Users/rainsyzhang/Box/agents/{agent}/
+</code></pre>
+
+<p><strong>同步过程</strong>：</p>
+<h4 id="21-hr-manager">2.1 hr-manager</h4>
+<pre class="codehilite"><code>✅ 已同步
+配置文件：7个.md + 1个.json
+memory/ 目录：已包含
+</code></pre>
+
+<h4 id="22-fullstack-developer">2.2 fullstack-developer</h4>
+<pre class="codehilite"><code>✅ 已同步
+配置文件：7个.md + 1个.json
+memory/ 目录：已包含
+</code></pre>
+
+<h4 id="23-legal-advisor">2.3 legal-advisor</h4>
+<pre class="codehilite"><code>✅ 已同步
+配置文件：7个.md + 1个.json
+memory/ 目录：已包含
+</code></pre>
+
+<h4 id="24-xiaohongshu-planner">2.4 xiaohongshu-planner</h4>
+<pre class="codehilite"><code>✅ 已同步
+配置文件：7个.md + 1个.json
+memory/ 目录：已包含
+</code></pre>
+
+<h3 id="3">步骤 3：全面验证（✅ 已完成）</h3>
+<p><strong>验证时间</strong>：2026-03-22 18:17:20</p>
+<p><strong>验证结果</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>验证状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hr-manager</td>
+<td>✅ 同步完美（7个配置文件）</td>
+</tr>
+<tr>
+<td>fullstack-developer</td>
+<td>✅ 同步完美（7个配置文件）</td>
+</tr>
+<tr>
+<td>legal-advisor</td>
+<td>✅ 同步完美（7个配置文件）</td>
+</tr>
+<tr>
+<td>xiaohongshu-planner</td>
+<td>✅ 同步完美（7个配置文件）</td>
+</tr>
+<tr>
+<td>xiaohongshu-writer</td>
+<td>✅ 同步完美（7个配置文件）</td>
+</tr>
+<tr>
+<td>xiaohongshu-editor</td>
+<td>✅ 同步完美（7个配置文件）</td>
+</tr>
+<tr>
+<td>webnovel-planner</td>
+<td>✅ 同步完美（7个配置文件）</td>
+</tr>
+<tr>
+<td>webnovel-writer</td>
+<td>✅ 同步完美（7个配置文件）</td>
+</tr>
+<tr>
+<td>webnovel-editor</td>
+<td>✅ 同步完美（7个配置文件）</td>
+</tr>
+<tr>
+<td>rainbox</td>
+<td>✅ 同步完美（7个配置文件）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_9">📊 执行结果</h2>
+<h3 id="_10">配置同步率</h3>
+<p><strong>同步前</strong>：60%（6/10）<br />
+<strong>同步后</strong>：<strong>100%</strong>（10/10）✅</p>
+<h3 id="_11">前后对比</h3>
+<h4 id="_12">同步前</h4>
+<pre class="codehilite"><code>✅ 已同步：6 个
+   - xiaohongshu-writer
    - xiaohongshu-editor
    - webnovel-planner
    - webnovel-writer
@@ -227,8 +569,12 @@ memory/ 目录：已包含</code></pre></p><h3>步骤 3：全面验证（✅ 已
    - hr-manager
    - fullstack-developer
    - legal-advisor
-   - xiaohongshu-planner</code></pre></p><h4>同步后</h4>
-<pre><code>   - hr-manager ← 已修复
+   - xiaohongshu-planner
+</code></pre>
+
+<h4 id="_13">同步后</h4>
+<pre class="codehilite"><code>✅ 全部同步：10 个
+   - hr-manager ← 已修复
    - fullstack-developer ← 已修复
    - legal-advisor ← 已修复
    - xiaohongshu-planner ← 已修复
@@ -239,8 +585,15 @@ memory/ 目录：已包含</code></pre></p><h3>步骤 3：全面验证（✅ 已
    - webnovel-editor
    - rainbox
 
-❌ 需同步：0 个</code></pre></p><hr><h2>✅ 标准配置清单</h2><h3>每个 Agent 应该有的配置文件</h3><h4>系统配置目录</h4>
-<pre><code>├── IDENTITY.md         # 身份定义
+❌ 需同步：0 个
+</code></pre>
+
+<hr />
+<h2 id="_14">✅ 标准配置清单</h2>
+<h3 id="agent">每个 Agent 应该有的配置文件</h3>
+<h4 id="_15">系统配置目录</h4>
+<pre class="codehilite"><code>~/Library/Application Support/Box/engine/agents/user/{agent}/
+├── IDENTITY.md         # 身份定义
 ├── SOUL.md             # 核心理念
 ├── AGENTS.md           # 行为规则
 ├── USER.md             # 用户信息
@@ -250,8 +603,12 @@ memory/ 目录：已包含</code></pre></p><h3>步骤 3：全面验证（✅ 已
 ├── agent-config.json   # 配置文件
 └── memory/             # 记忆目录
     ├── self-improvement.md  # 自我改进
-    └── archive/             # 历史存档</code></pre></p><h4>工作目录</h4>
-<pre><code>├── IDENTITY.md         # 同步自系统配置
+    └── archive/             # 历史存档
+</code></pre>
+
+<h4 id="_16">工作目录</h4>
+<pre class="codehilite"><code>/Users/rainsyzhang/Box/agents/{agent}/
+├── IDENTITY.md         # 同步自系统配置
 ├── SOUL.md             # 同步自系统配置
 ├── AGENTS.md           # 同步自系统配置
 ├── USER.md             # 同步自系统配置
@@ -262,185 +619,324 @@ memory/ 目录：已包含</code></pre></p><h3>步骤 3：全面验证（✅ 已
 ├── memory/             # Agent 工作记忆
 ├── projects/           # 项目文件（可选）
 ├── docs/               # 文档文件（可选）
-└── scripts/            # 脚本文件（可选）</code></pre></p><h3>配置文件说明</h3><p>| 文件 | 大小 | 作用 |
-|------|------|------|
-| IDENTITY.md | ~400B | 定义 Agent 身份、角色、所属部门 |
-| SOUL.md | ~3KB | 核心价值观、工作理念、行为准则 |
-| AGENTS.md | 7-12KB | 行为规则、工作流程、协作方式 |
-| USER.md | ~700B | 用户信息、偏好、关系 |
-| TOOLS.md | ~2KB | 可用工具列表和使用规范 |
-| MEMORY.md | ~7KB | 记忆管理规范 |
-| MEMORY_README.md | ~6KB | 记忆系统使用说明 |
-| agent-config.json | ~1.5KB | 系统配置参数 |</p><p><strong>总大小</strong>：约 30-35 KB/Agent</p><hr><h2>💡 配置同步的意义</h2><h3>为什么要两边都有配置？</h3><h4>1. 系统稳定性</h4>
+└── scripts/            # 脚本文件（可选）
+</code></pre>
+
+<h3 id="_17">配置文件说明</h3>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>大小</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IDENTITY.md</td>
+<td>~400B</td>
+<td>定义 Agent 身份、角色、所属部门</td>
+</tr>
+<tr>
+<td>SOUL.md</td>
+<td>~3KB</td>
+<td>核心价值观、工作理念、行为准则</td>
+</tr>
+<tr>
+<td>AGENTS.md</td>
+<td>7-12KB</td>
+<td>行为规则、工作流程、协作方式</td>
+</tr>
+<tr>
+<td>USER.md</td>
+<td>~700B</td>
+<td>用户信息、偏好、关系</td>
+</tr>
+<tr>
+<td>TOOLS.md</td>
+<td>~2KB</td>
+<td>可用工具列表和使用规范</td>
+</tr>
+<tr>
+<td>MEMORY.md</td>
+<td>~7KB</td>
+<td>记忆管理规范</td>
+</tr>
+<tr>
+<td>MEMORY_README.md</td>
+<td>~6KB</td>
+<td>记忆系统使用说明</td>
+</tr>
+<tr>
+<td>agent-config.json</td>
+<td>~1.5KB</td>
+<td>系统配置参数</td>
+</tr>
+</tbody>
+</table>
+<p><strong>总大小</strong>：约 30-35 KB/Agent</p>
+<hr />
+<h2 id="_18">💡 配置同步的意义</h2>
+<h3 id="_19">为什么要两边都有配置？</h3>
+<h4 id="1_1">1. 系统稳定性</h4>
 <ul>
 <li>系统配置目录：Engine 读取，确保 Agent 能正常运行</li>
 <li>工作目录：备份配置，防止系统配置丢失</li>
-</ul><h4>2. 用户便利性</h4>
+</ul>
+<h4 id="2_1">2. 用户便利性</h4>
 <ul>
 <li>工作目录在用户文件夹下，方便查看和管理</li>
 <li>不需要进入系统目录（<code>~/Library/Application Support/</code>）</li>
-</ul><h4>3. 开发调试</h4>
+</ul>
+<h4 id="3_1">3. 开发调试</h4>
 <ul>
 <li>可以在工作目录查看配置</li>
 <li>可以对比两边配置是否一致</li>
 <li>便于发现配置问题</li>
-</ul><h4>4. 组织规范</h4>
+</ul>
+<h4 id="4">4. 组织规范</h4>
 <ul>
 <li>统一标准：所有 Agent 配置结构一致</li>
 <li>易于管理：批量检查、批量更新</li>
 <li>专业形象：体现公司管理规范</li>
-</ul><hr><h2>📈 效果评估</h2><h3>立即效果</h3><ol>
-<li><strong>配置完整性</strong> ✅</li>
+</ul>
+<hr />
+<h2 id="_20">📈 效果评估</h2>
+<h3 id="_21">立即效果</h3>
+<ol>
+<li>
+<p><strong>配置完整性</strong> ✅<br />
+   - 所有 Agent 配置文件完整<br />
+   - 系统和工作目录完全同步<br />
+   - 符合三层记忆架构标准</p>
+</li>
+<li>
+<p><strong>可管理性</strong> ✅<br />
+   - 可以在工作目录查看所有 Agent 配置<br />
+   - 便于对比和检查<br />
+   - 便于维护和更新</p>
+</li>
+<li>
+<p><strong>专业规范</strong> ✅<br />
+   - 统一的配置标准<br />
+   - 规范的目录结构<br />
+   - 完整的文档体系</p>
+</li>
 </ol>
-   - 所有 Agent 配置文件完整
-   - 系统和工作目录完全同步
-   - 符合三层记忆架构标准</p><ol>
-<li><strong>可管理性</strong> ✅</li>
+<h3 id="_22">长期价值</h3>
+<ol>
+<li>
+<p><strong>组织成熟度</strong> ⬆️<br />
+   - 从临时拼凑 → 规范管理<br />
+   - 从不一致 → 标准化<br />
+   - 从混乱 → 井然有序</p>
+</li>
+<li>
+<p><strong>可扩展性</strong> ⬆️<br />
+   - 新增 Agent 有明确标准<br />
+   - 批量管理更容易<br />
+   - 配置迁移更简单</p>
+</li>
+<li>
+<p><strong>可维护性</strong> ⬆️<br />
+   - 问题排查更快<br />
+   - 配置更新更安全<br />
+   - 版本管理更清晰</p>
+</li>
 </ol>
-   - 可以在工作目录查看所有 Agent 配置
-   - 便于对比和检查
-   - 便于维护和更新</p><ol>
-<li><strong>专业规范</strong> ✅</li>
+<hr />
+<h2 id="_23">🔄 配置管理最佳实践</h2>
+<h3 id="agent_1">未来创建新 Agent 时</h3>
+<h4 id="_24">标准流程</h4>
+<ol>
+<li><strong>创建配置文件</strong><br />
+   ```bash<br />
+   # 在系统配置目录创建<br />
+   mkdir -p ~/Library/Application\ Support/Box/engine/agents/user/{new-agent}<br />
+   cd ~/Library/Application\ Support/Box/engine/agents/user/{new-agent}</li>
 </ol>
-   - 统一的配置标准
-   - 规范的目录结构
-   - 完整的文档体系</p><h3>长期价值</h3><ol>
-<li><strong>组织成熟度</strong> ⬆️</li>
-</ol>
-   - 从临时拼凑 → 规范管理
-   - 从不一致 → 标准化
-   - 从混乱 → 井然有序</p><ol>
-<li><strong>可扩展性</strong> ⬆️</li>
-</ol>
-   - 新增 Agent 有明确标准
-   - 批量管理更容易
-   - 配置迁移更简单</p><ol>
-<li><strong>可维护性</strong> ⬆️</li>
-</ol>
-   - 问题排查更快
-   - 配置更新更安全
-   - 版本管理更清晰</p><hr><h2>🔄 配置管理最佳实践</h2><h3>未来创建新 Agent 时</h3><h4>标准流程</h4><ol>
-<li><strong>创建配置文件</strong></li>
-</ol>
-   <pre><code>   # 在系统配置目录创建
-   mkdir -p ~/Library/Application\ Support/Box/engine/agents/user/{new-agent}
-   cd ~/Library/Application\ Support/Box/engine/agents/user/{new-agent}
-   
-   # 创建所有必需文件
-   touch IDENTITY.md SOUL.md AGENTS.md USER.md TOOLS.md
-   touch MEMORY.md MEMORY_README.md agent-config.json
-   mkdir -p memory/archive
-   touch memory/self-improvement.md</code></pre></p><ol>
-<li><strong>立即同步到工作目录</strong></li>
-</ol>
-   <pre><code>   # 同步配置
+<p># 创建所有必需文件<br />
+   touch IDENTITY.md SOUL.md AGENTS.md USER.md TOOLS.md<br />
+   touch MEMORY.md MEMORY_README.md agent-config.json<br />
+   mkdir -p memory/archive<br />
+   touch memory/self-improvement.md<br />
+   ```</p>
+<ol start="2">
+<li>
+<p><strong>立即同步到工作目录</strong><br />
+<code>bash
+   # 同步配置
    cp -r ~/Library/Application\ Support/Box/engine/agents/user/{new-agent}/* \
-         /Users/rainsyzhang/Box/agents/{new-agent}/</code></pre></p><ol>
-<li><strong>验证配置完整性</strong></li>
-</ol>
-   <pre><code>   # 检查文件数量
+         /Users/rainsyzhang/Box/agents/{new-agent}/</code></p>
+</li>
+<li>
+<p><strong>验证配置完整性</strong><br />
+<code>bash
+   # 检查文件数量
    ls ~/Library/Application\ Support/Box/engine/agents/user/{new-agent}/*.md | wc -l
    ls /Users/rainsyzhang/Box/agents/{new-agent}/*.md | wc -l
-   # 两个数字应该相同（7）</code></pre></p><h3>配置更新时</h3><p><strong>原则</strong>：同时更新两边</p><p><pre><code># 1. 更新系统配置
+   # 两个数字应该相同（7）</code></p>
+</li>
+</ol>
+<h3 id="_25">配置更新时</h3>
+<p><strong>原则</strong>：同时更新两边</p>
+<pre class="codehilite"><code class="language-bash"># 1. 更新系统配置
 vim ~/Library/Application\ Support/Box/engine/agents/user/{agent}/AGENTS.md
 
 # 2. 立即同步到工作目录
 cp ~/Library/Application\ Support/Box/engine/agents/user/{agent}/AGENTS.md \
-   /Users/rainsyzhang/Box/agents/{agent}/AGENTS.md</code></pre></p><h3>定期检查</h3><p><strong>建议频率</strong>：每月1日（与三层记忆架构检查同时进行）</p><p><strong>检查命令</strong>：
-<pre><code># 检查所有 Agent 配置同步状态
+   /Users/rainsyzhang/Box/agents/{agent}/AGENTS.md
+</code></pre>
+
+<h3 id="_26">定期检查</h3>
+<p><strong>建议频率</strong>：每月1日（与三层记忆架构检查同时进行）</p>
+<p><strong>检查命令</strong>：</p>
+<pre class="codehilite"><code class="language-bash"># 检查所有 Agent 配置同步状态
 for agent in hr-manager fullstack-developer legal-advisor \
              xiaohongshu-planner xiaohongshu-writer xiaohongshu-editor \
              webnovel-planner webnovel-writer webnovel-editor \
              rainbox; do
-  sys=$(ls ~/Library/Application\ Support/Box/engine/agents/user/$agent/*.md 2>/dev/null | wc -l)
-  work=$(ls /Users/rainsyzhang/Box/agents/$agent/*.md 2>/dev/null | wc -l)
-  if [ "$sys" = "$work" ] && [ "$sys" = "7" ]; then
-    echo "✅ $agent"
+  sys=$(ls ~/Library/Application\ Support/Box/engine/agents/user/$agent/*.md 2&gt;/dev/null | wc -l)
+  work=$(ls /Users/rainsyzhang/Box/agents/$agent/*.md 2&gt;/dev/null | wc -l)
+  if [ &quot;$sys&quot; = &quot;$work&quot; ] &amp;&amp; [ &quot;$sys&quot; = &quot;7&quot; ]; then
+    echo &quot;✅ $agent&quot;
   else
-    echo "❌ $agent (需要同步)"
+    echo &quot;❌ $agent (需要同步)&quot;
   fi
-done</code></pre></p><hr><h2>📝 经验总结</h2><h3>本次任务的教训</h3><ol>
-<li><strong>早期 Agent 遗留问题</strong></li>
+done
+</code></pre>
+
+<hr />
+<h2 id="_27">📝 经验总结</h2>
+<h3 id="_28">本次任务的教训</h3>
+<ol>
+<li>
+<p><strong>早期 Agent 遗留问题</strong><br />
+   - hr-manager、fullstack-developer、legal-advisor 是最早创建的<br />
+   - 创建时流程不完善，没有同步到工作目录<br />
+   - <strong>教训</strong>：创建流程必须标准化</p>
+</li>
+<li>
+<p><strong>新 Agent 创建也有遗漏</strong><br />
+   - xiaohongshu-planner 是 Level 3 升级时创建的<br />
+   - 虽然流程规范了，但仍有遗漏<br />
+   - <strong>教训</strong>：需要检查清单和验证步骤</p>
+</li>
+<li>
+<p><strong>配置同步的重要性</strong><br />
+   - 不同步会导致用户无法查看配置<br />
+   - 可能影响 Agent 的正常工作<br />
+   - <strong>教训</strong>：配置同步是基础设施，必须确保</p>
+</li>
 </ol>
-   - hr-manager、fullstack-developer、legal-advisor 是最早创建的
-   - 创建时流程不完善，没有同步到工作目录
-   - <strong>教训</strong>：创建流程必须标准化</p><ol>
-<li><strong>新 Agent 创建也有遗漏</strong></li>
+<h3 id="_29">改进措施</h3>
+<ol>
+<li>
+<p><strong>建立标准流程</strong><br />
+   - 创建新 Agent 必须使用标准流程<br />
+   - 包含配置同步步骤<br />
+   - 包含验证检查步骤</p>
+</li>
+<li>
+<p><strong>定期检查机制</strong><br />
+   - 每月1日执行配置同步检查<br />
+   - 由 HR Manager 负责执行<br />
+   - 发现问题立即修复</p>
+</li>
+<li>
+<p><strong>文档化</strong><br />
+   - 将配置同步流程写入《RainBox公司管理规范》<br />
+   - 作为 Agent 创建的必须步骤<br />
+   - 作为月度检查的标准项目</p>
+</li>
 </ol>
-   - xiaohongshu-planner 是 Level 3 升级时创建的
-   - 虽然流程规范了，但仍有遗漏
-   - <strong>教训</strong>：需要检查清单和验证步骤</p><ol>
-<li><strong>配置同步的重要性</strong></li>
-</ol>
-   - 不同步会导致用户无法查看配置
-   - 可能影响 Agent 的正常工作
-   - <strong>教训</strong>：配置同步是基础设施，必须确保</p><h3>改进措施</h3><ol>
-<li><strong>建立标准流程</strong></li>
-</ol>
-   - 创建新 Agent 必须使用标准流程
-   - 包含配置同步步骤
-   - 包含验证检查步骤</p><ol>
-<li><strong>定期检查机制</strong></li>
-</ol>
-   - 每月1日执行配置同步检查
-   - 由 HR Manager 负责执行
-   - 发现问题立即修复</p><ol>
-<li><strong>文档化</strong></li>
-</ol>
-   - 将配置同步流程写入《RainBox公司管理规范》
-   - 作为 Agent 创建的必须步骤
-   - 作为月度检查的标准项目</p><hr><h2>🎊 结语</h2><h3>任务完成情况</h3><p>✅ <strong>已完成</strong>：
-<ul>
-<li>检查所有 Agent 配置状态</li>
-<li>同步 4 个 Agent 配置到工作目录</li>
-<li>验证所有 Agent 配置完整性</li>
-<li>生成详细的配置同步报告</li>
-</ul><p>✅ <strong>成果</strong>：
-<ul>
-<li>配置同步率：60% → <strong>100%</strong></li>
-<li>所有 Agent 配置结构统一</li>
-<li>符合公司管理规范</li>
-</ul><h3>向 CEO 汇报</h3><p>CEO，作为 RainBox 总经理，我已按您的指示完成了全员配置同步任务：</p><p><strong>执行情况</strong>：
-<ul>
-<li>✅ 发现 4 个 Agent 配置不同步（hr-manager、fullstack-developer、legal-advisor、xiaohongshu-planner）</li>
-<li>✅ 已全部同步到工作目录</li>
-<li>✅ 验证通过，配置同步率 100%</li>
-</ul><p><strong>标准建立</strong>：
-<ul>
-<li>✅ 明确了配置文件标准清单（7个.md + 1个.json）</li>
-<li>✅ 建立了配置同步流程</li>
-<li>✅ 制定了定期检查机制</li>
-</ul><p><strong>后续保障</strong>：
-<ul>
-<li>✅ 新 Agent 创建必须同步配置</li>
-<li>✅ 每月1日执行配置检查</li>
-<li>✅ 发现问题立即修复</li>
-</ul><p>现在，<strong>所有 Agent 都像 rainbox 一样，配置完整、结构规范</strong>！</p><hr><p><strong>报告审核</strong>：</p><p>RainBox（总经理）签字：_________________  
-CEO（rainsyzhang）审核：_________________  
-日期：2026年3月22日</p><hr><p><em>RainBox 数字科技公司</em>  
-<em>"科技养虾，用心养人"</em> 🦐💙
-</p>
+<hr />
+<h2 id="_30">🎊 结语</h2>
+<h3 id="_31">任务完成情况</h3>
+<p>✅ <strong>已完成</strong>：<br />
+- 检查所有 Agent 配置状态<br />
+- 同步 4 个 Agent 配置到工作目录<br />
+- 验证所有 Agent 配置完整性<br />
+- 生成详细的配置同步报告</p>
+<p>✅ <strong>成果</strong>：<br />
+- 配置同步率：60% → <strong>100%</strong><br />
+- 所有 Agent 配置结构统一<br />
+- 符合公司管理规范</p>
+<h3 id="ceo_1">向 CEO 汇报</h3>
+<p>CEO，作为 RainBox 总经理，我已按您的指示完成了全员配置同步任务：</p>
+<p><strong>执行情况</strong>：<br />
+- ✅ 发现 4 个 Agent 配置不同步（hr-manager、fullstack-developer、legal-advisor、xiaohongshu-planner）<br />
+- ✅ 已全部同步到工作目录<br />
+- ✅ 验证通过，配置同步率 100%</p>
+<p><strong>标准建立</strong>：<br />
+- ✅ 明确了配置文件标准清单（7个.md + 1个.json）<br />
+- ✅ 建立了配置同步流程<br />
+- ✅ 制定了定期检查机制</p>
+<p><strong>后续保障</strong>：<br />
+- ✅ 新 Agent 创建必须同步配置<br />
+- ✅ 每月1日执行配置检查<br />
+- ✅ 发现问题立即修复</p>
+<p>现在，<strong>所有 Agent 都像 rainbox 一样，配置完整、结构规范</strong>！</p>
+<hr />
+<p><strong>报告审核</strong>：</p>
+<p>RainBox（总经理）签字：<strong><em>_</em></strong><strong><em>_</em></strong><strong><em><br />
+CEO（rainsyzhang）审核：</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><br />
+日期：2026年3月22日</p>
+<hr />
+<p><em>RainBox 数字科技公司</em><br />
+<em>"科技养虾，用心养人"</em> 🦐💙</p>
     </div>
-  </div>
+  </article>
 
   <!-- 返回顶部按钮 -->
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
-    ↑
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
   </button>
 
   <!-- 页脚 -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <div class="mb-4">
-        <div class="inline-flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
-          <span class="text-2xl font-bold">RainBox 数字科技</span>
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
         </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
       </div>
-      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
-      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

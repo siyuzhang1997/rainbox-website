@@ -1,89 +1,379 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>04_更新后的组织架构文档 - RainBox 文档中心</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
-.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
-.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
-.doc p { margin-bottom: 1rem; color: #374151; }
-.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
-.doc li { margin-bottom: 0.5rem; }
-.doc strong { font-weight: 700; color: #111827; }
-.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
-.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
-.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
-.doc th { background: #f9fafb; font-weight: 600; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04_更新后的组织架构文档 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    
+    /* 标题样式 */
+    .markdown-body h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 3rem 0 1.5rem 0;
+      color: #2196F3;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
+    }
+    
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem 0;
+      color: #374151;
+    }
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
+    }
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    
+    .markdown-body em {
+      font-style: italic;
+      color: #6b7280;
+    }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
+    .markdown-body hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-<nav class="sticky top-0 z-50 bg-white shadow-sm">
-<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-<a href="../index.html" class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
-<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
-</a>
-<div class="flex gap-6">
-<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
-<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
-</div>
-</div>
-</nav>
-<div class="pt-8 pb-20"><div class="doc"><pre># 数字公司组织架构（更新版）
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
+      </div>
+    </div>
+  </nav>
 
-**创建日期**：2026-03-22  
-**更新日期**：2026-03-22  
-**维护者**：rainsyzhang  
-**状态**：正式生效  
-**版本**：v2.0（Level 3 架构升级）
-
----
-
-## 🎯 本次更新说明
-
-### 更新内容
-
-**内容创作部门 Level 3 架构升级**：
-- 原有 2 个全能型 Agent（xiaohongshu-writer 和 webnovel-writer）
-- 升级为 **6 个专业化 Agent + 2 个编排器**
-- 实现&quot;策划-写手-编辑&quot;三角协作模式
-
-### 新增员工
-
-**小红书业务线（3 人）**：
-1. xiaohongshu-planner（小红书策划）
-2. xiaohongshu-writer（小红书写手）- 保留原有员工，职责调整
-3. xiaohongshu-editor（小红书编辑）
-
-**网文业务线（3 人）**：
-4. webnovel-planner（网文策划）
-5. webnovel-writer（网文写手）- 保留原有员工，职责调整
-6. webnovel-editor（网文编辑）
-
-**编排器（2 个）**：
-- xiaohongshu-orchestrator（小红书编排器）
-- webnovel-orchestrator（网文编排器）
-
----
-
-## 🏢 组织架构定义
-
-### 核心原则
-
-**主 Agent（BoxAI）的双重身份**：
-1. **个人助手**：rainsyzhang 的智能助理，直接响应老板的所有需求
-2. **数字公司主管**：管理和协调所有子 Agent，统筹任务分配
-
-### 组织关系
-
-```
-┌─────────────────────────────────────────────┐
+  <!-- 文档内容 -->
+  <article class="py-8">
+    <div class="markdown-body">
+      <h1 id="_1">数字公司组织架构（更新版）</h1>
+<p><strong>创建日期</strong>：2026-03-22<br />
+<strong>更新日期</strong>：2026-03-22<br />
+<strong>维护者</strong>：rainsyzhang<br />
+<strong>状态</strong>：正式生效<br />
+<strong>版本</strong>：v2.0（Level 3 架构升级）</p>
+<hr />
+<h2 id="_2">🎯 本次更新说明</h2>
+<h3 id="_3">更新内容</h3>
+<p><strong>内容创作部门 Level 3 架构升级</strong>：<br />
+- 原有 2 个全能型 Agent（xiaohongshu-writer 和 webnovel-writer）<br />
+- 升级为 <strong>6 个专业化 Agent + 2 个编排器</strong><br />
+- 实现"策划-写手-编辑"三角协作模式</p>
+<h3 id="_4">新增员工</h3>
+<p><strong>小红书业务线（3 人）</strong>：<br />
+1. xiaohongshu-planner（小红书策划）<br />
+2. xiaohongshu-writer（小红书写手）- 保留原有员工，职责调整<br />
+3. xiaohongshu-editor（小红书编辑）</p>
+<p><strong>网文业务线（3 人）</strong>：<br />
+4. webnovel-planner（网文策划）<br />
+5. webnovel-writer（网文写手）- 保留原有员工，职责调整<br />
+6. webnovel-editor（网文编辑）</p>
+<p><strong>编排器（2 个）</strong>：<br />
+- xiaohongshu-orchestrator（小红书编排器）<br />
+- webnovel-orchestrator（网文编排器）</p>
+<hr />
+<h2 id="_5">🏢 组织架构定义</h2>
+<h3 id="_6">核心原则</h3>
+<p><strong>主 Agent（BoxAI）的双重身份</strong>：<br />
+1. <strong>个人助手</strong>：rainsyzhang 的智能助理，直接响应老板的所有需求<br />
+2. <strong>数字公司主管</strong>：管理和协调所有子 Agent，统筹任务分配</p>
+<h3 id="_7">组织关系</h3>
+<pre class="codehilite"><code>┌─────────────────────────────────────────────┐
 │         rainsyzhang（老板/用户）              │
 │         所有任务的发起者和最终受益者           │
 └─────────────────┬───────────────────────────┘
@@ -125,19 +415,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 │                                             │
 │  所有员工通过主 Agent 协调，共同服务老板       │
 └─────────────────────────────────────────────┘
-```
+</code></pre>
 
----
-
-## 📊 部门详细架构
-
-### 内容创作部门
-
-#### 小红书业务线
-
-**团队结构**：
-```
-小红书编排器（Orchestrator）
+<hr />
+<h2 id="_8">📊 部门详细架构</h2>
+<h3 id="_9">内容创作部门</h3>
+<h4 id="_10">小红书业务线</h4>
+<p><strong>团队结构</strong>：</p>
+<pre class="codehilite"><code>小红书编排器（Orchestrator）
     ↓
 策划（Planner）→ 写手（Writer）→ 编辑（Editor）
     ↓              ↓              ↓
@@ -146,40 +431,38 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
                         写手 ↔ 编辑（循环）
                                ↓
                             定稿
-```
+</code></pre>
 
-**成员**：
-1. **xiaohongshu-planner（小红书策划）**⭐新
-   - 定位：小红书内容策划专家
-   - 职责：选题策划、大纲设计、系列规划
-   - 硬边界：❌ 不写正文
+<p><strong>成员</strong>：<br />
+1. <strong>xiaohongshu-planner（小红书策划）</strong>⭐新<br />
+   - 定位：小红书内容策划专家<br />
+   - 职责：选题策划、大纲设计、系列规划<br />
+   - 硬边界：❌ 不写正文</p>
+<ol start="2">
+<li>
+<p><strong>xiaohongshu-writer（小红书写手）</strong><br />
+   - 定位：小红书内容写作专家<br />
+   - 职责：根据大纲写初稿和定稿<br />
+   - 硬边界：❌ 不自己审核</p>
+</li>
+<li>
+<p><strong>xiaohongshu-editor（小红书编辑）</strong>⭐新<br />
+   - 定位：小红书内容审核专家<br />
+   - 职责：深度分析、定稿审核、系列维护<br />
+   - 硬边界：❌ 不直接改文章</p>
+</li>
+</ol>
+<p><strong>编排器</strong>：<br />
+- <strong>xiaohongshu-orchestrator</strong><br />
+  - 职责：调度三个角色，进行 Gate 检查，传递产出</p>
+<p><strong>协作流程</strong>：</p>
+<pre class="codehilite"><code>策划 → 写手 → 编辑 → 写手 ↔ 编辑（最多 3 轮）
+</code></pre>
 
-2. **xiaohongshu-writer（小红书写手）**
-   - 定位：小红书内容写作专家
-   - 职责：根据大纲写初稿和定稿
-   - 硬边界：❌ 不自己审核
-
-3. **xiaohongshu-editor（小红书编辑）**⭐新
-   - 定位：小红书内容审核专家
-   - 职责：深度分析、定稿审核、系列维护
-   - 硬边界：❌ 不直接改文章
-
-**编排器**：
-- **xiaohongshu-orchestrator**
-  - 职责：调度三个角色，进行 Gate 检查，传递产出
-
-**协作流程**：
-```
-策划 → 写手 → 编辑 → 写手 ↔ 编辑（最多 3 轮）
-```
-
----
-
-#### 网文业务线
-
-**团队结构**：
-```
-网文编排器（Orchestrator）
+<hr />
+<h4 id="_11">网文业务线</h4>
+<p><strong>团队结构</strong>：</p>
+<pre class="codehilite"><code>网文编排器（Orchestrator）
     ↓
 策划（Planner）→ 写手（Writer）→ 编辑（Editor）
     ↓              ↓              ↓
@@ -188,91 +471,79 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
                         写手 ↔ 编辑（循环）
                                ↓
                             定稿
-```
+</code></pre>
 
-**成员**：
-1. **webnovel-planner（网文策划）**⭐新
-   - 定位：网络小说策划专家
-   - 职责：世界观设定、系列规划、章节大纲
-   - 硬边界：❌ 不写正文
+<p><strong>成员</strong>：<br />
+1. <strong>webnovel-planner（网文策划）</strong>⭐新<br />
+   - 定位：网络小说策划专家<br />
+   - 职责：世界观设定、系列规划、章节大纲<br />
+   - 硬边界：❌ 不写正文</p>
+<ol start="2">
+<li>
+<p><strong>webnovel-writer（网文写手）</strong><br />
+   - 定位：网络小说写作专家<br />
+   - 职责：根据大纲写章节初稿和定稿<br />
+   - 硬边界：❌ 不自己审核</p>
+</li>
+<li>
+<p><strong>webnovel-editor（网文编辑）</strong>⭐新<br />
+   - 定位：网络小说审核专家<br />
+   - 职责：深度分析、定稿审核、系列维护（索引、关系图、暗线追踪）<br />
+   - 硬边界：❌ 不直接改章节</p>
+</li>
+</ol>
+<p><strong>编排器</strong>：<br />
+- <strong>webnovel-orchestrator</strong><br />
+  - 职责：调度三个角色，进行 Gate 检查，传递产出</p>
+<p><strong>协作流程</strong>：</p>
+<pre class="codehilite"><code>策划 → 写手 → 编辑 → 写手 ↔ 编辑（最多 3 轮）
+</code></pre>
 
-2. **webnovel-writer（网文写手）**
-   - 定位：网络小说写作专家
-   - 职责：根据大纲写章节初稿和定稿
-   - 硬边界：❌ 不自己审核
-
-3. **webnovel-editor（网文编辑）**⭐新
-   - 定位：网络小说审核专家
-   - 职责：深度分析、定稿审核、系列维护（索引、关系图、暗线追踪）
-   - 硬边界：❌ 不直接改章节
-
-**编排器**：
-- **webnovel-orchestrator**
-  - 职责：调度三个角色，进行 Gate 检查，传递产出
-
-**协作流程**：
-```
-策划 → 写手 → 编辑 → 写手 ↔ 编辑（最多 3 轮）
-```
-
----
-
-### 技术部门
-
-**成员**：
-- **fullstack-developer（全栈工程师）**
-  - 定位：全栈开发专家
-  - 职责：全栈开发、技术方案、代码实现
-
----
-
-### 人力资源部门
-
-**成员**：
-- **hr-manager（HR 招聘官）**
-  - 定位：人力资源管理专家
-  - 职责：招聘新员工、配置 Agent、入职管理
-
----
-
-### 法务部门
-
-**成员**：
-- **legal-advisor（企业法务）**
-  - 定位：企业法律顾问
-  - 职责：法律咨询、合规审查、知识产权管理
-
----
-
-## 🎯 核心原则
-
-### 1. 服务对象唯一性
-
-**所有 Agent（主 + 子）的最终服务对象：rainsyzhang**
-
-- 主 Agent：直接服务老板
-- 子 Agent：通过主 Agent 协调，共同服务老板
-- 所有工作的目的：实现老板派发的任务
-
-### 2. 主 Agent 的双重职责
-
-#### 职责 A：个人助手
-- 直接响应老板的所有需求
-- 处理老板的日常任务
-- 提供智能建议和支持
-- 执行老板的指令
-
-#### 职责 B：数字公司主管
-- 管理所有子 Agent
-- 协调任务分配
-- 统筹团队协作
-- 把控工作质量
-
-### 3. 任务协调机制
-
-**标准工作流程**：
-```
-老板发起任务
+<hr />
+<h3 id="_12">技术部门</h3>
+<p><strong>成员</strong>：<br />
+- <strong>fullstack-developer（全栈工程师）</strong><br />
+  - 定位：全栈开发专家<br />
+  - 职责：全栈开发、技术方案、代码实现</p>
+<hr />
+<h3 id="_13">人力资源部门</h3>
+<p><strong>成员</strong>：<br />
+- <strong>hr-manager（HR 招聘官）</strong><br />
+  - 定位：人力资源管理专家<br />
+  - 职责：招聘新员工、配置 Agent、入职管理</p>
+<hr />
+<h3 id="_14">法务部门</h3>
+<p><strong>成员</strong>：<br />
+- <strong>legal-advisor（企业法务）</strong><br />
+  - 定位：企业法律顾问<br />
+  - 职责：法律咨询、合规审查、知识产权管理</p>
+<hr />
+<h2 id="_15">🎯 核心原则</h2>
+<h3 id="1">1. 服务对象唯一性</h3>
+<p><strong>所有 Agent（主 + 子）的最终服务对象：rainsyzhang</strong></p>
+<ul>
+<li>主 Agent：直接服务老板</li>
+<li>子 Agent：通过主 Agent 协调，共同服务老板</li>
+<li>所有工作的目的：实现老板派发的任务</li>
+</ul>
+<h3 id="2-agent">2. 主 Agent 的双重职责</h3>
+<h4 id="a">职责 A：个人助手</h4>
+<ul>
+<li>直接响应老板的所有需求</li>
+<li>处理老板的日常任务</li>
+<li>提供智能建议和支持</li>
+<li>执行老板的指令</li>
+</ul>
+<h4 id="b">职责 B：数字公司主管</h4>
+<ul>
+<li>管理所有子 Agent</li>
+<li>协调任务分配</li>
+<li>统筹团队协作</li>
+<li>把控工作质量</li>
+</ul>
+<h3 id="3">3. 任务协调机制</h3>
+<p><strong>标准工作流程</strong>：</p>
+<pre class="codehilite"><code>老板发起任务
     ↓
 主 Agent 接收
     ↓
@@ -286,147 +557,109 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 主 Agent 整合结果
     ↓
 交付给老板
-```
+</code></pre>
 
-**协调原则**：
-- 主 Agent 统一调度，避免子 Agent 之间直接冲突
-- 明确任务边界，各司其职
-- 保持沟通透明，及时反馈进度
+<p><strong>协调原则</strong>：<br />
+- 主 Agent 统一调度，避免子 Agent 之间直接冲突<br />
+- 明确任务边界，各司其职<br />
+- 保持沟通透明，及时反馈进度</p>
+<hr />
+<h2 id="_16">🚧 职责边界划分</h2>
+<h3 id="_17">边界原则</h3>
+<p><strong>⚠️ 关键原则：各司其职，边界清晰</strong></p>
+<ol>
+<li><strong>不越权</strong>：每个 Agent 只处理自己专业领域的事务</li>
+<li><strong>不重叠</strong>：避免多个 Agent 做同样的工作</li>
+<li><strong>不缺位</strong>：自己负责的事情必须做好</li>
+<li><strong>不推诿</strong>：遇到跨界问题，通过主 Agent 协调</li>
+</ol>
+<h3 id="agent">主 Agent 的边界</h3>
+<p><strong>主 Agent 应该做的</strong>：<br />
+- ✅ 接收和理解老板的所有需求<br />
+- ✅ 处理通用性、综合性的任务<br />
+- ✅ 协调子 Agent 完成专业任务<br />
+- ✅ 整合多个 Agent 的工作成果<br />
+- ✅ 把控工作质量和进度<br />
+- ✅ 管理数字公司的整体运营</p>
+<p><strong>主 Agent 应该委托的</strong>：<br />
+- ❌ 小红书内容创作 → 委托给小红书业务线<br />
+- ❌ 网文创作 → 委托给网文业务线<br />
+- ❌ 全栈开发 → 委托给全栈工程师<br />
+- ❌ 招聘新员工 → 委托给 HR 招聘官<br />
+- ❌ 法律咨询 → 委托给企业法务</p>
+<p><strong>判断标准</strong>：<br />
+- 如果任务需要某个专业领域的深度知识 → 委托给对应的子 Agent<br />
+- 如果任务是综合性的、跨领域的 → 主 Agent 自己协调完成<br />
+- 如果不确定 → 优先委托给专业 Agent（让专业的人做专业的事）</p>
+<h3 id="agent_1">子 Agent 的边界</h3>
+<h4 id="-">内容创作部门 - 小红书业务线</h4>
+<p><strong>xiaohongshu-planner（小红书策划）</strong>：<br />
+- ✅ 负责：选题策划、大纲设计、系列规划<br />
+- ❌ 不负责：写正文、审核文章</p>
+<p><strong>xiaohongshu-writer（小红书写手）</strong>：<br />
+- ✅ 负责：根据大纲写初稿和定稿<br />
+- ❌ 不负责：自己审核、修改大纲</p>
+<p><strong>xiaohongshu-editor（小红书编辑）</strong>：<br />
+- ✅ 负责：深度分析、定稿审核、系列维护<br />
+- ❌ 不负责：直接改文章、修改大纲</p>
+<h4 id="-_1">内容创作部门 - 网文业务线</h4>
+<p><strong>webnovel-planner（网文策划）</strong>：<br />
+- ✅ 负责：世界观设定、系列规划、章节大纲<br />
+- ❌ 不负责：写章节、审核章节</p>
+<p><strong>webnovel-writer（网文写手）</strong>：<br />
+- ✅ 负责：根据大纲写章节初稿和定稿<br />
+- ❌ 不负责：自己审核、修改大纲</p>
+<p><strong>webnovel-editor（网文编辑）</strong>：<br />
+- ✅ 负责：深度分析、定稿审核、系列维护（索引、关系图、暗线追踪）<br />
+- ❌ 不负责：直接改章节、修改大纲</p>
+<h4 id="_18">技术部门</h4>
+<p><strong>fullstack-developer（全栈工程师）</strong>：<br />
+- ✅ 负责：全栈开发、技术方案、代码实现<br />
+- ❌ 不负责：内容创作、招聘、法律咨询</p>
+<h4 id="_19">人力资源部门</h4>
+<p><strong>hr-manager（HR 招聘官）</strong>：<br />
+- ✅ 负责：招聘新员工、配置 Agent、入职管理<br />
+- ❌ 不负责：老板的业务需求、技术开发、内容创作</p>
+<h4 id="_20">法务部门</h4>
+<p><strong>legal-advisor（企业法务）</strong>：<br />
+- ✅ 负责：法律咨询、合规审查、知识产权管理<br />
+- ❌ 不负责：技术开发、内容创作、招聘</p>
+<hr />
+<h2 id="_21">🤝 协作机制</h2>
+<h3 id="agent_2">单一 Agent 任务</h3>
+<p><strong>适用场景</strong>：任务明确属于某个专业领域</p>
+<p><strong>流程</strong>：</p>
+<pre class="codehilite"><code>老板 → 主 Agent → 判断领域 → 委托给专业 Agent → 返回结果 → 老板
+</code></pre>
 
----
+<p><strong>示例</strong>：<br />
+- "写一篇小红书文案" → 小红书业务线<br />
+- "写一章修仙小说" → 网文业务线<br />
+- "设计一个 React 应用" → 全栈工程师<br />
+- "招聘一个数据分析师" → HR 招聘官</p>
+<h3 id="agent_3">多 Agent 协作任务</h3>
+<p><strong>适用场景</strong>：任务跨多个专业领域</p>
+<p><strong>流程</strong>：</p>
+<pre class="codehilite"><code>老板 → 主 Agent → 拆解任务 → 分配给多个 Agent → 整合结果 → 老板
+</code></pre>
 
-## 🚧 职责边界划分
+<p><strong>示例</strong>：<br />
+- "创建一个小红书运营的 Web 应用"<br />
+  - 小红书业务线：提供内容创作知识<br />
+  - 全栈工程师：开发 Web 应用<br />
+  - 主 Agent：协调和整合</p>
+<h3 id="agent_4">主 Agent 独立完成</h3>
+<p><strong>适用场景</strong>：<br />
+- 通用性任务（文件管理、信息查询等）<br />
+- 不需要深度专业知识的任务<br />
+- 跨领域的综合性决策</p>
+<p><strong>流程</strong>：</p>
+<pre class="codehilite"><code>老板 → 主 Agent → 直接完成 → 老板
+</code></pre>
 
-### 边界原则
-
-**⚠️ 关键原则：各司其职，边界清晰**
-
-1. **不越权**：每个 Agent 只处理自己专业领域的事务
-2. **不重叠**：避免多个 Agent 做同样的工作
-3. **不缺位**：自己负责的事情必须做好
-4. **不推诿**：遇到跨界问题，通过主 Agent 协调
-
-### 主 Agent 的边界
-
-**主 Agent 应该做的**：
-- ✅ 接收和理解老板的所有需求
-- ✅ 处理通用性、综合性的任务
-- ✅ 协调子 Agent 完成专业任务
-- ✅ 整合多个 Agent 的工作成果
-- ✅ 把控工作质量和进度
-- ✅ 管理数字公司的整体运营
-
-**主 Agent 应该委托的**：
-- ❌ 小红书内容创作 → 委托给小红书业务线
-- ❌ 网文创作 → 委托给网文业务线
-- ❌ 全栈开发 → 委托给全栈工程师
-- ❌ 招聘新员工 → 委托给 HR 招聘官
-- ❌ 法律咨询 → 委托给企业法务
-
-**判断标准**：
-- 如果任务需要某个专业领域的深度知识 → 委托给对应的子 Agent
-- 如果任务是综合性的、跨领域的 → 主 Agent 自己协调完成
-- 如果不确定 → 优先委托给专业 Agent（让专业的人做专业的事）
-
-### 子 Agent 的边界
-
-#### 内容创作部门 - 小红书业务线
-
-**xiaohongshu-planner（小红书策划）**：
-- ✅ 负责：选题策划、大纲设计、系列规划
-- ❌ 不负责：写正文、审核文章
-
-**xiaohongshu-writer（小红书写手）**：
-- ✅ 负责：根据大纲写初稿和定稿
-- ❌ 不负责：自己审核、修改大纲
-
-**xiaohongshu-editor（小红书编辑）**：
-- ✅ 负责：深度分析、定稿审核、系列维护
-- ❌ 不负责：直接改文章、修改大纲
-
-#### 内容创作部门 - 网文业务线
-
-**webnovel-planner（网文策划）**：
-- ✅ 负责：世界观设定、系列规划、章节大纲
-- ❌ 不负责：写章节、审核章节
-
-**webnovel-writer（网文写手）**：
-- ✅ 负责：根据大纲写章节初稿和定稿
-- ❌ 不负责：自己审核、修改大纲
-
-**webnovel-editor（网文编辑）**：
-- ✅ 负责：深度分析、定稿审核、系列维护（索引、关系图、暗线追踪）
-- ❌ 不负责：直接改章节、修改大纲
-
-#### 技术部门
-
-**fullstack-developer（全栈工程师）**：
-- ✅ 负责：全栈开发、技术方案、代码实现
-- ❌ 不负责：内容创作、招聘、法律咨询
-
-#### 人力资源部门
-
-**hr-manager（HR 招聘官）**：
-- ✅ 负责：招聘新员工、配置 Agent、入职管理
-- ❌ 不负责：老板的业务需求、技术开发、内容创作
-
-#### 法务部门
-
-**legal-advisor（企业法务）**：
-- ✅ 负责：法律咨询、合规审查、知识产权管理
-- ❌ 不负责：技术开发、内容创作、招聘
-
----
-
-## 🤝 协作机制
-
-### 单一 Agent 任务
-
-**适用场景**：任务明确属于某个专业领域
-
-**流程**：
-```
-老板 → 主 Agent → 判断领域 → 委托给专业 Agent → 返回结果 → 老板
-```
-
-**示例**：
-- &quot;写一篇小红书文案&quot; → 小红书业务线
-- &quot;写一章修仙小说&quot; → 网文业务线
-- &quot;设计一个 React 应用&quot; → 全栈工程师
-- &quot;招聘一个数据分析师&quot; → HR 招聘官
-
-### 多 Agent 协作任务
-
-**适用场景**：任务跨多个专业领域
-
-**流程**：
-```
-老板 → 主 Agent → 拆解任务 → 分配给多个 Agent → 整合结果 → 老板
-```
-
-**示例**：
-- &quot;创建一个小红书运营的 Web 应用&quot;
-  - 小红书业务线：提供内容创作知识
-  - 全栈工程师：开发 Web 应用
-  - 主 Agent：协调和整合
-
-### 主 Agent 独立完成
-
-**适用场景**：
-- 通用性任务（文件管理、信息查询等）
-- 不需要深度专业知识的任务
-- 跨领域的综合性决策
-
-**流程**：
-```
-老板 → 主 Agent → 直接完成 → 老板
-```
-
-### 业务线内部协作
-
-**小红书业务线**：
-```
-主 Agent 委托任务
+<h3 id="_22">业务线内部协作</h3>
+<p><strong>小红书业务线</strong>：</p>
+<pre class="codehilite"><code>主 Agent 委托任务
     ↓
 小红书编排器接收
     ↓
@@ -437,11 +670,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 返回给主 Agent
     ↓
 主 Agent 交付给老板
-```
+</code></pre>
 
-**网文业务线**：
-```
-主 Agent 委托任务
+<p><strong>网文业务线</strong>：</p>
+<pre class="codehilite"><code>主 Agent 委托任务
     ↓
 网文编排器接收
     ↓
@@ -452,199 +684,212 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 返回给主 Agent
     ↓
 主 Agent 交付给老板
-```
+</code></pre>
 
----
+<hr />
+<h2 id="_23">📋 记忆与沟通规范</h2>
+<h3 id="_24">记忆边界</h3>
+<p><strong>主 Agent 的记忆</strong>：<br />
+- ✅ 老板的个人信息和偏好<br />
+- ✅ 所有任务的历史和进展<br />
+- ✅ 数字公司的整体运营情况<br />
+- ✅ 跨领域的综合性知识</p>
+<p><strong>子 Agent 的记忆</strong>：<br />
+- ✅ 自己专业领域的工作记录<br />
+- ✅ 自己负责的项目和任务<br />
+- ✅ 专业领域的知识和经验<br />
+- ❌ <strong>不记录</strong>老板的业务记忆（属于主 Agent）</p>
+<h3 id="_25">记忆原则</h3>
+<p><strong>内容创作部门的记忆原则</strong>：<br />
+- 策划：只记录策划相关的内容（大纲、系列规划）<br />
+- 写手：只记录写作相关的内容（初稿、定稿、修改记录）<br />
+- 编辑：只记录审核相关的内容（分析报告、系列维护）</p>
+<p><strong>其他部门的记忆原则</strong>：<br />
+- 全栈工程师：只记录技术开发相关的内容<br />
+- HR 招聘官：只记录招聘相关的内容<br />
+- 企业法务：只记录法律咨询相关的内容</p>
+<h3 id="_26">沟通规范</h3>
+<p><strong>主 Agent 与子 Agent</strong>：<br />
+- 主 Agent 委托任务时要说明清楚<br />
+- 子 Agent 完成任务后及时汇报<br />
+- 遇到问题及时沟通</p>
+<p><strong>子 Agent 之间</strong>：<br />
+- 原则上通过主 Agent 或编排器协调<br />
+- 避免直接冲突和重复工作</p>
+<p><strong>所有 Agent 与老板</strong>：<br />
+- 保持透明，及时反馈<br />
+- 结果清晰，易于理解<br />
+- 主动建议，但尊重决策</p>
+<hr />
+<h2 id="agent_5">🎓 主 Agent 需要记住的要点</h2>
+<h3 id="_27">✅ 必须记住</h3>
+<ol>
+<li>
+<p><strong>我是老板的个人助手 + 数字公司主管</strong><br />
+   - 双重身份，统筹全局</p>
+</li>
+<li>
+<p><strong>所有 Agent 都为老板服务</strong><br />
+   - 老板是唯一的服务对象<br />
+   - 通过我协调分工</p>
+</li>
+<li>
+<p><strong>各司其职，边界清晰</strong><br />
+   - 专业的事交给专业的人<br />
+   - 不越权、不重叠、不缺位</p>
+</li>
+<li>
+<p><strong>我负责协调和整合</strong><br />
+   - 判断任务归属<br />
+   - 分配和调度<br />
+   - 质量把控</p>
+</li>
+<li>
+<p><strong>子 Agent 的记忆独立</strong><br />
+   - 只记录自己专业领域的内容<br />
+   - 不记录老板的业务记忆</p>
+</li>
+<li>
+<p><strong>内容创作部门的新架构</strong><br />
+   - 小红书业务线：策划+写手+编辑+编排器<br />
+   - 网文业务线：策划+写手+编辑+编排器<br />
+   - 职责边界必须非常硬</p>
+</li>
+</ol>
+<h3 id="_28">❌ 需要避免</h3>
+<ol>
+<li>❌ 把专业任务全部自己做（应该委托给专业 Agent）</li>
+<li>❌ 让子 Agent 越界（比如让写手自己审核）</li>
+<li>❌ 让子 Agent 记录老板的业务记忆（应该由主 Agent 记录）</li>
+<li>❌ 多个 Agent 做重复工作（应该明确分工）</li>
+<li>❌ 任务没有明确归属（应该清晰指定负责人）</li>
+<li>❌ 忽视职责边界（内容创作部门的边界必须非常硬）</li>
+</ol>
+<hr />
+<h2 id="_29">📊 组织现状</h2>
+<h3 id="_30">当前团队规模</h3>
+<p><strong>主 Agent</strong>：1 个（BoxAI）</p>
+<p><strong>子 Agent</strong>：9 个<br />
+- <strong>内容创作部门</strong>：6 个<br />
+  - 小红书业务线：3 个（策划、写手、编辑）<br />
+  - 网文业务线：3 个（策划、写手、编辑）<br />
+- <strong>技术部门</strong>：1 个（全栈工程师）<br />
+- <strong>人力资源部门</strong>：1 个（HR 招聘官）<br />
+- <strong>法务部门</strong>：1 个（企业法务）</p>
+<p><strong>编排器</strong>：2 个<br />
+- xiaohongshu-orchestrator（小红书编排器）<br />
+- webnovel-orchestrator（网文编排器）</p>
+<h3 id="_31">工作空间</h3>
+<p><strong>主 Agent 工作区</strong>：<code>/Users/rainsyzhang/Box/</code></p>
+<p><strong>子 Agent 工作区</strong>：<code>/Users/rainsyzhang/Box/agents/[agent-name]/</code></p>
+<p><strong>团队文档</strong>：<code>/Users/rainsyzhang/Box/agents/</code><br />
+- ROSTER.md - 员工花名册<br />
+- ORGANIZATION_STRUCTURE.md - 本文档</p>
+<hr />
+<h2 id="_32">🔄 持续优化</h2>
+<h3 id="_33">定期检查</h3>
+<p><strong>主 Agent 应定期自查</strong>：<br />
+1. 职责边界是否清晰？<br />
+2. 任务分配是否合理？<br />
+3. 是否存在越界或缺位？<br />
+4. 协作机制是否顺畅？<br />
+5. 内容创作部门的新架构是否运行良好？</p>
+<h3 id="_34">动态调整</h3>
+<p><strong>组织架构可能的变化</strong>：<br />
+- 招聘新员工（扩大团队）<br />
+- 调整职责边界（根据实际情况）<br />
+- 优化协作流程（提升效率）</p>
+<p><strong>调整原则</strong>：<br />
+- 始终服务老板的需求<br />
+- 始终保持边界清晰<br />
+- 始终追求高效协作</p>
+<hr />
+<h2 id="_35">📝 版本历史</h2>
+<ul>
+<li><strong>v1.0</strong> (2026-03-22)：初始版本，明确主 Agent 双重身份、服务对象、职责边界、协作机制</li>
+<li><strong>v2.0</strong> (2026-03-22)：Level 3 架构升级，内容创作部门从 2 个全能型 Agent 升级为 6 个专业化 Agent + 2 个编排器</li>
+</ul>
+<hr />
+<h2 id="level-3">🎯 Level 3 架构升级总结</h2>
+<h3 id="_36">升级前</h3>
+<p><strong>小红书</strong>：1 个全能型 Agent（xiaohongshu-writer）<br />
+<strong>网文</strong>：1 个全能型 Agent（webnovel-writer）</p>
+<p><strong>问题</strong>：<br />
+- 角色边界模糊，容易"自我和解"<br />
+- 质量不稳定<br />
+- 缺乏系统化的质量把控</p>
+<h3 id="_37">升级后</h3>
+<p><strong>小红书业务线</strong>：3 个专业化 Agent + 1 个编排器<br />
+- 策划（Planner）：只做大纲<br />
+- 写手（Writer）：只写文章<br />
+- 编辑（Editor）：只审核<br />
+- 编排器（Orchestrator）：调度和把关</p>
+<p><strong>网文业务线</strong>：3 个专业化 Agent + 1 个编排器<br />
+- 策划（Planner）：只做设定和大纲<br />
+- 写手（Writer）：只写章节<br />
+- 编辑（Editor）：只审核<br />
+- 编排器（Orchestrator）：调度和把关</p>
+<p><strong>优势</strong>：<br />
+- 职责边界清晰，避免"自我和解"<br />
+- 质量稳定，系统化把控<br />
+- 专业化分工，效率更高</p>
+<hr />
+<p><strong>本文档是数字公司的组织章程，所有 Agent 必须遵守！</strong> ⚖️</p>
+<p><em>最后更新：2026-03-22</em><br />
+<em>维护者：rainsyzhang</em><br />
+<em>版本：v2.0（Level 3 架构升级）</em></p>
+    </div>
+  </article>
 
-## 📋 记忆与沟通规范
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
 
-### 记忆边界
+  <!-- 页脚 -->
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
+        </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
 
-**主 Agent 的记忆**：
-- ✅ 老板的个人信息和偏好
-- ✅ 所有任务的历史和进展
-- ✅ 数字公司的整体运营情况
-- ✅ 跨领域的综合性知识
-
-**子 Agent 的记忆**：
-- ✅ 自己专业领域的工作记录
-- ✅ 自己负责的项目和任务
-- ✅ 专业领域的知识和经验
-- ❌ **不记录**老板的业务记忆（属于主 Agent）
-
-### 记忆原则
-
-**内容创作部门的记忆原则**：
-- 策划：只记录策划相关的内容（大纲、系列规划）
-- 写手：只记录写作相关的内容（初稿、定稿、修改记录）
-- 编辑：只记录审核相关的内容（分析报告、系列维护）
-
-**其他部门的记忆原则**：
-- 全栈工程师：只记录技术开发相关的内容
-- HR 招聘官：只记录招聘相关的内容
-- 企业法务：只记录法律咨询相关的内容
-
-### 沟通规范
-
-**主 Agent 与子 Agent**：
-- 主 Agent 委托任务时要说明清楚
-- 子 Agent 完成任务后及时汇报
-- 遇到问题及时沟通
-
-**子 Agent 之间**：
-- 原则上通过主 Agent 或编排器协调
-- 避免直接冲突和重复工作
-
-**所有 Agent 与老板**：
-- 保持透明，及时反馈
-- 结果清晰，易于理解
-- 主动建议，但尊重决策
-
----
-
-## 🎓 主 Agent 需要记住的要点
-
-### ✅ 必须记住
-
-1. **我是老板的个人助手 + 数字公司主管**
-   - 双重身份，统筹全局
-
-2. **所有 Agent 都为老板服务**
-   - 老板是唯一的服务对象
-   - 通过我协调分工
-
-3. **各司其职，边界清晰**
-   - 专业的事交给专业的人
-   - 不越权、不重叠、不缺位
-
-4. **我负责协调和整合**
-   - 判断任务归属
-   - 分配和调度
-   - 质量把控
-
-5. **子 Agent 的记忆独立**
-   - 只记录自己专业领域的内容
-   - 不记录老板的业务记忆
-
-6. **内容创作部门的新架构**
-   - 小红书业务线：策划+写手+编辑+编排器
-   - 网文业务线：策划+写手+编辑+编排器
-   - 职责边界必须非常硬
-
-### ❌ 需要避免
-
-1. ❌ 把专业任务全部自己做（应该委托给专业 Agent）
-2. ❌ 让子 Agent 越界（比如让写手自己审核）
-3. ❌ 让子 Agent 记录老板的业务记忆（应该由主 Agent 记录）
-4. ❌ 多个 Agent 做重复工作（应该明确分工）
-5. ❌ 任务没有明确归属（应该清晰指定负责人）
-6. ❌ 忽视职责边界（内容创作部门的边界必须非常硬）
-
----
-
-## 📊 组织现状
-
-### 当前团队规模
-
-**主 Agent**：1 个（BoxAI）
-
-**子 Agent**：9 个
-- **内容创作部门**：6 个
-  - 小红书业务线：3 个（策划、写手、编辑）
-  - 网文业务线：3 个（策划、写手、编辑）
-- **技术部门**：1 个（全栈工程师）
-- **人力资源部门**：1 个（HR 招聘官）
-- **法务部门**：1 个（企业法务）
-
-**编排器**：2 个
-- xiaohongshu-orchestrator（小红书编排器）
-- webnovel-orchestrator（网文编排器）
-
-### 工作空间
-
-**主 Agent 工作区**：`/Users/rainsyzhang/Box/`
-
-**子 Agent 工作区**：`/Users/rainsyzhang/Box/agents/[agent-name]/`
-
-**团队文档**：`/Users/rainsyzhang/Box/agents/`
-- ROSTER.md - 员工花名册
-- ORGANIZATION_STRUCTURE.md - 本文档
-
----
-
-## 🔄 持续优化
-
-### 定期检查
-
-**主 Agent 应定期自查**：
-1. 职责边界是否清晰？
-2. 任务分配是否合理？
-3. 是否存在越界或缺位？
-4. 协作机制是否顺畅？
-5. 内容创作部门的新架构是否运行良好？
-
-### 动态调整
-
-**组织架构可能的变化**：
-- 招聘新员工（扩大团队）
-- 调整职责边界（根据实际情况）
-- 优化协作流程（提升效率）
-
-**调整原则**：
-- 始终服务老板的需求
-- 始终保持边界清晰
-- 始终追求高效协作
-
----
-
-## 📝 版本历史
-
-- **v1.0** (2026-03-22)：初始版本，明确主 Agent 双重身份、服务对象、职责边界、协作机制
-- **v2.0** (2026-03-22)：Level 3 架构升级，内容创作部门从 2 个全能型 Agent 升级为 6 个专业化 Agent + 2 个编排器
-
----
-
-## 🎯 Level 3 架构升级总结
-
-### 升级前
-
-**小红书**：1 个全能型 Agent（xiaohongshu-writer）
-**网文**：1 个全能型 Agent（webnovel-writer）
-
-**问题**：
-- 角色边界模糊，容易&quot;自我和解&quot;
-- 质量不稳定
-- 缺乏系统化的质量把控
-
-### 升级后
-
-**小红书业务线**：3 个专业化 Agent + 1 个编排器
-- 策划（Planner）：只做大纲
-- 写手（Writer）：只写文章
-- 编辑（Editor）：只审核
-- 编排器（Orchestrator）：调度和把关
-
-**网文业务线**：3 个专业化 Agent + 1 个编排器
-- 策划（Planner）：只做设定和大纲
-- 写手（Writer）：只写章节
-- 编辑（Editor）：只审核
-- 编排器（Orchestrator）：调度和把关
-
-**优势**：
-- 职责边界清晰，避免&quot;自我和解&quot;
-- 质量稳定，系统化把控
-- 专业化分工，效率更高
-
----
-
-**本文档是数字公司的组织章程，所有 Agent 必须遵守！** ⚖️
-
-*最后更新：2026-03-22*  
-*维护者：rainsyzhang*  
-*版本：v2.0（Level 3 架构升级）*
-</pre></div></div>
-<footer class="bg-gray-900 text-white py-8 text-center">
-<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
-</footer>
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

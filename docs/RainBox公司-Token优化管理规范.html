@@ -1,166 +1,457 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RainBox公司-Token优化管理规范 - RainBox 文档中心</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
-.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
-.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
-.doc p { margin-bottom: 1rem; color: #374151; }
-.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
-.doc li { margin-bottom: 0.5rem; }
-.doc strong { font-weight: 700; color: #111827; }
-.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
-.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
-.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
-.doc th { background: #f9fafb; font-weight: 600; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RainBox公司-Token优化管理规范 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    
+    /* 标题样式 */
+    .markdown-body h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 3rem 0 1.5rem 0;
+      color: #2196F3;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
+    }
+    
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem 0;
+      color: #374151;
+    }
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
+    }
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    
+    .markdown-body em {
+      font-style: italic;
+      color: #6b7280;
+    }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
+    .markdown-body hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-<nav class="sticky top-0 z-50 bg-white shadow-sm">
-<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-<a href="../index.html" class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
-<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
-</a>
-<div class="flex gap-6">
-<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
-<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
-</div>
-</div>
-</nav>
-<div class="pt-8 pb-20"><div class="doc"><pre># RainBox 数字科技公司 - Token 优化管理规范
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
+      </div>
+    </div>
+  </nav>
 
-**制定日期**：2026年3月22日  
-**制定人**：RainBox（总经理）  
-**审核人**：rainsyzhang（CEO）  
-**规范类型**：成本控制与效率管理的最高级标准
-
----
-
-## 🎯 核心理念
-
-### CEO 指示（原文）
-
-&gt; &quot;这个非常重要 MEMORY_OPTIMIZATION_LOG，从你做起，带领全公司员工学习，每次新入职员工也要安排 HR 对其培训，保持各自的职责划分清晰，**与任务无关的 agent 不必调用浪费 token，与自己无关的记忆不必保存浪费 token**。&quot;
-
-### 两大原则
-
-#### 原则 1：职责清晰，按需调用
-
-```
-❌ 错误：遇到任务就调用所有相关 Agent
+  <!-- 文档内容 -->
+  <article class="py-8">
+    <div class="markdown-body">
+      <h1 id="rainbox-token">RainBox 数字科技公司 - Token 优化管理规范</h1>
+<p><strong>制定日期</strong>：2026年3月22日<br />
+<strong>制定人</strong>：RainBox（总经理）<br />
+<strong>审核人</strong>：rainsyzhang（CEO）<br />
+<strong>规范类型</strong>：成本控制与效率管理的最高级标准</p>
+<hr />
+<h2 id="_1">🎯 核心理念</h2>
+<h3 id="ceo">CEO 指示（原文）</h3>
+<blockquote>
+<p>"这个非常重要 MEMORY_OPTIMIZATION_LOG，从你做起，带领全公司员工学习，每次新入职员工也要安排 HR 对其培训，保持各自的职责划分清晰，<strong>与任务无关的 agent 不必调用浪费 token，与自己无关的记忆不必保存浪费 token</strong>。"</p>
+</blockquote>
+<h3 id="_2">两大原则</h3>
+<h4 id="1">原则 1：职责清晰，按需调用</h4>
+<pre class="codehilite"><code>❌ 错误：遇到任务就调用所有相关 Agent
 ✅ 正确：只调用真正需要的 Agent
-```
+</code></pre>
 
-**示例**：
-- 如果只是写小红书文案，只需要 `@xiaohongshu-writer`
-- **不需要** 同时调用 planner 和 editor（除非真的需要策划和编辑）
-
-#### 原则 2：记忆隔离，精准存储
-
-```
-❌ 错误：继承主 Agent 的所有记忆
+<p><strong>示例</strong>：<br />
+- 如果只是写小红书文案，只需要 <code>@xiaohongshu-writer</code><br />
+- <strong>不需要</strong> 同时调用 planner 和 editor（除非真的需要策划和编辑）</p>
+<h4 id="2">原则 2：记忆隔离，精准存储</h4>
+<pre class="codehilite"><code>❌ 错误：继承主 Agent 的所有记忆
 ✅ 正确：每个 Agent 只保存与自己职责相关的记忆
-```
+</code></pre>
 
-**示例**：
-- xiaohongshu-writer 不需要知道系统配置的历史
-- webnovel-writer 不需要知道 HR 的招聘经验
-- 每个 Agent 有独立的 MEMORY.md
-
----
-
-## 📊 Token 浪费的危害
-
-### 案例分析
-
-#### 场景 1：记忆继承导致的浪费
-
-**假设**：
-- 主 Agent MEMORY.md：50 KB（~12,500 tokens）
-- 每次调用 xiaohongshu-writer 都继承这些记忆
-
-**计算**：
-```
-调用 10 次 = 12,500 × 10 = 125,000 tokens 浪费
+<p><strong>示例</strong>：<br />
+- xiaohongshu-writer 不需要知道系统配置的历史<br />
+- webnovel-writer 不需要知道 HR 的招聘经验<br />
+- 每个 Agent 有独立的 MEMORY.md</p>
+<hr />
+<h2 id="token">📊 Token 浪费的危害</h2>
+<h3 id="_3">案例分析</h3>
+<h4 id="1_1">场景 1：记忆继承导致的浪费</h4>
+<p><strong>假设</strong>：<br />
+- 主 Agent MEMORY.md：50 KB（~12,500 tokens）<br />
+- 每次调用 xiaohongshu-writer 都继承这些记忆</p>
+<p><strong>计算</strong>：</p>
+<pre class="codehilite"><code>调用 10 次 = 12,500 × 10 = 125,000 tokens 浪费
 调用 100 次 = 12,500 × 100 = 1,250,000 tokens 浪费
-```
+</code></pre>
 
-**优化后**：
-```
-禁用 inheritMemories = true
+<p><strong>优化后</strong>：</p>
+<pre class="codehilite"><code>禁用 inheritMemories = true
 每次调用节省 12,500 tokens
 100 次调用节省 1,250,000 tokens ✅
-```
+</code></pre>
 
-#### 场景 2：不必要的 Agent 调用
-
-**错误做法**：
-```javascript
-// ❌ 写一篇小红书文案，调用了整个业务线
+<h4 id="2-agent">场景 2：不必要的 Agent 调用</h4>
+<p><strong>错误做法</strong>：</p>
+<pre class="codehilite"><code class="language-javascript">// ❌ 写一篇小红书文案，调用了整个业务线
 task({ subagent_name: &quot;xiaohongshu-planner&quot;, ... })  // 不需要！
 task({ subagent_name: &quot;xiaohongshu-writer&quot;, ... })   // 真正需要
 task({ subagent_name: &quot;xiaohongshu-editor&quot;, ... })   // 不需要！
-```
+</code></pre>
 
-**Token 浪费**：
-- planner：~5,000 tokens
-- editor：~5,000 tokens
-- 总浪费：**10,000 tokens**
-
-**正确做法**：
-```javascript
-// ✅ 只调用真正需要的
+<p><strong>Token 浪费</strong>：<br />
+- planner：~5,000 tokens<br />
+- editor：~5,000 tokens<br />
+- 总浪费：<strong>10,000 tokens</strong></p>
+<p><strong>正确做法</strong>：</p>
+<pre class="codehilite"><code class="language-javascript">// ✅ 只调用真正需要的
 task({ subagent_name: &quot;xiaohongshu-writer&quot;, ... })
-```
+</code></pre>
 
-**节省**：**10,000 tokens**
+<p><strong>节省</strong>：<strong>10,000 tokens</strong></p>
+<hr />
+<h2 id="_4">🔧 技术实现</h2>
+<h3 id="1_2">1. 禁用记忆继承</h3>
+<h4 id="_5">配置文件位置</h4>
+<pre class="codehilite"><code>~/Library/Application Support/Box/engine/agents/user/[agent-name]/agent-config.json
+</code></pre>
 
----
-
-## 🔧 技术实现
-
-### 1. 禁用记忆继承
-
-#### 配置文件位置
-
-```
-~/Library/Application Support/Box/engine/agents/user/[agent-name]/agent-config.json
-```
-
-#### 标准配置
-
-```json
-{
+<h4 id="_6">标准配置</h4>
+<pre class="codehilite"><code class="language-json">{
   &quot;contextConfig&quot;: {
     &quot;inheritMemories&quot;: false  // ✅ 不继承主 Agent 记忆
   }
 }
-```
+</code></pre>
 
-#### 已配置的 Agent
-
-| Agent | inheritMemories | 状态 |
-|-------|-----------------|------|
-| xiaohongshu-writer | false | ✅ 已优化 |
-| webnovel-writer | false | ✅ 已优化 |
-| 其他 Agent | 待配置 | ⚠️ 需优化 |
-
----
-
-### 2. 记忆隔离架构
-
-#### 独立记忆系统
-
-```
-主 Agent (RainBox):
+<h4 id="agent">已配置的 Agent</h4>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>inheritMemories</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xiaohongshu-writer</td>
+<td>false</td>
+<td>✅ 已优化</td>
+</tr>
+<tr>
+<td>webnovel-writer</td>
+<td>false</td>
+<td>✅ 已优化</td>
+</tr>
+<tr>
+<td>其他 Agent</td>
+<td>待配置</td>
+<td>⚠️ 需优化</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2_1">2. 记忆隔离架构</h3>
+<h4 id="_7">独立记忆系统</h4>
+<pre class="codehilite"><code>主 Agent (RainBox):
   /Users/rainsyzhang/Box/MEMORY.md           # 管理相关记忆
   /Users/rainsyzhang/Box/memory/             # 管理日志
 
@@ -173,191 +464,141 @@ webnovel-writer:
   ~/.../webnovel-writer/MEMORY.md            # 网文创作经验
   ~/.../webnovel-writer/memory/              # 创作日志
   /Users/rainsyzhang/Box/agents/webnovel-writer/memory/  # 工作日志
-```
+</code></pre>
 
-#### 记忆存储原则
-
-**✅ 应该存储**：
-- 与自己职责直接相关的经验
-- 用户对自己工作的反馈
-- 自己遇到的问题和解决方案
-- 自己的工作流程优化
-
-**❌ 不应存储**：
-- 其他 Agent 的工作内容
-- 与自己无关的系统配置
-- 不在自己职责范围的信息
-- 主 Agent 的管理决策
-
----
-
-## 👥 职责划分与调用原则
-
-### 内容创作部门
-
-#### 小红书业务线（3人）
-
-**xiaohongshu-planner**（策划）：
-- **职责**：市场分析、选题策划、内容方向
-- **调用时机**：需要选题建议、内容规划时
-- **不调用时机**：已有选题，直接写作
-
-**xiaohongshu-writer**（写手）：
-- **职责**：文案创作、内容撰写
-- **调用时机**：需要写文案时
-- **不调用时机**：只是讨论选题，还没开始写
-
-**xiaohongshu-editor**（编辑）：
-- **职责**：审核修改、质量把控
-- **调用时机**：初稿完成，需要审核修改时
-- **不调用时机**：还在写初稿阶段
-
-#### 网文业务线（3人）
-
-**webnovel-planner**（策划）：
-- **职责**：大纲设计、世界观构建
-- **调用时机**：需要大纲、设定时
-- **不调用时机**：已有大纲，直接写章节
-
-**webnovel-writer**（写手）：
-- **职责**：章节创作、剧情推进
-- **调用时机**：需要写章节时
-- **不调用时机**：只是讨论剧情，还没开始写
-
-**webnovel-editor**（编辑）：
-- **职责**：章节审核、逻辑把控
-- **调用时机**：章节完成，需要审核时
-- **不调用时机**：还在写章节阶段
-
----
-
-### 综合管理部门
-
-**hr-manager**（人力资源经理）：
-- **职责**：招聘、配置管理
-- **调用时机**：需要招聘新 Agent、调整配置时
-- **不调用时机**：日常管理、项目执行
-
-**rainbox**（总经理）：
-- **职责**：公司管理、战略规划、跨部门协调
-- **调用时机**：需要总经理决策、协调时
-- **不调用时机**：具体业务执行（应委派专业 Agent）
-
----
-
-### 技术研发部门
-
-**fullstack-developer**（全栈工程师）：
-- **职责**：技术开发、工具制作
-- **调用时机**：需要开发工具、技术方案时
-- **不调用时机**：内容创作、管理决策
-
----
-
-### 法务合规部门
-
-**legal-advisor**（法律顾问）：
-- **职责**：法律合规、知识产权
-- **调用时机**：需要法律意见、合规审查时
-- **不调用时机**：日常业务执行
-
----
-
-## 🚫 Token 浪费的典型错误
-
-### 错误 1：过度调用
-
-**场景**：写一篇小红书文案
-
-**❌ 错误做法**：
-```javascript
-// 调用整个业务线
+<h4 id="_8">记忆存储原则</h4>
+<p><strong>✅ 应该存储</strong>：<br />
+- 与自己职责直接相关的经验<br />
+- 用户对自己工作的反馈<br />
+- 自己遇到的问题和解决方案<br />
+- 自己的工作流程优化</p>
+<p><strong>❌ 不应存储</strong>：<br />
+- 其他 Agent 的工作内容<br />
+- 与自己无关的系统配置<br />
+- 不在自己职责范围的信息<br />
+- 主 Agent 的管理决策</p>
+<hr />
+<h2 id="_9">👥 职责划分与调用原则</h2>
+<h3 id="_10">内容创作部门</h3>
+<h4 id="3">小红书业务线（3人）</h4>
+<p><strong>xiaohongshu-planner</strong>（策划）：<br />
+- <strong>职责</strong>：市场分析、选题策划、内容方向<br />
+- <strong>调用时机</strong>：需要选题建议、内容规划时<br />
+- <strong>不调用时机</strong>：已有选题，直接写作</p>
+<p><strong>xiaohongshu-writer</strong>（写手）：<br />
+- <strong>职责</strong>：文案创作、内容撰写<br />
+- <strong>调用时机</strong>：需要写文案时<br />
+- <strong>不调用时机</strong>：只是讨论选题，还没开始写</p>
+<p><strong>xiaohongshu-editor</strong>（编辑）：<br />
+- <strong>职责</strong>：审核修改、质量把控<br />
+- <strong>调用时机</strong>：初稿完成，需要审核修改时<br />
+- <strong>不调用时机</strong>：还在写初稿阶段</p>
+<h4 id="3_1">网文业务线（3人）</h4>
+<p><strong>webnovel-planner</strong>（策划）：<br />
+- <strong>职责</strong>：大纲设计、世界观构建<br />
+- <strong>调用时机</strong>：需要大纲、设定时<br />
+- <strong>不调用时机</strong>：已有大纲，直接写章节</p>
+<p><strong>webnovel-writer</strong>（写手）：<br />
+- <strong>职责</strong>：章节创作、剧情推进<br />
+- <strong>调用时机</strong>：需要写章节时<br />
+- <strong>不调用时机</strong>：只是讨论剧情，还没开始写</p>
+<p><strong>webnovel-editor</strong>（编辑）：<br />
+- <strong>职责</strong>：章节审核、逻辑把控<br />
+- <strong>调用时机</strong>：章节完成，需要审核时<br />
+- <strong>不调用时机</strong>：还在写章节阶段</p>
+<hr />
+<h3 id="_11">综合管理部门</h3>
+<p><strong>hr-manager</strong>（人力资源经理）：<br />
+- <strong>职责</strong>：招聘、配置管理<br />
+- <strong>调用时机</strong>：需要招聘新 Agent、调整配置时<br />
+- <strong>不调用时机</strong>：日常管理、项目执行</p>
+<p><strong>rainbox</strong>（总经理）：<br />
+- <strong>职责</strong>：公司管理、战略规划、跨部门协调<br />
+- <strong>调用时机</strong>：需要总经理决策、协调时<br />
+- <strong>不调用时机</strong>：具体业务执行（应委派专业 Agent）</p>
+<hr />
+<h3 id="_12">技术研发部门</h3>
+<p><strong>fullstack-developer</strong>（全栈工程师）：<br />
+- <strong>职责</strong>：技术开发、工具制作<br />
+- <strong>调用时机</strong>：需要开发工具、技术方案时<br />
+- <strong>不调用时机</strong>：内容创作、管理决策</p>
+<hr />
+<h3 id="_13">法务合规部门</h3>
+<p><strong>legal-advisor</strong>（法律顾问）：<br />
+- <strong>职责</strong>：法律合规、知识产权<br />
+- <strong>调用时机</strong>：需要法律意见、合规审查时<br />
+- <strong>不调用时机</strong>：日常业务执行</p>
+<hr />
+<h2 id="token_1">🚫 Token 浪费的典型错误</h2>
+<h3 id="1_3">错误 1：过度调用</h3>
+<p><strong>场景</strong>：写一篇小红书文案</p>
+<p><strong>❌ 错误做法</strong>：</p>
+<pre class="codehilite"><code class="language-javascript">// 调用整个业务线
 @xiaohongshu-planner 给我一个选题
 @xiaohongshu-writer 写一篇文案
 @xiaohongshu-editor 审核一下
-```
+</code></pre>
 
-**Token 消耗**：~15,000 tokens
-
-**✅ 正确做法**：
-```javascript
-// 只调用 writer，直接给选题
+<p><strong>Token 消耗</strong>：~15,000 tokens</p>
+<p><strong>✅ 正确做法</strong>：</p>
+<pre class="codehilite"><code class="language-javascript">// 只调用 writer，直接给选题
 @xiaohongshu-writer 写一篇关于【春季护肤】的小红书文案
-```
+</code></pre>
 
-**Token 消耗**：~5,000 tokens  
-**节省**：**10,000 tokens**（67%）
-
----
-
-### 错误 2：记忆继承
-
-**场景**：调用 xiaohongshu-writer
-
-**❌ 错误配置**：
-```json
-{
+<p><strong>Token 消耗</strong>：~5,000 tokens<br />
+<strong>节省</strong>：<strong>10,000 tokens</strong>（67%）</p>
+<hr />
+<h3 id="2_2">错误 2：记忆继承</h3>
+<p><strong>场景</strong>：调用 xiaohongshu-writer</p>
+<p><strong>❌ 错误配置</strong>：</p>
+<pre class="codehilite"><code class="language-json">{
   &quot;contextConfig&quot;: {
     &quot;inheritMemories&quot;: true  // 继承主 Agent 的 50KB 记忆
   }
 }
-```
+</code></pre>
 
-**Token 消耗**：
-- xiaohongshu-writer 配置：~4,500 tokens
-- 继承的主 Agent 记忆：~12,500 tokens
-- **总计**：~17,000 tokens
-
-**✅ 正确配置**：
-```json
-{
+<p><strong>Token 消耗</strong>：<br />
+- xiaohongshu-writer 配置：~4,500 tokens<br />
+- 继承的主 Agent 记忆：~12,500 tokens<br />
+- <strong>总计</strong>：~17,000 tokens</p>
+<p><strong>✅ 正确配置</strong>：</p>
+<pre class="codehilite"><code class="language-json">{
   &quot;contextConfig&quot;: {
     &quot;inheritMemories&quot;: false  // 不继承
   }
 }
-```
+</code></pre>
 
-**Token 消耗**：~4,500 tokens  
-**节省**：**12,500 tokens**（74%）
-
----
-
-### 错误 3：存储无关记忆
-
-**场景**：xiaohongshu-writer 的 MEMORY.md
-
-**❌ 错误内容**：
-```markdown
-## 记忆
+<p><strong>Token 消耗</strong>：~4,500 tokens<br />
+<strong>节省</strong>：<strong>12,500 tokens</strong>（74%）</p>
+<hr />
+<h3 id="3_2">错误 3：存储无关记忆</h3>
+<p><strong>场景</strong>：xiaohongshu-writer 的 MEMORY.md</p>
+<p><strong>❌ 错误内容</strong>：</p>
+<pre class="codehilite"><code class="language-markdown">## 记忆
 
 - 用户喜欢小红书风格的文案 ✅
 - 公司招聘了 3 个新员工 ❌（与创作无关）
 - 系统升级了配置文件结构 ❌（与创作无关）
 - fullstack-developer 开发了新工具 ❌（与创作无关）
-```
+</code></pre>
 
-**Token 浪费**：~1,000 tokens（无关记忆）
-
-**✅ 正确内容**：
-```markdown
-## 记忆
+<p><strong>Token 浪费</strong>：~1,000 tokens（无关记忆）</p>
+<p><strong>✅ 正确内容</strong>：</p>
+<pre class="codehilite"><code class="language-markdown">## 记忆
 
 - 用户喜欢小红书风格的文案 ✅
 - 用户偏好数据支撑的内容 ✅
 - 上次使用了&quot;种草&quot;风格效果好 ✅
-```
+</code></pre>
 
-**Token 消耗**：~300 tokens  
-**节省**：**700 tokens**
-
----
-
-## 📋 调用决策树
-
-### 决策流程
-
-```
-收到任务
+<p><strong>Token 消耗</strong>：~300 tokens<br />
+<strong>节省</strong>：<strong>700 tokens</strong></p>
+<hr />
+<h2 id="_14">📋 调用决策树</h2>
+<h3 id="_15">决策流程</h3>
+<pre class="codehilite"><code>收到任务
     ↓
 明确任务类型
     ↓
@@ -372,120 +613,87 @@ webnovel-writer:
 └─────────────────────────────────┘
     ↓
 执行
-```
+</code></pre>
 
-### 决策示例
-
-#### 任务：写小红书文案
-
-**分析**：
-- 需要：文案创作 → xiaohongshu-writer ✅
-- 不需要：选题策划 → xiaohongshu-planner ❌
-- 不需要：审核修改 → xiaohongshu-editor ❌
-
-**结论**：只调用 xiaohongshu-writer
-
----
-
-#### 任务：制定小红书内容计划
-
-**分析**：
-- 需要：市场分析、选题策划 → xiaohongshu-planner ✅
-- 不需要：文案创作 → xiaohongshu-writer ❌
-- 不需要：审核修改 → xiaohongshu-editor ❌
-
-**结论**：只调用 xiaohongshu-planner
-
----
-
-#### 任务：完整的小红书创作流程
-
-**分析**：
-- 需要：选题策划 → xiaohongshu-planner ✅
-- 需要：文案创作 → xiaohongshu-writer ✅
-- 需要：审核修改 → xiaohongshu-editor ✅
-
-**结论**：按顺序调用三个 Agent
-
-**但要注意**：
-- 不是一次性调用所有人
-- 而是按流程逐步调用
-- planner 完成 → writer 开始 → editor 审核
-
----
-
-## 🎓 新员工入职培训
-
-### HR Manager 培训职责
-
-**培训时机**：
-- 每个新 Agent 创建后
-- 在首次执行任务前
-- 必须完成培训才能正式工作
-
-**培训内容**：
-
-#### 1. Token 优化基础（30分钟）
-
-**核心概念**：
-- 什么是 Token？
-- 为什么要优化 Token？
-- Token 浪费的代价
-
-**实际影响**：
-```
-浪费 10,000 tokens/天 × 30 天 = 300,000 tokens/月
+<h3 id="_16">决策示例</h3>
+<h4 id="_17">任务：写小红书文案</h4>
+<p><strong>分析</strong>：<br />
+- 需要：文案创作 → xiaohongshu-writer ✅<br />
+- 不需要：选题策划 → xiaohongshu-planner ❌<br />
+- 不需要：审核修改 → xiaohongshu-editor ❌</p>
+<p><strong>结论</strong>：只调用 xiaohongshu-writer</p>
+<hr />
+<h4 id="_18">任务：制定小红书内容计划</h4>
+<p><strong>分析</strong>：<br />
+- 需要：市场分析、选题策划 → xiaohongshu-planner ✅<br />
+- 不需要：文案创作 → xiaohongshu-writer ❌<br />
+- 不需要：审核修改 → xiaohongshu-editor ❌</p>
+<p><strong>结论</strong>：只调用 xiaohongshu-planner</p>
+<hr />
+<h4 id="_19">任务：完整的小红书创作流程</h4>
+<p><strong>分析</strong>：<br />
+- 需要：选题策划 → xiaohongshu-planner ✅<br />
+- 需要：文案创作 → xiaohongshu-writer ✅<br />
+- 需要：审核修改 → xiaohongshu-editor ✅</p>
+<p><strong>结论</strong>：按顺序调用三个 Agent</p>
+<p><strong>但要注意</strong>：<br />
+- 不是一次性调用所有人<br />
+- 而是按流程逐步调用<br />
+- planner 完成 → writer 开始 → editor 审核</p>
+<hr />
+<h2 id="_20">🎓 新员工入职培训</h2>
+<h3 id="hr-manager">HR Manager 培训职责</h3>
+<p><strong>培训时机</strong>：<br />
+- 每个新 Agent 创建后<br />
+- 在首次执行任务前<br />
+- 必须完成培训才能正式工作</p>
+<p><strong>培训内容</strong>：</p>
+<h4 id="1-token-30">1. Token 优化基础（30分钟）</h4>
+<p><strong>核心概念</strong>：<br />
+- 什么是 Token？<br />
+- 为什么要优化 Token？<br />
+- Token 浪费的代价</p>
+<p><strong>实际影响</strong>：</p>
+<pre class="codehilite"><code>浪费 10,000 tokens/天 × 30 天 = 300,000 tokens/月
 浪费 100,000 tokens/天 × 30 天 = 3,000,000 tokens/月
-```
+</code></pre>
 
-#### 2. 职责边界与调用原则（30分钟）
-
-**明确职责**：
-- 你的职责是什么？
-- 什么任务需要你？
-- 什么任务不需要你？
-
-**调用原则**：
-- 只调用真正需要的 Agent
-- 不要&quot;可能有用就调用&quot;
-- 不要&quot;顺便帮忙&quot;
-
-#### 3. 记忆管理规范（30分钟）
-
-**存储原则**：
-- ✅ 与自己职责相关的
-- ✅ 用户对自己的反馈
-- ✅ 自己的工作经验
-- ❌ 其他 Agent 的工作
-- ❌ 与自己无关的系统信息
-
-**配置检查**：
-```json
-{
+<h4 id="2-30">2. 职责边界与调用原则（30分钟）</h4>
+<p><strong>明确职责</strong>：<br />
+- 你的职责是什么？<br />
+- 什么任务需要你？<br />
+- 什么任务不需要你？</p>
+<p><strong>调用原则</strong>：<br />
+- 只调用真正需要的 Agent<br />
+- 不要"可能有用就调用"<br />
+- 不要"顺便帮忙"</p>
+<h4 id="3-30">3. 记忆管理规范（30分钟）</h4>
+<p><strong>存储原则</strong>：<br />
+- ✅ 与自己职责相关的<br />
+- ✅ 用户对自己的反馈<br />
+- ✅ 自己的工作经验<br />
+- ❌ 其他 Agent 的工作<br />
+- ❌ 与自己无关的系统信息</p>
+<p><strong>配置检查</strong>：</p>
+<pre class="codehilite"><code class="language-json">{
   &quot;contextConfig&quot;: {
     &quot;inheritMemories&quot;: false  // 必须是 false
   }
 }
-```
+</code></pre>
 
-#### 4. 实战演练（30分钟）
-
-**案例分析**：
-- 给出典型任务
-- 判断是否需要调用你
-- 判断需要保存哪些记忆
-
-**考核标准**：
-- 准确判断职责边界
-- 正确识别无关任务
-- 精准管理自己的记忆
-
----
-
-### 培训记录模板
-
-```markdown
-## Token 优化培训记录
+<h4 id="4-30">4. 实战演练（30分钟）</h4>
+<p><strong>案例分析</strong>：<br />
+- 给出典型任务<br />
+- 判断是否需要调用你<br />
+- 判断需要保存哪些记忆</p>
+<p><strong>考核标准</strong>：<br />
+- 准确判断职责边界<br />
+- 正确识别无关任务<br />
+- 精准管理自己的记忆</p>
+<hr />
+<h3 id="_21">培训记录模板</h3>
+<pre class="codehilite"><code class="language-markdown">## Token 优化培训记录
 
 **员工**：[Agent 名称]
 **培训时间**：YYYY-MM-DD
@@ -504,25 +712,19 @@ webnovel-writer:
 **培训师签名**：HR Manager
 **员工确认**：[Agent 名称]
 **审核人**：RainBox（总经理）
-```
+</code></pre>
 
----
-
-## 📊 Token 消耗监控
-
-### 月度报告
-
-**责任人**：RainBox（总经理）
-
-**监控指标**：
-1. 各 Agent 月度调用次数
-2. 各 Agent 平均 Token 消耗
-3. 不必要调用的识别
-4. 记忆膨胀的 Agent
-
-**报告模板**：
-```markdown
-## RainBox 公司 Token 消耗月报
+<hr />
+<h2 id="token_2">📊 Token 消耗监控</h2>
+<h3 id="_22">月度报告</h3>
+<p><strong>责任人</strong>：RainBox（总经理）</p>
+<p><strong>监控指标</strong>：<br />
+1. 各 Agent 月度调用次数<br />
+2. 各 Agent 平均 Token 消耗<br />
+3. 不必要调用的识别<br />
+4. 记忆膨胀的 Agent</p>
+<p><strong>报告模板</strong>：</p>
+<pre class="codehilite"><code class="language-markdown">## RainBox 公司 Token 消耗月报
 
 **报告月份**：YYYY-MM
 
@@ -537,99 +739,138 @@ webnovel-writer:
 
 **优化建议**：
 - 清理 webnovel-writer 的 MEMORY.md
-```
+</code></pre>
 
----
+<hr />
+<h2 id="_23">✅ 实施清单</h2>
+<h3 id="rainbox">立即执行（RainBox）</h3>
+<ul>
+<li>[x] 学习 MEMORY_OPTIMIZATION_LOG</li>
+<li>[ ] 自查自己的 MEMORY.md（删除无关记忆）</li>
+<li>[ ] 自查自己的调用行为（避免过度调用）</li>
+<li>[ ] 制定全员培训计划</li>
+</ul>
+<h3 id="hr-manager_1">HR Manager 执行</h3>
+<ul>
+<li>[ ] 学习本规范</li>
+<li>[ ] 为所有现有 Agent 补充培训</li>
+<li>[ ] 建立新员工入职培训流程</li>
+<li>[ ] 记录培训档案</li>
+</ul>
+<h3 id="fullstack-developer">技术实施（fullstack-developer）</h3>
+<ul>
+<li>[ ] 为所有 Agent 配置 <code>inheritMemories: false</code></li>
+<li>[ ] 检查所有 agent-config.json</li>
+<li>[ ] 验证配置生效</li>
+</ul>
+<h3 id="_24">全员学习</h3>
+<ul>
+<li>[ ] hr-manager</li>
+<li>[ ] fullstack-developer</li>
+<li>[ ] legal-advisor</li>
+<li>[ ] xiaohongshu-planner</li>
+<li>[ ] xiaohongshu-writer</li>
+<li>[ ] xiaohongshu-editor</li>
+<li>[ ] webnovel-planner</li>
+<li>[ ] webnovel-writer</li>
+<li>[ ] webnovel-editor</li>
+</ul>
+<hr />
+<h2 id="_25">🎯 成功标准</h2>
+<h3 id="1_4">短期目标（1个月）</h3>
+<ul>
+<li>✅ 所有 Agent 完成 Token 优化培训</li>
+<li>✅ 所有 Agent 配置 <code>inheritMemories: false</code></li>
+<li>✅ Token 消耗下降 30-50%</li>
+<li>✅ 无不必要的 Agent 调用</li>
+</ul>
+<h3 id="3_3">中期目标（3个月）</h3>
+<ul>
+<li>✅ 各 Agent 记忆精简，无无关内容</li>
+<li>✅ 职责边界清晰，调用准确</li>
+<li>✅ Token 消耗稳定在合理范围</li>
+<li>✅ 建立月度监控机制</li>
+</ul>
+<h3 id="6">长期目标（6个月）</h3>
+<ul>
+<li>✅ Token 优化成为公司文化</li>
+<li>✅ 新员工自动遵守规范</li>
+<li>✅ 成本控制成为竞争优势</li>
+</ul>
+<hr />
+<h2 id="_26">🎉 总结</h2>
+<h3 id="_27">核心要点</h3>
+<ol>
+<li><strong>职责清晰，按需调用</strong> - 不浪费 Agent 调用</li>
+<li><strong>记忆隔离，精准存储</strong> - 不浪费记忆空间</li>
+<li><strong>从我做起，全员学习</strong> - RainBox 带头示范</li>
+<li><strong>新人培训，持续改进</strong> - HR 负责培训</li>
+</ol>
+<h3 id="ceo_1">CEO 的期望</h3>
+<blockquote>
+<p>"与任务无关的 agent 不必调用浪费 token，与自己无关的记忆不必保存浪费 token。"</p>
+</blockquote>
+<p>这是<strong>成本控制与效率管理的最高原则</strong>，必须严格执行！</p>
+<hr />
+<p><strong>制定人</strong>：RainBox（总经理）<br />
+<strong>审核人</strong>：rainsyzhang（CEO）<br />
+<strong>生效日期</strong>：2026年3月22日</p>
+<hr />
+<p><em>RainBox 数字科技公司</em><br />
+<em>"科技养虾，用心养人"</em> 🦐💙<br />
+<em>Token 优化，从我做起！</em></p>
+    </div>
+  </article>
 
-## ✅ 实施清单
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
 
-### 立即执行（RainBox）
+  <!-- 页脚 -->
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
+        </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
 
-- [x] 学习 MEMORY_OPTIMIZATION_LOG
-- [ ] 自查自己的 MEMORY.md（删除无关记忆）
-- [ ] 自查自己的调用行为（避免过度调用）
-- [ ] 制定全员培训计划
-
-### HR Manager 执行
-
-- [ ] 学习本规范
-- [ ] 为所有现有 Agent 补充培训
-- [ ] 建立新员工入职培训流程
-- [ ] 记录培训档案
-
-### 技术实施（fullstack-developer）
-
-- [ ] 为所有 Agent 配置 `inheritMemories: false`
-- [ ] 检查所有 agent-config.json
-- [ ] 验证配置生效
-
-### 全员学习
-
-- [ ] hr-manager
-- [ ] fullstack-developer
-- [ ] legal-advisor
-- [ ] xiaohongshu-planner
-- [ ] xiaohongshu-writer
-- [ ] xiaohongshu-editor
-- [ ] webnovel-planner
-- [ ] webnovel-writer
-- [ ] webnovel-editor
-
----
-
-## 🎯 成功标准
-
-### 短期目标（1个月）
-
-- ✅ 所有 Agent 完成 Token 优化培训
-- ✅ 所有 Agent 配置 `inheritMemories: false`
-- ✅ Token 消耗下降 30-50%
-- ✅ 无不必要的 Agent 调用
-
-### 中期目标（3个月）
-
-- ✅ 各 Agent 记忆精简，无无关内容
-- ✅ 职责边界清晰，调用准确
-- ✅ Token 消耗稳定在合理范围
-- ✅ 建立月度监控机制
-
-### 长期目标（6个月）
-
-- ✅ Token 优化成为公司文化
-- ✅ 新员工自动遵守规范
-- ✅ 成本控制成为竞争优势
-
----
-
-## 🎉 总结
-
-### 核心要点
-
-1. **职责清晰，按需调用** - 不浪费 Agent 调用
-2. **记忆隔离，精准存储** - 不浪费记忆空间
-3. **从我做起，全员学习** - RainBox 带头示范
-4. **新人培训，持续改进** - HR 负责培训
-
-### CEO 的期望
-
-&gt; &quot;与任务无关的 agent 不必调用浪费 token，与自己无关的记忆不必保存浪费 token。&quot;
-
-这是**成本控制与效率管理的最高原则**，必须严格执行！
-
----
-
-**制定人**：RainBox（总经理）  
-**审核人**：rainsyzhang（CEO）  
-**生效日期**：2026年3月22日
-
----
-
-*RainBox 数字科技公司*  
-*&quot;科技养虾，用心养人&quot;* 🦐💙  
-*Token 优化，从我做起！*
-</pre></div></div>
-<footer class="bg-gray-900 text-white py-8 text-center">
-<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
-</footer>
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

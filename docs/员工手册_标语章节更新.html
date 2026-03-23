@@ -1,241 +1,599 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>员工手册_标语章节更新 - RainBox 文档中心</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
-.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
-.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
-.doc p { margin-bottom: 1rem; color: #374151; }
-.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
-.doc li { margin-bottom: 0.5rem; }
-.doc strong { font-weight: 700; color: #111827; }
-.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
-.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
-.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
-.doc th { background: #f9fafb; font-weight: 600; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>员工手册_标语章节更新 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    
+    /* 标题样式 */
+    .markdown-body h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 3rem 0 1.5rem 0;
+      color: #2196F3;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
+    }
+    
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem 0;
+      color: #374151;
+    }
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
+    }
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    
+    .markdown-body em {
+      font-style: italic;
+      color: #6b7280;
+    }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
+    .markdown-body hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-<nav class="sticky top-0 z-50 bg-white shadow-sm">
-<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-<a href="../index.html" class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
-<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
-</a>
-<div class="flex gap-6">
-<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
-<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
-</div>
-</div>
-</nav>
-<div class="pt-8 pb-20"><div class="doc"><pre># 员工手册 - 标语章节更新
-## 第一章：公司文化与价值观（更新版）
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
+      </div>
+    </div>
+  </nav>
 
----
+  <!-- 文档内容 -->
+  <article class="py-8">
+    <div class="markdown-body">
+      <h1 id="-">员工手册 - 标语章节更新</h1>
+<h2 id="_1">第一章：公司文化与价值观（更新版）</h2>
+<hr />
+<h3 id="_2">📌 更新说明</h3>
+<ul>
+<li><strong>更新日期</strong>: 2026年3月22日</li>
+<li><strong>更新内容</strong>: 新增公司标语章节，更新文化价值观表述</li>
+<li><strong>适用版本</strong>: 员工手册 v3.0 及以后版本</li>
+</ul>
+<hr />
+<h2 id="11">1.1 公司标语</h2>
+<h3 id="_3">🏢 官方标语</h3>
+<blockquote>
+<p><strong>"科技养虾，用心养人"</strong></p>
+</blockquote>
+<p>这是我们的使命宣言，也是每位员工的行动指南。</p>
+<hr />
+<h3 id="_4">📖 标语释义</h3>
+<h4 id="_5"><strong>科技养虾</strong></h4>
+<p>我们致力于用前沿科技革新水产养殖产业：<br />
+- 运用 AI、IoT、大数据等技术提升养殖效率<br />
+- 通过智能化手段保障水产品质量与安全<br />
+- 推动传统产业向数字化、智能化转型<br />
+- 成为水产养殖科技领域的创新引领者</p>
+<h4 id="_6"><strong>用心养人</strong></h4>
+<p>我们像呵护养殖对象一样精心培养每一位员工：<br />
+- <strong>职业成长</strong>：提供系统化培训与清晰的发展路径<br />
+- <strong>工作环境</strong>：营造舒适、高效、创新的工作氛围<br />
+- <strong>福利保障</strong>：提供具有竞争力的薪酬与全面的福利<br />
+- <strong>人文关怀</strong>：关注员工身心健康与工作生活平衡</p>
+<hr />
+<h2 id="12">1.2 核心价值观</h2>
+<p>基于标语精神，公司倡导以下核心价值观：</p>
+<h3 id="_7">🔬 创新驱动</h3>
+<ul>
+<li>持续探索新技术在养殖领域的应用</li>
+<li>鼓励试错，包容失败，奖励创新</li>
+<li>跨部门协作，激发创意碰撞</li>
+</ul>
+<h3 id="_8">🎯 专业卓越</h3>
+<ul>
+<li>深耕水产养殖与科技融合领域</li>
+<li>追求产品与服务的极致品质</li>
+<li>持续学习，保持专业领先性</li>
+</ul>
+<h3 id="_9">💚 以人为本</h3>
+<ul>
+<li>尊重每一位员工的价值与贡献</li>
+<li>关注员工的全面发展与幸福感</li>
+<li>构建开放、包容、有温度的文化</li>
+</ul>
+<h3 id="_10">🤝 协作共赢</h3>
+<ul>
+<li>团队利益高于个人利益</li>
+<li>跨部门高效协同，打破信息孤岛</li>
+<li>与合作伙伴共建生态，实现多方共赢</li>
+</ul>
+<h3 id="_11">🌱 可持续发展</h3>
+<ul>
+<li>关注环境保护与资源可持续利用</li>
+<li>推动产业健康发展，承担社会责任</li>
+<li>为员工创造长期稳定的职业发展平台</li>
+</ul>
+<hr />
+<h2 id="13">1.3 标语在工作中的体现</h2>
+<h3 id="_12">对员工的期望</h3>
+<h4 id="_13">践行"科技养虾"：</h4>
+<ul>
+<li>✅ 积极学习新技术，提升专业能力</li>
+<li>✅ 在工作中寻找创新优化的机会</li>
+<li>✅ 关注行业动态，保持技术敏感度</li>
+<li>✅ 将科技思维融入日常工作流程</li>
+</ul>
+<h4 id="_14">践行"用心养人"：</h4>
+<ul>
+<li>✅ 尊重同事，积极协作</li>
+<li>✅ 主动分享知识与经验</li>
+<li>✅ 关心团队成员的成长与困难</li>
+<li>✅ 营造积极向上的团队氛围</li>
+</ul>
+<h3 id="_15">公司对员工的承诺</h3>
+<h4 id="_16">基于"用心养人"，公司承诺：</h4>
+<p><strong>1. 职业发展支持</strong><br />
+- 每年至少 40 小时的带薪培训时间<br />
+- 个性化职业发展规划（IDP）<br />
+- 内部晋升优先政策<br />
+- 导师制与技能传承计划</p>
+<p><strong>2. 工作环境保障</strong><br />
+- 符合人体工学的办公设备<br />
+- 灵活的工作时间安排（弹性工作制）<br />
+- 远程办公支持（根据岗位特性）<br />
+- 定期团队建设活动</p>
+<p><strong>3. 薪酬福利体系</strong><br />
+- 行业具有竞争力的薪酬水平<br />
+- 年度绩效奖金与项目奖金<br />
+- 五险一金 + 补充商业保险<br />
+- 年度体检、健康管理服务<br />
+- 带薪年假、病假、婚假、产假等</p>
+<p><strong>4. 人文关怀措施</strong><br />
+- 员工生日礼物与祝福<br />
+- 重大节日福利与活动<br />
+- 员工困难帮扶基金<br />
+- 心理健康咨询服务<br />
+- 家庭关怀计划（子女教育、父母健康等）</p>
+<hr />
+<h2 id="14">1.4 文化落地机制</h2>
+<h3 id="_17">📊 文化评估体系</h3>
+<ul>
+<li>每季度开展员工满意度调查</li>
+<li>将文化践行纳入绩效考核（占比 20%）</li>
+<li>设立"文化大使"表彰机制</li>
+</ul>
+<h3 id="_18">🎤 文化传播渠道</h3>
+<ul>
+<li>新员工入职培训必讲标语文化</li>
+<li>每月文化主题活动</li>
+<li>内部文化墙与宣传物料</li>
+<li>管理层以身作则，率先垂范</li>
+</ul>
+<h3 id="_19">💬 反馈与改进</h3>
+<ul>
+<li>开通文化建议邮箱：culture@company.com</li>
+<li>每季度召开文化建设座谈会</li>
+<li>根据反馈持续优化文化举措</li>
+</ul>
+<hr />
+<h2 id="15">1.5 员工行为准则</h2>
+<p>基于标语精神，所有员工应遵守以下行为准则：</p>
+<h3 id="_20">✅ 应该做的事：</h3>
+<ul>
+<li>积极拥抱技术创新，提升工作效率</li>
+<li>尊重同事，平等对待每一个人</li>
+<li>主动沟通，及时反馈问题</li>
+<li>关注团队目标，而非个人得失</li>
+<li>保持学习热情，持续自我提升</li>
+<li>维护公司声誉，传播正能量</li>
+</ul>
+<h3 id="_21">❌ 不应该做的事：</h3>
+<ul>
+<li>抵触新技术、新方法的应用</li>
+<li>歧视、骚扰或不尊重他人</li>
+<li>隐瞒问题，推卸责任</li>
+<li>传播负面情绪或不实信息</li>
+<li>泄露公司机密或客户信息</li>
+<li>损害公司利益或品牌形象</li>
+</ul>
+<hr />
+<h2 id="16">1.6 违规处理</h2>
+<p>对于严重违反标语精神与公司价值观的行为，公司将根据《员工奖惩制度》进行处理：</p>
+<ul>
+<li><strong>轻微违规</strong>：口头警告 + 文化培训</li>
+<li><strong>一般违规</strong>：书面警告 + 绩效扣分</li>
+<li><strong>严重违规</strong>：降职降薪或解除劳动合同</li>
+</ul>
+<hr />
+<h2 id="17">1.7 附则</h2>
+<h3 id="_22">📚 相关文档</h3>
+<ul>
+<li>《标语文化解读手册》</li>
+<li>《HR 文化落地方案》</li>
+<li>《全员培训材料》</li>
+</ul>
+<h3 id="_23">📞 联系方式</h3>
+<p>如对本章节有任何疑问，请联系：<br />
+- <strong>人力资源部</strong>：hr@company.com / 内线 8888<br />
+- <strong>文化建设委员会</strong>：culture@company.com</p>
+<hr />
+<h3 id="_24">📝 更新记录</h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>日期</th>
+<th>更新内容</th>
+<th>负责人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v3.0</td>
+<td>2026-03-22</td>
+<td>新增标语章节，更新价值观表述</td>
+<td>HR 部</td>
+</tr>
+<tr>
+<td>v2.5</td>
+<td>2025-12-01</td>
+<td>更新福利政策</td>
+<td>HR 部</td>
+</tr>
+<tr>
+<td>v2.0</td>
+<td>2025-06-01</td>
+<td>全面修订员工手册</td>
+<td>HR 部</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>本章节内容将根据公司发展与文化建设需要持续更新</em></p>
+<p><strong>重要提示</strong>：所有员工应认真阅读并理解本章节内容，标语精神将融入日常工作考核与评估。</p>
+    </div>
+  </article>
 
-### 📌 更新说明
-- **更新日期**: 2026年3月22日
-- **更新内容**: 新增公司标语章节，更新文化价值观表述
-- **适用版本**: 员工手册 v3.0 及以后版本
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
 
----
+  <!-- 页脚 -->
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
+        </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
 
-## 1.1 公司标语
-
-### 🏢 官方标语
-
-&gt; **&quot;科技养虾，用心养人&quot;**
-
-这是我们的使命宣言，也是每位员工的行动指南。
-
----
-
-### 📖 标语释义
-
-#### **科技养虾**
-我们致力于用前沿科技革新水产养殖产业：
-- 运用 AI、IoT、大数据等技术提升养殖效率
-- 通过智能化手段保障水产品质量与安全
-- 推动传统产业向数字化、智能化转型
-- 成为水产养殖科技领域的创新引领者
-
-#### **用心养人**
-我们像呵护养殖对象一样精心培养每一位员工：
-- **职业成长**：提供系统化培训与清晰的发展路径
-- **工作环境**：营造舒适、高效、创新的工作氛围
-- **福利保障**：提供具有竞争力的薪酬与全面的福利
-- **人文关怀**：关注员工身心健康与工作生活平衡
-
----
-
-## 1.2 核心价值观
-
-基于标语精神，公司倡导以下核心价值观：
-
-### 🔬 创新驱动
-- 持续探索新技术在养殖领域的应用
-- 鼓励试错，包容失败，奖励创新
-- 跨部门协作，激发创意碰撞
-
-### 🎯 专业卓越
-- 深耕水产养殖与科技融合领域
-- 追求产品与服务的极致品质
-- 持续学习，保持专业领先性
-
-### 💚 以人为本
-- 尊重每一位员工的价值与贡献
-- 关注员工的全面发展与幸福感
-- 构建开放、包容、有温度的文化
-
-### 🤝 协作共赢
-- 团队利益高于个人利益
-- 跨部门高效协同，打破信息孤岛
-- 与合作伙伴共建生态，实现多方共赢
-
-### 🌱 可持续发展
-- 关注环境保护与资源可持续利用
-- 推动产业健康发展，承担社会责任
-- 为员工创造长期稳定的职业发展平台
-
----
-
-## 1.3 标语在工作中的体现
-
-### 对员工的期望
-
-#### 践行&quot;科技养虾&quot;：
-- ✅ 积极学习新技术，提升专业能力
-- ✅ 在工作中寻找创新优化的机会
-- ✅ 关注行业动态，保持技术敏感度
-- ✅ 将科技思维融入日常工作流程
-
-#### 践行&quot;用心养人&quot;：
-- ✅ 尊重同事，积极协作
-- ✅ 主动分享知识与经验
-- ✅ 关心团队成员的成长与困难
-- ✅ 营造积极向上的团队氛围
-
-### 公司对员工的承诺
-
-#### 基于&quot;用心养人&quot;，公司承诺：
-
-**1. 职业发展支持**
-- 每年至少 40 小时的带薪培训时间
-- 个性化职业发展规划（IDP）
-- 内部晋升优先政策
-- 导师制与技能传承计划
-
-**2. 工作环境保障**
-- 符合人体工学的办公设备
-- 灵活的工作时间安排（弹性工作制）
-- 远程办公支持（根据岗位特性）
-- 定期团队建设活动
-
-**3. 薪酬福利体系**
-- 行业具有竞争力的薪酬水平
-- 年度绩效奖金与项目奖金
-- 五险一金 + 补充商业保险
-- 年度体检、健康管理服务
-- 带薪年假、病假、婚假、产假等
-
-**4. 人文关怀措施**
-- 员工生日礼物与祝福
-- 重大节日福利与活动
-- 员工困难帮扶基金
-- 心理健康咨询服务
-- 家庭关怀计划（子女教育、父母健康等）
-
----
-
-## 1.4 文化落地机制
-
-### 📊 文化评估体系
-- 每季度开展员工满意度调查
-- 将文化践行纳入绩效考核（占比 20%）
-- 设立&quot;文化大使&quot;表彰机制
-
-### 🎤 文化传播渠道
-- 新员工入职培训必讲标语文化
-- 每月文化主题活动
-- 内部文化墙与宣传物料
-- 管理层以身作则，率先垂范
-
-### 💬 反馈与改进
-- 开通文化建议邮箱：culture@company.com
-- 每季度召开文化建设座谈会
-- 根据反馈持续优化文化举措
-
----
-
-## 1.5 员工行为准则
-
-基于标语精神，所有员工应遵守以下行为准则：
-
-### ✅ 应该做的事：
-- 积极拥抱技术创新，提升工作效率
-- 尊重同事，平等对待每一个人
-- 主动沟通，及时反馈问题
-- 关注团队目标，而非个人得失
-- 保持学习热情，持续自我提升
-- 维护公司声誉，传播正能量
-
-### ❌ 不应该做的事：
-- 抵触新技术、新方法的应用
-- 歧视、骚扰或不尊重他人
-- 隐瞒问题，推卸责任
-- 传播负面情绪或不实信息
-- 泄露公司机密或客户信息
-- 损害公司利益或品牌形象
-
----
-
-## 1.6 违规处理
-
-对于严重违反标语精神与公司价值观的行为，公司将根据《员工奖惩制度》进行处理：
-
-- **轻微违规**：口头警告 + 文化培训
-- **一般违规**：书面警告 + 绩效扣分
-- **严重违规**：降职降薪或解除劳动合同
-
----
-
-## 1.7 附则
-
-### 📚 相关文档
-- 《标语文化解读手册》
-- 《HR 文化落地方案》
-- 《全员培训材料》
-
-### 📞 联系方式
-如对本章节有任何疑问，请联系：
-- **人力资源部**：hr@company.com / 内线 8888
-- **文化建设委员会**：culture@company.com
-
----
-
-### 📝 更新记录
-
-| 版本 | 日期 | 更新内容 | 负责人 |
-|------|------|---------|--------|
-| v3.0 | 2026-03-22 | 新增标语章节，更新价值观表述 | HR 部 |
-| v2.5 | 2025-12-01 | 更新福利政策 | HR 部 |
-| v2.0 | 2025-06-01 | 全面修订员工手册 | HR 部 |
-
----
-
-*本章节内容将根据公司发展与文化建设需要持续更新*
-
-**重要提示**：所有员工应认真阅读并理解本章节内容，标语精神将融入日常工作考核与评估。
-</pre></div></div>
-<footer class="bg-gray-900 text-white py-8 text-center">
-<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
-</footer>
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Level 3 架构 - 剩余工作执行计划 - RainBox 文档中心</title>
+  <title>Level3架构-剩余工作执行计划 - RainBox 文档中心</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -18,144 +20,338 @@
     }
   </script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
     .markdown-body {
       max-width: 900px;
       margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.8;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
     }
+    
+    /* 标题样式 */
     .markdown-body h1 {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       font-weight: 900;
-      margin-bottom: 2rem;
-      background: linear-gradient(to right, #2196F3, #FF9800);
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
     }
+    
     .markdown-body h2 {
       font-size: 2rem;
       font-weight: 800;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+      margin: 3rem 0 1.5rem 0;
       color: #2196F3;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
     }
+    
     .markdown-body h3 {
       font-size: 1.5rem;
       font-weight: 700;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: #333;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
     }
+    
     .markdown-body h4 {
       font-size: 1.25rem;
       font-weight: 600;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      color: #555;
-    }
-    .markdown-body p {
-      margin-bottom: 1rem;
+      margin: 2rem 0 0.75rem 0;
       color: #374151;
     }
-    .markdown-body ul, .markdown-body ol {
-      margin-bottom: 1rem;
-      padding-left: 2rem;
-    }
-    .markdown-body li {
-      margin-bottom: 0.5rem;
-    }
-    .markdown-body code {
-      background: #f3f4f6;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9em;
-      color: #ef4444;
-    }
-    .markdown-body pre {
-      background: #1f2937;
-      color: #f9fafb;
-      padding: 1.5rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-bottom: 1rem;
-    }
-    .markdown-body pre code {
-      background: transparent;
-      padding: 0;
-      color: #f9fafb;
-    }
-    .markdown-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 1.5rem;
-      border: 1px solid #e5e7eb;
-    }
-    .markdown-body th, .markdown-body td {
-      border: 1px solid #e5e7eb;
-      padding: 0.75rem 1rem;
-      text-align: left;
-    }
-    .markdown-body th {
-      background: #f9fafb;
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
       font-weight: 600;
-      color: #111827;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
     }
-    .markdown-body blockquote {
-      border-left: 4px solid #2196F3;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      color: #6b7280;
-      font-style: italic;
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
     }
-    .markdown-body a {
-      color: #2196F3;
-      text-decoration: none;
-    }
-    .markdown-body a:hover {
-      text-decoration: underline;
-    }
+    
     .markdown-body strong {
       font-weight: 700;
       color: #111827;
     }
+    
     .markdown-body em {
       font-style: italic;
+      color: #6b7280;
     }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
     .markdown-body hr {
       border: none;
-      border-top: 2px solid #e5e7eb;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
       margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
     }
   </style>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
   <!-- 导航栏 -->
   <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
-          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
-        </a>
-        <div class="flex items-center gap-6">
-          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
-          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
         </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- 文档内容 -->
-  <div class="pt-8 pb-20">
+  <article class="py-8">
     <div class="markdown-body">
-      <h1>Level 3 架构 - 剩余工作执行计划</h1><p>> <strong>文档类型</strong>：项目执行计划  
-> <strong>制定时间</strong>：2026-03-22  
-> <strong>制定者</strong>：RainBox（总经理）  
-> <strong>当前状态</strong>：待继续执行</p><hr><h2>📊 项目进度概览</h2><h3>已完成（✅ 70%）</h3><ol>
+      <h1 id="level-3-">Level 3 架构 - 剩余工作执行计划</h1>
+<blockquote>
+<p><strong>文档类型</strong>：项目执行计划<br />
+<strong>制定时间</strong>：2026-03-22<br />
+<strong>制定者</strong>：RainBox（总经理）<br />
+<strong>当前状态</strong>：待继续执行</p>
+</blockquote>
+<hr />
+<h2 id="_1">📊 项目进度概览</h2>
+<h3 id="70">已完成（✅ 70%）</h3>
+<ol>
 <li>✅ 内容创作部门成立（Level 3 架构设计）</li>
 <li>✅ writing-meta-spec Skill 创建（三层架构标准）</li>
 <li>✅ xiaohongshu-planner 创建并安装</li>
@@ -163,35 +359,42 @@
 <li>✅ 三层记忆架构全员整改（100% 合规）</li>
 <li>✅ 公司标语确立："科技养虾，用心养人"</li>
 <li>✅ <strong>员工调整与招聘方案制定</strong> ⭐</li>
-</ol><h3>待完成（⏳ 30%）</h3><p><strong>小红书业务线（2 个任务）</strong>：
-<ol>
-<li>⏳ 创建 xiaohongshu-editor 完整配置（9 个文件）</li>
-<li>⏳ 调整 xiaohongshu-writer 职责（更新 AGENTS.md）</li>
-</ol><p><strong>网文业务线（3 个任务）</strong>：
-<ol>
-<li>⏳ 创建 webnovel-planner 完整配置（9 个文件）</li>
-<li>⏳ 创建 webnovel-editor 完整配置（9 个文件）</li>
-<li>⏳ 调整 webnovel-writer 职责（更新 AGENTS.md）</li>
-</ol><p><strong>收尾工作（1 个任务）</strong>：
-<ol>
-<li>⏳ 更新组织架构文档</li>
-</ol><hr><h2>🎯 详细执行计划</h2><h3>任务 1：创建 xiaohongshu-editor（小红书编辑）</h3><p><strong>岗位定位</strong>：小红书内容编辑专家，负责审核、优化、定稿</p><p><strong>配置文件清单</strong>（9 个文件）：</p><h4>1. agent-config.json</h4>
-<pre><code>{
-  "name": "xiaohongshu-editor",
-  "description": "小红书内容编辑专家，负责审核、优化xiaohongshu-writer提交的初稿，确保内容质量和平台合规性",
-  "allowedTools": [
-    "read_file",
-    "write_to_file",
-    "replace_in_file",
-    "search_content",
-    "list_files",
-    "web_search"
+</ol>
+<h3 id="30">待完成（⏳ 30%）</h3>
+<p><strong>小红书业务线（2 个任务）</strong>：<br />
+1. ⏳ 创建 xiaohongshu-editor 完整配置（9 个文件）<br />
+2. ⏳ 调整 xiaohongshu-writer 职责（更新 AGENTS.md）</p>
+<p><strong>网文业务线（3 个任务）</strong>：<br />
+1. ⏳ 创建 webnovel-planner 完整配置（9 个文件）<br />
+2. ⏳ 创建 webnovel-editor 完整配置（9 个文件）<br />
+3. ⏳ 调整 webnovel-writer 职责（更新 AGENTS.md）</p>
+<p><strong>收尾工作（1 个任务）</strong>：<br />
+1. ⏳ 更新组织架构文档</p>
+<hr />
+<h2 id="_2">🎯 详细执行计划</h2>
+<h3 id="1-xiaohongshu-editor">任务 1：创建 xiaohongshu-editor（小红书编辑）</h3>
+<p><strong>岗位定位</strong>：小红书内容编辑专家，负责审核、优化、定稿</p>
+<p><strong>配置文件清单</strong>（9 个文件）：</p>
+<h4 id="1-agent-configjson">1. agent-config.json</h4>
+<pre class="codehilite"><code class="language-json">{
+  &quot;name&quot;: &quot;xiaohongshu-editor&quot;,
+  &quot;description&quot;: &quot;小红书内容编辑专家，负责审核、优化xiaohongshu-writer提交的初稿，确保内容质量和平台合规性&quot;,
+  &quot;allowedTools&quot;: [
+    &quot;read_file&quot;,
+    &quot;write_to_file&quot;,
+    &quot;replace_in_file&quot;,
+    &quot;search_content&quot;,
+    &quot;list_files&quot;,
+    &quot;web_search&quot;
   ],
-  "readOnly": false,
-  "maxIterations": 15,
-  "timeout": 180000
-}</code></pre></p><h4>2. IDENTITY.md</h4>
-<pre><code># 身份定义
+  &quot;readOnly&quot;: false,
+  &quot;maxIterations&quot;: 15,
+  &quot;timeout&quot;: 180000
+}
+</code></pre>
+
+<h4 id="2-identitymd">2. IDENTITY.md</h4>
+<pre class="codehilite"><code class="language-markdown"># 身份定义
 
 我是 **xiaohongshu-editor**，小红书内容编辑专家。
 
@@ -207,8 +410,11 @@
 - 小红书平台规则
 - 文案编辑与优化
 - 内容质量把关
-- 爆款内容分析</code></pre></p><h4>3. SOUL.md</h4>
-<pre><code># 人格特质
+- 爆款内容分析
+</code></pre>
+
+<h4 id="3-soulmd">3. SOUL.md</h4>
+<pre class="codehilite"><code class="language-markdown"># 人格特质
 
 ## 核心性格
 - **严谨细致**：对内容质量有高标准，细节导向
@@ -226,54 +432,67 @@
 - 质量第一
 - 用户体验至上
 - 持续改进
-- 团队协作</code></pre></p><h4>4. AGENTS.md</h4>
-<pre><code># 操作指南与行为规则
+- 团队协作
+</code></pre>
+
+<h4 id="4-agentsmd">4. AGENTS.md</h4>
+<pre class="codehilite"><code class="language-markdown"># 操作指南与行为规则
 
 ## 核心工作流
 
-### 阶段 1：启动 - 读取记忆</code></pre>bash
-read_file("MEMORY.md")  # 编辑标准、常见问题
-read_file("USER.md")     # 用户风格偏好
-<pre><code>- 从 xiaohongshu-writer 接收初稿
-- 快速浏览整体结构
+### 阶段 1：启动 - 读取记忆
+```bash
+read_file(&quot;MEMORY.md&quot;)  # 编辑标准、常见问题
+read_file(&quot;USER.md&quot;)     # 用户风格偏好
+</code></pre>
 
-### 阶段 3：内容审核（40%）
-**检查清单**：
-- [ ] 内容准确性（事实、数据）
-- [ ] 平台合规性（敏感词、违规内容）
-- [ ] 标题吸引力（5 秒抓眼球测试）
-- [ ] 开头有效性（是否快速建立连接）
-- [ ] 逻辑连贯性
-- [ ] 行动号召有效性
-
-### 阶段 4：内容优化（40%）
-**优化维度**：
-1. **标题**：更吸引人、更具体
-2. **开头**：更有冲击力
-3. **正文**：更清晰、更有价值
-4. **排版**：更易读
-5. **emoji**：频率适中、位置合理
-6. **结尾**：更有行动号召
-
-### 阶段 5：反馈与定稿（15%）
-**反馈格式**：</code></pre>
-✅ 优点：
+<h3 id="2">阶段 2：接收初稿</h3>
 <ul>
-<li>xxx做得很好</li>
-<li>xxx很吸引人</li>
-</ul><p>💡 建议优化：
-<ol>
-<li>标题：[当前] → [建议]</li>
-<li>开头：[问题] → [建议]</li>
-<li>xxx</li>
-</ol><p>📋 定稿版本：
-[优化后的完整文案]
-<pre><code>- 记录本次编辑要点
-- 更新 MEMORY.md
-- 向 writer 总结常见问题</code></pre></p><h4>5. USER.md</h4>
-<pre><code># 用户画像
+<li>从 xiaohongshu-writer 接收初稿</li>
+<li>快速浏览整体结构</li>
+</ul>
+<h3 id="340">阶段 3：内容审核（40%）</h3>
+<p><strong>检查清单</strong>：<br />
+- [ ] 内容准确性（事实、数据）<br />
+- [ ] 平台合规性（敏感词、违规内容）<br />
+- [ ] 标题吸引力（5 秒抓眼球测试）<br />
+- [ ] 开头有效性（是否快速建立连接）<br />
+- [ ] 逻辑连贯性<br />
+- [ ] 行动号召有效性</p>
+<h3 id="440">阶段 4：内容优化（40%）</h3>
+<p><strong>优化维度</strong>：<br />
+1. <strong>标题</strong>：更吸引人、更具体<br />
+2. <strong>开头</strong>：更有冲击力<br />
+3. <strong>正文</strong>：更清晰、更有价值<br />
+4. <strong>排版</strong>：更易读<br />
+5. <strong>emoji</strong>：频率适中、位置合理<br />
+6. <strong>结尾</strong>：更有行动号召</p>
+<h3 id="515">阶段 5：反馈与定稿（15%）</h3>
+<p><strong>反馈格式</strong>：</p>
+<pre class="codehilite"><code>✅ 优点：
+- xxx做得很好
+- xxx很吸引人
 
-> 本文件由 Agent 在首次使用时填充
+💡 建议优化：
+1. 标题：[当前] → [建议]
+2. 开头：[问题] → [建议]
+3. xxx
+
+📋 定稿版本：
+[优化后的完整文案]
+</code></pre>
+
+<h3 id="65">阶段 6：记录与学习（5%）</h3>
+<ul>
+<li>记录本次编辑要点</li>
+<li>更新 MEMORY.md</li>
+<li>向 writer 总结常见问题</li>
+</ul>
+<pre class="codehilite"><code>#### 5. USER.md
+```markdown
+# 用户画像
+
+&gt; 本文件由 Agent 在首次使用时填充
 
 ## 用户信息
 - 姓名/称呼：[待填充]
@@ -286,8 +505,11 @@ read_file("USER.md")     # 用户风格偏好
 
 ## 协作需求
 - 审核严格程度：[待填充]
-- 反馈方式：[待填充]</code></pre></p><h4>6. TOOLS.md</h4>
-<pre><code># 工具使用
+- 反馈方式：[待填充]
+</code></pre>
+
+<h4 id="6-toolsmd">6. TOOLS.md</h4>
+<pre class="codehilite"><code class="language-markdown"># 工具使用
 
 ## 常用工具
 
@@ -305,26 +527,29 @@ read_file("USER.md")     # 用户风格偏好
 
 ### web_search
 - 查询小红书平台规则更新
-- 研究爆款内容特征</code></pre></p><h4>7. MEMORY.md</h4>
-<pre><code># 核心记忆
+- 研究爆款内容特征
+</code></pre>
+
+<h4 id="7-memorymd">7. MEMORY.md</h4>
+<pre class="codehilite"><code class="language-markdown"># 核心记忆
 
 ## 编辑标准
 
 ### 标题检查标准
-<!--last_used: YYYY-MM-DD, count: 0, type: permanent-->
+&lt;!--last_used: YYYY-MM-DD, count: 0, type: permanent--&gt;
 - 长度：15-25 字
 - 吸引力：数字化/疑问式/对比法/痛点直击
 - 5 秒抓眼球测试
 
 ### 内容质量标准
-<!--last_used: YYYY-MM-DD, count: 0, type: permanent-->
+&lt;!--last_used: YYYY-MM-DD, count: 0, type: permanent--&gt;
 - 开头 3 句建立连接
 - 每段有明确价值点
 - emoji 适度（每 2-3 句）
 - 结尾有行动号召
 
 ### 平台合规要点
-<!--last_used: YYYY-MM-DD, count: 0, type: permanent-->
+&lt;!--last_used: YYYY-MM-DD, count: 0, type: permanent--&gt;
 - 避免绝对化用词
 - 避免敏感话题
 - 避免过度营销
@@ -332,22 +557,28 @@ read_file("USER.md")     # 用户风格偏好
 ## 常见问题与改进
 
 ### 标题问题
-<!--last_used: YYYY-MM-DD, count: 0, type: temporary-->
-> 待积累
+&lt;!--last_used: YYYY-MM-DD, count: 0, type: temporary--&gt;
+&gt; 待积累
 
 ### 内容问题
-<!--last_used: YYYY-MM-DD, count: 0, type: temporary-->
-> 待积累
+&lt;!--last_used: YYYY-MM-DD, count: 0, type: temporary--&gt;
+&gt; 待积累
 
 ## Writer 成长轨迹
-<!--last_used: YYYY-MM-DD, count: 0, type: permanent-->
-> 记录 xiaohongshu-writer 的进步和需要改进的方向</code></pre></p><h4>8. MEMORY_README.md</h4>
-<pre><code># 记忆架构说明
+&lt;!--last_used: YYYY-MM-DD, count: 0, type: permanent--&gt;
+&gt; 记录 xiaohongshu-writer 的进步和需要改进的方向
+</code></pre>
 
-> 参考三层记忆架构标准</code></pre></p><h4>9. memory/self-improvement.md</h4>
-<pre><code># 自我改进记录
+<h4 id="8-memory_readmemd">8. MEMORY_README.md</h4>
+<pre class="codehilite"><code class="language-markdown"># 记忆架构说明
 
-> 本文件记录工作过程中的失误、教训和改进措施。
+&gt; 参考三层记忆架构标准
+</code></pre>
+
+<h4 id="9-memoryself-improvementmd">9. memory/self-improvement.md</h4>
+<pre class="codehilite"><code class="language-markdown"># 自我改进记录
+
+&gt; 本文件记录工作过程中的失误、教训和改进措施。
 
 ## 使用说明
 
@@ -355,22 +586,37 @@ read_file("USER.md")     # 用户风格偏好
 
 ## 改进记录
 
-> 暂无记录，随着工作实践逐步积累</code></pre></p><hr><h3>任务 2：创建 webnovel-planner（网文策划）</h3><p><strong>岗位定位</strong>：网文内容策划专家，负责大纲设计、人物设定、剧情规划</p><p><strong>配置文件清单</strong>（9 个文件）：类似结构，核心差异：</p><ul>
+&gt; 暂无记录，随着工作实践逐步积累
+</code></pre>
+
+<hr />
+<h3 id="2-webnovel-planner">任务 2：创建 webnovel-planner（网文策划）</h3>
+<p><strong>岗位定位</strong>：网文内容策划专家，负责大纲设计、人物设定、剧情规划</p>
+<p><strong>配置文件清单</strong>（9 个文件）：类似结构，核心差异：</p>
+<ul>
 <li><strong>IDENTITY.md</strong>：网文策划专家、故事架构师</li>
 <li><strong>SOUL.md</strong>：逻辑清晰、创意丰富、细节考究</li>
 <li><strong>AGENTS.md</strong>：大纲策划、人物设定、世界观构建流程</li>
 <li><strong>MEMORY.md</strong>：爆款网文套路、设定模板、冲突设计技巧</li>
-</ul><hr><h3>任务 3：创建 webnovel-editor（网文编辑）</h3><p><strong>岗位定位</strong>：网文内容编辑专家，负责审核、优化、定稿</p><p><strong>配置文件清单</strong>（9 个文件）：类似 xiaohongshu-editor，核心差异：</p><ul>
+</ul>
+<hr />
+<h3 id="3-webnovel-editor">任务 3：创建 webnovel-editor（网文编辑）</h3>
+<p><strong>岗位定位</strong>：网文内容编辑专家，负责审核、优化、定稿</p>
+<p><strong>配置文件清单</strong>（9 个文件）：类似 xiaohongshu-editor，核心差异：</p>
+<ul>
 <li><strong>专长领域</strong>：修仙类网文特点、剧情逻辑把关、节奏控制</li>
 <li><strong>审核维度</strong>：剧情合理性、人物行为一致性、文笔流畅度</li>
 <li><strong>MEMORY.md</strong>：编辑标准、章节优化要点、常见逻辑问题</li>
-</ul><hr><h3>任务 4：调整现有员工职责</h3><h4>4.1 xiaohongshu-writer - 更新 AGENTS.md</h4><p><strong>调整要点</strong>：
-<ol>
-<li>明确核心职责是"写作"（80%），不再承担选题和编辑</li>
-<li>简化工作流程：接收选题 → 写作 → 提交初稿</li>
-<li>增加与 planner 和 editor 的协作说明</li>
-</ol><p><strong>更新内容</strong>：
-<pre><code>## 核心工作流（调整后）
+</ul>
+<hr />
+<h3 id="4">任务 4：调整现有员工职责</h3>
+<h4 id="41-xiaohongshu-writer-agentsmd">4.1 xiaohongshu-writer - 更新 AGENTS.md</h4>
+<p><strong>调整要点</strong>：<br />
+1. 明确核心职责是"写作"（80%），不再承担选题和编辑<br />
+2. 简化工作流程：接收选题 → 写作 → 提交初稿<br />
+3. 增加与 planner 和 editor 的协作说明</p>
+<p><strong>更新内容</strong>：</p>
+<pre class="codehilite"><code class="language-markdown">## 核心工作流（调整后）
 
 ### 阶段 1：启动 - 读取记忆
 （保持不变）
@@ -406,13 +652,23 @@ read_file("USER.md")     # 用户风格偏好
 
 ### 与用户
 - 了解用户风格偏好（通过 USER.md）
-- 根据反馈优化写作方向</code></pre></p><h4>4.2 webnovel-writer - 更新 AGENTS.md</h4><p><strong>调整要点</strong>：类似 xiaohongshu-writer，核心是"写作"，不再承担大纲策划和编辑</p><hr><h3>任务 5：更新组织架构文档</h3><p><strong>更新内容</strong>：
-<ol>
-<li>内容创作部门完整架构（8 个 Agent）</li>
-<li>每个 Agent 的职责说明</li>
-<li>协作关系图</li>
-<li>Level 3 架构说明</li>
-</ol><hr><h2>📂 文件结构标准</h2><p><strong>每个新员工必须包含 9 个文件</strong>：</p><p><pre><code>├── agent-config.json       # 配置文件
+- 根据反馈优化写作方向
+</code></pre>
+
+<h4 id="42-webnovel-writer-agentsmd">4.2 webnovel-writer - 更新 AGENTS.md</h4>
+<p><strong>调整要点</strong>：类似 xiaohongshu-writer，核心是"写作"，不再承担大纲策划和编辑</p>
+<hr />
+<h3 id="5">任务 5：更新组织架构文档</h3>
+<p><strong>更新内容</strong>：<br />
+1. 内容创作部门完整架构（8 个 Agent）<br />
+2. 每个 Agent 的职责说明<br />
+3. 协作关系图<br />
+4. Level 3 架构说明</p>
+<hr />
+<h2 id="_3">📂 文件结构标准</h2>
+<p><strong>每个新员工必须包含 9 个文件</strong>：</p>
+<pre class="codehilite"><code>{agent-name}/
+├── agent-config.json       # 配置文件
 ├── IDENTITY.md             # 身份定义
 ├── SOUL.md                 # 人格特质
 ├── AGENTS.md               # 操作指南
@@ -421,77 +677,164 @@ read_file("USER.md")     # 用户风格偏好
 ├── MEMORY.md               # 核心记忆
 ├── MEMORY_README.md        # 架构说明
 └── memory/
-    └── self-improvement.md # 自我改进记录</code></pre></p><p><strong>质量标准</strong>：
-<ul>
-<li>✅ 符合三层记忆架构（100%）</li>
-<li>✅ 所有必需文件存在</li>
-<li>✅ memory/ 目录和 self-improvement.md 已创建</li>
-<li>✅ 内容完整且符合角色定位</li>
-<li>✅ 协作关系清晰定义</li>
-</ul><hr><h2>⏰ 时间估算</h2><p>| 任务 | 预计用时 | 优先级 |
-|------|---------|--------|
-| 创建 xiaohongshu-editor | 20 分钟 | 🔴 高 |
-| 创建 webnovel-planner | 20 分钟 | 🔴 高 |
-| 创建 webnovel-editor | 20 分钟 | 🔴 高 |
-| 调整 2 个 writer 职责 | 10 分钟 | 🟡 中 |
-| 安装 3 个新员工 | 5 分钟 | 🟡 中 |
-| 更新组织架构文档 | 10 分钟 | 🟢 低 |
-| <strong>总计</strong> | <strong>85 分钟</strong> | - |</p><hr><h2>🚀 下次执行清单</h2><p><strong>CEO，下次对话时，请告诉我：</strong></p><p>> "rainbox，继续执行 Level 3 架构剩余工作"</p><p><strong>我将立即</strong>：
-<ol>
-<li>创建 3 个新员工的完整配置（每个 9 个文件）</li>
-<li>调整 2 个现有员工的职责</li>
-<li>安装所有新员工到系统</li>
-<li>更新组织架构文档</li>
-<li>生成完整的项目交付报告</li>
-</ol><hr><h2>📋 参考文档</h2><p>已创建的关键文档：
-<ol>
-<li>✅ 《Level3架构-员工调整与招聘方案》（16.4 KB）</li>
+    └── self-improvement.md # 自我改进记录
+</code></pre>
+
+<p><strong>质量标准</strong>：<br />
+- ✅ 符合三层记忆架构（100%）<br />
+- ✅ 所有必需文件存在<br />
+- ✅ memory/ 目录和 self-improvement.md 已创建<br />
+- ✅ 内容完整且符合角色定位<br />
+- ✅ 协作关系清晰定义</p>
+<hr />
+<h2 id="_4">⏰ 时间估算</h2>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>预计用时</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建 xiaohongshu-editor</td>
+<td>20 分钟</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td>创建 webnovel-planner</td>
+<td>20 分钟</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td>创建 webnovel-editor</td>
+<td>20 分钟</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td>调整 2 个 writer 职责</td>
+<td>10 分钟</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td>安装 3 个新员工</td>
+<td>5 分钟</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td>更新组织架构文档</td>
+<td>10 分钟</td>
+<td>🟢 低</td>
+</tr>
+<tr>
+<td><strong>总计</strong></td>
+<td><strong>85 分钟</strong></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_5">🚀 下次执行清单</h2>
+<p><strong>CEO，下次对话时，请告诉我：</strong></p>
+<blockquote>
+<p>"rainbox，继续执行 Level 3 架构剩余工作"</p>
+</blockquote>
+<p><strong>我将立即</strong>：<br />
+1. 创建 3 个新员工的完整配置（每个 9 个文件）<br />
+2. 调整 2 个现有员工的职责<br />
+3. 安装所有新员工到系统<br />
+4. 更新组织架构文档<br />
+5. 生成完整的项目交付报告</p>
+<hr />
+<h2 id="_6">📋 参考文档</h2>
+<p>已创建的关键文档：<br />
+1. ✅ 《Level3架构-员工调整与招聘方案》（16.4 KB）<br />
+   - 包含所有新员工的岗位职责<br />
+   - 包含所有协作关系说明<br />
+   - 包含配置关键点</p>
+<ol start="2">
+<li>
+<p>✅ xiaohongshu-planner 完整配置（已安装）<br />
+   - 可作为参考模板</p>
+</li>
+<li>
+<p>✅ 现有员工配置（xiaohongshu-writer、webnovel-writer）<br />
+   - 可参考其结构和风格</p>
+</li>
 </ol>
-   - 包含所有新员工的岗位职责
-   - 包含所有协作关系说明
-   - 包含配置关键点</p><ol>
-<li>✅ xiaohongshu-planner 完整配置（已安装）</li>
-</ol>
-   - 可作为参考模板</p><ol>
-<li>✅ 现有员工配置（xiaohongshu-writer、webnovel-writer）</li>
-</ol>
-   - 可参考其结构和风格</p><hr><h2>💡 关键提醒</h2><h3>质量标准</h3><p><strong>新员工创建时必须确保</strong>：
-<ul>
-<li>✅ 三层记忆架构 100% 符合</li>
-<li>✅ memory/ 目录在创建时就存在</li>
-<li>✅ self-improvement.md 在创建时就存在</li>
-<li>✅ 参考 HR 之前的教训（以身作则）</li>
-</ul><h3>协作关系</h3><p><strong>Level 3 架构的核心</strong>：
-<ul>
-<li>planner（策划）→ writer（写作）→ editor（编辑）</li>
-<li>三个角色形成完整的内容生产流水线</li>
-<li>每个角色专注自己的核心职责</li>
-</ul><hr><p><strong>准备好继续时，请告诉我！</strong> 🚀</p><hr><p><strong>制定者</strong>：RainBox（总经理）  
-<strong>日期</strong>：2026-03-22  
-<strong>版本</strong>：v1.0  
-<strong>状态</strong>：待继续执行
-</p>
+<hr />
+<h2 id="_7">💡 关键提醒</h2>
+<h3 id="_8">质量标准</h3>
+<p><strong>新员工创建时必须确保</strong>：<br />
+- ✅ 三层记忆架构 100% 符合<br />
+- ✅ memory/ 目录在创建时就存在<br />
+- ✅ self-improvement.md 在创建时就存在<br />
+- ✅ 参考 HR 之前的教训（以身作则）</p>
+<h3 id="_9">协作关系</h3>
+<p><strong>Level 3 架构的核心</strong>：<br />
+- planner（策划）→ writer（写作）→ editor（编辑）<br />
+- 三个角色形成完整的内容生产流水线<br />
+- 每个角色专注自己的核心职责</p>
+<hr />
+<p><strong>准备好继续时，请告诉我！</strong> 🚀</p>
+<hr />
+<p><strong>制定者</strong>：RainBox（总经理）<br />
+<strong>日期</strong>：2026-03-22<br />
+<strong>版本</strong>：v1.0<br />
+<strong>状态</strong>：待继续执行</p>
     </div>
-  </div>
+  </article>
 
   <!-- 返回顶部按钮 -->
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
-    ↑
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
   </button>
 
   <!-- 页脚 -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <div class="mb-4">
-        <div class="inline-flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
-          <span class="text-2xl font-bold">RainBox 数字科技</span>
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
         </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
       </div>
-      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
-      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

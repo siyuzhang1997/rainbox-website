@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RainBox Agent 安装指南 - RainBox 文档中心</title>
+  <title>RainBox_Agent_安装指南 - RainBox 文档中心</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -18,144 +20,343 @@
     }
   </script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
     .markdown-body {
       max-width: 900px;
       margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.8;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
     }
+    
+    /* 标题样式 */
     .markdown-body h1 {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       font-weight: 900;
-      margin-bottom: 2rem;
-      background: linear-gradient(to right, #2196F3, #FF9800);
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
     }
+    
     .markdown-body h2 {
       font-size: 2rem;
       font-weight: 800;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+      margin: 3rem 0 1.5rem 0;
       color: #2196F3;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
     }
+    
     .markdown-body h3 {
       font-size: 1.5rem;
       font-weight: 700;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: #333;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
     }
+    
     .markdown-body h4 {
       font-size: 1.25rem;
       font-weight: 600;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      color: #555;
-    }
-    .markdown-body p {
-      margin-bottom: 1rem;
+      margin: 2rem 0 0.75rem 0;
       color: #374151;
     }
-    .markdown-body ul, .markdown-body ol {
-      margin-bottom: 1rem;
-      padding-left: 2rem;
-    }
-    .markdown-body li {
-      margin-bottom: 0.5rem;
-    }
-    .markdown-body code {
-      background: #f3f4f6;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9em;
-      color: #ef4444;
-    }
-    .markdown-body pre {
-      background: #1f2937;
-      color: #f9fafb;
-      padding: 1.5rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-bottom: 1rem;
-    }
-    .markdown-body pre code {
-      background: transparent;
-      padding: 0;
-      color: #f9fafb;
-    }
-    .markdown-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 1.5rem;
-      border: 1px solid #e5e7eb;
-    }
-    .markdown-body th, .markdown-body td {
-      border: 1px solid #e5e7eb;
-      padding: 0.75rem 1rem;
-      text-align: left;
-    }
-    .markdown-body th {
-      background: #f9fafb;
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
       font-weight: 600;
-      color: #111827;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
     }
-    .markdown-body blockquote {
-      border-left: 4px solid #2196F3;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      color: #6b7280;
-      font-style: italic;
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
     }
-    .markdown-body a {
-      color: #2196F3;
-      text-decoration: none;
-    }
-    .markdown-body a:hover {
-      text-decoration: underline;
-    }
+    
     .markdown-body strong {
       font-weight: 700;
       color: #111827;
     }
+    
     .markdown-body em {
       font-style: italic;
+      color: #6b7280;
     }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
     .markdown-body hr {
       border: none;
-      border-top: 2px solid #e5e7eb;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
       margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
     }
   </style>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
   <!-- 导航栏 -->
   <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
-          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
-        </a>
-        <div class="flex items-center gap-6">
-          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
-          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
         </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- 文档内容 -->
-  <div class="pt-8 pb-20">
+  <article class="py-8">
     <div class="markdown-body">
-      <h1>RainBox Agent 安装指南</h1><p>> <strong>Agent 名称</strong>：RainBox  
-> <strong>岗位</strong>：公司总经理 / 项目总监  
-> <strong>创建日期</strong>：2026-03-22</p><hr><h2>📦 安装前准备</h2><h3>1. 确认配置文件完整性</h3><p>检查输出目录中的文件：</p><p><pre><code>ls -la /Users/rainsyzhang/Box/output/519083a2-5f89-4826-b41f-a896277edb8e/rainbox-agent/</code></pre></p><p><strong>应包含的文件</strong>：
-<pre><code>├── agent-config.json          # Agent 配置文件
+      <h1 id="rainbox-agent">RainBox Agent 安装指南</h1>
+<blockquote>
+<p><strong>Agent 名称</strong>：RainBox<br />
+<strong>岗位</strong>：公司总经理 / 项目总监<br />
+<strong>创建日期</strong>：2026-03-22</p>
+</blockquote>
+<hr />
+<h2 id="_1">📦 安装前准备</h2>
+<h3 id="1">1. 确认配置文件完整性</h3>
+<p>检查输出目录中的文件：</p>
+<pre class="codehilite"><code class="language-bash">ls -la /Users/rainsyzhang/Box/output/519083a2-5f89-4826-b41f-a896277edb8e/rainbox-agent/
+</code></pre>
+
+<p><strong>应包含的文件</strong>：</p>
+<pre class="codehilite"><code>rainbox-agent/
+├── agent-config.json          # Agent 配置文件
 ├── IDENTITY.md                # 身份定义
 ├── SOUL.md                    # 人格特质
 ├── AGENTS.md                  # 管理框架
@@ -166,13 +367,32 @@
 └── memory/
     ├── 2026-03-22.md          # 今日工作日志
     ├── decision-log.md        # 决策记录
-    └── self-improvement.md    # 自我改进记录</code></pre></p><hr><h2>🚀 安装步骤</h2><h3>方法 1：手动安装（推荐）</h3><h4>步骤 1：创建目标目录</h4><p><pre><code>mkdir -p ~/Library/Application\ Support/Box/engine/agents/user/rainbox</code></pre></p><h4>步骤 2：复制配置文件</h4><p><pre><code>cp -r /Users/rainsyzhang/Box/output/519083a2-5f89-4826-b41f-a896277edb8e/rainbox-agent/* \
-   ~/Library/Application\ Support/Box/engine/agents/user/rainbox/</code></pre></p><h4>步骤 3：验证安装</h4><p><pre><code># 检查文件是否复制成功
+    └── self-improvement.md    # 自我改进记录
+</code></pre>
+
+<hr />
+<h2 id="_2">🚀 安装步骤</h2>
+<h3 id="1_1">方法 1：手动安装（推荐）</h3>
+<h4 id="1_2">步骤 1：创建目标目录</h4>
+<pre class="codehilite"><code class="language-bash">mkdir -p ~/Library/Application\ Support/Box/engine/agents/user/rainbox
+</code></pre>
+
+<h4 id="2">步骤 2：复制配置文件</h4>
+<pre class="codehilite"><code class="language-bash">cp -r /Users/rainsyzhang/Box/output/519083a2-5f89-4826-b41f-a896277edb8e/rainbox-agent/* \
+   ~/Library/Application\ Support/Box/engine/agents/user/rainbox/
+</code></pre>
+
+<h4 id="3">步骤 3：验证安装</h4>
+<pre class="codehilite"><code class="language-bash"># 检查文件是否复制成功
 ls -la ~/Library/Application\ Support/Box/engine/agents/user/rainbox/
 
 # 检查 memory 目录
-ls -la ~/Library/Application\ Support/Box/engine/agents/user/rainbox/memory/</code></pre></p><p><strong>预期输出</strong>：
-<pre><code>drwxr-xr-x  12 rainsyzhang  staff   384 Mar 22 14:30 .
+ls -la ~/Library/Application\ Support/Box/engine/agents/user/rainbox/memory/
+</code></pre>
+
+<p><strong>预期输出</strong>：</p>
+<pre class="codehilite"><code>total 96
+drwxr-xr-x  12 rainsyzhang  staff   384 Mar 22 14:30 .
 drwxr-xr-x   8 rainsyzhang  staff   256 Mar 22 14:30 ..
 -rw-r--r--   1 rainsyzhang  staff  1478 Mar 22 14:30 agent-config.json
 -rw-r--r--   1 rainsyzhang  staff 12085 Mar 22 14:30 AGENTS.md
@@ -182,89 +402,167 @@ drwxr-xr-x   8 rainsyzhang  staff   256 Mar 22 14:30 ..
 -rw-r--r--   1 rainsyzhang  staff  2909 Mar 22 14:30 SOUL.md
 -rw-r--r--   1 rainsyzhang  staff  2737 Mar 22 14:30 TOOLS.md
 -rw-r--r--   1 rainsyzhang  staff  1046 Mar 22 14:30 USER.md
-drwxr-xr-x   5 rainsyzhang  staff   160 Mar 22 14:30 memory</code></pre></p><h4>步骤 4：创建工作空间（可选）</h4><p><pre><code># 创建工作空间目录
+drwxr-xr-x   5 rainsyzhang  staff   160 Mar 22 14:30 memory
+</code></pre>
+
+<h4 id="4">步骤 4：创建工作空间（可选）</h4>
+<pre class="codehilite"><code class="language-bash"># 创建工作空间目录
 mkdir -p /Users/rainsyzhang/Box/agents/rainbox/{memory,projects,docs,scripts}
 
 # 创建软链接（方便访问）
 ln -s ~/Library/Application\ Support/Box/engine/agents/user/rainbox \
-   /Users/rainsyzhang/Box/agents/rainbox/config</code></pre></p><hr><h3>方法 2：使用脚本安装</h3><p>创建安装脚本：</p><p><pre><code>cat > /tmp/install-rainbox.sh << 'EOF'
+   /Users/rainsyzhang/Box/agents/rainbox/config
+</code></pre>
+
+<hr />
+<h3 id="2_1">方法 2：使用脚本安装</h3>
+<p>创建安装脚本：</p>
+<pre class="codehilite"><code class="language-bash">cat &gt; /tmp/install-rainbox.sh &lt;&lt; 'EOF'
 #!/bin/bash
 
 # RainBox Agent 安装脚本
 
-echo "🚀 开始安装 RainBox Agent..."
+echo &quot;🚀 开始安装 RainBox Agent...&quot;
 
 # 1. 创建目标目录
-echo "📁 创建目标目录..."
+echo &quot;📁 创建目标目录...&quot;
 mkdir -p ~/Library/Application\ Support/Box/engine/agents/user/rainbox
 
 # 2. 复制配置文件
-echo "📋 复制配置文件..."
+echo &quot;📋 复制配置文件...&quot;
 cp -r /Users/rainsyzhang/Box/output/519083a2-5f89-4826-b41f-a896277edb8e/rainbox-agent/* \
    ~/Library/Application\ Support/Box/engine/agents/user/rainbox/
 
 # 3. 创建工作空间
-echo "🏗️ 创建工作空间..."
+echo &quot;🏗️ 创建工作空间...&quot;
 mkdir -p /Users/rainsyzhang/Box/agents/rainbox/{memory,projects,docs,scripts}
 
 # 4. 创建软链接
-echo "🔗 创建软链接..."
+echo &quot;🔗 创建软链接...&quot;
 ln -sf ~/Library/Application\ Support/Box/engine/agents/user/rainbox \
    /Users/rainsyzhang/Box/agents/rainbox/config
 
 # 5. 验证安装
-echo "✅ 验证安装..."
+echo &quot;✅ 验证安装...&quot;
 if [ -f ~/Library/Application\ Support/Box/engine/agents/user/rainbox/agent-config.json ]; then
-    echo "✅ RainBox Agent 安装成功！"
-    echo ""
-    echo "📊 安装信息："
-    echo "  配置目录: ~/Library/Application Support/Box/engine/agents/user/rainbox/"
-    echo "  工作空间: /Users/rainsyzhang/Box/agents/rainbox/"
-    echo ""
-    echo "🎯 召唤方式："
-    echo "  @rainbox"
-    echo "  /mode rainbox"
+    echo &quot;✅ RainBox Agent 安装成功！&quot;
+    echo &quot;&quot;
+    echo &quot;📊 安装信息：&quot;
+    echo &quot;  配置目录: ~/Library/Application Support/Box/engine/agents/user/rainbox/&quot;
+    echo &quot;  工作空间: /Users/rainsyzhang/Box/agents/rainbox/&quot;
+    echo &quot;&quot;
+    echo &quot;🎯 召唤方式：&quot;
+    echo &quot;  @rainbox&quot;
+    echo &quot;  /mode rainbox&quot;
 else
-    echo "❌ 安装失败，请检查源文件路径"
+    echo &quot;❌ 安装失败，请检查源文件路径&quot;
     exit 1
 fi
 EOF
 
 # 执行安装脚本
 chmod +x /tmp/install-rainbox.sh
-/tmp/install-rainbox.sh</code></pre></p><hr><h2>✅ 验证安装</h2><h3>1. 检查配置文件</h3><p><pre><code># 查看 agent-config.json
+/tmp/install-rainbox.sh
+</code></pre>
+
+<hr />
+<h2 id="_3">✅ 验证安装</h2>
+<h3 id="1_3">1. 检查配置文件</h3>
+<pre class="codehilite"><code class="language-bash"># 查看 agent-config.json
 cat ~/Library/Application\ Support/Box/engine/agents/user/rainbox/agent-config.json
 
 # 查看 IDENTITY.md
-cat ~/Library/Application\ Support/Box/engine/agents/user/rainbox/IDENTITY.md</code></pre></p><h3>2. 检查记忆系统</h3><p><pre><code># 查看 MEMORY.md
+cat ~/Library/Application\ Support/Box/engine/agents/user/rainbox/IDENTITY.md
+</code></pre>
+
+<h3 id="2_2">2. 检查记忆系统</h3>
+<pre class="codehilite"><code class="language-bash"># 查看 MEMORY.md
 cat ~/Library/Application\ Support/Box/engine/agents/user/rainbox/MEMORY.md
 
 # 查看 memory 目录
-ls -la ~/Library/Application\ Support/Box/engine/agents/user/rainbox/memory/</code></pre></p><h3>3. 测试召唤</h3><p>在 Box 中输入：</p><p><pre><code>@rainbox 你好，请介绍一下你自己</code></pre></p><p>或</p><p><pre><code>你好，请介绍一下你自己</code></pre></p><p><strong>预期响应</strong>：
-RainBox 应该介绍自己是公司总经理，负责公司管理、项目统筹和战略规划。</p><hr><h2>🎯 首次使用指南</h2><h3>1. 熟悉管理框架</h3><p><pre><code>@rainbox 请介绍一下你的管理框架和决策流程</code></pre></p><h3>2. 查看当前项目</h3><p><pre><code>@rainbox 请查看当前的 Level 3 架构升级项目进度</code></pre></p><h3>3. 了解组织架构</h3><p><pre><code>@rainbox 请介绍一下公司的组织架构和各部门情况</code></pre></p><h3>4. 制定工作计划</h3><p><pre><code>@rainbox 请制定下一步的工作计划</code></pre></p><hr><h2>📝 配置调整（可选）</h2><h3>1. 更新用户画像</h3><p>编辑 <code>USER.md</code> 文件，填充 CEO 的偏好信息：</p><p><pre><code>vim ~/Library/Application\ Support/Box/engine/agents/user/rainbox/USER.md</code></pre></p><p><strong>建议填充的内容</strong>：
-<ul>
-<li>决策风格</li>
-<li>沟通偏好</li>
-<li>汇报频率</li>
-<li>关注重点</li>
-</ul><h3>2. 调整工具配置</h3><p>编辑 <code>TOOLS.md</code> 文件，记录工具使用偏好：</p><p><pre><code>vim ~/Library/Application\ Support/Box/engine/agents/user/rainbox/TOOLS.md</code></pre></p><h3>3. 自定义管理规则</h3><p>编辑 <code>AGENTS.md</code> 文件，根据实际情况调整管理流程：</p><p><pre><code>vim ~/Library/Application\ Support/Box/engine/agents/user/rainbox/AGENTS.md</code></pre></p><hr><h2>🔧 常见问题</h2><h3>Q1：安装后无法召唤 RainBox？</h3><p><strong>解决方案</strong>：
-<ol>
-<li>检查配置文件是否在正确的目录</li>
-<li>重启 Box 应用</li>
-<li>检查 <code>agent-config.json</code> 格式是否正确</li>
-</ol><h3>Q2：RainBox 的记忆系统不工作？</h3><p><strong>解决方案</strong>：
-<ol>
-<li>检查 <code>memory/</code> 目录是否存在</li>
-<li>检查文件权限是否正确</li>
-<li>手动创建缺失的文件</li>
-</ol><h3>Q3：如何更新 RainBox 的配置？</h3><p><strong>解决方案</strong>：
-<ol>
-<li>编辑配置文件（SOUL.md、AGENTS.md 等）</li>
-<li>重新加载 Agent（重启 Box 或切换模式）</li>
-</ol><h3>Q4：如何备份 RainBox 的记忆？</h3><p><strong>解决方案</strong>：
-<pre><code># 备份整个配置目录
+ls -la ~/Library/Application\ Support/Box/engine/agents/user/rainbox/memory/
+</code></pre>
+
+<h3 id="3_1">3. 测试召唤</h3>
+<p>在 Box 中输入：</p>
+<pre class="codehilite"><code>@rainbox 你好，请介绍一下你自己
+</code></pre>
+
+<p>或</p>
+<pre class="codehilite"><code>/mode rainbox
+你好，请介绍一下你自己
+</code></pre>
+
+<p><strong>预期响应</strong>：<br />
+RainBox 应该介绍自己是公司总经理，负责公司管理、项目统筹和战略规划。</p>
+<hr />
+<h2 id="_4">🎯 首次使用指南</h2>
+<h3 id="1_4">1. 熟悉管理框架</h3>
+<pre class="codehilite"><code>@rainbox 请介绍一下你的管理框架和决策流程
+</code></pre>
+
+<h3 id="2_3">2. 查看当前项目</h3>
+<pre class="codehilite"><code>@rainbox 请查看当前的 Level 3 架构升级项目进度
+</code></pre>
+
+<h3 id="3_2">3. 了解组织架构</h3>
+<pre class="codehilite"><code>@rainbox 请介绍一下公司的组织架构和各部门情况
+</code></pre>
+
+<h3 id="4_1">4. 制定工作计划</h3>
+<pre class="codehilite"><code>@rainbox 请制定下一步的工作计划
+</code></pre>
+
+<hr />
+<h2 id="_5">📝 配置调整（可选）</h2>
+<h3 id="1_5">1. 更新用户画像</h3>
+<p>编辑 <code>USER.md</code> 文件，填充 CEO 的偏好信息：</p>
+<pre class="codehilite"><code class="language-bash">vim ~/Library/Application\ Support/Box/engine/agents/user/rainbox/USER.md
+</code></pre>
+
+<p><strong>建议填充的内容</strong>：<br />
+- 决策风格<br />
+- 沟通偏好<br />
+- 汇报频率<br />
+- 关注重点</p>
+<h3 id="2_4">2. 调整工具配置</h3>
+<p>编辑 <code>TOOLS.md</code> 文件，记录工具使用偏好：</p>
+<pre class="codehilite"><code class="language-bash">vim ~/Library/Application\ Support/Box/engine/agents/user/rainbox/TOOLS.md
+</code></pre>
+
+<h3 id="3_3">3. 自定义管理规则</h3>
+<p>编辑 <code>AGENTS.md</code> 文件，根据实际情况调整管理流程：</p>
+<pre class="codehilite"><code class="language-bash">vim ~/Library/Application\ Support/Box/engine/agents/user/rainbox/AGENTS.md
+</code></pre>
+
+<hr />
+<h2 id="_6">🔧 常见问题</h2>
+<h3 id="q1-rainbox">Q1：安装后无法召唤 RainBox？</h3>
+<p><strong>解决方案</strong>：<br />
+1. 检查配置文件是否在正确的目录<br />
+2. 重启 Box 应用<br />
+3. 检查 <code>agent-config.json</code> 格式是否正确</p>
+<h3 id="q2rainbox">Q2：RainBox 的记忆系统不工作？</h3>
+<p><strong>解决方案</strong>：<br />
+1. 检查 <code>memory/</code> 目录是否存在<br />
+2. 检查文件权限是否正确<br />
+3. 手动创建缺失的文件</p>
+<h3 id="q3-rainbox">Q3：如何更新 RainBox 的配置？</h3>
+<p><strong>解决方案</strong>：<br />
+1. 编辑配置文件（SOUL.md、AGENTS.md 等）<br />
+2. 重新加载 Agent（重启 Box 或切换模式）</p>
+<h3 id="q4-rainbox">Q4：如何备份 RainBox 的记忆？</h3>
+<p><strong>解决方案</strong>：</p>
+<pre class="codehilite"><code class="language-bash"># 备份整个配置目录
 cp -r ~/Library/Application\ Support/Box/engine/agents/user/rainbox \
-   ~/Library/Application\ Support/Box/engine/agents/user/rainbox.backup.$(date +%Y%m%d)</code></pre></p><hr><h2>📊 目录结构说明</h2><h3>配置目录</h3><p><pre><code>├── agent-config.json          # Agent 配置（工具、Skill、规则）
+   ~/Library/Application\ Support/Box/engine/agents/user/rainbox.backup.$(date +%Y%m%d)
+</code></pre>
+
+<hr />
+<h2 id="_7">📊 目录结构说明</h2>
+<h3 id="_8">配置目录</h3>
+<pre class="codehilite"><code>~/Library/Application Support/Box/engine/agents/user/rainbox/
+├── agent-config.json          # Agent 配置（工具、Skill、规则）
 ├── IDENTITY.md                # 身份定义（名字、角色、简介）
 ├── SOUL.md                    # 人格特质（价值观、管理哲学）
 ├── AGENTS.md                  # 管理框架（决策流程、协调机制）
@@ -276,52 +574,111 @@ cp -r ~/Library/Application\ Support/Box/engine/agents/user/rainbox \
     ├── YYYY-MM-DD.md          # 每日工作日志
     ├── decision-log.md        # 决策记录
     ├── self-improvement.md    # 自我改进记录
-    └── archive/               # 归档日志（自动生成）</code></pre></p><h3>工作空间（可选）</h3><p><pre><code>├── config/                    # 软链接到配置目录
+    └── archive/               # 归档日志（自动生成）
+</code></pre>
+
+<h3 id="_9">工作空间（可选）</h3>
+<pre class="codehilite"><code>/Users/rainsyzhang/Box/agents/rainbox/
+├── config/                    # 软链接到配置目录
 ├── memory/                    # 工作记忆（可选）
 ├── projects/                  # 项目文档
 ├── docs/                      # 其他文档
-└── scripts/                   # 脚本文件</code></pre></p><hr><h2>🎓 下一步建议</h2><h3>1. 完成 Level 3 架构升级项目</h3><p><pre><code>@rainbox 请协调 hr-manager 完成剩余 Agent 的创建</code></pre></p><h3>2. 建立跨部门协作流程</h3><p><pre><code>@rainbox 请设计内容创作项目的协作流程</code></pre></p><h3>3. 制定公司战略规划</h3><p><pre><code>@rainbox 请制定公司的季度目标和 OKR</code></pre></p><h3>4. 优化管理流程</h3><p><pre><code>@rainbox 请分析当前管理流程的问题并提出改进建议</code></pre></p><hr><h2>📞 技术支持</h2><p><strong>问题反馈</strong>：
-<ul>
-<li>召唤 hr-manager：<code>@hr-manager</code></li>
-<li>查看文档：<code>/Users/rainsyzhang/Box/output/519083a2-5f89-4826-b41f-a896277edb8e/</code></li>
-</ul><p><strong>相关文档</strong>：
-<ul>
-<li>招聘总结报告：<code>RainBox_Agent_招聘总结报告.md</code></li>
-<li>配置文件：<code>rainbox-agent/</code> 目录</li>
-</ul><hr><h2>✨ 安装完成</h2><p>恭喜！RainBox Agent 已成功安装。</p><p><strong>召唤方式</strong>：
-<ul>
-<li><code>@rainbox</code></li>
-<li><code>/mode rainbox</code></li>
-</ul><p><strong>下一步</strong>：
-<ol>
-<li>召唤 RainBox 并让他介绍自己</li>
-<li>查看当前项目进度</li>
-<li>制定下一步工作计划</li>
-</ol><p><strong>祝您使用愉快！</strong> 🎉</p><hr><p><strong>安装指南版本</strong>：1.0  
-<strong>创建日期</strong>：2026-03-22  
-<strong>维护者</strong>：hr-manager
-</p>
+└── scripts/                   # 脚本文件
+</code></pre>
+
+<hr />
+<h2 id="_10">🎓 下一步建议</h2>
+<h3 id="1-level-3">1. 完成 Level 3 架构升级项目</h3>
+<pre class="codehilite"><code>@rainbox 请协调 hr-manager 完成剩余 Agent 的创建
+</code></pre>
+
+<h3 id="2_5">2. 建立跨部门协作流程</h3>
+<pre class="codehilite"><code>@rainbox 请设计内容创作项目的协作流程
+</code></pre>
+
+<h3 id="3_4">3. 制定公司战略规划</h3>
+<pre class="codehilite"><code>@rainbox 请制定公司的季度目标和 OKR
+</code></pre>
+
+<h3 id="4_2">4. 优化管理流程</h3>
+<pre class="codehilite"><code>@rainbox 请分析当前管理流程的问题并提出改进建议
+</code></pre>
+
+<hr />
+<h2 id="_11">📞 技术支持</h2>
+<p><strong>问题反馈</strong>：<br />
+- 召唤 hr-manager：<code>@hr-manager</code><br />
+- 查看文档：<code>/Users/rainsyzhang/Box/output/519083a2-5f89-4826-b41f-a896277edb8e/</code></p>
+<p><strong>相关文档</strong>：<br />
+- 招聘总结报告：<code>RainBox_Agent_招聘总结报告.md</code><br />
+- 配置文件：<code>rainbox-agent/</code> 目录</p>
+<hr />
+<h2 id="_12">✨ 安装完成</h2>
+<p>恭喜！RainBox Agent 已成功安装。</p>
+<p><strong>召唤方式</strong>：<br />
+- <code>@rainbox</code><br />
+- <code>/mode rainbox</code></p>
+<p><strong>下一步</strong>：<br />
+1. 召唤 RainBox 并让他介绍自己<br />
+2. 查看当前项目进度<br />
+3. 制定下一步工作计划</p>
+<p><strong>祝您使用愉快！</strong> 🎉</p>
+<hr />
+<p><strong>安装指南版本</strong>：1.0<br />
+<strong>创建日期</strong>：2026-03-22<br />
+<strong>维护者</strong>：hr-manager</p>
     </div>
-  </div>
+  </article>
 
   <!-- 返回顶部按钮 -->
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
-    ↑
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
   </button>
 
   <!-- 页脚 -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <div class="mb-4">
-        <div class="inline-flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
-          <span class="text-2xl font-bold">RainBox 数字科技</span>
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
         </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
       </div>
-      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
-      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

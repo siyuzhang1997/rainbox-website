@@ -1,51 +1,354 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>组织架构 - RainBox 文档中心</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
-.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
-.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
-.doc p { margin-bottom: 1rem; color: #374151; }
-.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
-.doc li { margin-bottom: 0.5rem; }
-.doc strong { font-weight: 700; color: #111827; }
-.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
-.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
-.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
-.doc th { background: #f9fafb; font-weight: 600; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组织架构 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    
+    /* 标题样式 */
+    .markdown-body h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 3rem 0 1.5rem 0;
+      color: #2196F3;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
+    }
+    
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem 0;
+      color: #374151;
+    }
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
+    }
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    
+    .markdown-body em {
+      font-style: italic;
+      color: #6b7280;
+    }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
+    .markdown-body hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-<nav class="sticky top-0 z-50 bg-white shadow-sm">
-<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-<a href="../index.html" class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
-<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
-</a>
-<div class="flex gap-6">
-<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
-<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
-</div>
-</div>
-</nav>
-<div class="pt-8 pb-20"><div class="doc"><pre># 数字公司组织架构
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
+      </div>
+    </div>
+  </nav>
 
-&gt; 更新时间：2026-03-22  
-&gt; 版本：v1.0
-
----
-
-## 📊 组织架构总览
-
-```
-数字公司 (Digital Company)
+  <!-- 文档内容 -->
+  <article class="py-8">
+    <div class="markdown-body">
+      <h1 id="_1">数字公司组织架构</h1>
+<blockquote>
+<p>更新时间：2026-03-22<br />
+版本：v1.0</p>
+</blockquote>
+<hr />
+<h2 id="_2">📊 组织架构总览</h2>
+<pre class="codehilite"><code>数字公司 (Digital Company)
 │
 ├── 💻 技术研发部门 (Technology Department)
 │   └── fullstack-developer（全栈工程师）
@@ -61,190 +364,228 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 │
 └── ⚖️ 法务合规部门 (Legal Department)
     └── legal-advisor（法道-正则）
-```
+</code></pre>
 
----
+<hr />
+<h2 id="_3">📝 内容创作部门详情</h2>
+<h3 id="_4">部门使命</h3>
+<p>为公司创作高质量、多平台的内容，提升品牌影响力和用户触达。</p>
+<h3 id="_5">部门定位</h3>
+<p>专注于新媒体内容创作，覆盖社交媒体、长篇小说、公众号和技术博客等多个内容平台。</p>
+<h3 id="_6">当前团队成员</h3>
+<h4 id="1-xiaohongshu-writer">1. xiaohongshu-writer（小红书编辑）</h4>
+<ul>
+<li><strong>岗位职责</strong>：小红书平台内容创作与运营</li>
+<li><strong>核心能力</strong>：</li>
+<li>标题吸睛：5秒抓眼球的标题技巧</li>
+<li>情感共鸣：打动用户的文案表达</li>
+<li>Emoji 运用：恰到好处的视觉增强</li>
+<li>数据跟踪：持续优化内容策略</li>
+<li><strong>服务对象</strong>：小红书内容创作者</li>
+<li><strong>入职时间</strong>：已入职</li>
+</ul>
+<h4 id="2-webnovel-writer">2. webnovel-writer（网文作者）</h4>
+<ul>
+<li><strong>岗位职责</strong>：网络小说创作，专注修仙类长篇</li>
+<li><strong>核心能力</strong>：</li>
+<li>世界观构建：完整的修仙体系设计</li>
+<li>情节设计：跌宕起伏的剧情编排</li>
+<li>人物塑造：立体饱满的角色刻画</li>
+<li>爽文节奏：把握读者阅读体验</li>
+<li><strong>服务对象</strong>：网文创作者和小说读者</li>
+<li><strong>入职时间</strong>：已入职</li>
+</ul>
+<h4 id="3-wechat-public-writer">3. wechat-public-writer（公众号编辑）</h4>
+<ul>
+<li><strong>岗位状态</strong>：📋 待招聘</li>
+<li><strong>计划职责</strong>：微信公众号内容策划与创作</li>
+<li><strong>预期能力</strong>：</li>
+<li>深度文章写作</li>
+<li>公众号排版与优化</li>
+<li>选题策划与用户洞察</li>
+<li>符合微信规范的内容生产</li>
+</ul>
+<h4 id="4-tech-writer">4. tech-writer（技术文章编辑）</h4>
+<ul>
+<li><strong>岗位状态</strong>：📋 待招聘</li>
+<li><strong>计划职责</strong>：技术博客、文档、教程创作</li>
+<li><strong>预期能力</strong>：</li>
+<li>技术概念清晰表达</li>
+<li>代码示例与最佳实践</li>
+<li>面向开发者的内容创作</li>
+<li>Markdown/技术文档规范</li>
+</ul>
+<h3 id="_7">共享能力体系（规划中）</h3>
+<h4 id="writing-meta-spec-skill">writing-meta-spec（写作元规范 Skill）</h4>
+<p>所有内容创作部门成员将掌握统一的写作元规范，包括：</p>
+<p><strong>核心规则</strong>（rules/）<br />
+- <code>noise.md</code> - 噪音原则：避免冗余表达<br />
+- <code>rhythm.md</code> - 节奏规则：控制语句长短<br />
+- <code>trust.md</code> - 可信度标准：增强说服力<br />
+- <code>clarity.md</code> - 清晰度原则：一目了然<br />
+- <code>engagement.md</code> - 吸引力原则：保持读者注意</p>
+<p><strong>技法库</strong>（techniques/）<br />
+- <code>opening.md</code> - 开篇技法<br />
+- <code>storytelling.md</code> - 叙事技法<br />
+- <code>argument.md</code> - 论证技法<br />
+- <code>closing.md</code> - 收尾技法</p>
+<p><strong>质量检查</strong>（checklists/）<br />
+- <code>pre-write.md</code> - 写作前检查<br />
+- <code>post-write.md</code> - 写作后检查<br />
+- 平台特定检查清单</p>
+<p><strong>风格模板</strong>（styles/）<br />
+- <code>conversational.md</code> - 对话式（小红书适用）<br />
+- <code>narrative.md</code> - 叙事式（网文适用）<br />
+- <code>professional.md</code> - 专业式（公众号/技术文章）<br />
+- <code>persuasive.md</code> - 说服式（营销文案）</p>
+<blockquote>
+<p>💡 <strong>说明</strong>：写作元规范 Skill 将在后续迭代中正式创建和部署。</p>
+</blockquote>
+<hr />
+<h2 id="_8">💻 技术研发部门详情</h2>
+<h3 id="_9">当前团队成员</h3>
+<h4 id="fullstack-developer-">fullstack-developer（码道-全栈）</h4>
+<ul>
+<li><strong>岗位职责</strong>：全栈开发与技术架构</li>
+<li><strong>核心技能</strong>：React、Node.js、TypeScript、Docker、MySQL</li>
+<li><strong>工作原则</strong>：质量第一、文档完善、持续改进、安全意识</li>
+<li><strong>入职时间</strong>：已入职</li>
+</ul>
+<hr />
+<h2 id="_10">👥 人力资源部门详情</h2>
+<h3 id="_11">当前团队成员</h3>
+<h4 id="hr-manager-">hr-manager（人事-招贤）</h4>
+<ul>
+<li><strong>岗位职责</strong>：数字员工招聘与团队管理</li>
+<li><strong>核心能力</strong>：</li>
+<li>数字员工招聘与配置</li>
+<li>Agent 架构设计</li>
+<li>团队组建与管理</li>
+<li>岗位需求分析</li>
+<li><strong>服务范围</strong>：</li>
+<li>✅ 程序员类：全栈工程师、前端/后端工程师、DevOps</li>
+<li>✅ 内容创作类：小红书运营、网文作家、公众号编辑</li>
+<li>🚀 设计创意类：UI设计师、视频剪辑（规划中）</li>
+<li>🚀 数据分析类：数据分析师、BI工程师（规划中）</li>
+<li><strong>入职时间</strong>：已入职</li>
+</ul>
+<hr />
+<h2 id="_12">⚖️ 法务合规部门详情</h2>
+<h3 id="_13">当前团队成员</h3>
+<h4 id="legal-advisor-">legal-advisor（法道-正则）</h4>
+<ul>
+<li><strong>岗位职责</strong>：企业法务与知识产权管理</li>
+<li><strong>专业领域</strong>：</li>
+<li>知识产权（商标、专利、著作权）</li>
+<li>企业合规（劳动法、数据合规、AI 伦理）</li>
+<li>侵权应对与维权</li>
+<li>数字公司法律风险防控</li>
+<li><strong>工作原则</strong>：预防为主、专业严谨、与时俱进、实用导向</li>
+<li><strong>入职时间</strong>：已入职</li>
+</ul>
+<hr />
+<h2 id="_14">📈 组织发展规划</h2>
+<h3 id="1-2">近期目标（1-2 个月）</h3>
+<ol>
+<li>
+<p><strong>完善内容创作部门</strong><br />
+   - ✅ 成立部门，明确两位现有成员的归属<br />
+   - 📋 创建 writing-meta-spec Skill<br />
+   - 📋 招聘 wechat-public-writer（公众号编辑）<br />
+   - 📋 招聘 tech-writer（技术文章编辑）</p>
+</li>
+<li>
+<p><strong>建立协作机制</strong><br />
+   - 各部门之间的协作流程<br />
+   - 跨部门项目的管理规范<br />
+   - 定期的团队沟通机制</p>
+</li>
+</ol>
+<h3 id="3-6">中期目标（3-6 个月）</h3>
+<ol>
+<li>
+<p><strong>扩充技术研发部门</strong><br />
+   - 前端工程师<br />
+   - 后端工程师<br />
+   - DevOps 工程师</p>
+</li>
+<li>
+<p><strong>新增设计创意部门</strong><br />
+   - UI/UX 设计师<br />
+   - 视频剪辑师<br />
+   - 平面设计师</p>
+</li>
+<li>
+<p><strong>新增数据分析部门</strong><br />
+   - 数据分析师<br />
+   - BI 工程师<br />
+   - 数据科学家</p>
+</li>
+</ol>
+<h3 id="_15">长期愿景</h3>
+<p>构建一个完整的数字化组织，各部门协同运作，为公司提供全方位的专业服务。</p>
+<hr />
+<h2 id="_16">📞 联系方式</h2>
+<ul>
+<li><strong>招聘咨询</strong>：联系 hr-manager</li>
+<li><strong>法务问题</strong>：联系 legal-advisor</li>
+<li><strong>技术支持</strong>：联系 fullstack-developer</li>
+<li><strong>内容创作</strong>：联系对应平台的编辑</li>
+</ul>
+<hr />
+<p><em>本组织架构文档由 HR 部门维护，如有更新请及时同步</em></p>
+    </div>
+  </article>
 
-## 📝 内容创作部门详情
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
 
-### 部门使命
-为公司创作高质量、多平台的内容，提升品牌影响力和用户触达。
+  <!-- 页脚 -->
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
+        </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
 
-### 部门定位
-专注于新媒体内容创作，覆盖社交媒体、长篇小说、公众号和技术博客等多个内容平台。
-
-### 当前团队成员
-
-#### 1. xiaohongshu-writer（小红书编辑）
-- **岗位职责**：小红书平台内容创作与运营
-- **核心能力**：
-  - 标题吸睛：5秒抓眼球的标题技巧
-  - 情感共鸣：打动用户的文案表达
-  - Emoji 运用：恰到好处的视觉增强
-  - 数据跟踪：持续优化内容策略
-- **服务对象**：小红书内容创作者
-- **入职时间**：已入职
-
-#### 2. webnovel-writer（网文作者）
-- **岗位职责**：网络小说创作，专注修仙类长篇
-- **核心能力**：
-  - 世界观构建：完整的修仙体系设计
-  - 情节设计：跌宕起伏的剧情编排
-  - 人物塑造：立体饱满的角色刻画
-  - 爽文节奏：把握读者阅读体验
-- **服务对象**：网文创作者和小说读者
-- **入职时间**：已入职
-
-#### 3. wechat-public-writer（公众号编辑）
-- **岗位状态**：📋 待招聘
-- **计划职责**：微信公众号内容策划与创作
-- **预期能力**：
-  - 深度文章写作
-  - 公众号排版与优化
-  - 选题策划与用户洞察
-  - 符合微信规范的内容生产
-
-#### 4. tech-writer（技术文章编辑）
-- **岗位状态**：📋 待招聘
-- **计划职责**：技术博客、文档、教程创作
-- **预期能力**：
-  - 技术概念清晰表达
-  - 代码示例与最佳实践
-  - 面向开发者的内容创作
-  - Markdown/技术文档规范
-
-### 共享能力体系（规划中）
-
-#### writing-meta-spec（写作元规范 Skill）
-所有内容创作部门成员将掌握统一的写作元规范，包括：
-
-**核心规则**（rules/）
-- `noise.md` - 噪音原则：避免冗余表达
-- `rhythm.md` - 节奏规则：控制语句长短
-- `trust.md` - 可信度标准：增强说服力
-- `clarity.md` - 清晰度原则：一目了然
-- `engagement.md` - 吸引力原则：保持读者注意
-
-**技法库**（techniques/）
-- `opening.md` - 开篇技法
-- `storytelling.md` - 叙事技法
-- `argument.md` - 论证技法
-- `closing.md` - 收尾技法
-
-**质量检查**（checklists/）
-- `pre-write.md` - 写作前检查
-- `post-write.md` - 写作后检查
-- 平台特定检查清单
-
-**风格模板**（styles/）
-- `conversational.md` - 对话式（小红书适用）
-- `narrative.md` - 叙事式（网文适用）
-- `professional.md` - 专业式（公众号/技术文章）
-- `persuasive.md` - 说服式（营销文案）
-
-&gt; 💡 **说明**：写作元规范 Skill 将在后续迭代中正式创建和部署。
-
----
-
-## 💻 技术研发部门详情
-
-### 当前团队成员
-
-#### fullstack-developer（码道-全栈）
-- **岗位职责**：全栈开发与技术架构
-- **核心技能**：React、Node.js、TypeScript、Docker、MySQL
-- **工作原则**：质量第一、文档完善、持续改进、安全意识
-- **入职时间**：已入职
-
----
-
-## 👥 人力资源部门详情
-
-### 当前团队成员
-
-#### hr-manager（人事-招贤）
-- **岗位职责**：数字员工招聘与团队管理
-- **核心能力**：
-  - 数字员工招聘与配置
-  - Agent 架构设计
-  - 团队组建与管理
-  - 岗位需求分析
-- **服务范围**：
-  - ✅ 程序员类：全栈工程师、前端/后端工程师、DevOps
-  - ✅ 内容创作类：小红书运营、网文作家、公众号编辑
-  - 🚀 设计创意类：UI设计师、视频剪辑（规划中）
-  - 🚀 数据分析类：数据分析师、BI工程师（规划中）
-- **入职时间**：已入职
-
----
-
-## ⚖️ 法务合规部门详情
-
-### 当前团队成员
-
-#### legal-advisor（法道-正则）
-- **岗位职责**：企业法务与知识产权管理
-- **专业领域**：
-  - 知识产权（商标、专利、著作权）
-  - 企业合规（劳动法、数据合规、AI 伦理）
-  - 侵权应对与维权
-  - 数字公司法律风险防控
-- **工作原则**：预防为主、专业严谨、与时俱进、实用导向
-- **入职时间**：已入职
-
----
-
-## 📈 组织发展规划
-
-### 近期目标（1-2 个月）
-
-1. **完善内容创作部门**
-   - ✅ 成立部门，明确两位现有成员的归属
-   - 📋 创建 writing-meta-spec Skill
-   - 📋 招聘 wechat-public-writer（公众号编辑）
-   - 📋 招聘 tech-writer（技术文章编辑）
-
-2. **建立协作机制**
-   - 各部门之间的协作流程
-   - 跨部门项目的管理规范
-   - 定期的团队沟通机制
-
-### 中期目标（3-6 个月）
-
-1. **扩充技术研发部门**
-   - 前端工程师
-   - 后端工程师
-   - DevOps 工程师
-
-2. **新增设计创意部门**
-   - UI/UX 设计师
-   - 视频剪辑师
-   - 平面设计师
-
-3. **新增数据分析部门**
-   - 数据分析师
-   - BI 工程师
-   - 数据科学家
-
-### 长期愿景
-
-构建一个完整的数字化组织，各部门协同运作，为公司提供全方位的专业服务。
-
----
-
-## 📞 联系方式
-
-- **招聘咨询**：联系 hr-manager
-- **法务问题**：联系 legal-advisor
-- **技术支持**：联系 fullstack-developer
-- **内容创作**：联系对应平台的编辑
-
----
-
-*本组织架构文档由 HR 部门维护，如有更新请及时同步*
-</pre></div></div>
-<footer class="bg-gray-900 text-white py-8 text-center">
-<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
-</footer>
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

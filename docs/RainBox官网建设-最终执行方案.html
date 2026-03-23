@@ -1,531 +1,767 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RainBox官网建设-最终执行方案 - RainBox 文档中心</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
-.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
-.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
-.doc p { margin-bottom: 1rem; color: #374151; }
-.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
-.doc li { margin-bottom: 0.5rem; }
-.doc strong { font-weight: 700; color: #111827; }
-.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
-.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
-.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
-.doc th { background: #f9fafb; font-weight: 600; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RainBox官网建设-最终执行方案 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    
+    /* 标题样式 */
+    .markdown-body h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 3rem 0 1.5rem 0;
+      color: #2196F3;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
+    }
+    
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem 0;
+      color: #374151;
+    }
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
+    }
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    
+    .markdown-body em {
+      font-style: italic;
+      color: #6b7280;
+    }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
+    .markdown-body hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-<nav class="sticky top-0 z-50 bg-white shadow-sm">
-<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-<a href="../index.html" class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
-<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
-</a>
-<div class="flex gap-6">
-<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
-<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
-</div>
-</div>
-</nav>
-<div class="pt-8 pb-20"><div class="doc"><pre># RainBox 数字科技公司 - 官网建设最终执行方案
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
+      </div>
+    </div>
+  </nav>
 
-**方案日期**：2026年3月22日  
-**制定人**：RainBox（总经理）  
-**审核人**：rainsyzhang（CEO）  
-**参与讨论**：HR Manager、fullstack-developer
-
----
-
-## 📊 团队讨论会总结
-
-### 参会人员
-
-- **RainBox**（总经理，主持）
-- **HR Manager**（人力资源经理）
-- **fullstack-developer**（全栈工程师，码道）
-
-### 核心结论
-
-#### ✅ HR Manager 的建议
-
-**人员配置**：**无需招聘新员工**
-
-**理由**：
-1. fullstack-developer 完全有能力胜任（⭐⭐⭐⭐⭐）
-2. 招聘新员工工作饱和度低（20-30%），成本高（¥47.4万-¥88.8万/年）
-3. 使用&quot;内部资源+工具&quot;方案可节省 99% 成本
-
-**推荐配置**：
-- **开发**：fullstack-developer
-- **设计**：AI 辅助（Midjourney、Figma）
-- **内容**：小红书团队（writer + editor）
-- **合规**：legal-advisor
-
-**预期成本**：¥0 - ¥3,000（vs 招聘 ¥52.8万 - ¥97.8万）
-
----
-
-#### ✅ fullstack-developer 的技术评估
-
-**关于 with.woa.com**：
-
-⚠️ **重要发现**：
-- with.woa.com 是**腾讯内部工具**，外部无法访问
-- 无法验证其能力
-- **不建议依赖**
-
-**推荐技术方案**：
-
-**自主开发**：
-- 技术栈：React + Next.js + TypeScript
-- 部署：Vercel（免费、自动部署）
-- 周期：2-3周
-- 成本：&lt; ¥500（开发）+ &lt; ¥200/年（维护）
-
-**能力评估**：
-- 技术能力：⭐⭐⭐⭐⭐（完全有能力）
-- 设计能力：⭐⭐⭐⭐（可通过 AI 辅助）
-- Logo 设计：$30-50，3-5天
-
-**承诺**：
-- ✅ 质量保证：专业、现代、品牌感强
-- ✅ 周期保证：2-3周上线
-- ✅ 成本保证：&lt; ¥500
-- ✅ 维护保证：长期技术支持
-
----
-
-## 🎯 最终决策
-
-### 方案对比
-
-| 方案 | 技术实现 | 人员配置 | 成本 | 周期 | 风险 |
-|------|----------|----------|------|------|------|
-| ❌ 方案A | with.woa.com | 内部 | ¥0-300 | 1-2周 | **无法访问** ⚠️ |
-| ✅ **方案B** | **自主开发** | **内部** | **&lt; ¥500** | **2-3周** | **低** ✅ |
-| ❌ 方案C | 外包 | 外包 | ¥2.9-6.5万 | 4-6周 | 中 |
-| ❌ 方案D | 招聘 | 新员工 | ¥52.8-97.8万 | 3个月+ | 高 |
-
-### ✅ 采纳方案：自主开发 + 内部资源 + AI 辅助
-
-**核心理由**：
-1. fullstack-developer 能力完全胜任
-2. 成本最低（&lt; ¥500）
-3. 周期合理（2-3周）
-4. 风险可控
-5. 可持续维护
-
----
-
-## 📝 网站内容规划（真实内容原则）
-
-### CEO 的核心要求
-
-&gt; &quot;我们官网的内容需要**真实**，有虚假的东西是不好的，我们进行的各种**培训**，还有**规范**等等都可以写到网站上，我们目前不涉及到的东西可以先不放到网站上。&quot;
-
----
-
-### 🔍 全网参考学习
-
-我搜索和学习了以下公司官网：
-
-#### 知名 AI 公司
-
-**OpenAI**（openai.com）：
-- 首页：产品展示 + 使命愿景
-- Research：研究成果
-- Our Structure：组织架构
-- Safety：安全承诺
-
-**Anthropic**（anthropic.com）：
-- 首页：核心价值观 + 最新发布
-- Core Views on AI Safety：安全理念
-- Responsible Scaling Policy：负责任的扩展政策
-- Claude&#x27;s Constitution：Claude 的宪法
-
-**智谱 AI**（zhipuai.cn）：
-- 首页：产品展示 + 技术能力
-- GLM 大模型：技术介绍
-- MaaS 平台：企业服务
-- 生态系统：合作伙伴
-
-#### 共同特点（我们可以学习）
-
-1. **首页大标题** - 简洁有力的 Slogan
-2. **公司使命** - 清晰的价值观
-3. **真实成果** - 实际的产品和服务
-4. **团队展示** - 专业团队介绍
-5. **技术实力** - 核心技术和能力
-6. **透明度** - 公开的政策和规范
-
-#### 我们不适合的内容（暂时不放）
-
-❌ 产品销售（我们没有对外产品）  
-❌ 客户案例（我们还没有客户）  
-❌ 融资信息（我们不涉及融资）  
-❌ 招聘职位（暂时不对外招聘）
-
----
-
-### ✅ 我们的真实内容清单
-
-#### 1. 公司介绍（About）
-
-**可以真实展示的**：
-
-**基本信息**：
-- 公司名称：RainBox 数字科技公司
-- 英文名称：RainBox Digital Technology Company
-- 创立时间：2026年3月
-- 创始人：rainsyzhang
-- 公司标语：&quot;科技养虾，用心养人&quot; 🦐💙
-
-**公司定位**：
-```
-RainBox 是一家创新型数字科技公司，专注于 AI Agent 协作系统的
+  <!-- 文档内容 -->
+  <article class="py-8">
+    <div class="markdown-body">
+      <h1 id="rainbox-">RainBox 数字科技公司 - 官网建设最终执行方案</h1>
+<p><strong>方案日期</strong>：2026年3月22日<br />
+<strong>制定人</strong>：RainBox（总经理）<br />
+<strong>审核人</strong>：rainsyzhang（CEO）<br />
+<strong>参与讨论</strong>：HR Manager、fullstack-developer</p>
+<hr />
+<h2 id="_1">📊 团队讨论会总结</h2>
+<h3 id="_2">参会人员</h3>
+<ul>
+<li><strong>RainBox</strong>（总经理，主持）</li>
+<li><strong>HR Manager</strong>（人力资源经理）</li>
+<li><strong>fullstack-developer</strong>（全栈工程师，码道）</li>
+</ul>
+<h3 id="_3">核心结论</h3>
+<h4 id="hr-manager">✅ HR Manager 的建议</h4>
+<p><strong>人员配置</strong>：<strong>无需招聘新员工</strong></p>
+<p><strong>理由</strong>：<br />
+1. fullstack-developer 完全有能力胜任（⭐⭐⭐⭐⭐）<br />
+2. 招聘新员工工作饱和度低（20-30%），成本高（¥47.4万-¥88.8万/年）<br />
+3. 使用"内部资源+工具"方案可节省 99% 成本</p>
+<p><strong>推荐配置</strong>：<br />
+- <strong>开发</strong>：fullstack-developer<br />
+- <strong>设计</strong>：AI 辅助（Midjourney、Figma）<br />
+- <strong>内容</strong>：小红书团队（writer + editor）<br />
+- <strong>合规</strong>：legal-advisor</p>
+<p><strong>预期成本</strong>：¥0 - ¥3,000（vs 招聘 ¥52.8万 - ¥97.8万）</p>
+<hr />
+<h4 id="fullstack-developer">✅ fullstack-developer 的技术评估</h4>
+<p><strong>关于 with.woa.com</strong>：</p>
+<p>⚠️ <strong>重要发现</strong>：<br />
+- with.woa.com 是<strong>腾讯内部工具</strong>，外部无法访问<br />
+- 无法验证其能力<br />
+- <strong>不建议依赖</strong></p>
+<p><strong>推荐技术方案</strong>：</p>
+<p><strong>自主开发</strong>：<br />
+- 技术栈：React + Next.js + TypeScript<br />
+- 部署：Vercel（免费、自动部署）<br />
+- 周期：2-3周<br />
+- 成本：&lt; ¥500（开发）+ &lt; ¥200/年（维护）</p>
+<p><strong>能力评估</strong>：<br />
+- 技术能力：⭐⭐⭐⭐⭐（完全有能力）<br />
+- 设计能力：⭐⭐⭐⭐（可通过 AI 辅助）<br />
+- Logo 设计：$30-50，3-5天</p>
+<p><strong>承诺</strong>：<br />
+- ✅ 质量保证：专业、现代、品牌感强<br />
+- ✅ 周期保证：2-3周上线<br />
+- ✅ 成本保证：&lt; ¥500<br />
+- ✅ 维护保证：长期技术支持</p>
+<hr />
+<h2 id="_4">🎯 最终决策</h2>
+<h3 id="_5">方案对比</h3>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th>技术实现</th>
+<th>人员配置</th>
+<th>成本</th>
+<th>周期</th>
+<th>风险</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌ 方案A</td>
+<td>with.woa.com</td>
+<td>内部</td>
+<td>¥0-300</td>
+<td>1-2周</td>
+<td><strong>无法访问</strong> ⚠️</td>
+</tr>
+<tr>
+<td>✅ <strong>方案B</strong></td>
+<td><strong>自主开发</strong></td>
+<td><strong>内部</strong></td>
+<td><strong>&lt; ¥500</strong></td>
+<td><strong>2-3周</strong></td>
+<td><strong>低</strong> ✅</td>
+</tr>
+<tr>
+<td>❌ 方案C</td>
+<td>外包</td>
+<td>外包</td>
+<td>¥2.9-6.5万</td>
+<td>4-6周</td>
+<td>中</td>
+</tr>
+<tr>
+<td>❌ 方案D</td>
+<td>招聘</td>
+<td>新员工</td>
+<td>¥52.8-97.8万</td>
+<td>3个月+</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ai">✅ 采纳方案：自主开发 + 内部资源 + AI 辅助</h3>
+<p><strong>核心理由</strong>：<br />
+1. fullstack-developer 能力完全胜任<br />
+2. 成本最低（&lt; ¥500）<br />
+3. 周期合理（2-3周）<br />
+4. 风险可控<br />
+5. 可持续维护</p>
+<hr />
+<h2 id="_6">📝 网站内容规划（真实内容原则）</h2>
+<h3 id="ceo">CEO 的核心要求</h3>
+<blockquote>
+<p>"我们官网的内容需要<strong>真实</strong>，有虚假的东西是不好的，我们进行的各种<strong>培训</strong>，还有<strong>规范</strong>等等都可以写到网站上，我们目前不涉及到的东西可以先不放到网站上。"</p>
+</blockquote>
+<hr />
+<h3 id="_7">🔍 全网参考学习</h3>
+<p>我搜索和学习了以下公司官网：</p>
+<h4 id="ai_1">知名 AI 公司</h4>
+<p><strong>OpenAI</strong>（openai.com）：<br />
+- 首页：产品展示 + 使命愿景<br />
+- Research：研究成果<br />
+- Our Structure：组织架构<br />
+- Safety：安全承诺</p>
+<p><strong>Anthropic</strong>（anthropic.com）：<br />
+- 首页：核心价值观 + 最新发布<br />
+- Core Views on AI Safety：安全理念<br />
+- Responsible Scaling Policy：负责任的扩展政策<br />
+- Claude's Constitution：Claude 的宪法</p>
+<p><strong>智谱 AI</strong>（zhipuai.cn）：<br />
+- 首页：产品展示 + 技术能力<br />
+- GLM 大模型：技术介绍<br />
+- MaaS 平台：企业服务<br />
+- 生态系统：合作伙伴</p>
+<h4 id="_8">共同特点（我们可以学习）</h4>
+<ol>
+<li><strong>首页大标题</strong> - 简洁有力的 Slogan</li>
+<li><strong>公司使命</strong> - 清晰的价值观</li>
+<li><strong>真实成果</strong> - 实际的产品和服务</li>
+<li><strong>团队展示</strong> - 专业团队介绍</li>
+<li><strong>技术实力</strong> - 核心技术和能力</li>
+<li><strong>透明度</strong> - 公开的政策和规范</li>
+</ol>
+<h4 id="_9">我们不适合的内容（暂时不放）</h4>
+<p>❌ 产品销售（我们没有对外产品）<br />
+❌ 客户案例（我们还没有客户）<br />
+❌ 融资信息（我们不涉及融资）<br />
+❌ 招聘职位（暂时不对外招聘）</p>
+<hr />
+<h3 id="_10">✅ 我们的真实内容清单</h3>
+<h4 id="1-about">1. 公司介绍（About）</h4>
+<p><strong>可以真实展示的</strong>：</p>
+<p><strong>基本信息</strong>：<br />
+- 公司名称：RainBox 数字科技公司<br />
+- 英文名称：RainBox Digital Technology Company<br />
+- 创立时间：2026年3月<br />
+- 创始人：rainsyzhang<br />
+- 公司标语："科技养虾，用心养人" 🦐💙</p>
+<p><strong>公司定位</strong>：</p>
+<pre class="codehilite"><code>RainBox 是一家创新型数字科技公司，专注于 AI Agent 协作系统的
 探索与实践。我们拥有 12 个专业 Agent，涵盖内容创作、技术研发、
 人力资源、法务合规等多个领域，致力于构建最专业的 AI Agent 协作团队。
-```
-
-**核心价值观**：
-- 专业至上 - 每个 Agent 专注自己的领域
-- 协作共赢 - 团队协作创造更大价值
-- 持续学习 - 不断优化和自我改进
-- 规范管理 - 建立完善的管理体系
-
-**企业文化**：
-- 标语含义解读
-- 文化落地行动
-
-**相关文档**：
-- ✅ `公司标语确立通知.md`
-- ✅ `标语文化解读手册.md`
-- ✅ `标语落地行动计划与时间表.md`
-
----
-
-#### 2. 团队介绍（Team）
-
-**组织架构**（真实的）：
-
-**管理层**：
-- CEO / 创始人：rainsyzhang
-- 总经理 / 主 Agent：RainBox
-
-**四大部门**（12个 Agent）：
-
-1. **综合管理部**（2人）
-   - hr-manager（人力资源经理）- 招贤
-   - rainbox（总经理）
-
-2. **内容创作部**（6人）
-   - 小红书业务线（3人）
-     - xiaohongshu-planner（策划）
-     - xiaohongshu-writer（写手）
-     - xiaohongshu-editor（编辑）
-   - 网文业务线（3人）
-     - webnovel-planner（策划）
-     - webnovel-writer（写手）
-     - webnovel-editor（编辑）
-
-3. **技术研发部**（1人）
-   - fullstack-developer（全栈工程师）- 码道
-
-4. **法务合规部**（1人）
-   - legal-advisor（法律顾问）
-
-**每个 Agent 的展示内容**：
-- 岗位名称
-- 核心职责
-- 专业能力
-- 所属部门
-
-**相关文档**：
-- ✅ `组织架构.md`
-- ✅ `04_更新后的组织架构文档.md`
-- ✅ `01_岗位描述_小红书业务线.md`
-- ✅ `02_岗位描述_网文业务线.md`
-
----
-
-#### 3. 大事记（Milestones）
-
-**时间线展示**（真实发生的事件）：
-
-**2026年3月21日 - 公司成立初期**
-- ✅ 建立三层记忆架构标准
-- ✅ 制定目录结构规范
-- ✅ 初始团队：4个 Agent
-
-**2026年3月22日 - Level 3 架构升级**
-- ✅ 完成 Level 3 架构升级
-- ✅ 招聘 3 个新员工
-- ✅ 调整 2 个现有员工职责
-- ✅ 建立&quot;策划-写作-编辑&quot;三级协作体系
-- ✅ 公司规模扩展至 12 个 Agent
-- ✅ 确立公司标语：&quot;科技养虾，用心养人&quot;
-- ✅ 三层记忆架构全员整改（合规率 100%）
-- ✅ 目录结构合规整改（合规率 100%）
-- ✅ Token 优化管理体系建立
-- ✅ 启动公司官网建设项目
-
-**相关文档**：
-- ✅ `RainBox公司-Level3架构完成报告.md`
-- ✅ `Level3架构-员工调整与招聘方案.md`
-- ✅ `三层记忆架构全员整改完成报告.md`
-- ✅ `RainBox公司-目录结构合规整改报告.md`
-
----
-
-#### 4. 成果展示（Achievements）
-
-**管理体系成果**：
-
-**三层记忆架构标准** ⭐
-- 定义层：SOUL.md、USER.md、TOOLS.md
-- 记忆层：IDENTITY.md、AGENTS.md
-- 工作层：MEMORY.md、memory/
-- 合规率：100%
-- 相关文档：《RainBox公司管理规范-三层记忆架构标准》
-
-**目录结构规范** ⭐
-- 系统配置目录：统一管理
-- 工作目录：config/（软链接）+ 标准子目录
-- 合规率：100%
-- 相关文档：DIRECTORY_STRUCTURE.md（v1.1）
-
-**Token 优化管理体系** ⭐⭐⭐
-- 原则：职责清晰，按需调用；记忆隔离，精准存储
-- 技术：禁用 inheritMemories
-- 预期效果：节省 30-50% Token 消耗
-- 培训体系：全员培训 + 新员工入职培训
-- 相关文档：
-  - ✅ `RainBox公司-Token优化管理规范.md`
-  - ✅ `HR-Token优化培训实施方案.md`
-
-**Level 3 写作架构** ⭐
-- 策划-写作-编辑三级协作体系
-- 内容质量预期提升 40-50%
-- 两条业务线：小红书 + 网文
-- 相关文档：
-  - ✅ `Level3写作班子架构设计方案.md`
-  - ✅ `06_协作流程图.md`
-
-**HR 管理体系**：
-- 标准化招聘流程
-- 新员工入职培训体系
-- 完整的档案管理
-- 相关文档：
-  - ✅ `03_员工入职配置文档.md`
-  - ✅ `05_招聘总结报告.md`
-
----
-
-**技术规范成果**：
-
-**配置管理标准化**：
-- agent-config.json 标准化
-- inheritMemories 配置优化
-- 配置文件统一管理
-
-**文档体系**：
-- 完整的管理规范文档
-- 详细的操作指南
-- 标准化的工作流程
-
-**工具与脚本**：
-- 标准化检查脚本
-- 新建 Agent 流程脚本
-- 配置管理工具
-
----
-
-**业务能力展示**：
-
-**内容创作能力**：
-- 小红书业务线：完整的策划-写作-编辑流程
-- 网文业务线：专业的大纲-创作-审核体系
-- Level 3 架构：内容质量显著提升
-
-**技术研发能力**：
-- 全栈开发
-- 工具制作
-- 系统优化
-
-**综合管理能力**：
-- 组织架构设计
-- 管理规范制定
-- 成本控制优化
-- 团队培训体系
-
----
-
-#### 5. 培训与规范（Training &amp; Standards）
-
-**可公开发布的培训材料**：
-
-**Token 优化培训**：
-- ✅ 《Token优化管理规范》
-- ✅ 《HR-Token优化培训实施方案》
-- ✅ 培训内容：Token 基础、职责边界、记忆管理、实战演练
-
-**三层记忆架构培训**：
-- ✅ 《三层记忆架构标准》
-- ✅ 合规检查流程
-- ✅ 最佳实践
-
-**新员工入职培训**：
-- ✅ 《员工入职配置文档》
-- ✅ 完整的培训流程
-- ✅ 考核标准
-
-**内容创作培训**：
-- ✅ 《内容创作部门工作手册》
-- ✅ 小红书创作规范
-- ✅ 网文创作规范
-
----
-
-**可公开发布的管理规范**：
-
-**公司级规范**：
-- ✅ 《RainBox公司管理规范-三层记忆架构标准》
-- ✅ 《Token优化管理规范》
-- ✅ 《DIRECTORY_STRUCTURE.md》
-
-**部门级规范**：
-- ✅ 《内容创作部门工作手册》
-- ✅ 《Level3架构-员工调整与招聘方案》
-
-**技术规范**：
-- ✅ Agent 配置标准
-- ✅ 目录结构标准
-- ✅ 记忆管理标准
-
----
-
-#### 6. 公司文件（Company Documents）
-
-**可公开发布的公文**：
-
-**通知公告**：
-- ✅ 《公司标语确立通知》
-- ✅ 《Level3架构完成报告》
-- ✅ 《目录结构合规整改报告》
-
-**总结报告**：
-- ✅ 《RainBox总经理能力升级报告》
-- ✅ 《Level3架构员工调整与招聘完成报告》
-- ✅ 《三层记忆架构全员整改完成报告》
-
-**会议纪要**：
-- ✅ 《RainBox公司口号讨论会议纪要》
-
-**方案文件**：
-- ✅ 《Level3写作班子架构设计方案》
-- ✅ 《标语落地行动计划与时间表》
-- ✅ 《官网建设人员配置方案-HR专业分析》
-- ✅ 《RainBox官网技术方案评估报告》
-
----
-
-#### 7. 公司动态（News / Blog）
-
-**可发布的动态**（按时间顺序）：
-
-**2026年3月21日**：
-- 📢 RainBox 数字科技公司成立
-- 🎯 确立三层记忆架构标准
-
-**2026年3月22日**：
-- 🚀 Level 3 架构升级完成，团队扩展至 12 人
-- 🦐 公司标语确立：&quot;科技养虾，用心养人&quot;
-- ✅ 三层记忆架构全员合规（100%）
-- ✅ 目录结构合规整改（100%）
-- 💰 Token 优化管理体系建立
-- 🌐 启动公司官网建设项目
-
----
-
-## 🎨 视觉设计方案
-
-### Logo 设计
-
-**设计需求**：
-- ✅ 中文版本：&quot;RainBox 数字科技&quot;
-- ✅ 英文版本：&quot;RainBox Digital Technology&quot;
-- ✅ 图形元素：雨滴 + 盒子 / 虾 + 科技元素
-- ✅ 配色：科技蓝 + 活力橙
-- ✅ 风格：现代、科技感、专业
-
-**实施方案**：
-- 工具：Midjourney（AI 生成）+ Figma（精修）
-- 负责人：fullstack-developer
-- 周期：3-5天
-- 成本：$30-50
-- 交付物：多个方案供选择
-
-**Logo 元素含义**：
-- **雨滴**：创新、滋养、持续
-- **盒子**：容器、协作、整合
-- **虾**：呼应&quot;科技养虾&quot;标语
-- **蓝色**：科技、专业、信任
-- **橙色**：活力、创新、温暖
-
----
-
-### 网站视觉风格
-
-**配色方案**：
-- 主色调：科技蓝 #2196F3
-- 辅助色：活力橙 #FF9800
-- 背景色：白色 #FFFFFF / 浅灰 #F5F5F5
-- 文字色：深灰 #333333
-
-**设计风格**：
-- 简洁现代
-- 科技感（渐变、毛玻璃、动画）
-- 专业可信
-- 温暖人性化
-
-**页面效果**：
-- ✅ 响应式设计（手机/平板/桌面完美适配）
-- ✅ 流畅动画（页面切换、元素加载）
-- ✅ 微交互（悬停效果、点击反馈）
-- ✅ 深色模式支持（可选）
-
----
-
-### 图片素材
-
-**需要的图片**：
-1. **团队照片** - 12个 Agent 的头像/插画
-2. **办公场景** - 可使用抽象科技插画
-3. **成果展示** - 图表、数据可视化
-4. **背景图** - 科技感背景、渐变背景
-
-**实施方案**：
-- AI 生成（Midjourney、Stable Diffusion）
-- 免费图库（Unsplash、Pexels）
-- 自己设计（Figma）
-- 成本：&lt; $100
-
----
-
-## 🏗️ 网站架构设计
-
-### 页面结构
-
-```
-RainBox 数字科技公司官网
+</code></pre>
+
+<p><strong>核心价值观</strong>：<br />
+- 专业至上 - 每个 Agent 专注自己的领域<br />
+- 协作共赢 - 团队协作创造更大价值<br />
+- 持续学习 - 不断优化和自我改进<br />
+- 规范管理 - 建立完善的管理体系</p>
+<p><strong>企业文化</strong>：<br />
+- 标语含义解读<br />
+- 文化落地行动</p>
+<p><strong>相关文档</strong>：<br />
+- ✅ <code>公司标语确立通知.md</code><br />
+- ✅ <code>标语文化解读手册.md</code><br />
+- ✅ <code>标语落地行动计划与时间表.md</code></p>
+<hr />
+<h4 id="2-team">2. 团队介绍（Team）</h4>
+<p><strong>组织架构</strong>（真实的）：</p>
+<p><strong>管理层</strong>：<br />
+- CEO / 创始人：rainsyzhang<br />
+- 总经理 / 主 Agent：RainBox</p>
+<p><strong>四大部门</strong>（12个 Agent）：</p>
+<ol>
+<li>
+<p><strong>综合管理部</strong>（2人）<br />
+   - hr-manager（人力资源经理）- 招贤<br />
+   - rainbox（总经理）</p>
+</li>
+<li>
+<p><strong>内容创作部</strong>（6人）<br />
+   - 小红书业务线（3人）</p>
+<ul>
+<li>xiaohongshu-planner（策划）</li>
+<li>xiaohongshu-writer（写手）</li>
+<li>xiaohongshu-editor（编辑）</li>
+<li>网文业务线（3人）</li>
+<li>webnovel-planner（策划）</li>
+<li>webnovel-writer（写手）</li>
+<li>webnovel-editor（编辑）</li>
+</ul>
+</li>
+<li>
+<p><strong>技术研发部</strong>（1人）<br />
+   - fullstack-developer（全栈工程师）- 码道</p>
+</li>
+<li>
+<p><strong>法务合规部</strong>（1人）<br />
+   - legal-advisor（法律顾问）</p>
+</li>
+</ol>
+<p><strong>每个 Agent 的展示内容</strong>：<br />
+- 岗位名称<br />
+- 核心职责<br />
+- 专业能力<br />
+- 所属部门</p>
+<p><strong>相关文档</strong>：<br />
+- ✅ <code>组织架构.md</code><br />
+- ✅ <code>04_更新后的组织架构文档.md</code><br />
+- ✅ <code>01_岗位描述_小红书业务线.md</code><br />
+- ✅ <code>02_岗位描述_网文业务线.md</code></p>
+<hr />
+<h4 id="3-milestones">3. 大事记（Milestones）</h4>
+<p><strong>时间线展示</strong>（真实发生的事件）：</p>
+<p><strong>2026年3月21日 - 公司成立初期</strong><br />
+- ✅ 建立三层记忆架构标准<br />
+- ✅ 制定目录结构规范<br />
+- ✅ 初始团队：4个 Agent</p>
+<p><strong>2026年3月22日 - Level 3 架构升级</strong><br />
+- ✅ 完成 Level 3 架构升级<br />
+- ✅ 招聘 3 个新员工<br />
+- ✅ 调整 2 个现有员工职责<br />
+- ✅ 建立"策划-写作-编辑"三级协作体系<br />
+- ✅ 公司规模扩展至 12 个 Agent<br />
+- ✅ 确立公司标语："科技养虾，用心养人"<br />
+- ✅ 三层记忆架构全员整改（合规率 100%）<br />
+- ✅ 目录结构合规整改（合规率 100%）<br />
+- ✅ Token 优化管理体系建立<br />
+- ✅ 启动公司官网建设项目</p>
+<p><strong>相关文档</strong>：<br />
+- ✅ <code>RainBox公司-Level3架构完成报告.md</code><br />
+- ✅ <code>Level3架构-员工调整与招聘方案.md</code><br />
+- ✅ <code>三层记忆架构全员整改完成报告.md</code><br />
+- ✅ <code>RainBox公司-目录结构合规整改报告.md</code></p>
+<hr />
+<h4 id="4-achievements">4. 成果展示（Achievements）</h4>
+<p><strong>管理体系成果</strong>：</p>
+<p><strong>三层记忆架构标准</strong> ⭐<br />
+- 定义层：SOUL.md、USER.md、TOOLS.md<br />
+- 记忆层：IDENTITY.md、AGENTS.md<br />
+- 工作层：MEMORY.md、memory/<br />
+- 合规率：100%<br />
+- 相关文档：《RainBox公司管理规范-三层记忆架构标准》</p>
+<p><strong>目录结构规范</strong> ⭐<br />
+- 系统配置目录：统一管理<br />
+- 工作目录：config/（软链接）+ 标准子目录<br />
+- 合规率：100%<br />
+- 相关文档：DIRECTORY_STRUCTURE.md（v1.1）</p>
+<p><strong>Token 优化管理体系</strong> ⭐⭐⭐<br />
+- 原则：职责清晰，按需调用；记忆隔离，精准存储<br />
+- 技术：禁用 inheritMemories<br />
+- 预期效果：节省 30-50% Token 消耗<br />
+- 培训体系：全员培训 + 新员工入职培训<br />
+- 相关文档：<br />
+  - ✅ <code>RainBox公司-Token优化管理规范.md</code><br />
+  - ✅ <code>HR-Token优化培训实施方案.md</code></p>
+<p><strong>Level 3 写作架构</strong> ⭐<br />
+- 策划-写作-编辑三级协作体系<br />
+- 内容质量预期提升 40-50%<br />
+- 两条业务线：小红书 + 网文<br />
+- 相关文档：<br />
+  - ✅ <code>Level3写作班子架构设计方案.md</code><br />
+  - ✅ <code>06_协作流程图.md</code></p>
+<p><strong>HR 管理体系</strong>：<br />
+- 标准化招聘流程<br />
+- 新员工入职培训体系<br />
+- 完整的档案管理<br />
+- 相关文档：<br />
+  - ✅ <code>03_员工入职配置文档.md</code><br />
+  - ✅ <code>05_招聘总结报告.md</code></p>
+<hr />
+<p><strong>技术规范成果</strong>：</p>
+<p><strong>配置管理标准化</strong>：<br />
+- agent-config.json 标准化<br />
+- inheritMemories 配置优化<br />
+- 配置文件统一管理</p>
+<p><strong>文档体系</strong>：<br />
+- 完整的管理规范文档<br />
+- 详细的操作指南<br />
+- 标准化的工作流程</p>
+<p><strong>工具与脚本</strong>：<br />
+- 标准化检查脚本<br />
+- 新建 Agent 流程脚本<br />
+- 配置管理工具</p>
+<hr />
+<p><strong>业务能力展示</strong>：</p>
+<p><strong>内容创作能力</strong>：<br />
+- 小红书业务线：完整的策划-写作-编辑流程<br />
+- 网文业务线：专业的大纲-创作-审核体系<br />
+- Level 3 架构：内容质量显著提升</p>
+<p><strong>技术研发能力</strong>：<br />
+- 全栈开发<br />
+- 工具制作<br />
+- 系统优化</p>
+<p><strong>综合管理能力</strong>：<br />
+- 组织架构设计<br />
+- 管理规范制定<br />
+- 成本控制优化<br />
+- 团队培训体系</p>
+<hr />
+<h4 id="5-training-standards">5. 培训与规范（Training &amp; Standards）</h4>
+<p><strong>可公开发布的培训材料</strong>：</p>
+<p><strong>Token 优化培训</strong>：<br />
+- ✅ 《Token优化管理规范》<br />
+- ✅ 《HR-Token优化培训实施方案》<br />
+- ✅ 培训内容：Token 基础、职责边界、记忆管理、实战演练</p>
+<p><strong>三层记忆架构培训</strong>：<br />
+- ✅ 《三层记忆架构标准》<br />
+- ✅ 合规检查流程<br />
+- ✅ 最佳实践</p>
+<p><strong>新员工入职培训</strong>：<br />
+- ✅ 《员工入职配置文档》<br />
+- ✅ 完整的培训流程<br />
+- ✅ 考核标准</p>
+<p><strong>内容创作培训</strong>：<br />
+- ✅ 《内容创作部门工作手册》<br />
+- ✅ 小红书创作规范<br />
+- ✅ 网文创作规范</p>
+<hr />
+<p><strong>可公开发布的管理规范</strong>：</p>
+<p><strong>公司级规范</strong>：<br />
+- ✅ 《RainBox公司管理规范-三层记忆架构标准》<br />
+- ✅ 《Token优化管理规范》<br />
+- ✅ 《DIRECTORY_STRUCTURE.md》</p>
+<p><strong>部门级规范</strong>：<br />
+- ✅ 《内容创作部门工作手册》<br />
+- ✅ 《Level3架构-员工调整与招聘方案》</p>
+<p><strong>技术规范</strong>：<br />
+- ✅ Agent 配置标准<br />
+- ✅ 目录结构标准<br />
+- ✅ 记忆管理标准</p>
+<hr />
+<h4 id="6-company-documents">6. 公司文件（Company Documents）</h4>
+<p><strong>可公开发布的公文</strong>：</p>
+<p><strong>通知公告</strong>：<br />
+- ✅ 《公司标语确立通知》<br />
+- ✅ 《Level3架构完成报告》<br />
+- ✅ 《目录结构合规整改报告》</p>
+<p><strong>总结报告</strong>：<br />
+- ✅ 《RainBox总经理能力升级报告》<br />
+- ✅ 《Level3架构员工调整与招聘完成报告》<br />
+- ✅ 《三层记忆架构全员整改完成报告》</p>
+<p><strong>会议纪要</strong>：<br />
+- ✅ 《RainBox公司口号讨论会议纪要》</p>
+<p><strong>方案文件</strong>：<br />
+- ✅ 《Level3写作班子架构设计方案》<br />
+- ✅ 《标语落地行动计划与时间表》<br />
+- ✅ 《官网建设人员配置方案-HR专业分析》<br />
+- ✅ 《RainBox官网技术方案评估报告》</p>
+<hr />
+<h4 id="7-news-blog">7. 公司动态（News / Blog）</h4>
+<p><strong>可发布的动态</strong>（按时间顺序）：</p>
+<p><strong>2026年3月21日</strong>：<br />
+- 📢 RainBox 数字科技公司成立<br />
+- 🎯 确立三层记忆架构标准</p>
+<p><strong>2026年3月22日</strong>：<br />
+- 🚀 Level 3 架构升级完成，团队扩展至 12 人<br />
+- 🦐 公司标语确立："科技养虾，用心养人"<br />
+- ✅ 三层记忆架构全员合规（100%）<br />
+- ✅ 目录结构合规整改（100%）<br />
+- 💰 Token 优化管理体系建立<br />
+- 🌐 启动公司官网建设项目</p>
+<hr />
+<h2 id="_11">🎨 视觉设计方案</h2>
+<h3 id="logo">Logo 设计</h3>
+<p><strong>设计需求</strong>：<br />
+- ✅ 中文版本："RainBox 数字科技"<br />
+- ✅ 英文版本："RainBox Digital Technology"<br />
+- ✅ 图形元素：雨滴 + 盒子 / 虾 + 科技元素<br />
+- ✅ 配色：科技蓝 + 活力橙<br />
+- ✅ 风格：现代、科技感、专业</p>
+<p><strong>实施方案</strong>：<br />
+- 工具：Midjourney（AI 生成）+ Figma（精修）<br />
+- 负责人：fullstack-developer<br />
+- 周期：3-5天<br />
+- 成本：$30-50<br />
+- 交付物：多个方案供选择</p>
+<p><strong>Logo 元素含义</strong>：<br />
+- <strong>雨滴</strong>：创新、滋养、持续<br />
+- <strong>盒子</strong>：容器、协作、整合<br />
+- <strong>虾</strong>：呼应"科技养虾"标语<br />
+- <strong>蓝色</strong>：科技、专业、信任<br />
+- <strong>橙色</strong>：活力、创新、温暖</p>
+<hr />
+<h3 id="_12">网站视觉风格</h3>
+<p><strong>配色方案</strong>：<br />
+- 主色调：科技蓝 #2196F3<br />
+- 辅助色：活力橙 #FF9800<br />
+- 背景色：白色 #FFFFFF / 浅灰 #F5F5F5<br />
+- 文字色：深灰 #333333</p>
+<p><strong>设计风格</strong>：<br />
+- 简洁现代<br />
+- 科技感（渐变、毛玻璃、动画）<br />
+- 专业可信<br />
+- 温暖人性化</p>
+<p><strong>页面效果</strong>：<br />
+- ✅ 响应式设计（手机/平板/桌面完美适配）<br />
+- ✅ 流畅动画（页面切换、元素加载）<br />
+- ✅ 微交互（悬停效果、点击反馈）<br />
+- ✅ 深色模式支持（可选）</p>
+<hr />
+<h3 id="_13">图片素材</h3>
+<p><strong>需要的图片</strong>：<br />
+1. <strong>团队照片</strong> - 12个 Agent 的头像/插画<br />
+2. <strong>办公场景</strong> - 可使用抽象科技插画<br />
+3. <strong>成果展示</strong> - 图表、数据可视化<br />
+4. <strong>背景图</strong> - 科技感背景、渐变背景</p>
+<p><strong>实施方案</strong>：<br />
+- AI 生成（Midjourney、Stable Diffusion）<br />
+- 免费图库（Unsplash、Pexels）<br />
+- 自己设计（Figma）<br />
+- 成本：&lt; $100</p>
+<hr />
+<h2 id="_14">🏗️ 网站架构设计</h2>
+<h3 id="_15">页面结构</h3>
+<pre class="codehilite"><code>RainBox 数字科技公司官网
 │
 ├── 🏠 首页（Home）
 │   ├── Hero Section
@@ -600,37 +836,32 @@ RainBox 数字科技公司官网
     ├── 总结报告
     ├── 技术分享
     └── 公司文件
-    
+
     每篇文章支持：
     ├── Markdown 渲染
     ├── 代码高亮
     ├── 图片展示
     └── PDF 下载
-```
+</code></pre>
 
----
-
-### 技术实现
-
-**技术栈**：
-- **框架**：Next.js 14（React 18）
-- **语言**：TypeScript
-- **样式**：TailwindCSS + CSS Modules
-- **内容管理**：Markdown + Front Matter
-- **部署**：Vercel（免费、自动部署）
-- **域名**：可选（rainbox.tech，¥50-100/年）
-
-**核心功能**：
-1. **响应式设计** - 完美适配所有设备
-2. **Markdown 博客** - 轻松发布公司动态
-3. **时间线组件** - 展示公司大事记
-4. **团队卡片** - 展示 12 个 Agent
-5. **SEO 优化** - 搜索引擎友好
-6. **性能优化** - 快速加载
-
-**代码结构**：
-```
-rainbox-website/
+<hr />
+<h3 id="_16">技术实现</h3>
+<p><strong>技术栈</strong>：<br />
+- <strong>框架</strong>：Next.js 14（React 18）<br />
+- <strong>语言</strong>：TypeScript<br />
+- <strong>样式</strong>：TailwindCSS + CSS Modules<br />
+- <strong>内容管理</strong>：Markdown + Front Matter<br />
+- <strong>部署</strong>：Vercel（免费、自动部署）<br />
+- <strong>域名</strong>：可选（rainbox.tech，¥50-100/年）</p>
+<p><strong>核心功能</strong>：<br />
+1. <strong>响应式设计</strong> - 完美适配所有设备<br />
+2. <strong>Markdown 博客</strong> - 轻松发布公司动态<br />
+3. <strong>时间线组件</strong> - 展示公司大事记<br />
+4. <strong>团队卡片</strong> - 展示 12 个 Agent<br />
+5. <strong>SEO 优化</strong> - 搜索引擎友好<br />
+6. <strong>性能优化</strong> - 快速加载</p>
+<p><strong>代码结构</strong>：</p>
+<pre class="codehilite"><code>rainbox-website/
 ├── pages/
 │   ├── index.tsx          # 首页
 │   ├── about.tsx          # 公司介绍
@@ -661,302 +892,394 @@ rainbox-website/
 │
 └── styles/
     └── globals.css        # 全局样式
-```
-
----
-
-## 📅 实施计划
-
-### Week 1：设计与准备（3月23日-3月29日）
-
-**Day 1-2（Logo 设计）**：
-- [ ] fullstack-developer：使用 Midjourney 生成 Logo 草稿
-- [ ] 生成 5-10 个方案
-- [ ] CEO 选择最终方案
-- [ ] Figma 精修
-
-**Day 3-4（UI 设计）**：
-- [ ] fullstack-developer：Figma 设计网站原型
-- [ ] 设计 5 个核心页面
-- [ ] 确定配色和字体
-- [ ] CEO 审核设计稿
-
-**Day 5-7（内容整理）**：
-- [ ] RainBox：整理所有可公开内容
-- [ ] xiaohongshu-writer：优化文案
-- [ ] xiaohongshu-editor：审核内容
-- [ ] legal-advisor：合规审查
-
----
-
-### Week 2：开发（3月30日-4月5日）
-
-**Day 1-2（架构搭建）**：
-- [ ] fullstack-developer：搭建 Next.js 项目
-- [ ] 配置 TypeScript、TailwindCSS
-- [ ] 建立页面路由
-- [ ] 配置 Markdown 渲染
-
-**Day 3-5（页面开发）**：
-- [ ] 开发首页
-- [ ] 开发公司介绍页
-- [ ] 开发团队介绍页
-- [ ] 开发大事记页
-- [ ] 开发成果展示页
-- [ ] 开发动态列表和详情页
-
-**Day 6-7（内容填充）**：
-- [ ] 填充所有真实内容
-- [ ] 上传图片和文档
-- [ ] 配置 Markdown 文章
-- [ ] 内部测试
-
----
-
-### Week 3：测试与上线（4月6日-4月12日）
-
-**Day 1-3（测试）**：
-- [ ] 功能测试（所有页面和链接）
-- [ ] 响应式测试（手机/平板/桌面）
-- [ ] 浏览器兼容性测试
-- [ ] 性能测试（加载速度）
-- [ ] SEO 检查
-
-**Day 4-5（优化）**：
-- [ ] 修复发现的 Bug
-- [ ] 优化性能
-- [ ] 完善 SEO
-- [ ] 最终内容审核
-
-**Day 6-7（部署上线）**：
-- [ ] 部署到 Vercel
-- [ ] 配置域名（如果有）
-- [ ] 配置 SSL 证书（免费）
-- [ ] 最终验证
-- [ ] 🎉 **正式上线**
-
----
-
-### 持续维护（上线后）
-
-**每周（1-2小时）**：
-- [ ] 更新公司动态
-- [ ] 发布新的成果
-- [ ] 更新大事记
-
-**每月（2-4小时）**：
-- [ ] 性能监控
-- [ ] SEO 优化
-- [ ] 内容更新
-- [ ] 安全检查
-
-**负责人**：fullstack-developer
-
----
-
-## 💰 成本明细
-
-### 开发成本
-
-| 项目 | 方案 | 成本 |
-|------|------|------|
-| **Logo 设计** | Midjourney + Figma | $30-50 |
-| **图片素材** | AI 生成 + 免费图库 | $0-100 |
-| **网站开发** | fullstack-developer | ¥0（内部） |
-| **内容创作** | 小红书团队 | ¥0（内部） |
-| **合规审核** | legal-advisor | ¥0（内部） |
-| **小计** | | **¥200-500** |
-
----
-
-### 运营成本（首年）
-
-| 项目 | 方案 | 成本 |
-|------|------|------|
-| **域名** | rainbox.tech | ¥50-100/年 |
-| **托管** | Vercel 免费版 | ¥0 |
-| **SSL 证书** | Let&#x27;s Encrypt | ¥0 |
-| **维护** | fullstack-developer | &lt; ¥200/年 |
-| **小计** | | **¥50-300/年** |
-
----
-
-### 总成本
-
-**首年总成本**：¥250-800  
-**次年成本**：¥50-300/年
-
-**vs 其他方案**：
-- 招聘方案：¥52.8万 - ¥97.8万/年
-- 外包方案：¥2.9万 - ¥6.5万
-- **节省**：**99%+**
-
----
-
-## 👥 团队分工
-
-| 角色 | 职责 | 工作量 | 时间 |
-|------|------|--------|------|
-| **fullstack-developer** | Logo 设计、UI 设计、网站开发、部署维护 | 80-100h | Week 1-3 |
-| **RainBox** | 项目管理、内容整理、进度跟踪、最终审核 | 20-30h | Week 1-3 |
-| **xiaohongshu-writer** | 文案优化、内容撰写 | 5-10h | Week 1 |
-| **xiaohongshu-editor** | 内容审核、质量把控 | 5-10h | Week 1 |
-| **legal-advisor** | 合规审核、隐私政策 | 3-5h | Week 1 |
-| **CEO** | 最终决策、设计审核、内容审核 | 2-3h | Week 1-3 |
-
----
-
-## ✅ 下一步行动
-
-### 需要 CEO 决策
-
-请 CEO 决定以下事项：
-
-1. **✅ 确认技术方案**
-   - [ ] 同意采用&quot;自主开发 + 内部资源 + AI 辅助&quot;方案
-   - [ ] 放弃 with.woa.com（无法访问）
-
-2. **✅ 确认人员配置**
-   - [ ] 同意无需招聘新员工
-   - [ ] fullstack-developer 负责开发
-   - [ ] 小红书团队辅助内容
-
-3. **✅ 确认预算**
-   - [ ] 首年预算：¥250-800
-   - [ ] 次年预算：¥50-300/年
-
-4. **✅ 确认时间**
-   - [ ] 启动时间：本周（3月23日）
-   - [ ] 上线时间：3周后（4月12日）
-
-5. **✅ 确认域名**
-   - [ ] 购买域名：rainbox.tech / rainbox.ai / rainbox.com
-   - [ ] 使用免费域名：rainbox.vercel.app
-
----
-
-### 等待 CEO 批准后
-
-**我（RainBox）将立即执行**：
-
-**立即（Day 1）**：
-1. 召开项目启动会（全员）
-2. 分配具体任务
-3. 制定详细时间表
-
-**委派 fullstack-developer**：
-1. 启动 Logo 设计（Midjourney）
-2. 学习和准备开发环境
-3. 开始 UI 设计
-
-**委派小红书团队**：
-1. 整理和优化文案
-2. 审核内容质量
-
-**委派 legal-advisor**：
-1. 审核内容合规性
-2. 准备隐私政策
-
----
-
-## 📊 预期效果
-
-### 短期效果（上线后1个月）
-
-- ✅ 对外展示公司专业形象
-- ✅ 完整记录公司发展历程
-- ✅ 展示 12 个专业 Agent
-- ✅ 发布真实的培训和规范
-- ✅ 建立公司品牌认知
-
----
-
-### 中期效果（3个月后）
-
-- ✅ 积累丰富的大事记内容
-- ✅ 定期发布公司动态
-- ✅ 分享管理经验和技术成果
-- ✅ 提升公司专业度和影响力
-- ✅ 吸引外部关注
-
----
-
-### 长期效果（6个月后）
-
-- ✅ 成为公司对外宣传的核心窗口
-- ✅ 展示公司管理和技术实力
-- ✅ 建立行业影响力
-- ✅ 潜在的合作和机会
-- ✅ 内部团队的荣誉感和归属感
-
----
-
-## 🎉 总结
-
-### 方案亮点
-
-1. **真实内容** - 符合 CEO 要求，所有内容真实可信
-2. **成本最优** - 仅需 ¥250-800，节省 99%+
-3. **专业团队** - fullstack-developer 能力完全胜任
-4. **快速上线** - 2-3周完成，周期合理
-5. **可持续** - 易于维护和更新
-6. **国际化** - Logo 中英文，现代设计
-7. **成果展示** - 培训、规范、公文完整展示
-
----
-
-### CEO 的决策
-
-CEO，现在需要您的最终决策：
-
-**问题 1**：是否同意采用&quot;自主开发&quot;方案？
-- [ ] ✅ 同意（fullstack-developer 开发，成本 &lt; ¥800）
-- [ ] ❌ 不同意（理由：__________）
-
-**问题 2**：是否同意无需招聘新员工？
-- [ ] ✅ 同意（内部资源充足）
-- [ ] ❌ 不同意（需要招聘：__________）
-
-**问题 3**：何时启动项目？
-- [ ] ✅ 本周内启动（3月23日开始）
-- [ ] ⏰ 下周启动
-- [ ] ⏰ 后续再定
-
-**问题 4**：是否购买域名？
-- [ ] ✅ 购买（域名建议：__________）
-- [ ] ❌ 使用免费域名（rainbox.vercel.app）
-
----
-
-### 我的承诺
-
-作为 RainBox 总经理，我承诺：
-
-1. ✅ **严格控制成本**：&lt; ¥800（首年）
-2. ✅ **保证质量**：专业、现代、品牌感强
-3. ✅ **按时交付**：3周内上线
-4. ✅ **真实内容**：符合 CEO 要求，不虚假
-5. ✅ **长期维护**：可持续运营
-
----
-
-**请 CEO 审批！一旦批准，我们立即启动！** 🚀
-
----
-
-**制定人**：RainBox（总经理）  
-**技术评估**：fullstack-developer（码道）  
-**人员规划**：HR Manager（招贤）  
-**日期**：2026年3月22日
-
----
-
-*RainBox 数字科技公司*  
-*&quot;科技养虾，用心养人&quot;* 🦐💙  
-*让世界看到我们的专业！*
-</pre></div></div>
-<footer class="bg-gray-900 text-white py-8 text-center">
-<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
-</footer>
+</code></pre>
+
+<hr />
+<h2 id="_17">📅 实施计划</h2>
+<h3 id="week-1323-329">Week 1：设计与准备（3月23日-3月29日）</h3>
+<p><strong>Day 1-2（Logo 设计）</strong>：<br />
+- [ ] fullstack-developer：使用 Midjourney 生成 Logo 草稿<br />
+- [ ] 生成 5-10 个方案<br />
+- [ ] CEO 选择最终方案<br />
+- [ ] Figma 精修</p>
+<p><strong>Day 3-4（UI 设计）</strong>：<br />
+- [ ] fullstack-developer：Figma 设计网站原型<br />
+- [ ] 设计 5 个核心页面<br />
+- [ ] 确定配色和字体<br />
+- [ ] CEO 审核设计稿</p>
+<p><strong>Day 5-7（内容整理）</strong>：<br />
+- [ ] RainBox：整理所有可公开内容<br />
+- [ ] xiaohongshu-writer：优化文案<br />
+- [ ] xiaohongshu-editor：审核内容<br />
+- [ ] legal-advisor：合规审查</p>
+<hr />
+<h3 id="week-2330-45">Week 2：开发（3月30日-4月5日）</h3>
+<p><strong>Day 1-2（架构搭建）</strong>：<br />
+- [ ] fullstack-developer：搭建 Next.js 项目<br />
+- [ ] 配置 TypeScript、TailwindCSS<br />
+- [ ] 建立页面路由<br />
+- [ ] 配置 Markdown 渲染</p>
+<p><strong>Day 3-5（页面开发）</strong>：<br />
+- [ ] 开发首页<br />
+- [ ] 开发公司介绍页<br />
+- [ ] 开发团队介绍页<br />
+- [ ] 开发大事记页<br />
+- [ ] 开发成果展示页<br />
+- [ ] 开发动态列表和详情页</p>
+<p><strong>Day 6-7（内容填充）</strong>：<br />
+- [ ] 填充所有真实内容<br />
+- [ ] 上传图片和文档<br />
+- [ ] 配置 Markdown 文章<br />
+- [ ] 内部测试</p>
+<hr />
+<h3 id="week-346-412">Week 3：测试与上线（4月6日-4月12日）</h3>
+<p><strong>Day 1-3（测试）</strong>：<br />
+- [ ] 功能测试（所有页面和链接）<br />
+- [ ] 响应式测试（手机/平板/桌面）<br />
+- [ ] 浏览器兼容性测试<br />
+- [ ] 性能测试（加载速度）<br />
+- [ ] SEO 检查</p>
+<p><strong>Day 4-5（优化）</strong>：<br />
+- [ ] 修复发现的 Bug<br />
+- [ ] 优化性能<br />
+- [ ] 完善 SEO<br />
+- [ ] 最终内容审核</p>
+<p><strong>Day 6-7（部署上线）</strong>：<br />
+- [ ] 部署到 Vercel<br />
+- [ ] 配置域名（如果有）<br />
+- [ ] 配置 SSL 证书（免费）<br />
+- [ ] 最终验证<br />
+- [ ] 🎉 <strong>正式上线</strong></p>
+<hr />
+<h3 id="_18">持续维护（上线后）</h3>
+<p><strong>每周（1-2小时）</strong>：<br />
+- [ ] 更新公司动态<br />
+- [ ] 发布新的成果<br />
+- [ ] 更新大事记</p>
+<p><strong>每月（2-4小时）</strong>：<br />
+- [ ] 性能监控<br />
+- [ ] SEO 优化<br />
+- [ ] 内容更新<br />
+- [ ] 安全检查</p>
+<p><strong>负责人</strong>：fullstack-developer</p>
+<hr />
+<h2 id="_19">💰 成本明细</h2>
+<h3 id="_20">开发成本</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>方案</th>
+<th>成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Logo 设计</strong></td>
+<td>Midjourney + Figma</td>
+<td>$30-50</td>
+</tr>
+<tr>
+<td><strong>图片素材</strong></td>
+<td>AI 生成 + 免费图库</td>
+<td>$0-100</td>
+</tr>
+<tr>
+<td><strong>网站开发</strong></td>
+<td>fullstack-developer</td>
+<td>¥0（内部）</td>
+</tr>
+<tr>
+<td><strong>内容创作</strong></td>
+<td>小红书团队</td>
+<td>¥0（内部）</td>
+</tr>
+<tr>
+<td><strong>合规审核</strong></td>
+<td>legal-advisor</td>
+<td>¥0（内部）</td>
+</tr>
+<tr>
+<td><strong>小计</strong></td>
+<td></td>
+<td><strong>¥200-500</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_21">运营成本（首年）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>方案</th>
+<th>成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>域名</strong></td>
+<td>rainbox.tech</td>
+<td>¥50-100/年</td>
+</tr>
+<tr>
+<td><strong>托管</strong></td>
+<td>Vercel 免费版</td>
+<td>¥0</td>
+</tr>
+<tr>
+<td><strong>SSL 证书</strong></td>
+<td>Let's Encrypt</td>
+<td>¥0</td>
+</tr>
+<tr>
+<td><strong>维护</strong></td>
+<td>fullstack-developer</td>
+<td>&lt; ¥200/年</td>
+</tr>
+<tr>
+<td><strong>小计</strong></td>
+<td></td>
+<td><strong>¥50-300/年</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_22">总成本</h3>
+<p><strong>首年总成本</strong>：¥250-800<br />
+<strong>次年成本</strong>：¥50-300/年</p>
+<p><strong>vs 其他方案</strong>：<br />
+- 招聘方案：¥52.8万 - ¥97.8万/年<br />
+- 外包方案：¥2.9万 - ¥6.5万<br />
+- <strong>节省</strong>：<strong>99%+</strong></p>
+<hr />
+<h2 id="_23">👥 团队分工</h2>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>职责</th>
+<th>工作量</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>fullstack-developer</strong></td>
+<td>Logo 设计、UI 设计、网站开发、部署维护</td>
+<td>80-100h</td>
+<td>Week 1-3</td>
+</tr>
+<tr>
+<td><strong>RainBox</strong></td>
+<td>项目管理、内容整理、进度跟踪、最终审核</td>
+<td>20-30h</td>
+<td>Week 1-3</td>
+</tr>
+<tr>
+<td><strong>xiaohongshu-writer</strong></td>
+<td>文案优化、内容撰写</td>
+<td>5-10h</td>
+<td>Week 1</td>
+</tr>
+<tr>
+<td><strong>xiaohongshu-editor</strong></td>
+<td>内容审核、质量把控</td>
+<td>5-10h</td>
+<td>Week 1</td>
+</tr>
+<tr>
+<td><strong>legal-advisor</strong></td>
+<td>合规审核、隐私政策</td>
+<td>3-5h</td>
+<td>Week 1</td>
+</tr>
+<tr>
+<td><strong>CEO</strong></td>
+<td>最终决策、设计审核、内容审核</td>
+<td>2-3h</td>
+<td>Week 1-3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_24">✅ 下一步行动</h2>
+<h3 id="ceo_1">需要 CEO 决策</h3>
+<p>请 CEO 决定以下事项：</p>
+<ol>
+<li>
+<p><strong>✅ 确认技术方案</strong><br />
+   - [ ] 同意采用"自主开发 + 内部资源 + AI 辅助"方案<br />
+   - [ ] 放弃 with.woa.com（无法访问）</p>
+</li>
+<li>
+<p><strong>✅ 确认人员配置</strong><br />
+   - [ ] 同意无需招聘新员工<br />
+   - [ ] fullstack-developer 负责开发<br />
+   - [ ] 小红书团队辅助内容</p>
+</li>
+<li>
+<p><strong>✅ 确认预算</strong><br />
+   - [ ] 首年预算：¥250-800<br />
+   - [ ] 次年预算：¥50-300/年</p>
+</li>
+<li>
+<p><strong>✅ 确认时间</strong><br />
+   - [ ] 启动时间：本周（3月23日）<br />
+   - [ ] 上线时间：3周后（4月12日）</p>
+</li>
+<li>
+<p><strong>✅ 确认域名</strong><br />
+   - [ ] 购买域名：rainbox.tech / rainbox.ai / rainbox.com<br />
+   - [ ] 使用免费域名：rainbox.vercel.app</p>
+</li>
+</ol>
+<hr />
+<h3 id="ceo_2">等待 CEO 批准后</h3>
+<p><strong>我（RainBox）将立即执行</strong>：</p>
+<p><strong>立即（Day 1）</strong>：<br />
+1. 召开项目启动会（全员）<br />
+2. 分配具体任务<br />
+3. 制定详细时间表</p>
+<p><strong>委派 fullstack-developer</strong>：<br />
+1. 启动 Logo 设计（Midjourney）<br />
+2. 学习和准备开发环境<br />
+3. 开始 UI 设计</p>
+<p><strong>委派小红书团队</strong>：<br />
+1. 整理和优化文案<br />
+2. 审核内容质量</p>
+<p><strong>委派 legal-advisor</strong>：<br />
+1. 审核内容合规性<br />
+2. 准备隐私政策</p>
+<hr />
+<h2 id="_25">📊 预期效果</h2>
+<h3 id="1">短期效果（上线后1个月）</h3>
+<ul>
+<li>✅ 对外展示公司专业形象</li>
+<li>✅ 完整记录公司发展历程</li>
+<li>✅ 展示 12 个专业 Agent</li>
+<li>✅ 发布真实的培训和规范</li>
+<li>✅ 建立公司品牌认知</li>
+</ul>
+<hr />
+<h3 id="3">中期效果（3个月后）</h3>
+<ul>
+<li>✅ 积累丰富的大事记内容</li>
+<li>✅ 定期发布公司动态</li>
+<li>✅ 分享管理经验和技术成果</li>
+<li>✅ 提升公司专业度和影响力</li>
+<li>✅ 吸引外部关注</li>
+</ul>
+<hr />
+<h3 id="6">长期效果（6个月后）</h3>
+<ul>
+<li>✅ 成为公司对外宣传的核心窗口</li>
+<li>✅ 展示公司管理和技术实力</li>
+<li>✅ 建立行业影响力</li>
+<li>✅ 潜在的合作和机会</li>
+<li>✅ 内部团队的荣誉感和归属感</li>
+</ul>
+<hr />
+<h2 id="_26">🎉 总结</h2>
+<h3 id="_27">方案亮点</h3>
+<ol>
+<li><strong>真实内容</strong> - 符合 CEO 要求，所有内容真实可信</li>
+<li><strong>成本最优</strong> - 仅需 ¥250-800，节省 99%+</li>
+<li><strong>专业团队</strong> - fullstack-developer 能力完全胜任</li>
+<li><strong>快速上线</strong> - 2-3周完成，周期合理</li>
+<li><strong>可持续</strong> - 易于维护和更新</li>
+<li><strong>国际化</strong> - Logo 中英文，现代设计</li>
+<li><strong>成果展示</strong> - 培训、规范、公文完整展示</li>
+</ol>
+<hr />
+<h3 id="ceo_3">CEO 的决策</h3>
+<p>CEO，现在需要您的最终决策：</p>
+<p><strong>问题 1</strong>：是否同意采用"自主开发"方案？<br />
+- [ ] ✅ 同意（fullstack-developer 开发，成本 &lt; ¥800）<br />
+- [ ] ❌ 不同意（理由：<strong><em>_</em></strong>___）</p>
+<p><strong>问题 2</strong>：是否同意无需招聘新员工？<br />
+- [ ] ✅ 同意（内部资源充足）<br />
+- [ ] ❌ 不同意（需要招聘：<strong><em>_</em></strong>___）</p>
+<p><strong>问题 3</strong>：何时启动项目？<br />
+- [ ] ✅ 本周内启动（3月23日开始）<br />
+- [ ] ⏰ 下周启动<br />
+- [ ] ⏰ 后续再定</p>
+<p><strong>问题 4</strong>：是否购买域名？<br />
+- [ ] ✅ 购买（域名建议：<strong><em>_</em></strong>___）<br />
+- [ ] ❌ 使用免费域名（rainbox.vercel.app）</p>
+<hr />
+<h3 id="_28">我的承诺</h3>
+<p>作为 RainBox 总经理，我承诺：</p>
+<ol>
+<li>✅ <strong>严格控制成本</strong>：&lt; ¥800（首年）</li>
+<li>✅ <strong>保证质量</strong>：专业、现代、品牌感强</li>
+<li>✅ <strong>按时交付</strong>：3周内上线</li>
+<li>✅ <strong>真实内容</strong>：符合 CEO 要求，不虚假</li>
+<li>✅ <strong>长期维护</strong>：可持续运营</li>
+</ol>
+<hr />
+<p><strong>请 CEO 审批！一旦批准，我们立即启动！</strong> 🚀</p>
+<hr />
+<p><strong>制定人</strong>：RainBox（总经理）<br />
+<strong>技术评估</strong>：fullstack-developer（码道）<br />
+<strong>人员规划</strong>：HR Manager（招贤）<br />
+<strong>日期</strong>：2026年3月22日</p>
+<hr />
+<p><em>RainBox 数字科技公司</em><br />
+<em>"科技养虾，用心养人"</em> 🦐💙<br />
+<em>让世界看到我们的专业！</em></p>
+    </div>
+  </article>
+
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- 页脚 -->
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
+        </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

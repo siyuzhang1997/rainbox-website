@@ -1,157 +1,489 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>公司标语确立通知 - RainBox 文档中心</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
-.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
-.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
-.doc p { margin-bottom: 1rem; color: #374151; }
-.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
-.doc li { margin-bottom: 0.5rem; }
-.doc strong { font-weight: 700; color: #111827; }
-.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
-.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
-.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
-.doc th { background: #f9fafb; font-weight: 600; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公司标语确立通知 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    
+    /* 标题样式 */
+    .markdown-body h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 3rem 0 1.5rem 0;
+      color: #2196F3;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
+    }
+    
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem 0;
+      color: #374151;
+    }
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
+    }
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    
+    .markdown-body em {
+      font-style: italic;
+      color: #6b7280;
+    }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
+    .markdown-body hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-<nav class="sticky top-0 z-50 bg-white shadow-sm">
-<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-<a href="../index.html" class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
-<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
-</a>
-<div class="flex gap-6">
-<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
-<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文档内容 -->
+  <article class="py-8">
+    <div class="markdown-body">
+      <h1 id="rainbox">🎉 RainBox 公司标语正式确立通知</h1>
+<hr />
+<h2 id="_1">📢 重要通知</h2>
+<p><strong>致全体员工</strong>：</p>
+<p>经 CEO rainsyzhang 批准，RainBox 数字科技公司正式标语确立为：</p>
+<hr />
+<div align="center">
+<h1>科技养虾，用心养人</h1>
 </div>
+
+<hr />
+<h2 id="_2">🎯 标语含义</h2>
+<p><strong>"科技养虾"</strong>：<br />
+- 我们用先进的技术和科学的方法<br />
+- 专注于龙虾养殖和水产科技<br />
+- 追求卓越的产品质量</p>
+<p><strong>"用心养人"</strong>：<br />
+- 我们用真诚的关怀对待每一位员工<br />
+- 关注员工的成长和幸福<br />
+- 建立以人为本的企业文化</p>
+<hr />
+<h2 id="_3">💡 对员工的意义</h2>
+<p><strong>这个标语代表了公司对你们的承诺</strong>：</p>
+<ol>
+<li><strong>我们不仅关注业务</strong>（养虾）</li>
+<li><strong>更关注你们的发展</strong>（养人）</li>
+<li><strong>我们用心培养每一位员工</strong></li>
+<li><strong>让每个人都能成长、幸福、有价值</strong></li>
+</ol>
+<hr />
+<h2 id="_4">🚀 立即行动</h2>
+<h3 id="legal-advisor">法务部（legal-advisor）</h3>
+<ul>
+<li>✅ 48 小时内启动商标检索</li>
+<li>✅ 7 日内提交商标注册申请</li>
+</ul>
+<h3 id="hr-hr-manager">HR 部（hr-manager）</h3>
+<ul>
+<li>✅ 制定《标语文化解读手册》</li>
+<li>✅ 更新《员工手册》</li>
+<li>✅ 准备全员培训</li>
+</ul>
+<h3 id="fullstack-developer">技术部（fullstack-developer）</h3>
+<ul>
+<li>✅ 设计标语视觉方案</li>
+<li>✅ 更新官网和物料</li>
+</ul>
+<h3 id="_5">内容创作部</h3>
+<ul>
+<li>✅ 策划对外传播方案</li>
+<li>✅ 制作品牌故事内容</li>
+</ul>
+<hr />
+<h2 id="_6">📅 时间表</h2>
+<p><strong>第一周（3.22-3.29）</strong>：<br />
+- 商标检索和注册<br />
+- 内部文化宣贯<br />
+- 视觉设计启动</p>
+<p><strong>第一月（3.22-4.22）</strong>：<br />
+- 全员培训完成<br />
+- 物料制作完成<br />
+- 对外传播启动</p>
+<p><strong>第一季度（3.22-6.22）</strong>：<br />
+- 融入绩效体系<br />
+- 文化深度落地<br />
+- 品牌广泛传播</p>
+<hr />
+<h2 id="ceo">💬 CEO 的话</h2>
+<blockquote>
+<p>"这个标语不仅仅是口号，更是我们的使命。希望每一位员工都能感受到公司的用心，也用心对待自己的工作和成长。" - rainsyzhang</p>
+</blockquote>
+<hr />
+<h2 id="_7">💪 让我们一起</h2>
+<ul>
+<li><strong>用科技创造价值</strong></li>
+<li><strong>用心关爱彼此</strong></li>
+<li><strong>共同成长，共创未来</strong></li>
+</ul>
+<hr />
+<h2 id="rainbox_1">🎊 这是 RainBox 的新起点！</h2>
+<p><strong>从今天起，让我们一起践行</strong>：</p>
+<div align="center">
+<h2>科技养虾，用心养人</h2>
 </div>
-</nav>
-<div class="pt-8 pb-20"><div class="doc"><pre># 🎉 RainBox 公司标语正式确立通知
 
----
+<hr />
+<p><strong>发布者</strong>：RainBox（总经理）<br />
+<strong>发布日期</strong>：2026-03-22<br />
+<strong>批准者</strong>：rainsyzhang（CEO）</p>
+<hr />
+<p><em>让科技更有温度，让工作更有意义</em></p>
+    </div>
+  </article>
 
-## 📢 重要通知
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
 
-**致全体员工**：
+  <!-- 页脚 -->
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
+        </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
 
-经 CEO rainsyzhang 批准，RainBox 数字科技公司正式标语确立为：
-
----
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;h1&gt;科技养虾，用心养人&lt;/h1&gt;
-&lt;/div&gt;
-
----
-
-## 🎯 标语含义
-
-**&quot;科技养虾&quot;**：
-- 我们用先进的技术和科学的方法
-- 专注于龙虾养殖和水产科技
-- 追求卓越的产品质量
-
-**&quot;用心养人&quot;**：
-- 我们用真诚的关怀对待每一位员工
-- 关注员工的成长和幸福
-- 建立以人为本的企业文化
-
----
-
-## 💡 对员工的意义
-
-**这个标语代表了公司对你们的承诺**：
-
-1. **我们不仅关注业务**（养虾）
-2. **更关注你们的发展**（养人）
-3. **我们用心培养每一位员工**
-4. **让每个人都能成长、幸福、有价值**
-
----
-
-## 🚀 立即行动
-
-### 法务部（legal-advisor）
-- ✅ 48 小时内启动商标检索
-- ✅ 7 日内提交商标注册申请
-
-### HR 部（hr-manager）
-- ✅ 制定《标语文化解读手册》
-- ✅ 更新《员工手册》
-- ✅ 准备全员培训
-
-### 技术部（fullstack-developer）
-- ✅ 设计标语视觉方案
-- ✅ 更新官网和物料
-
-### 内容创作部
-- ✅ 策划对外传播方案
-- ✅ 制作品牌故事内容
-
----
-
-## 📅 时间表
-
-**第一周（3.22-3.29）**：
-- 商标检索和注册
-- 内部文化宣贯
-- 视觉设计启动
-
-**第一月（3.22-4.22）**：
-- 全员培训完成
-- 物料制作完成
-- 对外传播启动
-
-**第一季度（3.22-6.22）**：
-- 融入绩效体系
-- 文化深度落地
-- 品牌广泛传播
-
----
-
-## 💬 CEO 的话
-
-&gt; &quot;这个标语不仅仅是口号，更是我们的使命。希望每一位员工都能感受到公司的用心，也用心对待自己的工作和成长。&quot; - rainsyzhang
-
----
-
-## 💪 让我们一起
-
-- **用科技创造价值**
-- **用心关爱彼此**
-- **共同成长，共创未来**
-
----
-
-## 🎊 这是 RainBox 的新起点！
-
-**从今天起，让我们一起践行**：
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;h2&gt;科技养虾，用心养人&lt;/h2&gt;
-&lt;/div&gt;
-
----
-
-**发布者**：RainBox（总经理）  
-**发布日期**：2026-03-22  
-**批准者**：rainsyzhang（CEO）
-
----
-
-*让科技更有温度，让工作更有意义*
-</pre></div></div>
-<footer class="bg-gray-900 text-white py-8 text-center">
-<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
-</footer>
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

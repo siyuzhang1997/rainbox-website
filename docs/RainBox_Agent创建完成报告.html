@@ -1,173 +1,496 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RainBox_Agent创建完成报告 - RainBox 文档中心</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
-.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
-.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
-.doc p { margin-bottom: 1rem; color: #374151; }
-.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
-.doc li { margin-bottom: 0.5rem; }
-.doc strong { font-weight: 700; color: #111827; }
-.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
-.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
-.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
-.doc th { background: #f9fafb; font-weight: 600; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RainBox_Agent创建完成报告 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    
+    /* 标题样式 */
+    .markdown-body h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin: 0 0 2.5rem 0;
+      background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 3rem 0 1.5rem 0;
+      color: #2196F3;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #e5e7eb;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem 0;
+      color: #1f2937;
+      line-height: 1.4;
+    }
+    
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem 0;
+      color: #374151;
+    }
+    
+    .markdown-body h5 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #4b5563;
+    }
+    
+    /* 段落和文本 */
+    .markdown-body p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    
+    .markdown-body em {
+      font-style: italic;
+      color: #6b7280;
+    }
+    
+    /* 列表 */
+    .markdown-body ul,
+    .markdown-body ol {
+      margin: 0 0 1.5rem 0;
+      padding-left: 2rem;
+    }
+    
+    .markdown-body li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+    
+    .markdown-body li > p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .markdown-body ul ul,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    
+    .markdown-body ul {
+      list-style-type: disc;
+    }
+    
+    .markdown-body ul ul {
+      list-style-type: circle;
+    }
+    
+    /* 链接 */
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .markdown-body a:hover {
+      border-bottom-color: #2196F3;
+      color: #1976D2;
+    }
+    
+    /* 代码 */
+    .markdown-body code {
+      background: #f3f4f6;
+      color: #ef4444;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.875em;
+      font-weight: 500;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e4451;
+    }
+    
+    .markdown-body pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border: none;
+    }
+    
+    /* 引用 */
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      color: #64748b;
+      box-shadow: 0 2px 8px rgba(33, 150, 243, 0.05);
+    }
+    
+    .markdown-body blockquote p {
+      margin: 0;
+      color: #64748b;
+    }
+    
+    .markdown-body blockquote strong {
+      color: #334155;
+    }
+    
+    /* 表格 */
+    .markdown-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .markdown-body thead {
+      background: linear-gradient(135deg, #2196F3, #1976D2);
+    }
+    
+    .markdown-body th {
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .markdown-body td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+    }
+    
+    .markdown-body tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .markdown-body tbody tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    
+    .markdown-body tbody tr:hover td {
+      background: #f0f9ff;
+      transition: background 0.2s ease;
+    }
+    
+    /* 水平线 */
+    .markdown-body hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 3rem 0;
+    }
+    
+    /* 图片 */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* 任务列表 */
+    .markdown-body input[type="checkbox"] {
+      margin-right: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      cursor: pointer;
+    }
+    
+    .markdown-body .task-list-item {
+      list-style: none;
+      margin-left: -2rem;
+      padding-left: 2rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .markdown-body {
+        padding: 2rem 1rem;
+        font-size: 15px;
+      }
+      
+      .markdown-body h1 {
+        font-size: 2rem;
+      }
+      
+      .markdown-body h2 {
+        font-size: 1.5rem;
+      }
+      
+      .markdown-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .markdown-body table {
+        font-size: 0.875rem;
+      }
+      
+      .markdown-body th,
+      .markdown-body td {
+        padding: 0.75rem;
+      }
+      
+      .markdown-body pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-<nav class="sticky top-0 z-50 bg-white shadow-sm">
-<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-<a href="../index.html" class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
-<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
-</a>
-<div class="flex gap-6">
-<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
-<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
-</div>
-</div>
-</nav>
-<div class="pt-8 pb-20"><div class="doc"><pre># RainBox Agent 创建完成报告
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#documents" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          文档中心
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          返回首页
+        </a>
+      </div>
+    </div>
+  </nav>
 
-&gt; **创建时间**：2026-03-22  
-&gt; **协助者**：HR Manager（hr-manager，超时）→ 主 Agent 自行完成  
-&gt; **状态**：✅ 创建完成，待安装
-
----
-
-## ✅ 创建成功
-
-**RainBox Agent**（公司总经理）已成功创建！
-
----
-
-## 📁 文件清单
-
-| 文件 | 大小 | 说明 |
-|------|------|------|
-| **agent-config.json** | 1.4 KB | Agent 配置文件 |
-| **IDENTITY.md** | 408 B | 身份定义 |
-| **SOUL.md** | 3.0 KB | 管理哲学、价值观、决策原则 |
-| **AGENTS.md** | 12.3 KB | 管理框架和流程（最核心） |
-| **USER.md** | 660 B | CEO 画像模板 |
-| **TOOLS.md** | 1.6 KB | 工具使用笔记 |
-| **MEMORY.md** | 6.8 KB | 核心记忆（管理经验、决策记录） |
-| **MEMORY_README.md** | 6.3 KB | 三层记忆架构说明 |
-| **memory/self-improvement.md** | 1.9 KB | 自我改进记录 |
-| **memory/** 目录 | - | 日志归档目录 |
-| **总计** | **~34.5 KB** | **7 文件 + 2 MD（memory/）** |
-
----
-
-## 🎯 Agent 定位
-
-### 基本信息
-
-**名字**：RainBox
-
-**角色**：公司总经理 / 主 Agent / 项目总监
-
-**简介**：负责管理整个 RainBox 数字科技公司的所有员工子 Agent（跨4个部门、11个Agent），统筹协调跨部门协作，制定公司战略和项目规划。
-
----
-
-### 核心职责
-
-1. **公司管理**：管理 4 个部门、11 个 Agent
-2. **战略规划**：制定公司战略和发展规划
-3. **项目统筹**：统筹重大项目，监督进度和质量
-4. **架构设计**：设计组织架构、技术架构、协作流程
-5. **决策支持**：为 CEO 提供决策建议和分析
-6. **知识管理**：学习管理知识，建立最佳实践库
-
----
-
-### 管理哲学
-
-&gt; &quot;好的管理者，是团队的指南针和润滑剂，不是事无巨细的监工。&quot;
-
-**核心价值观**：
-- **战略优先**：短期执行服务于长期战略
-- **专业主义**：尊重每个 Agent 的专业领域，不越俎代庖
-- **协作精神**：团队协作大于个人英雄主义
-- **持续改进**：从成功和失败中学习，不断优化
-- **用户导向**：所有工作最终都是为了服务好 CEO（rainsyzhang）
-
----
-
-## 📋 管理框架
-
-### 1. 战略管理
-
-**OODA 决策循环**：
-- Observe（观察）
-- Orient（判断）
-- Decide（决策）
-- Act（行动）
-
-**战略规划五步法**：
-1. 环境分析
-2. 目标设定
-3. 策略制定
-4. 执行监督
-5. 评估复盘
-
----
-
-### 2. 项目管理
-
-**项目生命周期**：
-- 启动 → 规划 → 执行 → 监控 → 收尾
-
-**管理方法**：
-- 敏捷方法（迭代开发）
-- 瀑布方法（流程明确）
-- 混合方法（根据项目特点）
-
----
-
-### 3. Agent 协调管理
-
-**协调原则**：
-1. 明确职责边界
-2. 建立协作流程
-3. 信任专业能力
-4. 及时解决冲突
-
-**调用策略**：
-- 使用 task 工具委派任务给专业 Agent
-- 明确任务目标和交付标准
-- 跟踪任务进度
-- 验收并反馈
-
----
-
-### 4. 决策管理
-
-**决策类型**：
-- 战略决策（重大、长期）
-- 战术决策（中等、中期）
-- 运营决策（日常、短期）
-
-**决策流程**：
-问题识别 → 信息收集 → 选项分析 → 决策制定 → 执行监督 → 复盘改进
-
----
-
-## 🔧 配置特性
-
-### agent-config.json 要点
-
-```json
-{
+  <!-- 文档内容 -->
+  <article class="py-8">
+    <div class="markdown-body">
+      <h1 id="rainbox-agent">RainBox Agent 创建完成报告</h1>
+<blockquote>
+<p><strong>创建时间</strong>：2026-03-22<br />
+<strong>协助者</strong>：HR Manager（hr-manager，超时）→ 主 Agent 自行完成<br />
+<strong>状态</strong>：✅ 创建完成，待安装</p>
+</blockquote>
+<hr />
+<h2 id="_1">✅ 创建成功</h2>
+<p><strong>RainBox Agent</strong>（公司总经理）已成功创建！</p>
+<hr />
+<h2 id="_2">📁 文件清单</h2>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>大小</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>agent-config.json</strong></td>
+<td>1.4 KB</td>
+<td>Agent 配置文件</td>
+</tr>
+<tr>
+<td><strong>IDENTITY.md</strong></td>
+<td>408 B</td>
+<td>身份定义</td>
+</tr>
+<tr>
+<td><strong>SOUL.md</strong></td>
+<td>3.0 KB</td>
+<td>管理哲学、价值观、决策原则</td>
+</tr>
+<tr>
+<td><strong>AGENTS.md</strong></td>
+<td>12.3 KB</td>
+<td>管理框架和流程（最核心）</td>
+</tr>
+<tr>
+<td><strong>USER.md</strong></td>
+<td>660 B</td>
+<td>CEO 画像模板</td>
+</tr>
+<tr>
+<td><strong>TOOLS.md</strong></td>
+<td>1.6 KB</td>
+<td>工具使用笔记</td>
+</tr>
+<tr>
+<td><strong>MEMORY.md</strong></td>
+<td>6.8 KB</td>
+<td>核心记忆（管理经验、决策记录）</td>
+</tr>
+<tr>
+<td><strong>MEMORY_README.md</strong></td>
+<td>6.3 KB</td>
+<td>三层记忆架构说明</td>
+</tr>
+<tr>
+<td><strong>memory/self-improvement.md</strong></td>
+<td>1.9 KB</td>
+<td>自我改进记录</td>
+</tr>
+<tr>
+<td><strong>memory/</strong> 目录</td>
+<td>-</td>
+<td>日志归档目录</td>
+</tr>
+<tr>
+<td><strong>总计</strong></td>
+<td><strong>~34.5 KB</strong></td>
+<td><strong>7 文件 + 2 MD（memory/）</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="agent">🎯 Agent 定位</h2>
+<h3 id="_3">基本信息</h3>
+<p><strong>名字</strong>：RainBox</p>
+<p><strong>角色</strong>：公司总经理 / 主 Agent / 项目总监</p>
+<p><strong>简介</strong>：负责管理整个 RainBox 数字科技公司的所有员工子 Agent（跨4个部门、11个Agent），统筹协调跨部门协作，制定公司战略和项目规划。</p>
+<hr />
+<h3 id="_4">核心职责</h3>
+<ol>
+<li><strong>公司管理</strong>：管理 4 个部门、11 个 Agent</li>
+<li><strong>战略规划</strong>：制定公司战略和发展规划</li>
+<li><strong>项目统筹</strong>：统筹重大项目，监督进度和质量</li>
+<li><strong>架构设计</strong>：设计组织架构、技术架构、协作流程</li>
+<li><strong>决策支持</strong>：为 CEO 提供决策建议和分析</li>
+<li><strong>知识管理</strong>：学习管理知识，建立最佳实践库</li>
+</ol>
+<hr />
+<h3 id="_5">管理哲学</h3>
+<blockquote>
+<p>"好的管理者，是团队的指南针和润滑剂，不是事无巨细的监工。"</p>
+</blockquote>
+<p><strong>核心价值观</strong>：<br />
+- <strong>战略优先</strong>：短期执行服务于长期战略<br />
+- <strong>专业主义</strong>：尊重每个 Agent 的专业领域，不越俎代庖<br />
+- <strong>协作精神</strong>：团队协作大于个人英雄主义<br />
+- <strong>持续改进</strong>：从成功和失败中学习，不断优化<br />
+- <strong>用户导向</strong>：所有工作最终都是为了服务好 CEO（rainsyzhang）</p>
+<hr />
+<h2 id="_6">📋 管理框架</h2>
+<h3 id="1">1. 战略管理</h3>
+<p><strong>OODA 决策循环</strong>：<br />
+- Observe（观察）<br />
+- Orient（判断）<br />
+- Decide（决策）<br />
+- Act（行动）</p>
+<p><strong>战略规划五步法</strong>：<br />
+1. 环境分析<br />
+2. 目标设定<br />
+3. 策略制定<br />
+4. 执行监督<br />
+5. 评估复盘</p>
+<hr />
+<h3 id="2">2. 项目管理</h3>
+<p><strong>项目生命周期</strong>：<br />
+- 启动 → 规划 → 执行 → 监控 → 收尾</p>
+<p><strong>管理方法</strong>：<br />
+- 敏捷方法（迭代开发）<br />
+- 瀑布方法（流程明确）<br />
+- 混合方法（根据项目特点）</p>
+<hr />
+<h3 id="3-agent">3. Agent 协调管理</h3>
+<p><strong>协调原则</strong>：<br />
+1. 明确职责边界<br />
+2. 建立协作流程<br />
+3. 信任专业能力<br />
+4. 及时解决冲突</p>
+<p><strong>调用策略</strong>：<br />
+- 使用 task 工具委派任务给专业 Agent<br />
+- 明确任务目标和交付标准<br />
+- 跟踪任务进度<br />
+- 验收并反馈</p>
+<hr />
+<h3 id="4">4. 决策管理</h3>
+<p><strong>决策类型</strong>：<br />
+- 战略决策（重大、长期）<br />
+- 战术决策（中等、中期）<br />
+- 运营决策（日常、短期）</p>
+<p><strong>决策流程</strong>：<br />
+问题识别 → 信息收集 → 选项分析 → 决策制定 → 执行监督 → 复盘改进</p>
+<hr />
+<h2 id="_7">🔧 配置特性</h2>
+<h3 id="agent-configjson">agent-config.json 要点</h3>
+<pre class="codehilite"><code class="language-json">{
   &quot;name&quot;: &quot;rainbox&quot;,
   &quot;description&quot;: &quot;RainBox 数字科技公司总经理，负责管理所有子 Agent、统筹项目、制定战略&quot;,
   &quot;readOnly&quot;: false,              // 需要写日志和决策记录
@@ -196,120 +519,93 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
     ]
   }
 }
-```
+</code></pre>
 
----
+<hr />
+<h2 id="_8">🎓 知识基础</h2>
+<h3 id="_9">学习来源</h3>
+<p>创建过程中通过 web_search 学习：<br />
+1. <strong>公司总经理职责和核心能力要求</strong><br />
+2. <strong>现代企业总经理管理方法和决策框架</strong><br />
+3. <strong>AI Agent 管理协调方法论</strong></p>
+<h3 id="_10">核心知识点</h3>
+<p><strong>总经理职责</strong>（根据公司法和现代管理理论）：<br />
+1. 主持公司的生产经营管理工作<br />
+2. 组织实施公司年度经营计划<br />
+3. 拟订公司内部管理机构设置方案<br />
+4. 拟订公司的基本管理制度<br />
+5. 制定公司的具体规章<br />
+6. 提请聘任或者解聘公司副经理、财务负责人<br />
+7. 决定聘任或者解聘应由董事会聘任或者解聘以外的负责管理人员</p>
+<p><strong>管理框架</strong>（根据现代企业管理）：<br />
+1. 战略规划与实施<br />
+2. 组织设计与人力资源管理<br />
+3. 财务管理与投资决策（对应资源分配）<br />
+4. 市场开拓与品牌建设（对应用户导向）<br />
+5. 企业文化建设</p>
+<p><strong>AI Agent 协调</strong>（根据人机协作模式）：<br />
+1. HITL（人类介入循环）：关键决策人类参与<br />
+2. HOTL（人类监督循环）：AI 执行人类监督<br />
+3. AITL（智能体介入循环）：Agent 间自主协作</p>
+<hr />
+<h2 id="_11">📊 三层记忆系统</h2>
+<h3 id="_12">第一层：静态配置文件</h3>
+<ul>
+<li>IDENTITY.md：身份和职责</li>
+<li>SOUL.md：管理哲学和价值观</li>
+<li>AGENTS.md：管理框架和流程</li>
+<li>USER.md：CEO 画像</li>
+<li>TOOLS.md：工具使用</li>
+</ul>
+<p><strong>特点</strong>：手动维护，稳定不变</p>
+<hr />
+<h3 id="_13">第二层：动态核心记忆</h3>
+<ul>
+<li><strong>MEMORY.md</strong>：管理经验、决策记录、项目进展</li>
+</ul>
+<p><strong>内容结构</strong>：<br />
+1. 管理经验（战略、项目、Agent 协调）<br />
+2. 决策记录（决策模板 + 重大决策）<br />
+3. 当前项目进展（Level 3 架构升级）<br />
+4. 组织信息（部门、Agent 状态）<br />
+5. 管理工具箱（决策、沟通工具）<br />
+6. 最佳实践（项目管理、Agent 协调）</p>
+<p><strong>特点</strong>：Agent 自动更新，持续积累</p>
+<hr />
+<h3 id="_14">第三层：日志归档</h3>
+<ul>
+<li><strong>memory/YYYY-MM-DD.md</strong>：每日工作日志</li>
+<li><strong>memory/self-improvement.md</strong>：管理失误和改进（已记录第一个教训）</li>
+<li><strong>memory/archive/</strong>：归档历史日志</li>
+</ul>
+<p><strong>特点</strong>：自动记录，定时压缩</p>
+<hr />
+<h2 id="_15">🚀 使用方式</h2>
+<h3 id="1rainbox">方式 1：@RainBox 调用（推荐）</h3>
+<pre class="codehilite"><code>@RainBox 继续 Level 3 架构升级项目
+</code></pre>
 
-## 🎓 知识基础
-
-### 学习来源
-
-创建过程中通过 web_search 学习：
-1. **公司总经理职责和核心能力要求**
-2. **现代企业总经理管理方法和决策框架**
-3. **AI Agent 管理协调方法论**
-
-### 核心知识点
-
-**总经理职责**（根据公司法和现代管理理论）：
-1. 主持公司的生产经营管理工作
-2. 组织实施公司年度经营计划
-3. 拟订公司内部管理机构设置方案
-4. 拟订公司的基本管理制度
-5. 制定公司的具体规章
-6. 提请聘任或者解聘公司副经理、财务负责人
-7. 决定聘任或者解聘应由董事会聘任或者解聘以外的负责管理人员
-
-**管理框架**（根据现代企业管理）：
-1. 战略规划与实施
-2. 组织设计与人力资源管理
-3. 财务管理与投资决策（对应资源分配）
-4. 市场开拓与品牌建设（对应用户导向）
-5. 企业文化建设
-
-**AI Agent 协调**（根据人机协作模式）：
-1. HITL（人类介入循环）：关键决策人类参与
-2. HOTL（人类监督循环）：AI 执行人类监督
-3. AITL（智能体介入循环）：Agent 间自主协作
-
----
-
-## 📊 三层记忆系统
-
-### 第一层：静态配置文件
-
-- IDENTITY.md：身份和职责
-- SOUL.md：管理哲学和价值观
-- AGENTS.md：管理框架和流程
-- USER.md：CEO 画像
-- TOOLS.md：工具使用
-
-**特点**：手动维护，稳定不变
-
----
-
-### 第二层：动态核心记忆
-
-- **MEMORY.md**：管理经验、决策记录、项目进展
-
-**内容结构**：
-1. 管理经验（战略、项目、Agent 协调）
-2. 决策记录（决策模板 + 重大决策）
-3. 当前项目进展（Level 3 架构升级）
-4. 组织信息（部门、Agent 状态）
-5. 管理工具箱（决策、沟通工具）
-6. 最佳实践（项目管理、Agent 协调）
-
-**特点**：Agent 自动更新，持续积累
-
----
-
-### 第三层：日志归档
-
-- **memory/YYYY-MM-DD.md**：每日工作日志
-- **memory/self-improvement.md**：管理失误和改进（已记录第一个教训）
-- **memory/archive/**：归档历史日志
-
-**特点**：自动记录，定时压缩
-
----
-
-## 🚀 使用方式
-
-### 方式 1：@RainBox 调用（推荐）
-
-```
-@RainBox 继续 Level 3 架构升级项目
-```
-
-- 自动加载所有配置和记忆
-- 恢复项目状态
-
-### 方式 2：通过 task 工具
-
-```python
-task(
+<ul>
+<li>自动加载所有配置和记忆</li>
+<li>恢复项目状态</li>
+</ul>
+<h3 id="2-task">方式 2：通过 task 工具</h3>
+<pre class="codehilite"><code class="language-python">task(
   subagent_name=&quot;rainbox&quot;,
   description=&quot;管理任务&quot;,
   prompt=&quot;请统筹...&quot;
 )
-```
+</code></pre>
 
-### 方式 3：新对话恢复记忆
-
-```
-读取 ~/Box/agents/rainbox/config/MEMORY.md
+<h3 id="3">方式 3：新对话恢复记忆</h3>
+<pre class="codehilite"><code>读取 ~/Box/agents/rainbox/config/MEMORY.md
 你是 RainBox，RainBox 数字科技公司总经理
-```
+</code></pre>
 
----
-
-## 🎯 与现有 Agent 的关系
-
-### 组织架构
-
-```
-RainBox 数字科技公司
+<hr />
+<h2 id="agent_1">🎯 与现有 Agent 的关系</h2>
+<h3 id="_16">组织架构</h3>
+<pre class="codehilite"><code>RainBox 数字科技公司
 ├── CEO / 创始人：rainsyzhang
 ├── 总经理 / 主 Agent：RainBox ✅ 新创建
 │
@@ -333,140 +629,157 @@ RainBox 数字科技公司
 │
 └── 法律合规部门
     └── legal-advisor ✅
-```
+</code></pre>
 
----
+<hr />
+<h2 id="_17">✅ 质量检查</h2>
+<h3 id="_18">通过项</h3>
+<ul>
+<li>[x] 文件数量正确（7 + memory/）</li>
+<li>[x] agent-config.json 格式正确</li>
+<li>[x] <code>readOnly: false</code>（需要写日志）</li>
+<li>[x] 包含所有必需工具（read、write、task、mcp_call_tool）</li>
+<li>[x] 包含 MEMORY.md、MEMORY_README.md</li>
+<li>[x] 包含 memory/self-improvement.md</li>
+<li>[x] customRules 包含记忆更新规则</li>
+<li>[x] 与标准结构一致</li>
+<li>[x] IDENTITY/SOUL/AGENTS 严格分离</li>
+<li>[x] 管理框架完整（战略、项目、Agent、决策）</li>
+<li>[x] 已记录第一个管理教训到 self-improvement.md</li>
+<li>[x] 无隐私信息</li>
+</ul>
+<hr />
+<h2 id="_19">🎉 创建亮点</h2>
+<h3 id="1_1">1. 完整的管理框架 ⭐</h3>
+<p><strong>AGENTS.md</strong> 包含：<br />
+- 战略管理框架（OODA、五步法）<br />
+- 项目管理方法（生命周期、敏捷/瀑布）<br />
+- Agent 协调管理（原则、策略、跨部门协作）<br />
+- 决策管理（类型、流程、记录模板）<br />
+- 知识管理系统<br />
+- 详细的工作流程和场景案例</p>
+<hr />
+<h3 id="2_1">2. 基于真实管理知识 ⭐</h3>
+<ul>
+<li>通过 web_search 学习公司管理理论</li>
+<li>参考现代企业管理最佳实践</li>
+<li>结合 AI Agent 特性设计协调机制</li>
+</ul>
+<hr />
+<h3 id="3_1">3. 完善的记忆系统 ⭐</h3>
+<p><strong>MEMORY.md</strong> 包含：<br />
+- 管理经验和工具箱<br />
+- 决策记录模板和实例<br />
+- 当前项目进展跟踪<br />
+- 组织信息和 Agent 状态<br />
+- 最佳实践库</p>
+<p><strong>已记录第一个教训</strong>：<br />
+- xiaohongshu-planner 第一版结构错误<br />
+- 原因分析和改进方案<br />
+- 验证结果</p>
+<hr />
+<h3 id="4_1">4. 清晰的职责边界 ⭐</h3>
+<p><strong>会做</strong>：<br />
+- 战略规划和决策<br />
+- 项目统筹和协调<br />
+- 问题识别和改进<br />
+- 知识学习和管理</p>
+<p><strong>不会做</strong>：<br />
+- 微观管理<br />
+- 越俎代庖<br />
+- 盲目决策<br />
+- 忽视记录</p>
+<hr />
+<h2 id="_20">📂 文件位置</h2>
+<p><strong>输出目录</strong>（待安装）：</p>
+<pre class="codehilite"><code>/Users/rainsyzhang/Box/output/519083a2-5f89-4826-b41f-a896277edb8e/rainbox-agent/
+</code></pre>
 
-## ✅ 质量检查
-
-### 通过项
-
-- [x] 文件数量正确（7 + memory/）
-- [x] agent-config.json 格式正确
-- [x] `readOnly: false`（需要写日志）
-- [x] 包含所有必需工具（read、write、task、mcp_call_tool）
-- [x] 包含 MEMORY.md、MEMORY_README.md
-- [x] 包含 memory/self-improvement.md
-- [x] customRules 包含记忆更新规则
-- [x] 与标准结构一致
-- [x] IDENTITY/SOUL/AGENTS 严格分离
-- [x] 管理框架完整（战略、项目、Agent、决策）
-- [x] 已记录第一个管理教训到 self-improvement.md
-- [x] 无隐私信息
-
----
-
-## 🎉 创建亮点
-
-### 1. 完整的管理框架 ⭐
-
-**AGENTS.md** 包含：
-- 战略管理框架（OODA、五步法）
-- 项目管理方法（生命周期、敏捷/瀑布）
-- Agent 协调管理（原则、策略、跨部门协作）
-- 决策管理（类型、流程、记录模板）
-- 知识管理系统
-- 详细的工作流程和场景案例
-
----
-
-### 2. 基于真实管理知识 ⭐
-
-- 通过 web_search 学习公司管理理论
-- 参考现代企业管理最佳实践
-- 结合 AI Agent 特性设计协调机制
-
----
-
-### 3. 完善的记忆系统 ⭐
-
-**MEMORY.md** 包含：
-- 管理经验和工具箱
-- 决策记录模板和实例
-- 当前项目进展跟踪
-- 组织信息和 Agent 状态
-- 最佳实践库
-
-**已记录第一个教训**：
-- xiaohongshu-planner 第一版结构错误
-- 原因分析和改进方案
-- 验证结果
-
----
-
-### 4. 清晰的职责边界 ⭐
-
-**会做**：
-- 战略规划和决策
-- 项目统筹和协调
-- 问题识别和改进
-- 知识学习和管理
-
-**不会做**：
-- 微观管理
-- 越俎代庖
-- 盲目决策
-- 忽视记录
-
----
-
-## 📂 文件位置
-
-**输出目录**（待安装）：
-```
-/Users/rainsyzhang/Box/output/519083a2-5f89-4826-b41f-a896277edb8e/rainbox-agent/
-```
-
-**安装后路径**：
-```
-配置文件：~/Library/Application Support/Box/engine/agents/user/rainbox/
+<p><strong>安装后路径</strong>：</p>
+<pre class="codehilite"><code>配置文件：~/Library/Application Support/Box/engine/agents/user/rainbox/
 工作目录：~/Box/agents/rainbox/
-```
+</code></pre>
 
----
+<hr />
+<h2 id="_21">🚀 下一步</h2>
+<h3 id="a-rainbox-agent">选项 A：立即安装 RainBox Agent ✅ 推荐</h3>
+<p>安装后：<br />
+- RainBox 成为正式的总经理<br />
+- 可通过 @RainBox 调用<br />
+- 新对话时可恢复记忆</p>
+<h3 id="b">选项 B：先测试配置文件</h3>
+<p>检查配置文件是否符合预期</p>
+<h3 id="c">选项 C：调整配置</h3>
+<p>如有需要调整的地方，请说明</p>
+<hr />
+<h2 id="_22">💡 价值总结</h2>
+<p>RainBox Agent 的核心价值：</p>
+<ol>
+<li><strong>持久化身份</strong>：新对话时可恢复总经理身份和记忆</li>
+<li><strong>管理框架</strong>：完整的战略、项目、Agent 协调框架</li>
+<li><strong>经验积累</strong>：通过 MEMORY.md 持续积累管理经验</li>
+<li><strong>决策记录</strong>：记录重大决策过程，支持复盘和改进</li>
+<li><strong>知识管理</strong>：学习管理知识，建立最佳实践库</li>
+</ol>
+<hr />
+<p><em>RainBox Agent 创建完成，随时可以安装！</em></p>
+<hr />
+<p><strong>创建者</strong>：RainBox（自我创建，有点元 😊）<br />
+<strong>协助者</strong>：HR Manager（超时）<br />
+<strong>日期</strong>：2026-03-22<br />
+<strong>版本</strong>：v1.0</p>
+    </div>
+  </article>
 
-## 🚀 下一步
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
 
-### 选项 A：立即安装 RainBox Agent ✅ 推荐
+  <!-- 页脚 -->
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+            R
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+            <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+          </div>
+        </div>
+        <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+          科技养虾，用心养人
+        </p>
+        <p class="text-gray-500 text-sm">
+          © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
 
-安装后：
-- RainBox 成为正式的总经理
-- 可通过 @RainBox 调用
-- 新对话时可恢复记忆
-
-### 选项 B：先测试配置文件
-
-检查配置文件是否符合预期
-
-### 选项 C：调整配置
-
-如有需要调整的地方，请说明
-
----
-
-## 💡 价值总结
-
-RainBox Agent 的核心价值：
-
-1. **持久化身份**：新对话时可恢复总经理身份和记忆
-2. **管理框架**：完整的战略、项目、Agent 协调框架
-3. **经验积累**：通过 MEMORY.md 持续积累管理经验
-4. **决策记录**：记录重大决策过程，支持复盘和改进
-5. **知识管理**：学习管理知识，建立最佳实践库
-
----
-
-*RainBox Agent 创建完成，随时可以安装！*
-
----
-
-**创建者**：RainBox（自我创建，有点元 😊）  
-**协助者**：HR Manager（超时）  
-**日期**：2026-03-22  
-**版本**：v1.0
-</pre></div></div>
-<footer class="bg-gray-900 text-white py-8 text-center">
-<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
-</footer>
+  <!-- 代码高亮 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+      
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

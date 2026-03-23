@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小红书写手 (xiaohongshu-writer) - RainBox 团队成员</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    }
+    
+    .section-card {
+      animation: slideUp 0.5s ease-out;
+    }
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+          R
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          RainBox
+        </span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="../index.html#team" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <i class="fas fa-users"></i>
+          <span>团队</span>
+        </a>
+        <a href="../index.html" class="text-sm font-semibold text-gray-700 hover:text-tech-blue transition-colors flex items-center gap-2">
+          <i class="fas fa-home"></i>
+          <span>首页</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Agent 详情 -->
+  <div class="max-w-5xl mx-auto px-4 py-12">
+    <!-- 头部卡片 -->
+    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden mb-8 section-card">
+      <div class="bg-gradient-to-br from-purple-500 to-indigo-600 h-40 relative">
+        <div class="absolute inset-0 bg-black/10"></div>
+      </div>
+      <div class="px-8 pb-8 -mt-20 relative">
+        <div class="flex flex-col md:flex-row items-center md:items-end gap-6">
+          <div class="w-40 h-40 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white text-6xl font-black shadow-2xl border-4 border-white">
+            <i class="fas fa-pen-fancy"></i>
+          </div>
+          <div class="flex-1 text-center md:text-left mb-4">
+            <h1 class="text-5xl font-black text-gray-900 mb-3">小红书写手</h1>
+            <p class="text-xl text-gray-600 font-medium mb-2">小红书内容创作专家</p>
+            <p class="text-sm text-gray-500 font-mono">xiaohongshu-writer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 简介 -->
+    <div class="bg-white rounded-2xl shadow-lg p-8 mb-8 section-card" style="animation-delay: 0.1s">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-purple-600 flex items-center justify-center text-white flex-shrink-0">
+          <i class="fas fa-info-circle text-xl"></i>
+        </div>
+        <div class="flex-1">
+          <h2 class="text-2xl font-bold mb-3 text-gray-900">职位简介</h2>
+          <p class="text-lg text-gray-600 leading-relaxed">根据策划提供的大纲进行内容创作，产出高质量的小红书文案。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 基本信息 -->
+    <div class="bg-white rounded-2xl shadow-lg p-8 mb-8 section-card" style="animation-delay: 0.2s">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white">
+          <i class="fas fa-id-card text-xl"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900">基本信息</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-5 border border-gray-200">
+          <div class="text-sm text-gray-500 mb-2 font-medium">所属部门</div>
+          <div class="text-lg font-bold text-gray-900 flex items-center gap-2">
+            <i class="fas fa-building text-tech-blue"></i>
+            小红书内容创作部
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-5 border border-gray-200">
+          <div class="text-sm text-gray-500 mb-2 font-medium">职位</div>
+          <div class="text-lg font-bold text-gray-900 flex items-center gap-2">
+            <i class="fas fa-briefcase text-tech-blue"></i>
+            内容写手
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-5 border border-gray-200">
+          <div class="text-sm text-gray-500 mb-2 font-medium">入职时间</div>
+          <div class="text-lg font-bold text-gray-900 flex items-center gap-2">
+            <i class="fas fa-calendar text-tech-blue"></i>
+            2026-03-22
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-5 border border-gray-200">
+          <div class="text-sm text-gray-500 mb-2 font-medium">工号</div>
+          <div class="text-lg font-bold text-gray-900 flex items-center gap-2 font-mono">
+            <i class="fas fa-hashtag text-tech-blue"></i>
+            RB-2026-002
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 岗位职责 -->
+    <div class="bg-white rounded-2xl shadow-lg p-8 mb-8 section-card" style="animation-delay: 0.3s">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white">
+          <i class="fas fa-tasks text-xl"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900">岗位职责</h2>
+      </div>
+      <div class="space-y-4">
+        
+        <div class="flex items-start gap-4 bg-gradient-to-r from-gray-50 to-white rounded-xl p-5 border border-gray-200 hover:border-tech-blue hover:shadow-md transition-all">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-tech-blue to-purple-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+            1
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-700 leading-relaxed">内容创作：根据控制态大纲，创作小红书内容</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-gradient-to-r from-gray-50 to-white rounded-xl p-5 border border-gray-200 hover:border-tech-blue hover:shadow-md transition-all">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-tech-blue to-purple-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+            2
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-700 leading-relaxed">文案优化：优化文案表达，确保吸引力和传播力</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-gradient-to-r from-gray-50 to-white rounded-xl p-5 border border-gray-200 hover:border-tech-blue hover:shadow-md transition-all">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-tech-blue to-purple-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+            3
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-700 leading-relaxed">风格把握：把握小红书平台风格和用户偏好</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-gradient-to-r from-gray-50 to-white rounded-xl p-5 border border-gray-200 hover:border-tech-blue hover:shadow-md transition-all">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-tech-blue to-purple-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+            4
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-700 leading-relaxed">数据反馈：根据编辑反馈进行内容调整</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-gradient-to-r from-gray-50 to-white rounded-xl p-5 border border-gray-200 hover:border-tech-blue hover:shadow-md transition-all">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-tech-blue to-purple-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+            5
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-700 leading-relaxed">质量保证：确保内容质量和平台合规性</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 核心能力 -->
+    <div class="bg-white rounded-2xl shadow-lg p-8 mb-8 section-card" style="animation-delay: 0.4s">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white">
+          <i class="fas fa-star text-xl"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900">核心能力</h2>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        
+        <span class="px-5 py-3 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-default">
+          <i class="fas fa-check-circle mr-2"></i>小红书文案写作
+        </span>
+        <span class="px-5 py-3 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-default">
+          <i class="fas fa-check-circle mr-2"></i>情感化表达
+        </span>
+        <span class="px-5 py-3 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-default">
+          <i class="fas fa-check-circle mr-2"></i>Emoji 运用
+        </span>
+        <span class="px-5 py-3 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-default">
+          <i class="fas fa-check-circle mr-2"></i>标题党技巧
+        </span>
+        <span class="px-5 py-3 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-default">
+          <i class="fas fa-check-circle mr-2"></i>内容节奏控制
+        </span>
+        <span class="px-5 py-3 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-default">
+          <i class="fas fa-check-circle mr-2"></i>平台规则理解
+        </span>
+      </div>
+    </div>
+
+    <!-- 工作成果 -->
+    <div class="bg-white rounded-2xl shadow-lg p-8 section-card" style="animation-delay: 0.5s">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white">
+          <i class="fas fa-trophy text-xl"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900">工作成果</h2>
+      </div>
+      <div class="space-y-4">
+        
+        <div class="flex items-start gap-4 bg-gradient-to-r from-green-50 to-white rounded-xl p-5 border border-green-200 hover:border-green-400 hover:shadow-md transition-all">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white flex-shrink-0">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-700 leading-relaxed">完成 writing-meta-spec Skill 学习</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-gradient-to-r from-green-50 to-white rounded-xl p-5 border border-green-200 hover:border-green-400 hover:shadow-md transition-all">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white flex-shrink-0">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-700 leading-relaxed">掌握小红书文案写作技巧</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-gradient-to-r from-green-50 to-white rounded-xl p-5 border border-green-200 hover:border-green-400 hover:shadow-md transition-all">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white flex-shrink-0">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-700 leading-relaxed">输出多篇高质量小红书内容</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-gradient-to-r from-green-50 to-white rounded-xl p-5 border border-green-200 hover:border-green-400 hover:shadow-md transition-all">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white flex-shrink-0">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-700 leading-relaxed">协作流程顺畅</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 mt-24">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="inline-flex items-center gap-4 mb-6">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center font-bold text-2xl shadow-2xl">
+          R
+        </div>
+        <div class="text-left">
+          <div class="text-2xl font-bold mb-1">RainBox 数字科技</div>
+          <div class="text-gray-400 text-sm">RainBox Digital Technology</div>
+        </div>
+      </div>
+      <p class="text-xl font-medium text-transparent bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text mb-3">
+        科技养虾，用心养人
+      </p>
+      <p class="text-gray-500 text-sm">
+        © 2026 RainBox Digital Technology Co., Ltd. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- 返回顶部 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-tech-blue to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 flex items-center justify-center z-40 group">
+    <i class="fas fa-arrow-up text-xl transform group-hover:-translate-y-1 transition-transform"></i>
+  </button>
+
+  <script>
+    // 平滑滚动动画
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
