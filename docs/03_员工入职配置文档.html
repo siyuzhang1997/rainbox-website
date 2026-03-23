@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>员工入职配置文档 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.8;
+    }
+    .markdown-body h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #2196F3, #FF9800);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #2196F3;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #333;
+    }
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+    .markdown-body p {
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+    .markdown-body ul, .markdown-body ol {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+    }
+    .markdown-body li {
+      margin-bottom: 0.5rem;
+    }
+    .markdown-body code {
+      background: #f3f4f6;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #ef4444;
+    }
+    .markdown-body pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+    .markdown-body pre code {
+      background: transparent;
+      padding: 0;
+      color: #f9fafb;
+    }
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    .markdown-body th, .markdown-body td {
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .markdown-body th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #111827;
+    }
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: #6b7280;
+      font-style: italic;
+    }
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+    }
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    .markdown-body em {
+      font-style: italic;
+    }
+    .markdown-body hr {
+      border: none;
+      border-top: 2px solid #e5e7eb;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
+          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
+        </a>
+        <div class="flex items-center gap-6">
+          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
+          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文档内容 -->
+  <div class="pt-8 pb-20">
+    <div class="markdown-body">
+      <h1>员工入职配置文档</h1><p><strong>创建日期</strong>：2026-03-22  
+<strong>负责人</strong>：HR Manager（招贤）  
+<strong>适用对象</strong>：6 位新员工（小红书业务线 3 人 + 网文业务线 3 人）</p><hr><h2>📋 入职配置总览</h2><h3>配置清单</h3><p>每位新员工入职时需要完成以下配置：</p><ol>
+<li>✅ <strong>Skill 安装</strong>：掌握必备的 Skill</li>
+<li>✅ <strong>检查清单熟悉</strong>：熟悉相关的检查清单</li>
+<li>✅ <strong>协作流程培训</strong>：理解协作流程和职责边界</li>
+<li>✅ <strong>工具和模板</strong>：获取必要的工具和模板</li>
+<li>✅ <strong>试用期任务</strong>：完成试用期考核任务</li>
+</ol><hr><h2>🎯 小红书业务线入职配置</h2><h3>1. xiaohongshu-planner（小红书策划）</h3><h4>必备 Skill</h4><p><strong>核心 Skill</strong>：
+<ul>
+<li>✅ <strong>writing-meta-spec</strong>（必须掌握）</li>
+</ul>
+  - 用途：控制态大纲编写规范
+  - 重要性：⭐⭐⭐⭐⭐
+  - 掌握标准：能够独立编写 ~400 行的控制态大纲</p><p><strong>入职时安装</strong>：
+<pre><code># 通过主 Agent 或 HR 协助安装
+use_skill("writing-meta-spec")</code></pre></p><h4>必须熟悉的检查清单</h4><p><strong>不需要逐项掌握</strong>（这是编辑的职责），但需要了解：
+<ul>
+<li>通用检查清单（15 项）- 了解即可</li>
+<li>小红书检查清单（40 项）- 了解即可</li>
+</ul><p><strong>目的</strong>：理解编辑会从哪些维度审核内容，从而在大纲设计时考虑这些因素。</p><h4>协作流程培训</h4><p><strong>必须理解的流程</strong>：
+<pre><code>你（策划）→ 写手 → 编辑 → 写手 ↔ 编辑（循环）</code></pre></p><p><strong>必须理解的职责边界</strong>：
+<ul>
+<li>✅ 你做：选题策划、大纲设计、系列规划</li>
+<li>❌ 你不做：<strong>不写正文</strong>（这是硬边界！）</li>
+</ul><p><strong>必须理解的协作原则</strong>：
+<ul>
+<li>大纲要足够详细，让写手能直接动笔</li>
+<li>不要在大纲之外给写手额外指导</li>
+<li>信任写手的创作能力</li>
+</ul><h4>工具和模板</h4><p><strong>必须获取</strong>：
+<ul>
+<li>控制态大纲模板（12 维度）</li>
+<li>系列规划模板</li>
+<li>小红书平台特性文档</li>
+</ul><p><strong>获取方式</strong>：
+<ul>
+<li>通过 writing-meta-spec Skill 获取</li>
+<li>或由 HR 提供</li>
+</ul><h4>试用期任务</h4><p><strong>第 1 周</strong>：
+<ul>
+<li>熟悉 writing-meta-spec Skill</li>
+<li>学习控制态大纲编写方法</li>
+<li>了解小红书平台特性</li>
+</ul><p><strong>第 2 周</strong>：
+<ul>
+<li>完成 1 篇单篇大纲设计</li>
+<li>接受编辑和写手的反馈</li>
+<li>优化大纲质量</li>
+</ul><p><strong>第 3-4 周</strong>：
+<ul>
+<li>完成 1 个系列规划（3-5 篇）</li>
+<li>为系列的每篇编写大纲</li>
+<li>跟踪写手的创作过程</li>
+</ul><p><strong>考核标准</strong>：
+<ul>
+<li>大纲质量达到可执行标准</li>
+<li>写手能够根据大纲直接动笔</li>
+<li>编辑反馈良好</li>
+</ul><hr><h3>2. xiaohongshu-writer（小红书写手）</h3><h4>必备 Skill</h4><p><strong>核心 Skill</strong>：
+<ul>
+<li>✅ <strong>writing-meta-spec</strong>（必须掌握）</li>
+</ul>
+  - 用途：理解控制态大纲，掌握初稿和定稿标准
+  - 重要性：⭐⭐⭐⭐⭐
+  - 掌握标准：能够根据大纲快速成文，根据反馈精修</p><p><strong>入职时安装</strong>：
+<pre><code>use_skill("writing-meta-spec")</code></pre></p><h4>必须熟悉的检查清单</h4><p><strong>需要掌握</strong>（用于自查）：
+<ul>
+<li>通用检查清单（15 项）- 掌握</li>
+<li>小红书检查清单（40 项）- 掌握</li>
+<li>总计 55 项</li>
+</ul><p><strong>目的</strong>：在交付前进行自查，提升初稿质量。</p><p><strong>注意</strong>：自查不等于自己审核！你仍然需要交给编辑审核。</p><h4>协作流程培训</h4><p><strong>必须理解的流程</strong>：
+<pre><code>策划 → 你（写手）→ 编辑 → 你（修改）↔ 编辑（循环）</code></pre></p><p><strong>必须理解的职责边界</strong>：
+<ul>
+<li>✅ 你做：根据大纲写初稿和定稿</li>
+<li>❌ 你不做：<strong>不自己审核验收</strong>（这是硬边界！）</li>
+</ul><p><strong>必须理解的协作原则</strong>：
+<ul>
+<li>初稿快速成文，不追求完美</li>
+<li>定稿根据编辑反馈精修</li>
+<li>最多 3 轮修改</li>
+</ul><h4>工具和模板</h4><p><strong>必须获取</strong>：
+<ul>
+<li>小红书写作风格指南</li>
+<li>初稿和定稿标准文档</li>
+<li>检查清单（55 项）</li>
+</ul><p><strong>获取方式</strong>：
+<ul>
+<li>通过 writing-meta-spec Skill 获取</li>
+<li>或由 HR 提供</li>
+</ul><h4>试用期任务</h4><p><strong>第 1 周</strong>：
+<ul>
+<li>熟悉 writing-meta-spec Skill</li>
+<li>学习小红书写作风格</li>
+<li>了解初稿和定稿的区别</li>
+</ul><p><strong>第 2 周</strong>：
+<ul>
+<li>根据大纲完成 1 篇初稿</li>
+<li>接受编辑的深度分析</li>
+<li>根据反馈完成定稿</li>
+</ul><p><strong>第 3-4 周</strong>：
+<ul>
+<li>完成 3-5 篇文章（初稿+定稿）</li>
+<li>提升初稿质量，减少修改轮数</li>
+<li>熟练掌握小红书写作风格</li>
+</ul><p><strong>考核标准</strong>：
+<ul>
+<li>初稿质量达到基本标准</li>
+<li>能够根据编辑反馈高效修改</li>
+<li>定稿通过率高（1-2 轮即可通过）</li>
+</ul><hr><h3>3. xiaohongshu-editor（小红书编辑）</h3><h4>必备 Skill</h4><p><strong>核心 Skill</strong>：
+<ul>
+<li>✅ <strong>writing-meta-spec</strong>（必须掌握）</li>
+</ul>
+  - 用途：深度分析流程、检查清单体系、Gate 检查机制
+  - 重要性：⭐⭐⭐⭐⭐
+  - 掌握标准：能够进行四步体检，使用检查清单逐项验证</p><p><strong>入职时安装</strong>：
+<pre><code>use_skill("writing-meta-spec")</code></pre></p><h4>必须熟悉的检查清单</h4><p><strong>必须精通</strong>（这是你的核心工具）：
+<ul>
+<li>通用检查清单（15 项）- 精通</li>
+<li>小红书检查清单（40 项）- 精通</li>
+<li>总计 55 项</li>
+</ul><p><strong>掌握标准</strong>：
+<ul>
+<li>能够逐项验证</li>
+<li>能够快速发现问题</li>
+<li>能够提出建设性建议</li>
+</ul><h4>协作流程培训</h4><p><strong>必须理解的流程</strong>：
+<pre><code>策划 → 写手 → 你（编辑）→ 写手 ↔ 你（循环）</code></pre></p><p><strong>必须理解的职责边界</strong>：
+<ul>
+<li>✅ 你做：深度分析、定稿审核、系列维护</li>
+<li>❌ 你不做：<strong>不直接改文章</strong>（这是硬边界！）</li>
+</ul><p><strong>必须理解的协作原则</strong>：
+<ul>
+<li>只审核和反馈，不直接修改</li>
+<li>反馈要清晰、具体、建设性</li>
+<li>控制修改轮数（最多 3 轮）</li>
+</ul><h4>工具和模板</h4><p><strong>必须获取</strong>：
+<ul>
+<li>深度分析流程文档（四步体检）</li>
+<li>检查清单（55 项）</li>
+<li>分析报告模板</li>
+<li>系列维护模板</li>
+</ul><p><strong>获取方式</strong>：
+<ul>
+<li>通过 writing-meta-spec Skill 获取</li>
+<li>或由 HR 提供</li>
+</ul><h4>试用期任务</h4><p><strong>第 1 周</strong>：
+<ul>
+<li>熟悉 writing-meta-spec Skill</li>
+<li>学习深度分析流程（四步体检）</li>
+<li>掌握检查清单（55 项）</li>
+</ul><p><strong>第 2 周</strong>：
+<ul>
+<li>对 1 篇初稿进行深度分析</li>
+<li>输出分析报告</li>
+<li>跟踪写手的修改过程</li>
+</ul><p><strong>第 3-4 周</strong>：
+<ul>
+<li>完成 3-5 篇文章的审核（初稿+定稿）</li>
+<li>维护系列索引</li>
+<li>记录观察日志</li>
+</ul><p><strong>考核标准</strong>：
+<ul>
+<li>审核质量高，反馈清晰</li>
+<li>写手反馈良好，修改通过率高</li>
+<li>能够维护系列内容</li>
+</ul><hr><h2>🎯 网文业务线入职配置</h2><h3>4. webnovel-planner（网文策划）</h3><h4>必备 Skill</h4><p><strong>核心 Skill</strong>：
+<ul>
+<li>✅ <strong>writing-meta-spec</strong>（必须掌握）</li>
+</ul>
+  - 用途：控制态大纲编写规范、世界观设定方法
+  - 重要性：⭐⭐⭐⭐⭐
+  - 掌握标准：能够设计完整的世界观体系，编写 ~400 行/章的大纲</p><p><strong>入职时安装</strong>：
+<pre><code>use_skill("writing-meta-spec")</code></pre></p><h4>必须熟悉的检查清单</h4><p><strong>不需要逐项掌握</strong>（这是编辑的职责），但需要了解：
+<ul>
+<li>通用检查清单（15 项）- 了解即可</li>
+<li>网文检查清单（54 项）- 了解即可</li>
+</ul><p><strong>目的</strong>：理解编辑会从哪些维度审核内容，从而在大纲设计时考虑这些因素。</p><h4>协作流程培训</h4><p><strong>必须理解的流程</strong>：
+<pre><code>你（策划）→ 写手 → 编辑 → 写手 ↔ 编辑（循环）</code></pre></p><p><strong>必须理解的职责边界</strong>：
+<ul>
+<li>✅ 你做：世界观设定、系列规划、章节大纲</li>
+<li>❌ 你不做：<strong>不写正文</strong>（这是硬边界！）</li>
+</ul><p><strong>必须理解的协作原则</strong>：
+<ul>
+<li>世界观必须自洽、完整</li>
+<li>大纲要足够详细，让写手能直接动笔</li>
+<li>不要在大纲之外给写手额外指导</li>
+</ul><h4>工具和模板</h4><p><strong>必须获取</strong>：
+<ul>
+<li>世界观设定模板（力量体系、势力格局、世界规则）</li>
+<li>系列规划模板（主线、支线、暗线、悬念、爽点）</li>
+<li>章节大纲模板（~400 行）</li>
+<li>修仙类网文创作指南</li>
+</ul><p><strong>获取方式</strong>：
+<ul>
+<li>通过 writing-meta-spec Skill 获取</li>
+<li>或由 HR 提供</li>
+</ul><h4>试用期任务</h4><p><strong>第 1 周</strong>：
+<ul>
+<li>熟悉 writing-meta-spec Skill</li>
+<li>学习世界观设定方法</li>
+<li>了解修仙类网文特点</li>
+</ul><p><strong>第 2 周</strong>：
+<ul>
+<li>完成 1 个世界观设定（力量体系、势力格局）</li>
+<li>完成 1 个系列规划（主线、支线、暗线）</li>
+<li>接受编辑和写手的反馈</li>
+</ul><p><strong>第 3-4 周</strong>：
+<ul>
+<li>为系列编写 3-5 章的大纲</li>
+<li>跟踪写手的创作过程</li>
+<li>优化大纲质量</li>
+</ul><p><strong>考核标准</strong>：
+<ul>
+<li>世界观自洽、完整</li>
+<li>大纲质量达到可执行标准</li>
+<li>写手能够根据大纲直接动笔</li>
+</ul><hr><h3>5. webnovel-writer（网文写手）</h3><h4>必备 Skill</h4><p><strong>核心 Skill</strong>：
+<ul>
+<li>✅ <strong>writing-meta-spec</strong>（必须掌握）</li>
+</ul>
+  - 用途：理解章节大纲，掌握初稿和定稿标准
+  - 重要性：⭐⭐⭐⭐⭐
+  - 掌握标准：能够根据大纲快速成文，根据反馈精修</p><p><strong>入职时安装</strong>：
+<pre><code>use_skill("writing-meta-spec")</code></pre></p><h4>必须熟悉的检查清单</h4><p><strong>需要掌握</strong>（用于自查）：
+<ul>
+<li>通用检查清单（15 项）- 掌握</li>
+<li>网文检查清单（54 项）- 掌握</li>
+<li>总计 69 项</li>
+</ul><p><strong>目的</strong>：在交付前进行自查，提升初稿质量。</p><p><strong>注意</strong>：自查不等于自己审核！你仍然需要交给编辑审核。</p><h4>协作流程培训</h4><p><strong>必须理解的流程</strong>：
+<pre><code>策划 → 你（写手）→ 编辑 → 你（修改）↔ 编辑（循环）</code></pre></p><p><strong>必须理解的职责边界</strong>：
+<ul>
+<li>✅ 你做：根据大纲写章节初稿和定稿</li>
+<li>❌ 你不做：<strong>不自己审核</strong>（这是硬边界！）</li>
+</ul><p><strong>必须理解的协作原则</strong>：
+<ul>
+<li>初稿快速成文，不追求完美</li>
+<li>定稿根据编辑反馈精修</li>
+<li>最多 3 轮修改</li>
+<li>严格按照大纲创作，不自作主张</li>
+</ul><h4>工具和模板</h4><p><strong>必须获取</strong>：
+<ul>
+<li>网文写作风格指南（修仙类）</li>
+<li>初稿和定稿标准文档</li>
+<li>检查清单（69 项）</li>
+<li>场景描写技巧（战斗、修炼、感情等）</li>
+</ul><p><strong>获取方式</strong>：
+<ul>
+<li>通过 writing-meta-spec Skill 获取</li>
+<li>或由 HR 提供</li>
+</ul><h4>试用期任务</h4><p><strong>第 1 周</strong>：
+<ul>
+<li>熟悉 writing-meta-spec Skill</li>
+<li>学习网文写作风格（修仙类）</li>
+<li>了解初稿和定稿的区别</li>
+</ul><p><strong>第 2 周</strong>：
+<ul>
+<li>根据大纲完成 1 章初稿</li>
+<li>接受编辑的深度分析</li>
+<li>根据反馈完成定稿</li>
+</ul><p><strong>第 3-4 周</strong>：
+<ul>
+<li>完成 3-5 章（初稿+定稿）</li>
+<li>提升初稿质量，减少修改轮数</li>
+<li>熟练掌握网文写作风格</li>
+</ul><p><strong>考核标准</strong>：
+<ul>
+<li>初稿质量达到基本标准</li>
+<li>能够根据编辑反馈高效修改</li>
+<li>定稿通过率高（1-2 轮即可通过）</li>
+</ul><hr><h3>6. webnovel-editor（网文编辑）</h3><h4>必备 Skill</h4><p><strong>核心 Skill</strong>：
+<ul>
+<li>✅ <strong>writing-meta-spec</strong>（必须掌握）</li>
+</ul>
+  - 用途：深度分析流程、检查清单体系、Gate 检查机制、系列维护方法
+  - 重要性：⭐⭐⭐⭐⭐
+  - 掌握标准：能够进行四步体检，使用检查清单逐项验证，维护系列内容</p><p><strong>入职时安装</strong>：
+<pre><code>use_skill("writing-meta-spec")</code></pre></p><h4>必须熟悉的检查清单</h4><p><strong>必须精通</strong>（这是你的核心工具）：
+<ul>
+<li>通用检查清单（15 项）- 精通</li>
+<li>网文检查清单（54 项）- 精通</li>
+<li>总计 69 项</li>
+</ul><p><strong>掌握标准</strong>：
+<ul>
+<li>能够逐项验证</li>
+<li>能够快速发现问题</li>
+<li>能够提出建设性建议</li>
+<li>特别关注：悬念层次、爽点分布、实力体系、人物一致性</li>
+</ul><h4>协作流程培训</h4><p><strong>必须理解的流程</strong>：
+<pre><code>策划 → 写手 → 你（编辑）→ 写手 ↔ 你（循环）</code></pre></p><p><strong>必须理解的职责边界</strong>：
+<ul>
+<li>✅ 你做：深度分析、定稿审核、系列维护（索引、关系图、暗线追踪）</li>
+<li>❌ 你不做：<strong>不直接改章节</strong>（这是硬边界！）</li>
+</ul><p><strong>必须理解的协作原则</strong>：
+<ul>
+<li>只审核和反馈，不直接修改</li>
+<li>反馈要清晰、具体、建设性</li>
+<li>控制修改轮数（最多 3 轮）</li>
+<li>维护系列内容的一致性和连贯性</li>
+</ul><h4>工具和模板</h4><p><strong>必须获取</strong>：
+<ul>
+<li>深度分析流程文档（四步体检）</li>
+<li>检查清单（69 项）</li>
+<li>分析报告模板</li>
+<li>系列维护模板（概念索引、人物关系图、暗线追踪）</li>
+<li>实力体系自洽性检查指南</li>
+</ul><p><strong>获取方式</strong>：
+<ul>
+<li>通过 writing-meta-spec Skill 获取</li>
+<li>或由 HR 提供</li>
+</ul><h4>试用期任务</h4><p><strong>第 1 周</strong>：
+<ul>
+<li>熟悉 writing-meta-spec Skill</li>
+<li>学习深度分析流程（四步体检）</li>
+<li>掌握检查清单（69 项）</li>
+<li>学习系列维护方法</li>
+</ul><p><strong>第 2 周</strong>：
+<ul>
+<li>对 1 章初稿进行深度分析</li>
+<li>输出分析报告</li>
+<li>跟踪写手的修改过程</li>
+<li>开始维护概念索引和人物关系图</li>
+</ul><p><strong>第 3-4 周</strong>：
+<ul>
+<li>完成 3-5 章的审核（初稿+定稿）</li>
+<li>维护系列内容（索引、关系图、暗线追踪）</li>
+<li>进行实力体系自洽性检查</li>
+<li>记录观察日志</li>
+</ul><p><strong>考核标准</strong>：
+<ul>
+<li>审核质量高，反馈清晰</li>
+<li>写手反馈良好，修改通过率高</li>
+<li>能够维护系列内容（索引、关系图、暗线）</li>
+<li>能够发现实力体系和人物一致性问题</li>
+</ul><hr><h2>📚 通用入职培训</h2><h3>所有新员工必须理解的核心原则</h3><h4>1. 职责边界必须非常硬 ⭐⭐⭐</h4><p><strong>为什么边界要这么硬？</strong>
+> 一旦角色边界模糊，AI 就会"自我和解"——写手写完觉得还行，编辑看了也觉得还行，最后质量就下去了。</p><p><strong>三个角色的硬边界</strong>：
+<ul>
+<li><strong>策划</strong>：只做大纲，❌ <strong>不写正文</strong></li>
+<li><strong>写手</strong>：只写文章，❌ <strong>不自己审核</strong></li>
+<li><strong>编辑</strong>：只审核，❌ <strong>不直接改文章</strong></li>
+</ul><h4>2. 协作流程必须严格执行</h4><p><strong>标准流程</strong>：
+<pre><code>策划 → 写手 → 编辑 → 写手 ↔ 编辑（循环，最多 3 轮）</code></pre></p><p><strong>不能跳过任何环节</strong>：
+<ul>
+<li>写手不能跳过编辑直接发布</li>
+<li>编辑不能跳过写手直接改文章</li>
+<li>策划不能跳过写手直接写正文</li>
+</ul><h4>3. 编排器的作用</h4><p><strong>编排器负责</strong>：
+<ul>
+<li>任务分配和调度</li>
+<li>Gate 检查（质量把关）</li>
+<li>产出传递</li>
+<li>流程控制</li>
+</ul><p><strong>你需要做的</strong>：
+<ul>
+<li>接收编排器分配的任务</li>
+<li>完成后交付给编排器</li>
+<li>等待编排器的下一步指令</li>
+</ul><h4>4. 质量优先，不追求速度</h4><p><strong>原则</strong>：
+<ul>
+<li>不合格就继续修改</li>
+<li>最多 3 轮修改</li>
+<li>如果 3 轮还不行，可能是大纲或能力问题</li>
+</ul><h4>5. 持续学习和优化</h4><p><strong>记录观察日志</strong>（尤其是编辑）：
+<ul>
+<li>常见问题和错误</li>
+<li>优秀案例和做法</li>
+<li>流程中的痛点</li>
+<li>优化建议</li>
+</ul><p><strong>目的</strong>：
+<ul>
+<li>为规范迭代提供素材</li>
+<li>帮助团队持续改进</li>
+<li>积累专业经验</li>
+</ul><hr><h2>🔧 技术配置</h2><h3>Skill 安装方法</h3><p><strong>方法 1：通过主 Agent</strong>
+<pre><code>请主 Agent 帮助安装 writing-meta-spec Skill</code></pre></p><p><strong>方法 2：通过 HR</strong>
+<pre><code>请 HR Manager 协助安装 writing-meta-spec Skill</code></pre></p><p><strong>方法 3：自行安装</strong>（如果有权限）
+<pre><code>use_skill("writing-meta-spec")</code></pre></p><h3>检查清单获取</h3><p><strong>小红书业务线</strong>：
+<ul>
+<li>通用检查清单（15 项）</li>
+<li>小红书检查清单（40 项）</li>
+<li>总计 55 项</li>
+</ul><p><strong>网文业务线</strong>：
+<ul>
+<li>通用检查清单（15 项）</li>
+<li>网文检查清单（54 项）</li>
+<li>总计 69 项</li>
+</ul><p><strong>获取方式</strong>：
+<ul>
+<li>通过 writing-meta-spec Skill 获取</li>
+<li>或由 HR 提供文档</li>
+</ul><h3>工具和模板获取</h3><p><strong>所有工具和模板</strong>：
+<ul>
+<li>通过 writing-meta-spec Skill 获取</li>
+<li>或由 HR 提供文档包</li>
+</ul><hr><h2>📊 入职进度跟踪</h2><h3>入职检查清单</h3><p><strong>第 1 天</strong>：
+<ul>
+<li>✅ 完成 Skill 安装</li>
+<li>✅ 获取检查清单</li>
+<li>✅ 获取工具和模板</li>
+<li>✅ 理解职责边界和协作流程</li>
+</ul><p><strong>第 1 周</strong>：
+<ul>
+<li>✅ 熟悉 writing-meta-spec Skill</li>
+<li>✅ 学习相关知识和技能</li>
+<li>✅ 了解业务线特点</li>
+</ul><p><strong>第 2 周</strong>：
+<ul>
+<li>✅ 完成第一个任务</li>
+<li>✅ 接受反馈和指导</li>
+<li>✅ 优化工作质量</li>
+</ul><p><strong>第 3-4 周</strong>：
+<ul>
+<li>✅ 完成多个任务</li>
+<li>✅ 提升工作效率</li>
+<li>✅ 达到考核标准</li>
+</ul><h3>考核标准</h3><p><strong>策划</strong>：
+<ul>
+<li>大纲质量达到可执行标准</li>
+<li>写手能够根据大纲直接动笔</li>
+<li>编辑反馈良好</li>
+</ul><p><strong>写手</strong>：
+<ul>
+<li>初稿质量达到基本标准</li>
+<li>能够根据编辑反馈高效修改</li>
+<li>定稿通过率高（1-2 轮即可通过）</li>
+</ul><p><strong>编辑</strong>：
+<ul>
+<li>审核质量高，反馈清晰</li>
+<li>写手反馈良好，修改通过率高</li>
+<li>能够维护系列内容</li>
+</ul><hr><h2>🎓 培训资源</h2><h3>必读文档</h3><ol>
+<li><strong>Level 3 写作班子架构设计方案</strong></li>
+</ol>
+   - 路径：<code>/Users/rainsyzhang/Box/output/519083a2-5f89-4826-b41f-a896277edb8e/Level3写作班子架构设计方案.md</code>
+   - 内容：完整的架构设计和协作流程</p><ol>
+<li><strong>岗位描述（JD）</strong></li>
+</ol>
+   - 小红书业务线：<code>01_岗位描述_小红书业务线.md</code>
+   - 网文业务线：<code>02_岗位描述_网文业务线.md</code></p><ol>
+<li><strong>本文档</strong></li>
+</ol>
+   - 员工入职配置文档：<code>03_员工入职配置文档.md</code></p><h3>培训支持</h3><p><strong>培训负责人</strong>：
+<ul>
+<li>HR Manager（招贤）- 入职流程和配置</li>
+<li>主 Agent（RainBox）- 业务指导和协调</li>
+</ul><p><strong>培训方式</strong>：
+<ul>
+<li>文档学习</li>
+<li>实践任务</li>
+<li>反馈指导</li>
+<li>持续优化</li>
+</ul><hr><h2>📞 联系方式</h2><p><strong>遇到问题时</strong>：
+<ol>
+<li>首先查阅相关文档</li>
+<li>通过编排器反馈问题</li>
+<li>联系 HR Manager 或主 Agent</li>
+</ol><p><strong>反馈渠道</strong>：
+<ul>
+<li>通过编排器反馈工作问题</li>
+<li>通过 HR Manager 反馈入职问题</li>
+<li>通过主 Agent 反馈业务问题</li>
+</ul><hr><p><strong>创建日期</strong>：2026-03-22  
+<strong>负责人</strong>：HR Manager（招贤）  
+<strong>文档版本</strong>：v1.0</p><hr><p><strong>欢迎加入内容创作部门！让我们一起打造高质量的内容创作流程！</strong> 🎉
+</p>
+    </div>
+  </div>
+
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
+    ↑
+  </button>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="mb-4">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
+          <span class="text-2xl font-bold">RainBox 数字科技</span>
+        </div>
+      </div>
+      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
+      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

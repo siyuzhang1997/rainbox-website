@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KM 文章附录二学习：Writing Agents 写作班子 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.8;
+    }
+    .markdown-body h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #2196F3, #FF9800);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #2196F3;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #333;
+    }
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+    .markdown-body p {
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+    .markdown-body ul, .markdown-body ol {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+    }
+    .markdown-body li {
+      margin-bottom: 0.5rem;
+    }
+    .markdown-body code {
+      background: #f3f4f6;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #ef4444;
+    }
+    .markdown-body pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+    .markdown-body pre code {
+      background: transparent;
+      padding: 0;
+      color: #f9fafb;
+    }
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    .markdown-body th, .markdown-body td {
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .markdown-body th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #111827;
+    }
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: #6b7280;
+      font-style: italic;
+    }
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+    }
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    .markdown-body em {
+      font-style: italic;
+    }
+    .markdown-body hr {
+      border: none;
+      border-top: 2px solid #e5e7eb;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
+          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
+        </a>
+        <div class="flex items-center gap-6">
+          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
+          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文档内容 -->
+  <div class="pt-8 pb-20">
+    <div class="markdown-body">
+      <h1>KM 文章附录二学习：Writing Agents 写作班子</h1><p>> <strong>原文标题</strong>：附录二：我的写作班子（Writing Agents）——三个 AI 角色 + 一个编排器  
+> <strong>学习日期</strong>：2026-03-22  
+> <strong>核心理念</strong>：有了规范，谁来执行？一个人扮三个角色，加一条流水线把它们串起来。</p><hr><h2>🎯 核心思想</h2><h3>为什么要拆角色？</h3><p><strong>人类写作的三种状态</strong>：
+<ol>
+<li><strong>策划</strong>：想选题、搭结构</li>
+<li><strong>写手</strong>：埋头写正文</li>
+<li><strong>编辑</strong>：回头审稿、修改</li>
+</ol><p><strong>AI 的问题</strong>：
+<ul>
+<li>❌ AI 不会自动切换状态</li>
+<li>❌ 让它"写完之后自己改改"，结果是一边写一边改</li>
+<li>❌ 既没有写痛快，也没有改彻底</li>
+</ul><p><strong>解决方案</strong>：
+<ul>
+<li>✅ 拆开成三个独立角色</li>
+<li>✅ 各管各的阶段，谁也不越界</li>
+<li>✅ 用编排器（流水线）把它们串起来</li>
+</ul><hr><h2>👥 三个角色详解</h2><h3>📋 角色分工表</h3><p>| 角色 | 负责阶段 | 一句话定位 | 核心原则 |
+|------|---------|-----------|----------|
+| <strong>策划（Planner）</strong> | 系列规划 → 大纲 | 定结构，不写字 | 11 个 slot 全填满，12 维度控制信息完整 |
+| <strong>写手（Writer）</strong> | 初稿 → 定稿 | 只管写，不管审 | 初稿追覆盖度，定稿按编辑反馈改 |
+| <strong>编辑（Editor）</strong> | 深度分析 → 定稿审核 → 系列维护 | 只管审，不动笔 | 30+ 项检查清单逐项过，CRITICAL 不通过就是不通过 |</p><hr><h3>角色边界（非常硬）</h3><p>| 角色 | 做什么 | 不做什么 |
+|------|-------|---------|
+| <strong>策划</strong> | 系列规划、大纲 | ❌ <strong>不写正文</strong>（交出大纲，任务就结束） |
+| <strong>写手</strong> | 初稿、定稿 | ❌ <strong>不做验收</strong>（写完交给编辑，编辑说改就改，不辩解） |
+| <strong>编辑</strong> | 深度分析、定稿审核、系列维护 | ❌ <strong>不改文章</strong>（只出分析报告和检查清单，具体修改由写手执行） |</p><p><strong>为什么边界要这么硬？</strong>
+> 因为一旦角色边界模糊，AI 就会"自我和解"——写手写完觉得还行，编辑看了也觉得还行，最后质量就下去了。</p><hr><h2>📋 策划（Planner）：定结构，不写字</h2><h3>负责阶段</h3><ol>
+<li><strong>系列规划</strong></li>
+<li><strong>大纲</strong></li>
+</ol><h3>系列规划阶段</h3><p>用一个 <strong>11 slot 的模板</strong>引导填充：
+<ul>
+<li>系列定位</li>
+<li>内容矩阵</li>
+<li>暗线设计</li>
+<li>阅读路径</li>
+<li>……</li>
+</ul><h3>大纲阶段（两步走）</h3><h4>第一步：初稿态大纲（~200 行）</h4>
+<ul>
+<li>章节骨架</li>
+<li>结构框架</li>
+</ul><h4>第二步：控制态大纲（~400 行）</h4>
+<ul>
+<li><strong>12 维度控制信息</strong></li>
+<li>每章预期字数</li>
+<li>核心立意</li>
+<li>素材分布</li>
+<li>风格标记</li>
+<li>……</li>
+</ul><p><strong>控制态大纲是整个流水线最重要的中间产物</strong>：
+<ul>
+<li>写手后面写初稿靠它</li>
+<li>编辑后面做深度分析靠它</li>
+</ul><hr><h2>✍️ 写手（Writer）：只管写，不管审</h2><h3>负责阶段</h3><ol>
+<li><strong>初稿</strong></li>
+<li><strong>定稿</strong></li>
+</ol><h3>初稿阶段</h3><p><strong>工作方式</strong>：
+<ul>
+<li>接过策划的控制态大纲</li>
+<li>逐章展开</li>
+</ul><p><strong>核心原则</strong>：
+> "追求覆盖度，不追求完美"——先把素材铺满，别纠结措辞。</p><h3>定稿阶段</h3><p><strong>工作方式</strong>：
+<ul>
+<li>接过编辑的深度分析报告</li>
+<li>精修全文</li>
+</ul><p><strong>工作模式</strong>：<strong>Evaluator-Optimizer 循环</strong></p><p><pre><code>写手精修 → 编辑评估 → 不通过？→ 写手再改 → 编辑再评 → ...（最多 3 轮）</code></pre></p><p><strong>反馈机制</strong>：
+<ul>
+<li>每轮编辑都会给出<strong>结构化反馈</strong>：</li>
+</ul>
+  - 哪些检查清单没过
+  - 具体问题在哪里
+  - 建议怎么改
+<ul>
+<li>写手聚焦修正，不辩解，不讨价还价</li>
+</ul><hr><h2>📝 编辑（Editor）：只管审，不动笔</h2><h3>负责三件事</h3><ol>
+<li><strong>深度分析</strong></li>
+<li><strong>定稿审核</strong></li>
+<li><strong>系列维护</strong></li>
+</ol><hr><h3>1. 深度分析（对初稿的全面体检）</h3><h4>四步流程</h4><p>| 步骤 | 内容 |
+|------|------|
+| <strong>交叉验证</strong> | 核心立意和内容是否一致，数字前后是否矛盾 |
+| <strong>三层输出</strong> | 结构分析（章节权重）、内容分析（素材覆盖）、风格分析（情绪曲线） |
+| <strong>噪音过滤</strong> | 区分"必须改"和"可以改"，不让细节淹没核心问题 |
+| <strong>输出报告</strong> | 输出分析报告，交给写手 |</p><hr><h3>2. 定稿审核（全量检查清单逐项验收）</h3><p><strong>检查项总数</strong>：
+<ul>
+<li>30+ 项通用检查清单</li>
+<li>6 项风格检查清单</li>
+<li>快速七问</li>
+</ul><p><strong>每一项都是二值判断</strong>：Pass / Fail，不搞灰度。</p><h4>质量分级</h4><p>| 通过率 | 判定 |
+|--------|------|
+| <strong>≥ 90% 且 CRITICAL 全过</strong> | ✅ 直接通过 |
+| <strong>80%~90%，无 CRITICAL 失败</strong> | ⚠️ 标注风险点，提交你决定 |
+| <strong>< 80% 或 CRITICAL 失败</strong> | ❌ 必须继续改 |</p><hr><h3>3. 系列维护</h3><h4>快速模式（每篇必做）</h4>
+<ul>
+<li>更新概念索引</li>
+<li>去重</li>
+<li>暗线追踪</li>
+</ul><h4>深度模式（每 3-5 篇）</h4>
+<ul>
+<li>全系列一致性检查</li>
+<li>系列规划调整</li>
+<li>风格演化分析</li>
+</ul><hr><h3>隐藏职责：观察日志</h3><p><strong>每轮审核结束后写入观察日志</strong>：
+<ul>
+<li>哪条检查清单反复失败</li>
+<li>哪条规则形同虚设</li>
+<li>哪种修改建议没被采纳</li>
+</ul><p><strong>这些日志是下一次规范迭代的种子</strong>。</p><hr><h2>🔄 编排器：不是 AI，是流水线</h2><h3>关键理解</h3><p><strong>编排器不是 AI</strong>：
+<ul>
+<li>它是一段<strong>预定义的代码路径</strong></li>
+<li>阶段是固定的</li>
+<li>分工是明确的</li>
+<li>不需要 AI 来决定"下一步该做什么"</li>
+</ul><hr><h3>编排器做五件事</h3><p>| 任务 | 说明 |
+|------|------|
+| <strong>1. 确认三元组</strong> | <code>(阶段, 风格, 类型)</code> → 决定加载哪些规范文件 |
+| <strong>2. 按固定流水线分派任务</strong> | 策划→写手→编辑→写手↔编辑循环 |
+| <strong>3. Gate 检查</strong> | 每个阶段完成后检查清单通过率，决定通过还是回退 |
+| <strong>4. 在角色之间传递产出</strong> | 控制上下文大小，每次只传阶段产出，不传完整历史 |
+| <strong>5. 异常处理</strong> | 重试 3 次仍然不过？提交你裁决 |</p><hr><h3>Gate 核心逻辑</h3><p><pre><code>检查清单通过率 < 80%      → 回退并列出未通过项
+其余                      → 通过，进入下一阶段</code></pre></p><hr><h3>完整流水线</h3><p><pre><code>② [策划] 大纲 → Gate→
+③ [写手] 初稿 → 
+④ [编辑] 深度分析 → 
+⑤ [写手] 定稿 ↔ [编辑] 定稿审核 （循环，最多 3 轮）→ Gate→
+⑥ [编辑] 系列维护</code></pre></p><p><strong>独立文章</strong>：跳过系列规划和系列维护，只走中间四步（②③④⑤）。</p><hr><h2>📊 四种协作级别（渐进式）</h2><p>| 级别 | 做法 | 适用场景 |
+|------|------|----------|
+| <strong>Level 0</strong> | 不分角色，规范当参考手册翻 | 刚开始写，规范还只有几条 |
+| <strong>Level 1</strong> | 不分角色，但每个阶段手动切换 prompt | 规范有 10+ 条，开始感觉需要分工 |
+| <strong>Level 2</strong> | 策划 + 写手合并，编辑独立 | 规范有 20+ 条，审稿复杂度上升 |
+| <strong>Level 3</strong> | 三角色 + 编排器全流程 | 规范 28 个文件，系列写作，质量控制严格 |</p><p><strong>你不需要一开始就搭三个角色 + 编排器</strong>。和规范一样，协作模式也是渐进的。</p><hr><h2>💡 对我们的启示</h2><h3>小红书写作团队架构</h3><h4>当前状态</h4>
+<ul>
+<li><strong>1 个 Agent</strong>：<code>xiaohongshu-writer</code>（全能型，策划+写作+审核）</li>
+</ul><h4>建议演进路径</h4><p>##### Level 1（近期）
+保持单一 Agent，但内部分阶段 prompt：
+<pre><code>2. [初稿阶段] 快速完成初稿
+3. [编辑阶段] 使用检查清单自检（40 项）
+4. [定稿阶段] 修改完善</code></pre></p><p>##### Level 2（中期）
+拆分为 <strong>2 个角色</strong>：
+<ul>
+<li><strong>xiaohongshu-planner-writer</strong>（策划+写手合并）</li>
+</ul>
+  - 负责：选题、大纲、初稿、定稿修改
+  - 配置：加载 <code>writing-meta-spec</code> + <code>xiaohongshu</code> 风格
+  
+<ul>
+<li><strong>xiaohongshu-editor</strong>（编辑独立）</li>
+</ul>
+  - 负责：深度分析、定稿审核
+  - 配置：加载检查清单（通用 15 项 + 小红书 40 项）</p><p>##### Level 3（远期）
+完整的 <strong>3 角色 + 编排器</strong>：
+<ul>
+<li><strong>xiaohongshu-planner</strong>（策划）</li>
+<li><strong>xiaohongshu-writer</strong>（写手）</li>
+<li><strong>xiaohongshu-editor</strong>（编辑）</li>
+<li><strong>xiaohongshu-orchestrator</strong>（编排器）</li>
+</ul><hr><h3>网文写作团队架构</h3><h4>当前状态</h4>
+<ul>
+<li><strong>1 个 Agent</strong>：<code>webnovel-writer</code>（全能型）</li>
+</ul><h4>建议演进路径</h4><p>##### Level 1（近期）
+保持单一 Agent，但内部分阶段：
+<pre><code>2. [系列规划] 整体大纲、悬念布局
+3. [章节大纲] 每章结构、爽点分布
+4. [初稿] 快速写完
+5. [编辑] 悬念检查、爽点验证（54 项检查）
+6. [定稿] 修改润色</code></pre></p><p>##### Level 2（中期）
+拆分为 <strong>2 个角色</strong>：
+<ul>
+<li><strong>webnovel-planner-writer</strong>（策划+写手）</li>
+</ul>
+  - 负责：系列规划、大纲、初稿、定稿
+  - 配置：加载 <code>writing-meta-spec</code> + <code>webnovel</code> 风格
+  
+<ul>
+<li><strong>webnovel-editor</strong>（编辑）</li>
+</ul>
+  - 负责：悬念验证、爽点检查、人物一致性检查
+  - 配置：加载检查清单（通用 15 项 + 网文 54 项）</p><p>##### Level 3（远期）
+完整的 <strong>3 角色 + 编排器</strong>：
+<ul>
+<li><strong>webnovel-planner</strong>（策划）</li>
+<li><strong>webnovel-writer</strong>（写手）</li>
+<li><strong>webnovel-editor</strong>（编辑）</li>
+<li><strong>webnovel-orchestrator</strong>（编排器）</li>
+</ul><hr><h2>🎯 关键设计原则</h2><h3>1. 角色边界要硬</h3><p>| 原则 | 说明 | 反例 |
+|------|------|------|
+| <strong>策划不写正文</strong> | 交出大纲就结束 | ❌ 策划顺手写了几段开场白 |
+| <strong>写手不做验收</strong> | 写完交给编辑 | ❌ 写手自己觉得还行就发布 |
+| <strong>编辑不改文章</strong> | 只出报告和检查结果 | ❌ 编辑直接改了几处 |</p><p><strong>为什么要这么硬？</strong>
+> 一旦边界模糊，AI 就会"自我和解"，质量就下去了。</p><hr><h3>2. Gate 检查不能软</h3><p><strong>Gate 是质量关卡</strong>：
+<ul>
+<li>CRITICAL 有一项未过 → <strong>强制回退</strong></li>
+<li>通过率 < 80% → <strong>回退并列出未通过项</strong></li>
+<li>不能因为"差不多"就放行</li>
+</ul><hr><h3>3. 编排器是代码，不是 AI</h3><p><strong>不要让 AI 决定流程</strong>：
+<ul>
+<li>❌ "AI 你看看现在该做什么了"</li>
+<li>✅ 流程是固定的：策划→写手→编辑→循环</li>
+</ul><p><strong>AI 只负责执行</strong>：
+<ul>
+<li>策划 AI 负责出大纲</li>
+<li>写手 AI 负责写内容</li>
+<li>编辑 AI 负责审核</li>
+<li>编排器负责调度（代码）</li>
+</ul><hr><h3>4. 上下文传递要精简</h3><p><strong>不要传完整历史</strong>：
+<ul>
+<li>❌ 把所有对话历史都传给下一个角色</li>
+<li>✅ 只传阶段产出（大纲、初稿、分析报告等）</li>
+</ul><p><strong>控制 Token 成本</strong>：
+<ul>
+<li>大纲阶段 → 只传系列规划（如果有）</li>
+<li>初稿阶段 → 只传控制态大纲</li>
+<li>定稿阶段 → 只传深度分析报告</li>
+</ul><hr><h3>5. 异常处理要明确</h3><p><strong>重试次数上限</strong>：
+<ul>
+<li>每个阶段最多重试 3 次</li>
+<li>3 次后仍不过 → <strong>提交人工裁决</strong></li>
+</ul><p><strong>不要无限循环</strong>：
+<ul>
+<li>❌ 让 AI 反复改到通过为止</li>
+<li>✅ 3 次不过说明有系统性问题，需要人介入</li>
+</ul><hr><h2>📋 实施建议</h2><h3>阶段 1：内部分工（1-2 周）</h3><p><strong>目标</strong>：在现有单一 Agent 内部实现阶段分离</p><h4>小红书</h4>
+<ol>
+<li>修改 <code>xiaohongshu-writer</code> 的 prompt</li>
+<li>明确各阶段职责：</li>
+</ol>
+   - 策划：选题 + 大纲（结构图）
+   - 初稿：按大纲快速展开
+   - 编辑：使用检查清单自检（40 项）
+   - 定稿：按编辑反馈修改
+<ol>
+<li>用户手动触发各阶段切换</li>
+</ol><h4>网文</h4>
+<ol>
+<li>修改 <code>webnovel-writer</code> 的 prompt</li>
+<li>明确各阶段职责：</li>
+</ol>
+   - 系列规划：力量体系 + 大纲
+   - 章节大纲：结构 + 悬念 + 爽点
+   - 初稿：快速写完
+   - 编辑：54 项检查
+   - 定稿：修改润色
+<ol>
+<li>用户手动触发各阶段切换</li>
+</ol><hr><h3>阶段 2：角色拆分（1-2 个月）</h3><p><strong>目标</strong>：将策划+写手和编辑拆分成两个独立 Agent</p><h4>创建编辑 Agent</h4><p><strong>小红书编辑</strong>：
+<pre><code>职责：深度分析 + 定稿审核
+配置：
+- 加载 writing-meta-spec
+- 使用 shared/checklists.md + xiaohongshu/checklist.md
+- 输出结构化分析报告</code></pre></p><p><strong>网文编辑</strong>：
+<pre><code>职责：深度分析 + 定稿审核 + 系列维护
+配置：
+- 加载 writing-meta-spec
+- 使用 shared/checklists.md + webnovel/checklist.md
+- 额外检查：悬念层次、爽点分布、人物一致性</code></pre></p><h4>调整现有 Agent</h4><p>保留原 Agent，但调整职责：
+<ul>
+<li>移除审核职责</li>
+<li>专注于策划和写作</li>
+<li>接受编辑反馈后修改</li>
+</ul><hr><h3>阶段 3：编排器实现（2-3 个月）</h3><p><strong>目标</strong>：开发自动化流水线</p><h4>编排器功能</h4><ol>
+<li><strong>确认三元组</strong></li>
+</ol>
+   <pre><code>   def confirm_context(style, type, stage):
+       # style: xiaohongshu | webnovel
+       # type: short-form | long-form | serial
+       # stage: planning | outline | draft | final
+       return load_modules(style, type, stage)</code></pre></p><ol>
+<li><strong>固定流水线</strong></li>
+</ol>
+   <pre><code>   def pipeline(content_type):
+       if content_type == 'single':
+           stages = ['outline', 'draft', 'analysis', 'final']
+       elif content_type == 'series':
+           stages = ['series_planning', 'outline', 'draft', 
+                    'analysis', 'final', 'series_maintenance']
+       
+       for stage in stages:
+           result = execute_stage(stage)
+           if not gate_check(result):
+               retry(stage, max_retries=3)</code></pre></p><ol>
+<li><strong>Gate 检查</strong></li>
+</ol>
+   <pre><code>   def gate_check(result):
+       if has_critical_failure(result):
+           return False  # 强制回退
+       if pass_rate(result) < 0.8:
+           return False  # 回退
+       return True  # 通过</code></pre></p><ol>
+<li><strong>产出传递</strong></li>
+</ol>
+   <pre><code>   def pass_to_next(stage_output):
+       # 只传必要产出，不传完整历史
+       if current_stage == 'outline':
+           return {'outline': stage_output}
+       elif current_stage == 'draft':
+           return {'draft': stage_output, 'outline': outline}
+       # ...</code></pre></p><ol>
+<li><strong>异常处理</strong></li>
+</ol>
+   <pre><code>   def retry(stage, max_retries=3):
+       for i in range(max_retries):
+           result = execute_stage(stage)
+           if gate_check(result):
+               return result
+       
+       # 3 次后仍不过，提交人工裁决
+       return escalate_to_human(result)</code></pre></p><hr><h2>🎓 学习要点总结</h2><h3>核心理念</h3><ol>
+<li><strong>角色分工要明确</strong>：策划、写手、编辑各司其职</li>
+<li><strong>边界要硬</strong>：谁也不越界，防止"自我和解"</li>
+<li><strong>编排器是代码</strong>：不需要 AI 决定流程</li>
+<li><strong>Gate 检查不能软</strong>：CRITICAL 必须过，通过率必须 ≥ 80%</li>
+<li><strong>渐进式演进</strong>：不需要一开始就搭完整架构</li>
+</ol><hr><h3>实践建议</h3><h4>近期（1-2 周）</h4>
+<ul>
+<li>✅ 在现有 Agent 内部实现阶段分离</li>
+<li>✅ 用户手动触发各阶段切换</li>
+<li>✅ 实践检查清单的使用</li>
+</ul><h4>中期（1-2 个月）</h4>
+<ul>
+<li>✅ 创建独立的编辑 Agent</li>
+<li>✅ 将策划+写手和编辑拆分</li>
+<li>✅ 实践 Evaluator-Optimizer 循环</li>
+</ul><h4>远期（2-3 个月）</h4>
+<ul>
+<li>✅ 开发完整的编排器（流水线）</li>
+<li>✅ 实现自动化 Gate 检查</li>
+<li>✅ 拆分成完整的三角色架构</li>
+</ul><hr><h2>🔗 相关资源</h2><ul>
+<li><a href="./writing-meta-spec/">写作元规范 Skill</a></li>
+<li><a href="./组织架构.md">组织架构文档</a></li>
+<li><a href="./内容创作部门工作手册.md">内容创作部门工作手册</a></li>
+<li><a href="https://km.woa.com/articles/show/654385">KM 原文</a></li>
+</ul><hr><p><em>学习笔记完成 - 下一步：讨论如何应用到小红书和网文写作场景</em>
+</p>
+    </div>
+  </div>
+
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
+    ↑
+  </button>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="mb-4">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
+          <span class="text-2xl font-bold">RainBox 数字科技</span>
+        </div>
+      </div>
+      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
+      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

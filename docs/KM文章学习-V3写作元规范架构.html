@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KM 文章学习：V3 写作元规范架构详解 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.8;
+    }
+    .markdown-body h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #2196F3, #FF9800);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #2196F3;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #333;
+    }
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+    .markdown-body p {
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+    .markdown-body ul, .markdown-body ol {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+    }
+    .markdown-body li {
+      margin-bottom: 0.5rem;
+    }
+    .markdown-body code {
+      background: #f3f4f6;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #ef4444;
+    }
+    .markdown-body pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+    .markdown-body pre code {
+      background: transparent;
+      padding: 0;
+      color: #f9fafb;
+    }
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    .markdown-body th, .markdown-body td {
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .markdown-body th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #111827;
+    }
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: #6b7280;
+      font-style: italic;
+    }
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+    }
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    .markdown-body em {
+      font-style: italic;
+    }
+    .markdown-body hr {
+      border: none;
+      border-top: 2px solid #e5e7eb;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
+          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
+        </a>
+        <div class="flex items-center gap-6">
+          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
+          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文档内容 -->
+  <div class="pt-8 pb-20">
+    <div class="markdown-body">
+      <h1>KM 文章学习：V3 写作元规范架构详解</h1><p>> 原文：《让 AI 像你一样写作——如何构建自己的写作元规范》  
+> 作者：johnsonyang  
+> 学习日期：2026-03-22</p><hr><h2>📊 核心架构：六层框架 + 28 个文件</h2><h3>架构全貌</h3><p><pre><code>├── 00-index.md          # 总入口：文档矩阵 + 导航 + 阅读路径
+├── router.md            # 三元组路由器：(阶段, 风格, 类型) → 加载哪些文件
+│
+├── shared/              ← 通用基座（6文件）─── 任何风格、任何类型都加载
+├── style/               ← 风格库（可插拔）   ─── 按选定风格加载
+├── strategy/            ← 类型策略库（可插拔）─── 按选定类型加载
+├── series/              ← 系列级模块（4文件） ─── 写系列时加载
+├── theory/              ← 理论支撑（1文件）   ─── 按需引用
+└── meta/                ← 元规范迭代（3文件） ─── 维护规范本身时加载</code></pre></p><hr><h2>🎯 六层详解</h2><h3>第一层：shared/ —— 通用基座（6 个文件）</h3><p><strong>定位</strong>：任何风格、任何类型都要加载的核心内容</p><p>| 文件 | 内容 | 规模 |
+|------|------|------|
+| <code>rules.md</code> | 通用规则，分三级 | 32 条（CRITICAL 5 条） |
+| <code>techniques.md</code> | 通用手法，按阶段分组 | 28 条 |
+| <code>templates.md</code> | 大纲模板、三层输出模板等 | 5 个 |
+| <code>checklists.md</code> | 检查清单，覆盖全部六阶段 | 14 个 |
+| <code>examples.md</code> | 正反对照示例 | 7 场景 |
+| <code>stage-definitions.md</code> | 各阶段的定义、完成标准 | — |</p><p><strong>5 条 CRITICAL 规则</strong>：
+<ol>
+<li>噪音原则</li>
+<li>改进的边界</li>
+<li>叙事服务于理解</li>
+<li>意象是信息架构</li>
+<li>取舍是人的活</li>
+</ol><p><strong>规则分级机制</strong>：
+<ul>
+<li><strong>CRITICAL</strong>：违反 = 文章核心质量问题，不可降级（5-7 条，不超过总规则的 20%）</li>
+<li><strong>STANDARD</strong>：默认遵守，偏离需有明确理由（15-20 条）</li>
+<li><strong>RECOMMENDED</strong>：推荐使用，能提升质量但非必须（其余）</li>
+</ul><h3>第二层：style/ —— 风格库（可插拔）</h3><p><strong>定位</strong>：定义"写成什么味道"</p><p><strong>示例：style/fusion/（融合风格包，9 个文件）</strong></p><p>| 文件 | 内容 |
+|------|------|
+| <code>definition.md</code> | 七层风格定义：基调、余华层、鲁迅层、古龙层、技术直白层、第一人称、节制 |
+| <code>paragraph-routing.md</code> | 段落类型→风格映射：开场→余华，论断→鲁迅，转折→古龙，技术→直白 |
+| <code>first-person.md</code> | 6 种篇章类型 × 角色 × 密度 × 功能 |
+| <code>restraint.md</code> | 6 种场景的节制操作 + 句式去重详解 |
+| <code>epigram.md</code> | 金句公式 = 翻转默认假设 |
+| <code>opening-variations.md</code> | 5 种开场手法变奏 + 三要素规律 |
+| <code>style-examples.md</code> | 开场正反例 9 组 + 金句正反例 10 组 + "我"的使用 3 组 |
+| <code>style-checklist.md</code> | 定稿风格层检查清单 6 项 |
+| <code>ai-prompt.md</code> | 6 条风格指令的 System Prompt 模板 |</p><p><strong>扩展方式</strong>：
+<ul>
+<li>想写散文？在 <code>style/</code> 下新建 <code>prose/</code> 目录</li>
+<li>填 4 个必须文件：<code>definition</code>、<code>paragraph-routing</code>、<code>ai-prompt</code>、<code>style-checklist</code></li>
+<li><strong>不碰 shared 一行代码</strong></li>
+</ul><h3>第三层：strategy/ —— 类型策略库（可插拔）</h3><p><strong>定位</strong>：针对特定写作类型的策略</p><p><strong>示例：strategy/tech-writing/（技术写作策略包，3 个文件）</strong></p><p>| 文件 | 内容 | 规模 |
+|------|------|------|
+| <code>rules.md</code> | 技术特化规则 | 5 条（CRITICAL 2 条） |
+| <code>techniques.md</code> | 技术特化手法 | 5 条 |
+| <code>examples.md</code> | 技术展开 + "不做什么"的展示 | 2 场景 |</p><p><strong>技术特化规则示例</strong>：
+<ul>
+<li>技术含量配比</li>
+<li>意象与技术疆界</li>
+<li>交叉验证</li>
+</ul><p><strong>技术特化手法示例</strong>：
+<ul>
+<li>踩坑先反后正</li>
+<li>技术可视度调整</li>
+</ul><p><strong>叠加后的 CRITICAL 规则</strong>：
+<ul>
+<li>通用 5 条 + 技术特化 2 条 = 总共 7 条</li>
+</ul><h3>第四层：series/ —— 系列级模块（4 个文件）</h3><p><strong>定位</strong>：写系列文章时加载</p><p>| 文件 | 内容 |
+|------|------|
+| <code>planning-template.md</code> | 系列规划模板（11 个 slot：定位、意图、矩阵、暗线、阅读路径……） |
+| <code>checklists.md</code> | 系列规划检查清单 11 项 + 系列维护检查清单 6 项 |
+| <code>rules.md</code> | 系列级规则 6 条（开场接上篇、结构对称、播种-回收……） |
+| <code>techniques.md</code> | 系列级手法 4 条（播种-回收节奏、棱镜效应、温度梯度……） |</p><h3>第五层：theory/ —— 理论支撑（1 个文件）</h3><p><strong>定位</strong>：按需引用，解释"为什么这样做"</p><p><strong>文件</strong>：<code>mappings.md</code> - 17 条理论→规则/手法的映射</p><p><strong>重要理念</strong>：
+> "不是'因为理论说了所以这样做'——是'我们已经在这样做了，理论帮理解为什么'"</p><p><strong>示例映射</strong>：</p><p>| 理论 | 映射到 |
+|------|--------|
+| Sweller 认知负荷 | → 噪音原则 |
+| McKee 激励事件 | → 核心反差设计 |
+| 契诃夫之枪 | → 播种-回收节奏 |
+| MoE 混合专家 | → 风格段落分工 |</p><h3>第六层：meta/ —— 元规范迭代（3 个文件）</h3><p><strong>定位</strong>：维护规范本身时加载</p><p>| 文件 | 内容 |
+|------|------|
+| <code>iteration-checklist.md</code> | 三级触发（微提醒/篇级/结构性） + 四维扫描 + 人确认门禁 |
+| <code>insight-guide.md</code> | 4 种判断场景 × 标准 × 示例 |
+| <code>convergence-criteria.md</code> | 收敛判据：变更量递减、实践间隔、不在纸面无限优化 |</p><hr><h2>🎨 三层叠加：核心设计原则</h2><h3>加载机制</h3><p><pre><code>               + style/{风格}（风格包，按选定风格加载）
+               + strategy/{类型}（策略包，按选定类型加载）</code></pre></p><h3>覆盖优先级</h3><p><pre><code>strategy > style > shared</code></pre></p><h3>使用示例</h3><ul>
+<li><strong>写技术文章</strong>：加载 <code>shared</code> + <code>fusion</code> + <code>tech-writing</code></li>
+<li><strong>写散文</strong>：加载 <code>shared</code> + 散文风格包</li>
+<li><strong>写小说</strong>：加载 <code>shared</code> + 小说风格包 + 小说策略包</li>
+</ul><h3>设计优势</h3><ol>
+<li>✅ <strong>shared 始终在</strong>：保证基础质量</li>
+<li>✅ <strong>新增风格不动策略</strong>：解耦</li>
+<li>✅ <strong>新增策略不动风格</strong>：解耦</li>
+<li>✅ <strong>加散文风格包 = 在 style/ 下新建一个目录，写 4 个文件。完事。不碰 shared 一行代码。</strong></li>
+</ol><hr><h2>🎯 三元组路由器</h2><h3>核心机制</h3><p><strong>输入</strong>：<code>(阶段, 风格, 类型)</code>  
+<strong>输出</strong>：应加载的文件列表</p><h3>示例</h3><p><strong>输入</strong>：<code>(定稿, fusion, tech-writing)</code></p><p><strong>加载</strong>：
+<ol>
+<li><strong>shared</strong>: <code>rules.md</code>(32条) + <code>checklists.md</code>(定稿检查清单7类) + <code>techniques.md</code>(打磨期7条) + ...</li>
+<li><strong>style/fusion</strong>: 风格全套(9文件) + <code>style-checklist.md</code>(6项)</li>
+<li><strong>strategy/tech-writing</strong>: <code>rules.md</code>(5条) + <code>techniques.md</code>(5条)</li>
+</ol><p><strong>换一个三元组</strong>：<code>(系列规划, fusion, tech-writing)</code>
+<ul>
+<li>风格和策略被跳过</li>
+<li>系列级模块被拉进来</li>
+</ul><h3>设计原则</h3><p>> 给定三元组，加载什么是确定的。不多不少。</p><hr><h2>📋 八种模块类型</h2><p>每个阶段内部由六种核心模块 + 两种支撑模块组成：</p><p>| 模块类型 | 回答的问题 | 举例 |
+|---------|-----------|------|
+| <strong>Rule（规则）</strong> | "什么必须做 / 什么不能做" | "读者尚未建立认知的概念，提及即噪音" |
+| <strong>Technique（手法）</strong> | "怎么做" | 认知破壁起手、金句翻转模式 |
+| <strong>Template（模板）</strong> | "骨架长什么样" | 控制态大纲模板（12 维度） |
+| <strong>Checklist（检查清单）</strong> | "做完了吗" | 定稿检查清单——结构层 4 项 |
+| <strong>Example（示例）</strong> | "好的和坏的分别长什么样" | 意象正反对照、砍/留决策 |
+| <strong>Style（风格）</strong> | "写成什么味道" | fusion 七层定义 + 段落路由 |
+| <strong>Theory（理论）</strong> | "为什么这样做"（支撑，按需引用） | McKee 激励事件 → 核心反差设计 |
+| <strong>Evidence（实证）</strong> | "哪篇证明了这条规则"（支撑，嵌入） | 篇三验证了噪音原则 |</p><hr><h2>🔄 演进历程：从 V1 到 V3</h2><h3>V1 → V2：被 AI 上下文窗口逼的</h3><ul>
+<li><strong>问题</strong>：1029 行装不下</li>
+<li><strong>解决</strong>：拆文件（1 个文件 → 11 个文件）</li>
+<li><strong>性质</strong>：大手术——全拆重写</li>
+</ul><h3>V2 → V3：被类型扩展逼的</h3><ul>
+<li><strong>问题</strong>：加新风格要改旧文件</li>
+<li><strong>解决</strong>：解耦（通用和特化彻底分开）</li>
+<li><strong>性质</strong>：中手术——加一层抽象</li>
+</ul><h3>V3 之后：微调</h3><ul>
+<li>加一条规则</li>
+<li>补一个示例</li>
+<li>升级一条 CL 的级别</li>
+</ul><h3>核心理念</h3><p>> "每一次重构都不是因为'想追求更好的架构'。是因为用着用着发现不行了。"</p><p>> "元规范不是设计出来的。是跑出来的。在碎裂中铸成，在螺旋中生长。"</p><hr><h2>🚀 从零构建：四步螺旋法</h2><h3>第一步：先写三篇，别管规范</h3><p><strong>核心理念</strong>：先有素材，后有规范</p><p><strong>操作</strong>：
+<ol>
+<li>写三篇（不用特别好）</li>
+<li>每篇写完后：把你对 AI 产出的所有不满意记下来</li>
+<li>三篇之后，翻看记录</li>
+</ol><p><strong>发现</strong>：
+<ul>
+<li>反复出现的审稿意见 = 你的隐式规则</li>
+</ul><p><strong>示例</strong>：
+<ul>
+<li>"读者尚未建立认知的概念，提及即噪音" ← 反复出现，后来成为最高优先级规则</li>
+<li>"意象换成编号后信息结构完全不变 = 意象只是装饰" ← 反复出现，也成为最高优先级规则</li>
+</ul><h3>第二步：提炼规则，分三级</h3><p><strong>分级至关重要</strong></p><p><strong>问题</strong>：
+<ul>
+<li>所有规则都标"必须" → AI 什么都想遵守，什么都没遵守好</li>
+<li>30 条规则全是 MUST → AI 选择性执行，你还不知道它忽略了哪条</li>
+</ul><p><strong>解决</strong>：分三级</p><p>| 级别 | 含义 | 数量控制 |
+|------|------|----------|
+| <strong>CRITICAL</strong> | 违反 = 文章核心质量问题，不可降级 | 5-7 条（不超过总规则的 20%） |
+| <strong>STANDARD</strong> | 默认遵守，偏离需有明确理由 | 15-20 条 |
+| <strong>RECOMMENDED</strong> | 推荐使用，能提升质量但非必须 | 其余 |</p><p><strong>效果</strong>：
+> "分级后 AI 的行为立刻不同。它知道先确保 CRITICAL 不违反，再处理 STANDARD，最后才考虑 RECOMMENDED。优先级清晰了，执行质量跟着上来了。"</p><h3>第三步：为规则配检查清单</h3><p><strong>核心原则</strong>：没有检查清单的规则是虚规则</p><p><strong>反面示例</strong>：
+<ul>
+<li>❌ "文章应该有情绪弧线" ← 怎么检查？谁来检查？什么叫"有"？</li>
+</ul><p><strong>正面示例</strong>：
+<ul>
+<li>✅ <code>[ ] 情绪弧线设计（每章情绪关键词 + 全文走向）[3.1]</code></li>
+</ul>
+  - "每章情绪关键词" ← 可验证（要么有，要么没有）
+  - "全文走向" ← 可验证（能画出来，或者画不出来）</p><p><strong>核心纪律</strong>：每一条都要可验证</p><p><strong>示例对比</strong>：</p><p>| 不可验证 | 可验证 |
+|---------|--------|
+| "写得好" | "核心内容覆盖≥80%" |
+| "结构合理" | "核心章占比最大，非均分" |
+| "风格统一" | "系列内各篇标题放在一起像同一系列" |</p><p><strong>按阶段组织</strong>：</p><p>| 阶段 | 检查清单数量 | 核心关注 |
+|------|-------------|----------|
+| 大纲 | 20 项 | 结构完整 + 12 维度控制 |
+| 初稿 | 10 项 | 素材覆盖 + 4 项"未做"禁忌 |
+| 定稿 | 30+ 项 | 结构/衔接/内容/情绪/风格/标题/数字/配图 |</p><p><strong>重要提示</strong>：
+> "定稿 30+ 项检查清单看着吓人？你不需要一次写完。写第一篇时可能只有 5 条。第三篇后加到 15 条。第九篇后 30+ 条。检查清单是长出来的，不是一次性设计出来的。"</p><h3>第四步：结构化，让 AI 能路由</h3><p><strong>核心动作</strong>：按用途分文件</p><p><strong>五种文件类型</strong>：</p><p>| 文件类型 | 内容 | 特征 |
+|---------|------|------|
+| <code>rules.md</code> | 规则（分三级） | "应该怎样"——判断标准 |
+| <code>techniques.md</code> | 手法（按阶段分组） | "怎么做"——操作方法 |
+| <code>templates.md</code> | 模板 | "长什么样"——结构骨架 |
+| <code>checklists.md</code> | 检查清单（按阶段分组） | "怎么验"——逐项确认 |
+| <code>examples.md</code> | 正反对照示例 | "到底是什么样"——边界展示 |</p><p><strong>为什么正反例特别重要？</strong></p><p>> "因为规则只说'应该'，但'应该'的边界在哪里，只有正反例能展示。"</p><p><strong>示例</strong>：</p><p><strong>规则</strong>："意象必须承载功能"</p><p><strong>正面</strong>："三体意象贯穿全篇——乱纪元/恒纪元/破壁/三体/维度/文明，每个概念映射一个架构演进阶段"
+<ul>
+<li>意象承载了信息功能，去掉它文章结构受损</li>
+</ul><p><strong>反面</strong>："下雨了。就像我们的项目计划一样，总是被打湿。"
+<ul>
+<li>这个类比去掉后信息完全不变。它只是装饰</li>
+</ul><p><strong>效果</strong>：
+> "AI 看到这两个例子，就能把模糊的'承载功能'翻译成具体的判断标准。"</p><h3>四步螺旋循环</h3><p><pre><code>  ↑                              │
+  └──── 写下一篇，发现新问题 ←──┘</code></pre></p><p><strong>核心理念</strong>：
+> "每篇新文章都是规范的一次检验。写着写着发现'这条规则我总是忘'——把它升级为 CRITICAL。发现'这条 CL 连续五篇一轮过'——它已经内化了，可以降级。发现'编辑反复给出相似建议'——缺一条 technique，补上。"</p><p>> "元规范不是一次性设计出来的工程图纸。它是一个活着的有机体。每篇文章喂养它，它反过来让下一篇更好。"</p><hr><h2>🔄 让它活着：迭代而非完美</h2><h3>三级触发机制</h3><p><strong>设计原则</strong>：不是每篇都要大改规范</p><p>| 级别 | 触发时机 | 动作 | 重量 |
+|------|---------|------|------|
+| <strong>微提醒</strong> | 写作过程中随时 | 记一条笔记，丢进暂存区 | 轻 |
+| <strong>篇级回顾</strong> | 每篇完成后 | 快速扫描：有没有反复违反的规则？有没有新发现的模式？ | 中 |
+| <strong>结构性迭代</strong> | 每 3-5 篇 | 深度回顾：汇总全部暂存区 + 跨篇模式识别 + 输出迭代建议 | 重 |</p><p><strong>成本分析</strong>：
+<ul>
+<li>微提醒：几乎零成本，不打断流程</li>
+<li>篇级回顾：10-15 分钟</li>
+<li>结构性迭代：大活，但三到五篇才做一次</li>
+</ul><h3>收敛是好信号，膨胀是坏信号</h3><p><strong>好的元规范是收敛的</strong></p><p><strong>收敛的定义</strong>：
+<ul>
+<li>每一轮迭代的变更量递减</li>
+<li>V1→V2：大手术（1 个文件 → 11 个文件）</li>
+<li>V2→V3：中手术（加一层抽象）</li>
+<li>V3 之后：微调（加一条规则、补一个示例、升级一条 CL）</li>
+</ul><p><strong>警告信号</strong>：
+<ul>
+<li>❌ 每篇都在大改规范 → 说明架构有问题，规则耦合太紧</li>
+<li>❌ 连续五篇没改 → 要么规范已经非常成熟，要么你没在认真回顾</li>
+</ul><p><strong>密度控制</strong>：
+<ul>
+<li>每次迭代补充不超过现有内容的 20%</li>
+<li>一次加太多 = 没有经过实战验证的理论猜测</li>
+<li>每条新规则都应该来自一个具体的写作问题</li>
+</ul><h3>人的角色不可替代</h3><p><strong>AI 可以做什么</strong>：
+<ul>
+<li>✅ 分析哪些 CL 反复失败</li>
+<li>✅ 识别跨篇模式</li>
+<li>✅ 生成迭代建议报告</li>
+</ul><p><strong>人必须做什么</strong>：
+<ul>
+<li>⚠️ 决定改不改规范</li>
+<li>⚠️ 判断建议是否合理</li>
+<li>⚠️ 做最终的取舍</li>
+</ul><p><strong>核心原则</strong>：
+> "系统提醒，人来确认。"</p><p>> "元规范是你的写作标准。AI 说'这条规则连续三篇首轮失败，建议升级为 CRITICAL'——有道理吗？也许有。但也许那三篇恰好是特殊题材，不能代表整体。AI 提供数据和建议。你做判断和取舍。这件事不能反过来。"</p><hr><h2>💡 关键启示</h2><h3>1. 别被 28 个文件吓到</h3><p>> "别被前面的 28 个文件吓到。V3 是迭代了九篇文章之后的产物。你不需要一开始就搭六层架构。"</p><p>> "第一版可以只有 5 条规则和 3 条 CL。第九版才会有 28 个文件。但每一版都比上一版好——这就够了。"</p><h3>2. 从实践中来，到实践中去</h3><p>> "不要一开始就设计规范。你还不知道自己的写作标准是什么。或者更准确地说——你以为你知道，但那些标准藏在直觉里，还没有被语言捕捉。"</p><p>> "反复出现的审稿意见 = 你的隐式规则。"</p><h3>3. 架构是被逼出来的</h3><p>> "这不是设计出来的优雅。是被两次重构逼出来的实用。"</p><p>> "从第一版 1 个文件 1029 行，到现在 28 个文件。不是因为喜欢拆文件。是因为用着用着发现——不拆，就用不动。"</p><h3>4. 价值在于可迭代</h3><p>> "它的价值不在完美，在于可迭代。第一版可以只有 5 条规则和 3 条 CL。第九版才会有 28 个文件。但每一版都比上一版好——这就够了。"</p><p>> "你不需要一步到位。你只需要开始。"</p><hr><h2>📊 数字总览</h2><p>| 层 | 文件数 | 核心内容 |
+|----|--------|----------|
+| <strong>shared</strong> | 6 | 32 规则 + 28 手法 + 5 模板 + 14 检查清单 + 7 场景示例 |
+| <strong>style/fusion</strong> | 9 | 七层风格定义 + 段落路由 + 6 项风格检查清单 |
+| <strong>strategy/tech-writing</strong> | 3 | 5 规则 + 5 手法 + 2 场景示例 |
+| <strong>series</strong> | 4 | 1 模板 + 2 检查清单 + 6 规则 + 4 手法 |
+| <strong>theory</strong> | 1 | 17 条理论映射 |
+| <strong>meta</strong> | 3 | 迭代检查清单 + 判断指引 + 收敛判据 |
+| <strong>路由器 + 索引</strong> | 2 | 三元组路由 + 文档矩阵导航 |
+| <strong>合计</strong> | <strong>28</strong> | — |</p><hr><h2>🎯 对我们的启示</h2><h3>适用于内容创作部门的思路</h3><ol>
+<li><strong>不要一开始就追求完美</strong></li>
+</ol>
+   - 从 5 条规则 + 3 条检查清单开始
+   - 每篇内容都是规范的检验和优化机会</p><ol>
+<li><strong>采用三层叠加架构</strong></li>
+</ol>
+   - <strong>shared/</strong>：所有平台通用的写作规范
+   - <strong>style/</strong>：小红书风格、网文风格、公众号风格、技术文章风格
+   - <strong>strategy/</strong>：短视频策略、长文策略、连载策略等</p><ol>
+<li><strong>规则分级是关键</strong></li>
+</ol>
+   - CRITICAL 规则控制在 5-7 条
+   - 让 AI 知道先做什么</p><ol>
+<li><strong>检查清单必须可验证</strong></li>
+</ol>
+   - 每一条都能明确判断是否完成
+   - 避免主观模糊的标准</p><ol>
+<li><strong>正反例比规则更重要</strong></li>
+</ol>
+   - 规则说"应该怎样"
+   - 正反例展示"边界在哪里"</p><ol>
+<li><strong>从实践中提炼，在实践中迭代</strong></li>
+</ol>
+   - 先写 3 篇，记录所有不满意
+   - 反复出现的审稿意见 → 隐式规则
+   - 每 3-5 篇进行一次结构性迭代</p><hr><h2>🚀 下一步行动</h2><p>基于这篇文章的学习，我们可以：</p><ol>
+<li><strong>为内容创作部门构建写作元规范 Skill</strong></li>
+</ol>
+   - 参考 V3 的六层架构
+   - 从 MVP 版本开始（5 条规则 + 3 条 CL）
+   - 随着实践逐步扩充</p><ol>
+<li><strong>明确起步策略</strong></li>
+</ol>
+   - 先让 xiaohongshu-writer 和 webnovel-writer 各写 3 篇
+   - 记录所有审稿意见
+   - 提炼出第一版的共享规则</p><ol>
+<li><strong>建立迭代机制</strong></li>
+</ol>
+   - 微提醒：写作过程中随时记录
+   - 篇级回顾：每篇完成后快速扫描
+   - 结构性迭代：每 3-5 篇深度回顾</p><hr><p><em>学习笔记完成</em>  
+<em>下一步：与用户讨论如何应用到我们的内容创作部门</em>
+</p>
+    </div>
+  </div>
+
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
+    ↑
+  </button>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="mb-4">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
+          <span class="text-2xl font-bold">RainBox 数字科技</span>
+        </div>
+      </div>
+      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
+      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

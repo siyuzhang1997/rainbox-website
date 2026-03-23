@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RainBox 官网快速部署指南 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.8;
+    }
+    .markdown-body h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #2196F3, #FF9800);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #2196F3;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #333;
+    }
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+    .markdown-body p {
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+    .markdown-body ul, .markdown-body ol {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+    }
+    .markdown-body li {
+      margin-bottom: 0.5rem;
+    }
+    .markdown-body code {
+      background: #f3f4f6;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #ef4444;
+    }
+    .markdown-body pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+    .markdown-body pre code {
+      background: transparent;
+      padding: 0;
+      color: #f9fafb;
+    }
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    .markdown-body th, .markdown-body td {
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .markdown-body th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #111827;
+    }
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: #6b7280;
+      font-style: italic;
+    }
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+    }
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    .markdown-body em {
+      font-style: italic;
+    }
+    .markdown-body hr {
+      border: none;
+      border-top: 2px solid #e5e7eb;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
+          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
+        </a>
+        <div class="flex items-center gap-6">
+          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
+          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文档内容 -->
+  <div class="pt-8 pb-20">
+    <div class="markdown-body">
+      <h1>RainBox 官网快速部署指南</h1><p><strong>目标</strong>：10 分钟内完成 RainBox 官网部署到 GitHub Pages</p><hr><h2>🚀 方式一：一键部署（推荐）</h2><h3>使用自动化脚本</h3><p><pre><code># 1. 运行部署脚本
+./deploy-setup.sh
+
+# 2. 按提示输入信息
+# - 仓库名称（默认：rainbox-official-website）
+# - 仓库描述（默认：RainBox 数字科技官网）
+# - GitHub 用户名
+
+# 3. 等待脚本完成（约 5 分钟）
+
+# 4. 配置 GitHub Pages
+# 访问：https://github.com/YOUR_USERNAME/rainbox-official-website/settings/pages
+# Source 选择：GitHub Actions
+
+# 完成！🎉</code></pre></p><hr><h2>📝 方式二：手动部署</h2><h3>Step 1: 创建 GitHub 仓库（2分钟）</h3><p><pre><code># 使用 GitHub CLI
+gh repo create rainbox-official-website --public --description "RainBox 数字科技官网"
+
+# 或手动创建
+# 访问 https://github.com/new</code></pre></p><h3>Step 2: 初始化项目（3分钟）</h3><p><pre><code># 创建 React 项目
+npm create vite@latest rainbox-official-website -- --template react-ts
+
+# 进入目录
+cd rainbox-official-website
+
+# 安装依赖
+npm install</code></pre></p><h3>Step 3: 配置 Vite（1分钟）</h3><p>编辑 <code>vite.config.ts</code>：</p><p><pre><code>import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  base: '/rainbox-official-website/', // 重要！
+})</code></pre></p><h3>Step 4: 配置 GitHub Actions（2分钟）</h3><p>创建 <code>.github/workflows/deploy.yml</code>：</p><p><pre><code>name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/deploy-pages@v4</code></pre></p><h3>Step 5: 推送代码（1分钟）</h3><p><pre><code>git init
+git add .
+git commit -m "feat: 初始化 RainBox 官网"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/rainbox-official-website.git
+git push -u origin main</code></pre></p><h3>Step 6: 配置 GitHub Pages（1分钟）</h3><ol>
+<li>访问：<code>https://github.com/YOUR_USERNAME/rainbox-official-website/settings/pages</code></li>
+<li>Source 选择：<code>GitHub Actions</code></li>
+<li>保存</li>
+</ol><h3>完成！🎉</h3><p>访问：<code>https://YOUR_USERNAME.github.io/rainbox-official-website/</code></p><hr><h2>🔧 常用命令</h2><h3>本地开发</h3><p><pre><code>npm run dev
+# 访问 http://localhost:5173</code></pre></p><h3>本地构建</h3><p><pre><code>npm run build
+# 输出到 dist/ 目录</code></pre></p><h3>预览构建</h3><p><pre><code>npm run preview
+# 预览生产版本</code></pre></p><h3>部署到 GitHub Pages</h3><p><pre><code>git add .
+git commit -m "feat: 更新内容"
+git push
+# GitHub Actions 自动部署</code></pre></p><hr><h2>🎨 自定义域名（可选）</h2><h3>Step 1: 购买域名</h3><p>推荐平台：
+<ul>
+<li>阿里云：https://wanwang.aliyun.com</li>
+<li>腾讯云：https://dnspod.cloud.tencent.com</li>
+<li>Cloudflare：https://www.cloudflare.com</li>
+</ul><h3>Step 2: 配置 DNS</h3><p>添加 CNAME 记录：</p><p><pre><code>主机记录: www
+记录值: YOUR_USERNAME.github.io
+TTL: 600</code></pre></p><h3>Step 3: 配置 GitHub Pages</h3><ol>
+<li>访问：<code>https://github.com/YOUR_USERNAME/rainbox-official-website/settings/pages</code></li>
+<li>Custom domain 填入：<code>www.rainbox.tech</code></li>
+<li>勾选 <code>Enforce HTTPS</code></li>
+<li>保存</li>
+</ol><h3>Step 4: 等待生效（10-30分钟）</h3><p>访问：<code>https://www.rainbox.tech</code></p><hr><h2>🚀 Vercel 备用方案（可选）</h2><h3>为什么需要备用？</h3><ul>
+<li>GitHub Pages 访问慢时切换</li>
+<li>双保险，高可用</li>
+<li>零额外成本</li>
+</ul><h3>部署到 Vercel</h3><p><pre><code># 1. 安装 Vercel CLI
+npm install -g vercel
+
+# 2. 登录
+vercel login
+
+# 3. 部署
+vercel
+
+# 4. 生产部署
+vercel --prod</code></pre></p><h3>配置自定义域名</h3><ol>
+<li>访问 Vercel Dashboard</li>
+<li>选择项目 → Settings → Domains</li>
+<li>添加域名：<code>www.rainbox.tech</code></li>
+<li>配置 DNS（Vercel 会提供指引）</li>
+</ol><hr><h2>📊 性能优化</h2><h3>图片优化</h3><p><pre><code># 安装 vite-plugin-imagemin
+npm install -D vite-plugin-imagemin</code></pre></p><p><pre><code>// vite.config.ts
+import imagemin from 'vite-plugin-imagemin'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    imagemin({
+      gifsicle: { optimizationLevel: 7 },
+      optipng: { optimizationLevel: 7 },
+      mozjpeg: { quality: 80 },
+      webp: { quality: 80 }
+    })
+  ]
+})</code></pre></p><h3>代码分割</h3><p><pre><code>// 懒加载路由
+import { lazy, Suspense } from 'react'
+
+const About = lazy(() => import('./pages/About'))
+
+function App() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <About />
+    </Suspense>
+  )
+}</code></pre></p><h3>SEO 优化</h3><p><pre><code># 安装 react-helmet-async
+npm install react-helmet-async</code></pre></p><p><pre><code>import { Helmet } from 'react-helmet-async'
+
+function Home() {
+  return (
+    <>
+      <Helmet>
+        <title>RainBox 数字科技 - 科技养虾，用心养人</title>
+        <meta name="description" content="RainBox 致力于水产养殖数字化转型" />
+      </Helmet>
+      {/* 页面内容 */}
+    </>
+  )
+}</code></pre></p><hr><h2>🐛 故障排查</h2><h3>问题 1：GitHub Actions 构建失败</h3><p><strong>原因</strong>：依赖安装失败或构建错误</p><p><strong>解决</strong>：
+<pre><code># 本地测试构建
+npm run build
+
+# 查看 GitHub Actions 日志
+# 访问：https://github.com/YOUR_USERNAME/rainbox-official-website/actions</code></pre></p><h3>问题 2：页面 404</h3><p><strong>原因</strong>：<code>base</code> 路径配置错误</p><p><strong>解决</strong>：
+<pre><code>// vite.config.ts
+export default defineConfig({
+  base: '/rainbox-official-website/', // 必须与仓库名一致
+})</code></pre></p><h3>问题 3：样式丢失</h3><p><strong>原因</strong>：资源路径错误</p><p><strong>解决</strong>：
+<pre><code>// 使用相对路径
+<img src="./assets/logo.png" />
+
+// 或使用 import
+import logo from './assets/logo.png'
+<img src={logo} /></code></pre></p><h3>问题 4：GitHub Pages 未启用</h3><p><strong>原因</strong>：未配置 GitHub Pages</p><p><strong>解决</strong>：
+<ol>
+<li>访问：Settings → Pages</li>
+<li>Source 选择：GitHub Actions</li>
+<li>保存</li>
+</ol><hr><h2>📚 参考资源</h2><h3>官方文档</h3><ul>
+<li><a href="https://docs.github.com/en/pages">GitHub Pages</a></li>
+<li><a href="https://docs.github.com/en/actions">GitHub Actions</a></li>
+<li><a href="https://vitejs.dev">Vite</a></li>
+<li><a href="https://react.dev">React</a></li>
+<li><a href="https://vercel.com/docs">Vercel</a></li>
+</ul><h3>教程</h3><ul>
+<li><a href="https://react.dev/learn">React 官方教程</a></li>
+<li><a href="https://www.typescriptlang.org/docs/">TypeScript 手册</a></li>
+<li><a href="https://tailwindcss.com/docs">Tailwind CSS</a></li>
+</ul><h3>工具</h3><ul>
+<li><a href="https://cli.github.com">GitHub CLI</a></li>
+<li><a href="https://vercel.com/docs/cli">Vercel CLI</a></li>
+<li><a href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a></li>
+</ul><hr><h2>💡 最佳实践</h2><h3>1. 代码规范</h3><p><pre><code># 安装 ESLint 和 Prettier
+npm install -D eslint prettier eslint-config-prettier
+
+# 配置 .eslintrc.json
+{
+  "extends": ["react-app", "prettier"],
+  "rules": {
+    "no-console": "warn"
+  }
+}</code></pre></p><h3>2. Git 提交规范</h3><p><pre><code># 使用 Conventional Commits
+feat: 新功能
+fix: 修复 bug
+docs: 文档更新
+style: 代码格式
+refactor: 重构
+test: 测试
+chore: 构建/工具
+
+# 示例
+git commit -m "feat: 添加关于我们页面"
+git commit -m "fix: 修复移动端布局问题"</code></pre></p><h3>3. 分支管理</h3><p><pre><code># 主分支
+main - 生产环境
+
+# 开发分支
+dev - 开发环境
+
+# 功能分支
+feature/about-page
+feature/contact-form
+
+# 修复分支
+fix/mobile-layout</code></pre></p><h3>4. 环境变量</h3><p><pre><code># .env.production
+VITE_API_URL=https://api.rainbox.tech
+VITE_GA_ID=G-XXXXXXXXXX</code></pre></p><p><pre><code>// 使用环境变量
+const apiUrl = import.meta.env.VITE_API_URL</code></pre></p><hr><h2>🎯 检查清单</h2><h3>部署前</h3><ul>
+<li>[ ] 本地构建成功（<code>npm run build</code>）</li>
+<li>[ ] 本地预览正常（<code>npm run preview</code>）</li>
+<li>[ ] 代码已提交到 Git</li>
+<li>[ ] GitHub 仓库已创建</li>
+<li>[ ] GitHub Actions 配置正确</li>
+</ul><h3>部署后</h3><ul>
+<li>[ ] GitHub Actions 构建成功</li>
+<li>[ ] GitHub Pages 已启用</li>
+<li>[ ] 网站可以访问</li>
+<li>[ ] 所有页面正常显示</li>
+<li>[ ] 移动端适配正常</li>
+<li>[ ] 性能评分 > 90（Lighthouse）</li>
+</ul><h3>优化后</h3><ul>
+<li>[ ] 图片已优化</li>
+<li>[ ] 代码已分割</li>
+<li>[ ] SEO 已配置</li>
+<li>[ ] 自定义域名已配置（可选）</li>
+<li>[ ] HTTPS 已启用</li>
+</ul><hr><h2>🚀 快速开始</h2><p><strong>最快方式</strong>：</p><p><pre><code># 1. 运行自动化脚本
+./deploy-setup.sh
+
+# 2. 配置 GitHub Pages
+# 访问 Settings → Pages → Source: GitHub Actions
+
+# 3. 完成！
+# 访问 https://YOUR_USERNAME.github.io/rainbox-official-website/</code></pre></p><p><strong>预计时间</strong>：10 分钟</p><hr><p><em>RainBox 数字科技公司</em>  
+<em>"科技养虾，用心养人"</em> 🦐💙
+</p>
+    </div>
+  </div>
+
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
+    ↑
+  </button>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="mb-4">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
+          <span class="text-2xl font-bold">RainBox 数字科技</span>
+        </div>
+      </div>
+      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
+      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

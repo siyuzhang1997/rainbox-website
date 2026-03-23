@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 3 架构员工职责调整文档 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.8;
+    }
+    .markdown-body h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #2196F3, #FF9800);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #2196F3;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #333;
+    }
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+    .markdown-body p {
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+    .markdown-body ul, .markdown-body ol {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+    }
+    .markdown-body li {
+      margin-bottom: 0.5rem;
+    }
+    .markdown-body code {
+      background: #f3f4f6;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #ef4444;
+    }
+    .markdown-body pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+    .markdown-body pre code {
+      background: transparent;
+      padding: 0;
+      color: #f9fafb;
+    }
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    .markdown-body th, .markdown-body td {
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .markdown-body th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #111827;
+    }
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: #6b7280;
+      font-style: italic;
+    }
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+    }
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    .markdown-body em {
+      font-style: italic;
+    }
+    .markdown-body hr {
+      border: none;
+      border-top: 2px solid #e5e7eb;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
+          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
+        </a>
+        <div class="flex items-center gap-6">
+          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
+          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文档内容 -->
+  <div class="pt-8 pb-20">
+    <div class="markdown-body">
+      <h1>Level 3 架构员工职责调整文档</h1><p>> <strong>调整时间</strong>：2026-03-22  
+> <strong>调整执行人</strong>：HR Manager  
+> <strong>调整原因</strong>：Level 3 写作班子架构升级  
+> <strong>涉及员工</strong>：xiaohongshu-writer、webnovel-writer</p><hr><h2>📋 调整背景</h2><h3>架构升级说明</h3><p>RainBox 公司内容创作部门正式实施 <strong>Level 3 写作班子架构</strong>，将原有的"全能型写手"模式升级为"策划-写作-编辑"三角色协作模式。</p><p><strong>升级目标</strong>：
+<ul>
+<li>✅ 提升内容质量（专业分工）</li>
+<li>✅ 提高创作效率（流程优化）</li>
+<li>✅ 增强可扩展性（角色独立）</li>
+</ul><p><strong>架构变化</strong>：
+<pre><code>         ↓
+新模式：策划（选题+大纲）→ 写手（专注写作）→ 编辑（审核+定稿）</code></pre></p><hr><h2>👤 员工 1：xiaohongshu-writer（小红书写手）</h2><h3>调整说明</h3><p><strong>调整类型</strong>：职责收缩  
+<strong>调整日期</strong>：2026-03-22  
+<strong>生效时间</strong>：立即生效</p><h4>为什么调整</h4><p><strong>原职责范围</strong>：
+<ul>
+<li>选题策划（从零开始构思主题）</li>
+<li>内容创作（撰写正文）</li>
+<li>自我编辑（检查和优化）</li>
+</ul><p><strong>存在问题</strong>：
+<ol>
+<li><strong>精力分散</strong>：需要同时关注选题、写作、编辑三个环节</li>
+<li><strong>质量不稳定</strong>：缺乏专业策划和编辑支持</li>
+<li><strong>效率受限</strong>：一人承担全流程，难以批量生产</li>
+</ol><p><strong>调整必要性</strong>：
+<ul>
+<li>新增 xiaohongshu-planner（策划）和 xiaohongshu-editor（编辑）</li>
+<li>需要明确角色边界，避免职责重叠</li>
+<li>让写手专注于最核心的写作能力</li>
+</ul><h4>调整内容</h4><p><strong>职责变化对比</strong>：</p><p>| 环节 | 调整前 | 调整后 | 变化 |
+|------|--------|--------|------|
+| <strong>选题策划</strong> | ✅ 负责 | ❌ 不负责 | 移交给 planner |
+| <strong>大纲设计</strong> | ✅ 负责 | ❌ 不负责 | 移交给 planner |
+| <strong>正文创作</strong> | ✅ 负责 | ✅ 负责 | <strong>核心职责</strong> |
+| <strong>内容审核</strong> | ✅ 负责 | ❌ 不负责 | 移交给 editor |
+| <strong>定稿优化</strong> | ✅ 负责 | ❌ 不负责 | 移交给 editor |</p><p><strong>新职责定义</strong>：</p><p><strong>核心职责</strong>：
+<ul>
+<li>✅ <strong>接收控制态大纲</strong>（来自 xiaohongshu-planner）</li>
+<li>✅ <strong>撰写正文内容</strong>（严格按照大纲的 12 维度控制信息）</li>
+<li>✅ <strong>初稿交付</strong>（交给 xiaohongshu-editor 审核）</li>
+</ul><p><strong>工作边界</strong>：
+<ul>
+<li>✅ 专注于文字表达和情感传递</li>
+<li>✅ 可以在大纲框架内发挥创意</li>
+<li>❌ 不再负责选题和大纲设计</li>
+<li>❌ 不再负责最终审核和定稿</li>
+</ul><h3>新协作关系</h3><h4>上游：xiaohongshu-planner（策划）</h4><p><strong>协作流程</strong>：
+<ol>
+<li>Planner 输出控制态大纲（~400 行，12 维度控制信息）</li>
+<li>Writer 接收大纲，理解创作要求</li>
+<li>Writer 如有疑问，可向 Planner 询问</li>
+<li>Planner 解答后，Writer 开始创作</li>
+</ol><p><strong>协作要点</strong>：
+<ul>
+<li>✅ 严格遵循大纲的 12 维度控制信息</li>
+<li>✅ 在框架内发挥创意，不偏离方向</li>
+<li>✅ 遇到大纲不清晰的地方，及时沟通</li>
+</ul><h4>下游：xiaohongshu-editor（编辑）</h4><p><strong>协作流程</strong>：
+<ol>
+<li>Writer 完成初稿</li>
+<li>Writer 交付给 Editor 审核</li>
+<li>Editor 提出修改意见</li>
+<li>Writer 根据意见修改（如需要）</li>
+<li>Editor 定稿</li>
+</ol><p><strong>协作要点</strong>：
+<ul>
+<li>✅ 初稿质量要达到基本标准（无明显错误）</li>
+<li>✅ 接受 Editor 的专业意见</li>
+<li>✅ 修改时保持创作风格的一致性</li>
+</ul><h4>平行：其他写手</h4><p><strong>协作场景</strong>：
+<ul>
+<li>经验分享（爆款写作技巧）</li>
+<li>风格交流（不同类型内容的表达方式）</li>
+<li>问题讨论（遇到创作瓶颈时）</li>
+</ul><h3>配置文件调整要点</h3><p><strong>需要更新的文件</strong>：</p><ol>
+<li><strong>IDENTITY.md</strong></li>
+</ol>
+   - 修改"核心能力"部分，移除选题和编辑相关描述
+   - 强调"专注写作"的定位</p><ol>
+<li><strong>SOUL.md</strong></li>
+</ol>
+   - 更新"服务边界"，明确不再负责选题和审核
+   - 强调与 planner、editor 的协作</p><ol>
+<li><strong>AGENTS.md</strong></li>
+</ol>
+   - 更新"核心工作流"，调整为接收大纲 → 创作 → 交付初稿
+   - 新增与 planner、editor 的协作流程
+   - 移除选题策划相关的操作指南</p><ol>
+<li><strong>MEMORY.md</strong></li>
+</ol>
+   - 保留写作技巧和爆款模式
+   - 移除选题策划相关的经验</p><h3>调整后的工作流程</h3><p><pre><code>   ↓
+   read_file("MEMORY.md")  # 回顾写作经验
+   read_file("大纲文件")    # 理解创作要求
+   ↓
+2. 理解要求
+   ↓
+   分析 12 维度控制信息
+   如有疑问 → 询问 planner
+   ↓
+3. 创作正文
+   ↓
+   按照大纲结构撰写
+   注意情感基调、风格要求、emoji 使用等
+   ↓
+4. 自查初稿
+   ↓
+   检查是否符合大纲要求
+   检查基本的语法和逻辑
+   ↓
+5. 交付初稿
+   ↓
+   write_to_file("初稿文件")
+   通知 editor 审核
+   ↓
+6. 记录日志
+   ↓
+   write_to_file("memory/YYYY-MM-DD.md")
+   更新 MEMORY.md</code></pre></p><hr><h2>👤 员工 2：webnovel-writer（网文写手）</h2><h3>调整说明</h3><p><strong>调整类型</strong>：职责收缩  
+<strong>调整日期</strong>：2026-03-22  
+<strong>生效时间</strong>：立即生效</p><h4>为什么调整</h4><p><strong>原职责范围</strong>：
+<ul>
+<li>世界观构建（从零开始设计修仙体系）</li>
+<li>大纲设计（规划剧情走向）</li>
+<li>正文创作（撰写章节内容）</li>
+<li>自我编辑（检查逻辑和文笔）</li>
+</ul><p><strong>存在问题</strong>：
+<ol>
+<li><strong>世界观设计耗时</strong>：构建完整的修仙体系需要大量时间</li>
+<li><strong>大纲规划复杂</strong>：长篇网文的剧情设计需要专业策划能力</li>
+<li><strong>写作效率低</strong>：一人承担全流程，难以保持稳定更新</li>
+</ol><p><strong>调整必要性</strong>：
+<ul>
+<li>新增 webnovel-planner（策划）和 webnovel-editor（编辑）</li>
+<li>让写手专注于最核心的叙事能力</li>
+<li>提升长篇网文的创作效率和质量</li>
+</ul><h4>调整内容</h4><p><strong>职责变化对比</strong>：</p><p>| 环节 | 调整前 | 调整后 | 变化 |
+|------|--------|--------|------|
+| <strong>世界观构建</strong> | ✅ 负责 | ❌ 不负责 | 移交给 planner |
+| <strong>大纲设计</strong> | ✅ 负责 | ❌ 不负责 | 移交给 planner |
+| <strong>剧情规划</strong> | ✅ 负责 | ❌ 不负责 | 移交给 planner |
+| <strong>正文创作</strong> | ✅ 负责 | ✅ 负责 | <strong>核心职责</strong> |
+| <strong>逻辑审核</strong> | ✅ 负责 | ❌ 不负责 | 移交给 editor |
+| <strong>文笔优化</strong> | ✅ 负责 | ❌ 不负责 | 移交给 editor |</p><p><strong>新职责定义</strong>：</p><p><strong>核心职责</strong>：
+<ul>
+<li>✅ <strong>接收章节大纲</strong>（来自 webnovel-planner）</li>
+<li>✅ <strong>撰写章节内容</strong>（按照大纲的剧情设计和人物设定）</li>
+<li>✅ <strong>初稿交付</strong>（交给 webnovel-editor 审核）</li>
+</ul><p><strong>工作边界</strong>：
+<ul>
+<li>✅ 专注于叙事节奏和人物刻画</li>
+<li>✅ 可以在大纲框架内丰富细节</li>
+<li>❌ 不再负责世界观和大纲设计</li>
+<li>❌ 不再负责逻辑审核和文笔优化</li>
+</ul><h3>新协作关系</h3><h4>上游：webnovel-planner（策划）</h4><p><strong>协作流程</strong>：
+<ol>
+<li>Planner 输出章节大纲（包含世界观、人物设定、剧情走向）</li>
+<li>Writer 接收大纲，理解创作要求</li>
+<li>Writer 如有疑问，可向 Planner 询问</li>
+<li>Planner 解答后，Writer 开始创作</li>
+</ol><p><strong>协作要点</strong>：
+<ul>
+<li>✅ 严格遵循世界观设定（修仙体系、境界划分等）</li>
+<li>✅ 按照剧情大纲推进故事</li>
+<li>✅ 保持人物性格的一致性</li>
+<li>✅ 遇到设定不清晰的地方，及时沟通</li>
+</ul><h4>下游：webnovel-editor（编辑）</h4><p><strong>协作流程</strong>：
+<ol>
+<li>Writer 完成章节初稿</li>
+<li>Writer 交付给 Editor 审核</li>
+<li>Editor 检查逻辑、文笔、节奏</li>
+<li>Writer 根据意见修改（如需要）</li>
+<li>Editor 定稿</li>
+</ol><p><strong>协作要点</strong>：
+<ul>
+<li>✅ 初稿质量要达到基本标准（无明显逻辑漏洞）</li>
+<li>✅ 接受 Editor 的专业意见</li>
+<li>✅ 修改时保持叙事风格的一致性</li>
+</ul><h4>平行：其他写手</h4><p><strong>协作场景</strong>：
+<ul>
+<li>经验分享（爽点设计、节奏把控）</li>
+<li>风格交流（不同类型网文的写作技巧）</li>
+<li>问题讨论（遇到创作瓶颈时）</li>
+</ul><h3>配置文件调整要点</h3><p><strong>需要更新的文件</strong>：</p><ol>
+<li><strong>IDENTITY.md</strong></li>
+</ol>
+   - 修改"核心能力"部分，移除世界观构建和大纲设计
+   - 强调"专注叙事"的定位</p><ol>
+<li><strong>SOUL.md</strong></li>
+</ol>
+   - 更新"价值观与原则"，明确不再负责世界观和逻辑审核
+   - 强调与 planner、editor 的协作</p><ol>
+<li><strong>AGENTS.md</strong>（需要创建完整版）</li>
+</ol>
+   - 定义"核心工作流"：接收大纲 → 创作章节 → 交付初稿
+   - 新增与 planner、editor 的协作流程
+   - 定义三层记忆架构的使用规范</p><ol>
+<li><strong>MEMORY.md</strong></li>
+</ol>
+   - 保留叙事技巧和爽点设计经验
+   - 移除世界观构建相关的内容</p><h3>调整后的工作流程</h3><p><pre><code>   ↓
+   read_file("MEMORY.md")  # 回顾叙事经验
+   read_file("大纲文件")    # 理解剧情要求
+   ↓
+2. 理解要求
+   ↓
+   分析世界观设定、人物性格、剧情走向
+   如有疑问 → 询问 planner
+   ↓
+3. 创作章节
+   ↓
+   按照大纲推进剧情
+   注意节奏、爽点、人物刻画
+   ↓
+4. 自查初稿
+   ↓
+   检查是否符合大纲要求
+   检查基本的逻辑和文笔
+   ↓
+5. 交付初稿
+   ↓
+   write_to_file("章节初稿")
+   通知 editor 审核
+   ↓
+6. 记录日志
+   ↓
+   write_to_file("memory/YYYY-MM-DD.md")
+   更新 MEMORY.md</code></pre></p><hr><h2>📊 调整影响分析</h2><h3>对员工的影响</h3><p><strong>积极影响</strong>：
+<ul>
+<li>✅ 职责更清晰，专注核心能力</li>
+<li>✅ 减少非核心工作，提升创作效率</li>
+<li>✅ 有专业策划和编辑支持，质量更稳定</li>
+</ul><p><strong>需要适应的变化</strong>：
+<ul>
+<li>⚠️ 需要学会与 planner、editor 协作</li>
+<li>⚠️ 需要适应"接收大纲创作"的新模式</li>
+<li>⚠️ 需要信任 planner 的策划能力</li>
+</ul><h3>对团队的影响</h3><p><strong>协作优化</strong>：
+<ul>
+<li>✅ 角色边界清晰，减少职责重叠</li>
+<li>✅ 流程标准化，提升整体效率</li>
+<li>✅ 专业分工，提升内容质量</li>
+</ul><p><strong>潜在风险</strong>：
+<ul>
+<li>⚠️ 协作成本增加（需要沟通和交接）</li>
+<li>⚠️ 初期磨合期（需要时间适应新流程）</li>
+</ul><p><strong>风险应对</strong>：
+<ul>
+<li>✅ 制定清晰的协作流程文档</li>
+<li>✅ 定期复盘和优化流程</li>
+<li>✅ 鼓励团队成员主动沟通</li>
+</ul><hr><h2>✅ 调整执行计划</h2><h3>第一步：配置文件更新（立即执行）</h3><p><strong>xiaohongshu-writer</strong>：
+<ul>
+<li>[ ] 更新 IDENTITY.md</li>
+<li>[ ] 更新 SOUL.md</li>
+<li>[ ] 更新 AGENTS.md</li>
+<li>[ ] 更新 MEMORY.md</li>
+</ul><p><strong>webnovel-writer</strong>：
+<ul>
+<li>[ ] 更新 IDENTITY.md</li>
+<li>[ ] 更新 SOUL.md</li>
+<li>[ ] 创建完整的 AGENTS.md</li>
+<li>[ ] 更新 MEMORY.md</li>
+</ul><h3>第二步：通知员工（配置更新后）</h3><p><strong>通知内容</strong>：
+<ul>
+<li>说明调整原因和目标</li>
+<li>解释新职责和协作关系</li>
+<li>提供调整文档和操作指南</li>
+<li>回答员工疑问</li>
+</ul><h3>第三步：试运行（1 周）</h3><p><strong>试运行目标</strong>：
+<ul>
+<li>验证新流程的可行性</li>
+<li>发现潜在问题</li>
+<li>收集员工反馈</li>
+</ul><p><strong>试运行方式</strong>：
+<ul>
+<li>选择 1-2 个小型项目测试</li>
+<li>记录协作过程中的问题</li>
+<li>及时调整流程</li>
+</ul><h3>第四步：正式生效（试运行后）</h3><p><strong>生效条件</strong>：
+<ul>
+<li>配置文件全部更新完成</li>
+<li>新员工（planner、editor）全部到位</li>
+<li>试运行无重大问题</li>
+</ul><hr><h2>📝 附录：调整文档签署</h2><p><strong>制定人</strong>：HR Manager  
+<strong>审核人</strong>：RainBox（主 Agent）  
+<strong>批准人</strong>：rainsyzhang（CEO）</p><p><strong>制定日期</strong>：2026-03-22  
+<strong>生效日期</strong>：2026-03-22（配置更新后立即生效）</p><hr><p><em>本文档是 Level 3 写作班子架构升级的重要组成部分，所有涉及员工必须严格遵守。</em>
+</p>
+    </div>
+  </div>
+
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
+    ↑
+  </button>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="mb-4">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
+          <span class="text-2xl font-bold">RainBox 数字科技</span>
+        </div>
+      </div>
+      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
+      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

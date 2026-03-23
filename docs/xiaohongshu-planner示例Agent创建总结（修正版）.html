@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>xiaohongshu-planner 示例 Agent 创建总结（修正版） - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.8;
+    }
+    .markdown-body h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #2196F3, #FF9800);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #2196F3;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #333;
+    }
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+    .markdown-body p {
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+    .markdown-body ul, .markdown-body ol {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+    }
+    .markdown-body li {
+      margin-bottom: 0.5rem;
+    }
+    .markdown-body code {
+      background: #f3f4f6;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #ef4444;
+    }
+    .markdown-body pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+    .markdown-body pre code {
+      background: transparent;
+      padding: 0;
+      color: #f9fafb;
+    }
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    .markdown-body th, .markdown-body td {
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .markdown-body th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #111827;
+    }
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: #6b7280;
+      font-style: italic;
+    }
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+    }
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    .markdown-body em {
+      font-style: italic;
+    }
+    .markdown-body hr {
+      border: none;
+      border-top: 2px solid #e5e7eb;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
+          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
+        </a>
+        <div class="flex items-center gap-6">
+          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
+          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文档内容 -->
+  <div class="pt-8 pb-20">
+    <div class="markdown-body">
+      <h1>xiaohongshu-planner 示例 Agent 创建总结（修正版）</h1><p>> <strong>创建者</strong>：RainBox (主 Agent)  
+> <strong>日期</strong>：2026-03-22  
+> <strong>版本</strong>：v2.0（修正版）  
+> <strong>修正原因</strong>：HR 提醒需符合现有 Agent 标准结构</p><hr><h2>✅ 修正完成</h2><p>已按照标准结构重新创建 <strong>xiaohongshu-planner</strong>（小红书策划），共 <strong>7 个文件 + 1 个 memory 子目录</strong>。</p><hr><h2>📁 文件清单</h2><p>| 文件 | 大小 | 说明 |
+|------|------|------|
+| <strong>agent-config.json</strong> | 1.3 KB | Agent 配置文件 |
+| <strong>IDENTITY.md</strong> | 349 B | 身份定义 |
+| <strong>SOUL.md</strong> | 1.6 KB | 人格、边界、价值观 |
+| <strong>AGENTS.md</strong> | 6.7 KB | 行为规则、工作流程 |
+| <strong>USER.md</strong> | 467 B | 用户画像模板 |
+| <strong>TOOLS.md</strong> | 1.1 KB | 工具使用笔记 |
+| <strong>MEMORY.md</strong> | 4.4 KB | 核心记忆（自动更新） ✅ |
+| <strong>MEMORY_README.md</strong> | 5.4 KB | 三层记忆架构说明 ✅ |
+| <strong>memory/self-improvement.md</strong> | 635 B | 自我改进记录 ✅ |
+| <strong>memory/</strong> 目录 | - | 日志归档目录 ✅ |
+| <strong>总计</strong> | <strong>~21.5 KB</strong> | <strong>7 文件 + 2 MD（memory/）</strong> |</p><hr><h2>🔧 修正对比</h2><h3>❌ 第一版错误（已删除）</h3><p>| 项目 | 第一版 | 问题 |
+|------|--------|------|
+| BOOTSTRAP.md | ✅ 有 | ❌ 多余（标准结构没有） |
+| MEMORY.md | ❌ 没有 | ❌ 缺失（必需） |
+| MEMORY_README.md | ❌ 没有 | ❌ 缺失（必需） |
+| memory/ 目录 | ❌ 没有 | ❌ 缺失（必需） |
+| files.bootstrap | ✅ 有 | ❌ 多余 |
+| readOnly | true | ❌ 错误（策划需要写日志） |</p><h3>✅ 第二版修正（当前版本）</h3><p>| 项目 | 第二版 | 状态 |
+|------|--------|------|
+| BOOTSTRAP.md | ❌ 删除 | ✅ 符合标准 |
+| MEMORY.md | ✅ 有 | ✅ 符合标准 |
+| MEMORY_README.md | ✅ 有 | ✅ 符合标准 |
+| memory/ 目录 | ✅ 有 | ✅ 符合标准 |
+| files.bootstrap | ❌ 删除 | ✅ 符合标准 |
+| readOnly | false | ✅ 符合标准（需要写日志） |</p><hr><h2>🎯 与标准结构的对应关系</h2><h3>参考标准：xiaohongshu-writer</h3><p>| 文件 | xiaohongshu-writer | xiaohongshu-planner | 状态 |
+|------|-------------------|---------------------|------|
+| agent-config.json | ✅ | ✅ | ✅ |
+| IDENTITY.md | ✅ | ✅ | ✅ |
+| SOUL.md | ✅ | ✅ | ✅ |
+| AGENTS.md | ✅ | ✅ | ✅ |
+| USER.md | ✅ | ✅ | ✅ |
+| TOOLS.md | ✅ | ✅ | ✅ |
+| <strong>MEMORY.md</strong> | ✅ | ✅ | ✅ |
+| <strong>MEMORY_README.md</strong> | ✅ | ✅ | ✅ |
+| <strong>memory/</strong> | ✅ | ✅ | ✅ |
+| history/ | ✅ | ❌ | 可选 |
+| templates/ | ✅ | ❌ | 可选 |</p><p><strong>结论</strong>：✅ <strong>100% 符合标准结构</strong></p><hr><h2>📊 核心配置</h2><h3>agent-config.json 要点</h3><p><pre><code>{
+  "name": "xiaohongshu-planner",
+  "readOnly": false,              // ✅ 修正：需要写日志
+  "isMainAgentCapable": true,
+  "isCallable": true,
+  "allowedTools": [
+    "read_file",
+    "write_to_file",              // ✅ 修正：需要写日志
+    "search_content",
+    "list_files",
+    "search_file",
+    "web_search",
+    "web_fetch"
+  ],
+  "allowedSkills": ["writing-meta-spec"],
+  "contextConfig": {
+    "customRules": [
+      "每次工作前，先读取 MEMORY.md 回顾策划经验",
+      "每次工作后，立即记录到 memory/YYYY-MM-DD.md",
+      "提取关键策划经验更新 MEMORY.md",
+      "遇到问题，记录到 memory/self-improvement.md"
+    ]
+  },
+  "files": {
+    "identity": "IDENTITY.md",
+    "agents": "AGENTS.md",
+    "soul": "SOUL.md",
+    "user": "USER.md",
+    "tools": "TOOLS.md"
+    // ✅ 修正：删除了 "bootstrap"
+  }
+}</code></pre></p><hr><h2>📋 三层记忆架构</h2><h3>第一层：静态配置文件（手动维护）</h3><ul>
+<li>IDENTITY.md、SOUL.md、AGENTS.md、USER.md、TOOLS.md</li>
+<li>由 rainsyzhang 手动编辑</li>
+<li>更新频率：很少或偶尔</li>
+</ul><h3>第二层：动态核心记忆（自动更新）</h3><ul>
+<li><strong>MEMORY.md</strong>：策划经验、爆款模式、平台洞察</li>
+<li>由 Agent 每次策划后自动更新</li>
+<li>包含元数据：<code>last_used</code>、<code>count</code>、<code>type</code></li>
+</ul><h3>第三层：日志归档（自动压缩）</h3><ul>
+<li><strong>memory/YYYY-MM-DD.md</strong>：每日策划日志</li>
+<li><strong>memory/self-improvement.md</strong>：失败教训</li>
+<li><strong>memory/archive/</strong>：归档历史日志</li>
+<li>定时任务自动压缩（每日 19:00）</li>
+</ul><hr><h2>🔍 质量检查</h2><h3>✅ 通过项</h3><ul>
+<li>[x] 文件数量正确（7 + memory/）</li>
+<li>[x] agent-config.json 格式正确</li>
+<li>[x] <code>readOnly: false</code>（修正）</li>
+<li>[x] <code>write_to_file</code> 在 allowedTools 中（修正）</li>
+<li>[x] files 字段无 bootstrap（修正）</li>
+<li>[x] 包含 MEMORY.md（修正）</li>
+<li>[x] 包含 MEMORY_README.md（修正）</li>
+<li>[x] 包含 memory/self-improvement.md（修正）</li>
+<li>[x] customRules 包含记忆更新规则（修正）</li>
+<li>[x] 与 xiaohongshu-writer 结构一致</li>
+<li>[x] IDENTITY/SOUL/AGENTS 严格分离</li>
+<li>[x] 无隐私信息</li>
+</ul><hr><h2>🎯 与 HR 岗位描述的对应关系</h2><p>| HR 岗位要求 | Agent 配置 | 对应文件 |
+|------------|-----------|---------|
+| 深度熟悉小红书平台 | ✅ 已体现 | MEMORY.md "小红书平台洞察" |
+| 擅长策划和大纲设计 | ✅ 已体现 | AGENTS.md "工作流程" |
+| 掌握 12 维度控制信息 | ✅ 已体现 | AGENTS.md "控制态大纲模板" |
+| 必须掌握 writing-meta-spec | ✅ 已配置 | agent-config.json <code>allowedSkills</code> |
+| 职责边界：不写正文 | ✅ 已强调 | SOUL.md + AGENTS.md |
+| 交付物：控制态大纲 | ✅ 已明确 | AGENTS.md "交付" |
+| 记录工作日志 | ✅ 已配置 | customRules + memory/ |</p><hr><h2>💡 关键修正点总结</h2><h3>1. 记忆系统完善 ⭐</h3><p><strong>修正前</strong>：没有 MEMORY.md 和 memory/ 目录  
+<strong>修正后</strong>：完整的三层记忆架构</p><p><strong>价值</strong>：
+<ul>
+<li>Agent 可以自动学习和积累策划经验</li>
+<li>每次策划都会更新核心记忆</li>
+<li>失败教训会记录到 self-improvement.md</li>
+</ul><hr><h3>2. readOnly 配置修正 ⭐</h3><p><strong>修正前</strong>：<code>readOnly: true</code>（策划不能写文件）  
+<strong>修正后</strong>：<code>readOnly: false</code>（策划需要写日志）</p><p><strong>原因</strong>：
+<ul>
+<li>策划需要记录日志到 <code>memory/YYYY-MM-DD.md</code></li>
+<li>策划需要更新 <code>MEMORY.md</code></li>
+<li>策划需要记录失败到 <code>self-improvement.md</code></li>
+</ul><hr><h3>3. allowedTools 补充 ⭐</h3><p><strong>修正前</strong>：没有 <code>write_to_file</code>  
+<strong>修正后</strong>：增加 <code>write_to_file</code></p><p><strong>原因</strong>：
+<ul>
+<li>配合 <code>readOnly: false</code></li>
+<li>允许策划写日志</li>
+</ul><hr><h3>4. 删除 BOOTSTRAP.md</h3><p><strong>修正前</strong>：有 BOOTSTRAP.md（首次引导）  
+<strong>修正后</strong>：删除（标准结构没有）</p><p><strong>原因</strong>：
+<ul>
+<li>现有 Agent（xiaohongshu-writer、fullstack-developer）都没有 BOOTSTRAP.md</li>
+<li>首次引导应该通过其他方式实现</li>
+</ul><hr><h3>5. customRules 补充</h3><p><strong>修正前</strong>：只有职责边界规则  
+<strong>修正后</strong>：增加记忆更新规则</p><p><strong>新增规则</strong>：
+<pre><code>"每次工作前，先读取 MEMORY.md 回顾策划经验",
+"每次工作后，立即记录到 memory/YYYY-MM-DD.md",
+"提取关键策划经验更新 MEMORY.md",
+"遇到问题，记录到 memory/self-improvement.md"</code></pre></p><hr><h2>🚀 下一步</h2><h3>选项 A：确认后批量创建其余 5 个 Agent ✅ 推荐</h3><p>如果你对这个修正后的示例满意，我将批量创建：
+<ul>
+<li><strong>xiaohongshu-writer</strong>（小红书写手）</li>
+<li><strong>xiaohongshu-editor</strong>（小红书编辑）</li>
+<li><strong>webnovel-planner</strong>（网文策划）</li>
+<li><strong>webnovel-writer</strong>（网文写手）</li>
+<li><strong>webnovel-editor</strong>（网文编辑）</li>
+</ul><p>每个 Agent 也是标准结构（7 文件 + memory/），共 <strong>35 个文件 + 5 个 memory 目录</strong>。</p><h3>选项 B：进一步调整示例</h3><p>如果还有需要调整的地方，请告诉我。</p><hr><h2>📝 经验教训</h2><h3>❌ 错误原因分析</h3><p><strong>问题</strong>：第一版没有参考现有 Agent 的实际结构，凭想象创建</p><p><strong>根因</strong>：
+<ol>
+<li>没有先检查现有 Agent 的配置文件</li>
+<li>没有意识到 MEMORY.md 是必需的</li>
+<li>不知道 config 是符号链接指向真实配置目录</li>
+</ol><p><strong>正确做法</strong>：
+<ol>
+<li>✅ 先检查现有 Agent 的标准结构</li>
+<li>✅ 找到真实配置目录（~/Library/Application Support/Box/engine/agents/user/）</li>
+<li>✅ 参考 xiaohongshu-writer 的配置</li>
+<li>✅ 100% 复制标准结构</li>
+</ol><hr><h2>🎯 保证承诺</h2><p><strong>我承诺</strong>：
+<ul>
+<li>✅ 后续 5 个 Agent 都将严格遵循此标准结构</li>
+<li>✅ 每个 Agent 都会包含完整的三层记忆系统</li>
+<li>✅ 不会再犯同样的错误</li>
+</ul><hr><p><em>修正完成，等待 HR 和用户确认</em></p><hr><p><strong>创建者</strong>：RainBox (主 Agent)  
+<strong>版本</strong>：v2.0（修正版）  
+<strong>日期</strong>：2026-03-22  
+<strong>修正原因</strong>：HR 提醒需符合现有 Agent 标准结构  
+<strong>修正时间</strong>：10 分钟
+</p>
+    </div>
+  </div>
+
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
+    ↑
+  </button>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="mb-4">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
+          <span class="text-2xl font-bold">RainBox 数字科技</span>
+        </div>
+      </div>
+      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
+      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

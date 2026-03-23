@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RainBox 官网部署方案评估报告 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.8;
+    }
+    .markdown-body h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #2196F3, #FF9800);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #2196F3;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #333;
+    }
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+    .markdown-body p {
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+    .markdown-body ul, .markdown-body ol {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+    }
+    .markdown-body li {
+      margin-bottom: 0.5rem;
+    }
+    .markdown-body code {
+      background: #f3f4f6;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #ef4444;
+    }
+    .markdown-body pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+    .markdown-body pre code {
+      background: transparent;
+      padding: 0;
+      color: #f9fafb;
+    }
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    .markdown-body th, .markdown-body td {
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .markdown-body th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #111827;
+    }
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: #6b7280;
+      font-style: italic;
+    }
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+    }
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    .markdown-body em {
+      font-style: italic;
+    }
+    .markdown-body hr {
+      border: none;
+      border-top: 2px solid #e5e7eb;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
+          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
+        </a>
+        <div class="flex items-center gap-6">
+          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
+          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文档内容 -->
+  <div class="pt-8 pb-20">
+    <div class="markdown-body">
+      <h1>RainBox 官网部署方案评估报告</h1><p><strong>报告人</strong>：fullstack-developer（码道）  
+<strong>委派人</strong>：RainBox（总经理）  
+<strong>日期</strong>：2026-03-22  
+<strong>优先级</strong>：⭐⭐⭐⭐⭐ 最高</p><hr><h2>📋 执行摘要</h2><p>经过技术调研，<code>web-deploy-github</code> 并非 SkillHub 中的现有技能，但我基于全栈开发经验，为 RainBox 官网提供了<strong>三套完整部署方案</strong>，包括技术选型、实施步骤、成本分析和风险评估。</p><p><strong>核心结论</strong>：推荐采用 <strong>GitHub Pages + 自定义域名</strong> 方案，理由如下：
+<ul>
+<li>✅ 完全免费，零运维成本</li>
+<li>✅ 自动化部署，推送即上线</li>
+<li>✅ 全球 CDN 加速，访问速度快</li>
+<li>✅ 专业形象，符合科技公司定位</li>
+<li>✅ 技术栈匹配（React + TypeScript）</li>
+</ul><hr><h2>🎯 方案对比总览</h2><p>| 维度 | GitHub Pages | with.woa.com | Vercel |
+|------|-------------|--------------|--------|
+| <strong>成本</strong> | 免费 | 未知（内部平台） | 免费（个人版） |
+| <strong>部署速度</strong> | 快（1-2分钟） | 可能更快（内网） | 极快（30秒） |
+| <strong>自动化</strong> | GitHub Actions | 需要配置 | 自动检测框架 |
+| <strong>CDN</strong> | 全球 CDN | 可能仅内网 | 全球边缘网络 |
+| <strong>自定义域名</strong> | 支持 | 未知 | 支持 |
+| <strong>技术门槛</strong> | 中等 | 未知 | 低 |
+| <strong>可控性</strong> | 高（开源） | 低（依赖内部） | 中等 |
+| <strong>国内访问</strong> | 良好 | 优秀（内网） | 优秀 |
+| <strong>推荐指数</strong> | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |</p><hr><h2>🚀 方案一：GitHub Pages（推荐）</h2><h3>核心优势</h3><ol>
+<li><strong>完全免费</strong></li>
+</ol>
+   - 无服务器成本
+   - 无流量限制（合理使用）
+   - 无存储费用</p><ol>
+<li><strong>自动化部署</strong></li>
+</ol>
+   - GitHub Actions CI/CD
+   - 推送代码自动构建
+   - 零运维负担</p><ol>
+<li><strong>专业形象</strong></li>
+</ol>
+   - <code>rainbox.github.io</code> 或自定义域名
+   - 符合科技公司标准
+   - 开源社区认可</p><ol>
+<li><strong>技术栈完美匹配</strong></li>
+</ol>
+   - React 静态站生成
+   - TypeScript 类型安全
+   - 现代化前端工程</p><h3>实施步骤</h3><h4>Step 1: 创建 GitHub 仓库（5分钟）</h4><p><pre><code># 1. 创建仓库
+gh repo create rainbox-official-website --public --description "RainBox 数字科技官网"
+
+# 2. 初始化项目
+cd rainbox-official-website
+git init
+git remote add origin https://github.com/YOUR_USERNAME/rainbox-official-website.git</code></pre></p><h4>Step 2: 配置 GitHub Actions（10分钟）</h4><p>创建 <code>.github/workflows/deploy.yml</code>：</p><p><pre><code>name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build
+        run: npm run build
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4</code></pre></p><h4>Step 3: 配置 GitHub Pages（2分钟）</h4><ol>
+<li>进入仓库 Settings → Pages</li>
+<li>Source 选择 "GitHub Actions"</li>
+<li>保存配置</li>
+</ol><h4>Step 4: 推送代码，自动部署（1分钟）</h4><p><pre><code>git add .
+git commit -m "feat: 初始化 RainBox 官网"
+git push origin main</code></pre></p><p><strong>部署完成！</strong> 🎉</p><p>访问地址：<code>https://YOUR_USERNAME.github.io/rainbox-official-website/</code></p><h3>自定义域名配置（可选）</h3><p>如果有域名（如 <code>www.rainbox.tech</code>）：</p><ol>
+<li>在域名 DNS 添加 CNAME 记录：</li>
+</ol>
+   <pre><code>CNAME  www  YOUR_USERNAME.github.io</code></pre></p><ol>
+<li>在仓库 Settings → Pages → Custom domain 填入域名</li>
+</ol><ol>
+<li>启用 HTTPS（自动）</li>
+</ol><h3>成本分析</h3><p>| 项目 | 费用 |
+|------|------|
+| GitHub Pages 托管 | ¥0 |
+| GitHub Actions（2000分钟/月） | ¥0 |
+| 自定义域名（可选） | ¥50-100/年 |
+| <strong>总计</strong> | <strong>¥0-100/年</strong> |</p><h3>技术要求</h3><ul>
+<li>✅ GitHub 账号（已有或免费注册）</li>
+<li>✅ Git 命令行（已安装）</li>
+<li>✅ GitHub CLI <code>gh</code>（可选，提升效率）</li>
+<li>✅ Node.js 环境（已有）</li>
+</ul><hr><h2>🏢 方案二：with.woa.com（腾讯内部）</h2><h3>核心优势</h3><ol>
+<li><strong>内网访问快</strong></li>
+</ol>
+   - 腾讯内部网络
+   - 低延迟</p><ol>
+<li><strong>集成度高</strong></li>
+</ol>
+   - 可能与内部系统打通
+   - 统一管理</p><h3>未知因素</h3><p>由于我对 <code>with.woa.com</code> 平台不够了解，存在以下疑问：</p><ol>
+<li><strong>是否支持静态站托管？</strong></li>
+<li><strong>是否支持自定义域名？</strong></li>
+<li><strong>是否支持自动化部署？</strong></li>
+<li><strong>是否有流量/存储限制？</strong></li>
+<li><strong>是否需要审批流程？</strong></li>
+</ol><h3>建议</h3><p>如果 RainBox 官网主要面向<strong>腾讯内部用户</strong>，可以考虑此方案。但如果面向<strong>外部客户</strong>，GitHub Pages 更合适。</p><hr><h2>⚡ 方案三：Vercel（最佳替代方案）</h2><h3>核心优势</h3><ol>
+<li><strong>极速部署</strong></li>
+</ol>
+   - 推送代码后 30 秒上线
+   - 自动检测 React/Next.js
+   - 零配置</p><ol>
+<li><strong>全球边缘网络</strong></li>
+</ol>
+   - 比 GitHub Pages 更快
+   - 智能 CDN 分发
+   - 国内访问优秀</p><ol>
+<li><strong>开发体验极佳</strong></li>
+</ol>
+   - 预览部署（每个 PR 独立预览）
+   - 实时日志
+   - 性能分析</p><h3>实施步骤</h3><h4>Step 1: 安装 Vercel CLI（1分钟）</h4><p><pre><code>npm install -g vercel</code></pre></p><h4>Step 2: 部署（1分钟）</h4><p><pre><code>cd rainbox-official-website
+vercel</code></pre></p><p><strong>就这么简单！</strong> 🚀</p><h3>成本分析</h3><p>| 项目 | 费用 |
+|------|------|
+| Vercel Hobby 计划 | ¥0 |
+| 自定义域名 | ¥50-100/年 |
+| <strong>总计</strong> | <strong>¥0-100/年</strong> |</p><h3>限制</h3><ul>
+<li>个人版有带宽限制（100GB/月，足够小型官网）</li>
+<li>商业使用建议升级 Pro 版（$20/月）</li>
+</ul><hr><h2>🎯 最终推荐方案</h2><h3>推荐：GitHub Pages + Vercel 双保险</h3><p><strong>为什么？</strong></p><ol>
+<li><strong>GitHub Pages 作为主力</strong></li>
+</ol>
+   - 代码托管在 GitHub（版本控制）
+   - 自动化部署
+   - 完全免费</p><ol>
+<li><strong>Vercel 作为备用</strong></li>
+</ol>
+   - 如果 GitHub Pages 访问慢，切换到 Vercel
+   - 两个平台都监听同一个 GitHub 仓库
+   - 零额外成本</p><ol>
+<li><strong>灵活切换</strong></li>
+</ol>
+   - 通过 DNS CNAME 切换
+   - 无需修改代码
+   - 高可用性</p><h3>实施计划</h3><h4>阶段一：基础部署（1小时）</h4><ol>
+<li>✅ 创建 GitHub 仓库</li>
+<li>✅ 配置 GitHub Actions</li>
+<li>✅ 推送代码，验证部署</li>
+<li>✅ 测试访问速度</li>
+</ol><h4>阶段二：优化（30分钟）</h4><ol>
+<li>✅ 配置 Vercel（备用）</li>
+<li>✅ 性能测试对比</li>
+<li>✅ 选择主力平台</li>
+</ol><h4>阶段三：域名配置（可选，30分钟）</h4><ol>
+<li>✅ 购买域名（如 <code>rainbox.tech</code>）</li>
+<li>✅ 配置 DNS</li>
+<li>✅ 启用 HTTPS</li>
+</ol><p><strong>总计时间</strong>：2小时（含测试）</p><hr><h2>📊 风险评估</h2><h3>GitHub Pages 风险</h3><p>| 风险 | 概率 | 影响 | 缓解措施 |
+|------|------|------|----------|
+| 国内访问慢 | 低 | 中 | 使用 Vercel 备用 |
+| 服务中断 | 极低 | 高 | 双平台部署 |
+| 流量超限 | 极低 | 低 | 合理使用 |</p><h3>Vercel 风险</h3><p>| 风险 | 概率 | 影响 | 缓解措施 |
+|------|------|------|----------|
+| 免费额度用完 | 低 | 中 | 升级 Pro 版 |
+| 服务中断 | 极低 | 高 | GitHub Pages 备用 |</p><h3>with.woa.com 风险</h3><p>| 风险 | 概率 | 影响 | 缓解措施 |
+|------|------|------|----------|
+| 平台限制 | 未知 | 未知 | 需要调研 |
+| 外部访问受限 | 高 | 高 | 不推荐 |</p><hr><h2>💡 技术栈建议</h2><h3>前端框架</h3><p><strong>推荐：React + TypeScript + Vite</strong></p><p><pre><code>{
+  "name": "rainbox-official-website",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "typescript": "^5.3.0",
+    "vite": "^5.0.0"
+  }
+}</code></pre></p><h3>UI 库</h3><p><strong>推荐：Tailwind CSS + shadcn/ui</strong></p><ul>
+<li>现代化设计</li>
+<li>响应式布局</li>
+<li>组件化开发</li>
+</ul><h3>性能优化</h3><ol>
+<li><strong>代码分割</strong></li>
+</ol>
+   <pre><code>   const About = lazy(() => import('./pages/About'));</code></pre></p><ol>
+<li><strong>图片优化</strong></li>
+</ol>
+   - WebP 格式
+   - 懒加载
+   - CDN 加速</p><ol>
+<li><strong>SEO 优化</strong></li>
+</ol>
+   - React Helmet
+   - Sitemap
+   - robots.txt</p><hr><h2>📝 前置准备清单</h2><h3>必需项</h3><ul>
+<li>[x] GitHub 账号</li>
+<li>[x] Git 命令行</li>
+<li>[x] Node.js 环境</li>
+<li>[x] 代码编辑器（VS Code）</li>
+</ul><h3>可选项</h3><ul>
+<li>[ ] GitHub CLI <code>gh</code>（提升效率）</li>
+<li>[ ] Vercel CLI（备用方案）</li>
+<li>[ ] 自定义域名（专业形象）</li>
+</ul><h3>安装 GitHub CLI（推荐）</h3><p><pre><code># macOS
+brew install gh
+
+# 登录
+gh auth login</code></pre></p><hr><h2>🎯 下一步行动</h2><h3>立即执行（今天）</h3><ol>
+<li><strong>创建 GitHub 仓库</strong></li>
+</ol>
+   <pre><code>   gh repo create rainbox-official-website --public</code></pre></p><ol>
+<li><strong>初始化 React 项目</strong></li>
+</ol>
+   <pre><code>   npm create vite@latest rainbox-official-website -- --template react-ts</code></pre></p><ol>
+<li><strong>配置 GitHub Actions</strong></li>
+</ol>
+   - 复制上面的 <code>deploy.yml</code></p><ol>
+<li><strong>推送代码，验证部署</strong></li>
+</ol>
+   <pre><code>   git add .
+   git commit -m "feat: 初始化项目"
+   git push origin main</code></pre></p><h3>本周完成</h3><ol>
+<li><strong>设计官网页面</strong></li>
+</ol>
+   - 首页
+   - 关于我们
+   - 产品服务
+   - 联系方式</p><ol>
+<li><strong>开发核心功能</strong></li>
+</ol>
+   - 响应式布局
+   - 动画效果
+   - 表单提交</p><ol>
+<li><strong>性能优化</strong></li>
+</ol>
+   - Lighthouse 评分 > 90
+   - 首屏加载 < 2s</p><h3>下周完成</h3><ol>
+<li><strong>域名配置</strong>（如果需要）</li>
+<li><strong>SEO 优化</strong></li>
+<li><strong>正式上线</strong></li>
+</ol><hr><h2>📞 需要支持</h2><p>如果需要我协助实施，我可以：</p><ol>
+<li>✅ 创建 GitHub 仓库和配置</li>
+<li>✅ 编写 GitHub Actions 工作流</li>
+<li>✅ 初始化 React 项目</li>
+<li>✅ 配置 Vercel 备用方案</li>
+<li>✅ 开发官网页面</li>
+<li>✅ 性能优化和测试</li>
+</ol><p><strong>预计总时间</strong>：2-3 天（含设计和开发）</p><hr><h2>🎉 总结</h2><h3>核心结论</h3><p><strong>推荐方案</strong>：GitHub Pages + Vercel 双保险</p><p><strong>理由</strong>：
+<ol>
+<li>✅ 完全免费</li>
+<li>✅ 自动化部署</li>
+<li>✅ 全球 CDN</li>
+<li>✅ 专业形象</li>
+<li>✅ 高可用性</li>
+</ol><h3>关键优势</h3><p>| 维度 | 评分 |
+|------|------|
+| 成本 | ⭐⭐⭐⭐⭐ 免费 |
+| 速度 | ⭐⭐⭐⭐⭐ 极快 |
+| 稳定性 | ⭐⭐⭐⭐⭐ 99.9% |
+| 易用性 | ⭐⭐⭐⭐ 简单 |
+| 可控性 | ⭐⭐⭐⭐⭐ 完全自主 |</p><h3>立即开始</h3><p><strong>第一步</strong>：创建 GitHub 仓库
+<pre><code>gh repo create rainbox-official-website --public</code></pre></p><p><strong>第二步</strong>：初始化项目
+<pre><code>npm create vite@latest rainbox-official-website -- --template react-ts</code></pre></p><p><strong>第三步</strong>：配置部署
+<ul>
+<li>复制 GitHub Actions 配置</li>
+<li>推送代码</li>
+</ul><p><strong>完成！</strong> 🎉</p><hr><h2>📚 参考资源</h2><h3>官方文档</h3><ul>
+<li><a href="https://docs.github.com/en/pages">GitHub Pages 文档</a></li>
+<li><a href="https://docs.github.com/en/actions">GitHub Actions 文档</a></li>
+<li><a href="https://vercel.com/docs">Vercel 文档</a></li>
+<li><a href="https://react.dev">React 文档</a></li>
+<li><a href="https://vitejs.dev">Vite 文档</a></li>
+</ul><h3>最佳实践</h3><ul>
+<li><a href="https://react.dev/learn/render-and-commit">React 性能优化</a></li>
+<li><a href="https://web.dev/performance/">Web 性能优化</a></li>
+<li><a href="https://developers.google.com/search/docs">SEO 最佳实践</a></li>
+</ul><hr><p><strong>报告完成时间</strong>：2026-03-22 23:30  
+<strong>下次更新</strong>：实施后反馈</p><hr><p><em>RainBox 数字科技公司</em>  
+<em>"科技养虾，用心养人"</em> 🦐💙
+</p>
+    </div>
+  </div>
+
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
+    ↑
+  </button>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="mb-4">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
+          <span class="text-2xl font-bold">RainBox 数字科技</span>
+        </div>
+      </div>
+      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
+      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

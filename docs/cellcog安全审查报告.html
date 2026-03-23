@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cellcog Skill 安全审查报告 - RainBox 文档中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .markdown-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.8;
+    }
+    .markdown-body h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #2196F3, #FF9800);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .markdown-body h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #2196F3;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+    .markdown-body h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #333;
+    }
+    .markdown-body h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+    .markdown-body p {
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+    .markdown-body ul, .markdown-body ol {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+    }
+    .markdown-body li {
+      margin-bottom: 0.5rem;
+    }
+    .markdown-body code {
+      background: #f3f4f6;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #ef4444;
+    }
+    .markdown-body pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+    .markdown-body pre code {
+      background: transparent;
+      padding: 0;
+      color: #f9fafb;
+    }
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    .markdown-body th, .markdown-body td {
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .markdown-body th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #111827;
+    }
+    .markdown-body blockquote {
+      border-left: 4px solid #2196F3;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: #6b7280;
+      font-style: italic;
+    }
+    .markdown-body a {
+      color: #2196F3;
+      text-decoration: none;
+    }
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
+    .markdown-body strong {
+      font-weight: 700;
+      color: #111827;
+    }
+    .markdown-body em {
+      font-style: italic;
+    }
+    .markdown-body hr {
+      border: none;
+      border-top: 2px solid #e5e7eb;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
+          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
+        </a>
+        <div class="flex items-center gap-6">
+          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
+          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文档内容 -->
+  <div class="pt-8 pb-20">
+    <div class="markdown-body">
+      <h1>cellcog Skill 安全审查报告</h1><p><strong>审查日期</strong>：2026年3月22日  
+<strong>审查人</strong>：RainBox（总经理）  
+<strong>Skill 名称</strong>：cellcog  
+<strong>Skill 版本</strong>：1.0.21  
+<strong>Skill 作者</strong>：CellCog  
+<strong>来源</strong>：SkillHub（外部社区）</p><hr><h2>🎯 审查结论</h2><h3>✅ REVIEW_RESULT: <strong>SAFE</strong></h3><p><strong>风险等级</strong>：<strong>中低</strong></p><p><strong>总体评估</strong>：cellcog 是一个<strong>安全可用</strong>的 AI API SDK Skill，但需要注意 API 密钥管理和网络访问。</p><hr><h2>📋 详细审查结果</h2><h3>1. ✅ 文件结构安全</h3><p><strong>文件列表</strong>：
+<pre><code>├── SKILL.md (19.1KB)
+└── _meta.json (127B)</code></pre></p><p><strong>评估</strong>：
+<ul>
+<li>✅ 仅包含文档文件</li>
+<li>✅ 无可执行脚本（.py/.sh/.js）</li>
+<li>✅ 无二进制文件</li>
+<li>✅ 文件结构清晰简单</li>
+</ul><p><strong>结论</strong>：✅ <strong>文件结构安全</strong></p><hr><h3>2. ✅ 代码安全性</h3><p><strong>扫描结果</strong>：
+<ul>
+<li>✅ 无 <code>execute()</code> 调用</li>
+<li>✅ 无 <code>eval()</code> 调用</li>
+<li>✅ 无 <code>exec()</code> 调用</li>
+<li>✅ 无 Shell 命令执行</li>
+<li>✅ 无 <code>rm -rf</code> 等危险命令</li>
+<li>✅ 无 <code>system()</code> 调用</li>
+<li>✅ 无 <code>__import__</code> 动态导入</li>
+<li>✅ 无 <code>compile()</code> 代码编译</li>
+</ul><p><strong>唯一匹配</strong>：
+<pre><code>55: 1. A PDF executive summary report with charts</code></pre></p><p><strong>分析</strong>：这是示例文档，不是代码执行。</p><p><strong>结论</strong>：✅ <strong>无危险代码模式</strong></p><hr><h3>3. ✅ 功能安全性</h3><p><strong>Skill 功能</strong>：
+<ul>
+<li>📝 CellCog API SDK 文档</li>
+<li>📝 API 调用示例</li>
+<li>📝 使用指南和最佳实践</li>
+<li>🔌 依赖 Python 包：<code>cellcog</code></li>
+</ul><p><strong>工作方式</strong>：
+<ol>
+<li>提供 CellCog API 使用文档</li>
+<li>指导如何调用 CellCog 云端服务</li>
+<li>用户需要安装 Python 包：<code>pip install cellcog</code></li>
+<li>通过 Python SDK 调用 CellCog API</li>
+</ol><p><strong>评估</strong>：
+<ul>
+<li>✅ 纯文档型 Skill，无代码执行</li>
+<li>✅ 不直接访问系统资源</li>
+<li>✅ 不修改文件系统</li>
+<li>⚠️ 需要网络访问（调用 API）</li>
+<li>⚠️ 依赖外部 Python 包 <code>cellcog</code></li>
+</ul><p><strong>结论</strong>：✅ <strong>功能安全，但需要网络和外部依赖</strong></p><hr><h3>4. ⚠️ API 密钥管理</h3><p><strong>认证方式</strong>：
+<pre><code>export CELLCOG_API_KEY="sk_..."</code></pre></p><p><strong>评估</strong>：
+<ul>
+<li>✅ 使用环境变量（推荐方式）</li>
+<li>✅ 不在代码中硬编码密钥</li>
+<li>⚠️ 需要用户提供 CellCog API 密钥</li>
+<li>⚠️ API 密钥需要妥善保管</li>
+</ul><p><strong>API 密钥来源</strong>：
+<ul>
+<li>需要访问：https://cellcog.ai/profile?tab=api-keys</li>
+<li>需要注册 CellCog 账号</li>
+<li>需要充值 Credits（付费服务）</li>
+</ul><p><strong>安全建议</strong>：
+<ol>
+<li>✅ 仅在受信任的环境设置 API 密钥</li>
+<li>✅ 不要将密钥提交到代码仓库</li>
+<li>✅ 定期轮换密钥</li>
+<li>✅ 监控 API 使用情况</li>
+</ol><p><strong>结论</strong>：⚠️ <strong>API 密钥管理需谨慎</strong></p><hr><h3>5. ⚠️ 数据隐私</h3><p><strong>数据流向</strong>：
+<pre><code>    ↓
+cellcog SDK（本地）
+    ↓
+CellCog API（云端）
+    ↓
+处理并生成结果
+    ↓
+返回给用户（自动下载）</code></pre></p><p><strong>传输内容</strong>：
+<ul>
+<li>✅ 用户提供的提示词</li>
+<li>⚠️ 通过 <code><SHOW_FILE></code> 标签上传的文件</li>
+<li>⚠️ 品牌信息、设计需求等</li>
+</ul><p><strong>隐私评估</strong>：
+<ul>
+<li>✅ 用户可控制传输内容</li>
+<li>✅ 明确的文件上传机制（SHOW_FILE 标签）</li>
+<li>⚠️ 数据会发送到 CellCog 云端服务器</li>
+<li>⚠️ 需要了解 CellCog 的隐私政策</li>
+<li>⚠️ 生成的文件会自动下载到本地</li>
+</ul><p><strong>风险分析</strong>：
+<ul>
+<li>🟢 <strong>低风险</strong>：一般商业内容（品牌设计、报告等）</li>
+<li>🟡 <strong>中风险</strong>：公司内部文档（需评估敏感度）</li>
+<li>🔴 <strong>高风险</strong>：机密信息、个人隐私（不建议使用）</li>
+</ul><p><strong>建议</strong>：
+<ul>
+<li>✅ 用于一般商业品牌设计（RainBox ✅）</li>
+<li>⚠️ 避免上传包含机密的文件</li>
+<li>⚠️ 避免在提示词中包含敏感信息</li>
+<li>✅ 了解 CellCog 的数据保留政策</li>
+</ul><p><strong>结论</strong>：⚠️ <strong>数据隐私需注意，一般商业用途可接受</strong></p><hr><h3>6. ⚠️ 外部依赖</h3><p><strong>Python 包依赖</strong>：
+<pre><code>install:
+  pip: cellcog</code></pre></p><p><strong>评估</strong>：
+<ul>
+<li>⚠️ 需要安装外部 Python 包</li>
+<li>⚠️ Python 包来自 PyPI（未审查）</li>
+<li>⚠️ 包的安全性依赖于 CellCog 维护者</li>
+<li>✅ 使用标准 pip 安装（可信渠道）</li>
+</ul><p><strong>风险</strong>：
+<ul>
+<li>🟡 <strong>中等</strong>：外部包可能包含漏洞</li>
+<li>🟡 <strong>中等</strong>：包更新可能引入问题</li>
+<li>🟢 <strong>低</strong>：来自知名 AI 服务商</li>
+</ul><p><strong>建议</strong>：
+<ol>
+<li>✅ 在虚拟环境中安装</li>
+<li>✅ 定期更新包到最新版本</li>
+<li>✅ 监控包的安全公告</li>
+<li>⚠️ 生产环境需评估依赖稳定性</li>
+</ol><p><strong>结论</strong>：⚠️ <strong>外部依赖需要管理</strong></p><hr><h3>7. ⚠️ 网络访问</h3><p><strong>需要的网络访问</strong>：
+<ul>
+<li>🌐 CellCog API 服务器（api.cellcog.ai）</li>
+<li>🌐 文件上传（通过 SHOW_FILE）</li>
+<li>🌐 文件下载（生成的结果）</li>
+</ul><p><strong>评估</strong>：
+<ul>
+<li>⚠️ 需要稳定的网络连接</li>
+<li>⚠️ 可能涉及大文件传输</li>
+<li>⚠️ API 调用可能被监控/记录</li>
+<li>✅ 使用 HTTPS 加密传输</li>
+</ul><p><strong>防火墙要求</strong>：
+<ul>
+<li>允许访问 CellCog API 域名</li>
+<li>允许 HTTPS 出站连接</li>
+</ul><p><strong>结论</strong>：⚠️ <strong>需要网络访问，确保网络安全</strong></p><hr><h3>8. ✅ 权限要求</h3><p><strong>Skill 所需权限</strong>：
+<ul>
+<li>文件读取（读取 SKILL.md）</li>
+<li>文件读取（读取用户指定的文件用于上传）</li>
+<li>文件写入（保存下载的生成结果）</li>
+<li>网络访问（调用 API）</li>
+<li>Python 包安装（pip install cellcog）</li>
+</ul><p><strong>评估</strong>：
+<ul>
+<li>✅ 权限需求合理</li>
+<li>✅ 无特殊系统权限</li>
+<li>✅ 文件操作限于工作目录</li>
+</ul><p><strong>结论</strong>：✅ <strong>权限要求合理</strong></p><hr><h3>9. ✅ 元数据验证</h3><p><strong>_meta.json 内容</strong>：
+<pre><code>{
+  "ownerId": "kn7a96cj9q65e0bhmzahv790en80ffqm",
+  "slug": "cellcog",
+  "version": "1.0.21",
+  "publishedAt": 1771696856727
+}</code></pre></p><p><strong>验证</strong>：
+<ul>
+<li>✅ 版本号清晰（1.0.21）</li>
+<li>✅ 发布时间正常（2026年2月21日）</li>
+<li>✅ 与 brand-cog 作者相同（CellCog 官方）</li>
+<li>✅ slug 匹配</li>
+</ul><p><strong>结论</strong>：✅ <strong>元数据正常，来自官方</strong></p><hr><h3>10. ✅ 成本和限制</h3><p><strong>Credits 消费</strong>：
+| 任务类型 | 典型消费 |
+|---------|---------|
+| Logo 设计 | 200-500 credits |
+| 完整品牌套件 | 500-1,500 credits |
+| 图片生成 | 15-25 credits/张 |
+| PDF 报告 | 200-1,000 credits |
+| 视频 (1分钟) | 800-1,200 credits |</p><p><strong>模式</strong>：
+<ul>
+<li><code>agent</code> 模式：快速，1x 成本</li>
+<li><code>agent team</code> 模式：深度，4x 成本</li>
+</ul><p><strong>评估</strong>：
+<ul>
+<li>✅ 成本透明</li>
+<li>⚠️ 付费服务（需要充值）</li>
+<li>✅ 用户可控制消费</li>
+</ul><p><strong>建议</strong>：
+<ul>
+<li>先小额充值测试</li>
+<li>监控 Credits 消费</li>
+<li>使用 <code>agent</code> 模式（成本更低）</li>
+</ul><p><strong>结论</strong>：✅ <strong>成本透明可控</strong></p><hr><h2>🎯 综合评估</h2><h3>✅ 安全性得分：7.5/10</h3><p>| 评估项 | 得分 | 说明 |
+|--------|------|------|
+| 文件结构 | 10/10 | 仅文档，无可执行代码 |
+| 代码安全 | 10/10 | 无危险代码模式 |
+| 功能安全 | 8/10 | 需要网络和外部依赖 |
+| API 密钥 | 7/10 | 需要妥善管理 |
+| 数据隐私 | 7/10 | 数据会传到云端 |
+| 外部依赖 | 6/10 | 依赖 PyPI 包 |
+| 网络访问 | 7/10 | 需要外网访问 |
+| 权限控制 | 9/10 | 权限合理 |
+| 元数据 | 10/10 | 官方发布 |
+| 成本透明 | 9/10 | 付费但透明 |</p><p><strong>总分</strong>：<strong>7.5/10</strong> - <strong>安全可用，需注意隐私和依赖</strong></p><hr><h2>📊 风险分析</h2><h3>低风险 🟢</h3><ol>
+<li><strong>Skill 本身</strong>：</li>
+</ol>
+   - 纯文档型
+   - 无恶意代码
+   - 官方维护</p><ol>
+<li><strong>文件操作</strong>：</li>
+</ol>
+   - 仅读写工作目录
+   - 无系统级操作</p><h3>中风险 🟡</h3><ol>
+<li><strong>数据传输</strong>：</li>
+</ol>
+   - 数据会发送到 CellCog 云端
+   - 需要评估内容敏感度
+   - 一般商业内容可接受</p><ol>
+<li><strong>外部依赖</strong>：</li>
+</ol>
+   - 依赖 PyPI 包
+   - 包安全性依赖维护者
+   - 建议在虚拟环境使用</p><ol>
+<li><strong>API 密钥</strong>：</li>
+</ol>
+   - 需要妥善保管
+   - 避免泄露
+   - 定期轮换</p><ol>
+<li><strong>成本</strong>：</li>
+</ol>
+   - 付费服务
+   - 需要充值
+   - 控制使用量</p><h3>高风险 🔴（可避免）</h3><ol>
+<li><strong>机密信息</strong>：</li>
+</ol>
+   - 不要上传机密文件
+   - 不要在提示词中包含敏感信息
+   - 避免用于高度敏感项目</p><hr><h2>🎯 使用建议</h2><h3>✅ 可以安全使用于</h3><ol>
+<li>✅ <strong>RainBox 品牌设计</strong></li>
+</ol>
+   - 品牌信息非机密
+   - 风险可接受
+   - <strong>推荐使用</strong></p><ol>
+<li>✅ <strong>商业内容创作</strong></li>
+</ol>
+   - Logo、海报、视频
+   - 报告、演示文稿
+   - 营销素材</p><ol>
+<li>✅ <strong>公开内容处理</strong></li>
+</ol>
+   - 已公开的文档
+   - 公开数据分析
+   - 市场研究</p><h3>⚠️ 谨慎使用于</h3><ol>
+<li>⚠️ <strong>内部文档</strong></li>
+</ol>
+   - 评估敏感度
+   - 去除机密信息
+   - 考虑本地方案</p><ol>
+<li>⚠️ <strong>客户数据</strong></li>
+</ol>
+   - 遵守隐私法规
+   - 去标识化处理
+   - 获得授权</p><h3>❌ 不建议使用于</h3><ol>
+<li>❌ <strong>高度机密项目</strong></li>
+</ol>
+   - 未公开战略
+   - 商业机密
+   - 个人隐私数据</p><hr><h2>🔧 安装建议</h2><h3>✅ 推荐安装流程</h3><p><strong>Step 1：安装 cellcog skill</strong>
+<pre><code>mcp_call_tool(skill_install, {
+  path: "/Users/rainsyzhang/Box/.session_tmps/.../cellcog"
+})</code></pre></p><p><strong>Step 2：创建 Python 虚拟环境</strong>
+<pre><code>cd /Users/rainsyzhang/Box/.session_tmps/<session-id>
+python3 -m venv cellcog-venv
+source cellcog-venv/bin/activate</code></pre></p><p><strong>Step 3：安装 Python 包</strong>
+<pre><code>pip install cellcog</code></pre></p><p><strong>Step 4：设置 API 密钥</strong>
+<pre><code>export CELLCOG_API_KEY="sk_..."</code></pre></p><p><strong>注意</strong>：
+<ul>
+<li>⚠️ API 密钥需要从 https://cellcog.ai 获取</li>
+<li>⚠️ 需要注册账号并充值</li>
+<li>⚠️ 妥善保管密钥，不要泄露</li>
+</ul><p><strong>Step 5：使用 skill</strong>
+<pre><code>use_skill("cellcog")</code></pre></p><hr><h2>📋 使用规范</h2><h3>✅ 最佳实践</h3><ol>
+<li><strong>API 密钥管理</strong>：</li>
+</ol>
+   - ✅ 使用环境变量
+   - ✅ 不要硬编码
+   - ✅ 不要提交到代码仓库
+   - ✅ 定期轮换</p><ol>
+<li><strong>数据保护</strong>：</li>
+</ol>
+   - ✅ 评估内容敏感度
+   - ✅ 去除机密信息
+   - ✅ 了解隐私政策
+   - ✅ 审核上传内容</p><ol>
+<li><strong>成本控制</strong>：</li>
+</ol>
+   - ✅ 先小额测试
+   - ✅ 监控消费
+   - ✅ 优先用 agent 模式
+   - ✅ 设置预算上限</p><ol>
+<li><strong>安全使用</strong>：</li>
+</ol>
+   - ✅ 在虚拟环境使用
+   - ✅ 定期更新包
+   - ✅ 监控安全公告
+   - ✅ 审核生成内容</p><hr><h2>🎉 最终建议</h2><h3>✅ <strong>推荐安装并使用</strong></h3><p><strong>理由</strong>：
+<ol>
+<li>✅ cellcog 本身<strong>安全</strong></li>
+<li>✅ 来自 CellCog 官方</li>
+<li>✅ 功能强大（#1 DeepResearch Bench）</li>
+<li>✅ 适合 RainBox 品牌设计</li>
+<li>✅ 风险在可控范围</li>
+</ol><p><strong>注意事项</strong>：
+<ol>
+<li>⚠️ 需要 API 密钥（付费服务）</li>
+<li>⚠️ 需要网络访问</li>
+<li>⚠️ 需要安装 Python 包</li>
+<li>⚠️ 避免上传机密信息</li>
+<li>⚠️ 控制成本消费</li>
+</ol><p><strong>适用性评估</strong>：
+<ul>
+<li>✅ <strong>RainBox 品牌设计</strong>：非常适合</li>
+</ul>
+  - 品牌信息非机密
+  - 需要高质量输出
+  - 成本可接受
+  - <strong>强烈推荐</strong></p><hr><h2>📊 总结</h2><p>| 项目 | 结果 |
+|------|------|
+| <strong>安全结论</strong> | ✅ <strong>SAFE</strong> |
+| <strong>风险等级</strong> | 🟡 <strong>中低</strong> |
+| <strong>推荐使用</strong> | ✅ <strong>是</strong> |
+| <strong>需要注意</strong> | ⚠️ <strong>隐私、密钥、成本</strong> |
+| <strong>安全得分</strong> | <strong>7.5/10</strong> |</p><hr><h2>🚀 下一步行动</h2><h3>✅ 立即执行</h3><ol>
+<li><strong>安装 cellcog skill</strong></li>
+<li><strong>安装 Python 包</strong>（虚拟环境）</li>
+<li><strong>获取 API 密钥</strong>（注册 CellCog）</li>
+<li><strong>小额充值测试</strong>（100-500 credits）</li>
+<li><strong>开始品牌设计</strong></li>
+</ol><h3>⚠️ 使用注意</h3><ol>
+<li>妥善保管 API 密钥</li>
+<li>避免上传机密文件</li>
+<li>监控 Credits 消费</li>
+<li>审核生成内容</li>
+<li>了解隐私政策</li>
+</ol><hr><p><strong>审查人</strong>：RainBox（总经理）  
+<strong>审查日期</strong>：2026年3月22日  
+<strong>审查结论</strong>：✅ <strong>可以安全使用，需注意隐私和成本</strong></p><hr><p><em>RainBox 数字科技公司</em>  
+<em>"科技养虾，用心养人"</em> 🦐💙  
+<em>安全使用，品质保证！</em>
+</p>
+    </div>
+  </div>
+
+  <!-- 返回顶部按钮 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
+    ↑
+  </button>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="mb-4">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
+          <span class="text-2xl font-bold">RainBox 数字科技</span>
+        </div>
+      </div>
+      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
+      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
