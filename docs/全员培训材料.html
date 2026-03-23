@@ -1,507 +1,521 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>全员培训材料 - RainBox 文档中心</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'tech-blue': '#2196F3',
-            'vibrant-orange': '#FF9800',
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    .markdown-body {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.8;
-    }
-    .markdown-body h1 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      margin-bottom: 2rem;
-      background: linear-gradient(to right, #2196F3, #FF9800);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .markdown-body h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      color: #2196F3;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 0.5rem;
-    }
-    .markdown-body h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: #333;
-    }
-    .markdown-body h4 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      color: #555;
-    }
-    .markdown-body p {
-      margin-bottom: 1rem;
-      color: #374151;
-    }
-    .markdown-body ul, .markdown-body ol {
-      margin-bottom: 1rem;
-      padding-left: 2rem;
-    }
-    .markdown-body li {
-      margin-bottom: 0.5rem;
-    }
-    .markdown-body code {
-      background: #f3f4f6;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9em;
-      color: #ef4444;
-    }
-    .markdown-body pre {
-      background: #1f2937;
-      color: #f9fafb;
-      padding: 1.5rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-bottom: 1rem;
-    }
-    .markdown-body pre code {
-      background: transparent;
-      padding: 0;
-      color: #f9fafb;
-    }
-    .markdown-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 1.5rem;
-      border: 1px solid #e5e7eb;
-    }
-    .markdown-body th, .markdown-body td {
-      border: 1px solid #e5e7eb;
-      padding: 0.75rem 1rem;
-      text-align: left;
-    }
-    .markdown-body th {
-      background: #f9fafb;
-      font-weight: 600;
-      color: #111827;
-    }
-    .markdown-body blockquote {
-      border-left: 4px solid #2196F3;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      color: #6b7280;
-      font-style: italic;
-    }
-    .markdown-body a {
-      color: #2196F3;
-      text-decoration: none;
-    }
-    .markdown-body a:hover {
-      text-decoration: underline;
-    }
-    .markdown-body strong {
-      font-weight: 700;
-      color: #111827;
-    }
-    .markdown-body em {
-      font-style: italic;
-    }
-    .markdown-body hr {
-      border: none;
-      border-top: 2px solid #e5e7eb;
-      margin: 2rem 0;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全员培训材料 - RainBox 文档中心</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
+.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
+.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
+.doc p { margin-bottom: 1rem; color: #374151; }
+.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
+.doc li { margin-bottom: 0.5rem; }
+.doc strong { font-weight: 700; color: #111827; }
+.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
+.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
+.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
+.doc th { background: #f9fafb; font-weight: 600; }
+</style>
 </head>
-<body class="bg-gray-50 min-h-screen">
-  <!-- 导航栏 -->
-  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
-          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
-        </a>
-        <div class="flex items-center gap-6">
-          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
-          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<body class="bg-gray-50">
+<nav class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<a href="../index.html" class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
+<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
+</a>
+<div class="flex gap-6">
+<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
+<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
+</div>
+</div>
+</nav>
+<div class="pt-8 pb-20"><div class="doc"><pre># 全员培训材料
+## &quot;科技养虾，用心养人&quot; 标语文化培训
 
-  <!-- 文档内容 -->
-  <div class="pt-8 pb-20">
-    <div class="markdown-body">
-      <h1>全员培训材料</h1>
-<h2>"科技养虾，用心养人" 标语文化培训</h2><hr><h3>📋 培训信息</h3>
-<ul>
-<li><strong>培训对象</strong>: 全体员工（必修）</li>
-<li><strong>培训时长</strong>: 90 分钟</li>
-<li><strong>培训形式</strong>: 线下集中培训 + 线上学习平台</li>
-<li><strong>考核方式</strong>: 培训后测试（80分及格）</li>
-<li><strong>发布日期</strong>: 2026年3月22日</li>
-</ul><hr><h2>培训目标</h2><p>完成本次培训后，学员应能够：
-<ol>
-<li>✅ 准确复述公司标语</li>
-<li>✅ 深入理解标语的双重含义</li>
-<li>✅ 将标语精神应用到日常工作中</li>
-<li>✅ 成为标语文化的传播者与践行者</li>
-</ol><hr><h2>第一部分：标语诞生记（15分钟）</h2><h3>🎬 开场视频：CEO 寄语</h3><p>> <strong>视频脚本</strong>（建议由 CEO 录制）：
-> 
-> "各位同事，大家好！
-> 
-> 今天，我很荣幸地向大家宣布，经过深思熟虑，我们确定了公司的官方标语：<strong>'科技养虾，用心养人'</strong>。
-> 
-> 这八个字，凝聚了我们的使命与承诺。
-> 
-> <strong>科技养虾</strong>，是我们的事业。我们用 AI、IoT、大数据等前沿技术，革新传统养殖产业，让科技真正服务于民生。
-> 
-> <strong>用心养人</strong>，是我们的文化。我们像呵护养殖对象一样，精心培养每一位员工，让每个人都能在这里成长、发光。
-> 
-> 我希望，这句标语不只是墙上的口号，而是我们每一天的行动指南。
-> 
-> 让我们一起，用科技改变产业，用真心对待彼此！"</p><h3>📖 标语诞生背景</h3><p><strong>为什么需要标语？</strong>
-<ul>
-<li>明确公司使命与价值观</li>
-<li>凝聚团队共识</li>
-<li>塑造独特的企业文化</li>
-<li>对外传播品牌形象</li>
-</ul><p><strong>为什么是这句标语？</strong>
-<ul>
-<li><strong>"养虾"</strong>：聚焦核心业务，体现行业专注度</li>
-<li><strong>"科技"</strong>：强调创新驱动，区别于传统养殖</li>
-<li><strong>"养人"</strong>：呼应"养虾"，形成文化符号</li>
-<li><strong>"用心"</strong>：体现人文关怀，有温度的科技公司</li>
-</ul><hr><h2>第二部分：标语深度解读（30分钟）</h2><h3>🦐 "科技养虾" —— 我们的业务使命</h3><h4>1. 我们在做什么？</h4><p><strong>传统养虾的痛点</strong>：
-<ul>
-<li>❌ 靠经验，缺乏科学依据</li>
-<li>❌ 病害频发，损失惨重</li>
-<li>❌ 水质难控，环境污染</li>
-<li>❌ 效率低下，成本高昂</li>
-</ul><p><strong>我们的科技解决方案</strong>：
-<ul>
-<li>✅ <strong>智能监测</strong>：24/7 水质、溶氧、温度实时监控</li>
-<li>✅ <strong>AI 预警</strong>：病害早期识别，提前干预</li>
-<li>✅ <strong>自动化</strong>：智能投喂、增氧、换水</li>
-<li>✅ <strong>数据驱动</strong>：养殖全流程数字化管理</li>
-</ul><h4>2. 我们的价值</h4><ul>
-<li>🌍 <strong>社会价值</strong>：保障食品安全，推动产业升级</li>
-<li>🌱 <strong>环境价值</strong>：减少污染，可持续发展</li>
-<li>💰 <strong>经济价值</strong>：提升养殖效率，增加养殖户收入</li>
-<li>🚀 <strong>创新价值</strong>：引领水产养殖科技化趋势</li>
-</ul><h4>3. 对员工的意义</h4><ul>
-<li>我们从事的是有意义的事业</li>
-<li>每个人的工作都在推动产业进步</li>
-<li>技术创新是我们的核心竞争力</li>
-<li>我们有机会成为行业引领者</li>
-</ul><hr><h3>💚 "用心养人" —— 我们的人才理念</h3><h4>1. 为什么是"养人"？</h4><p><strong>"养"的三层含义</strong>：
-<ol>
-<li><strong>培养</strong>：提供成长的土壤与养分</li>
-<li><strong>滋养</strong>：关注身心健康与幸福感</li>
-<li><strong>涵养</strong>：塑造价值观与职业素养</li>
-</ol><p><strong>为什么用"养"而不是"管"？</strong>
-<ul>
-<li>"管"是控制，"养"是呵护</li>
-<li>"管"是短期，"养"是长期</li>
-<li>"管"是单向，"养"是双向</li>
-</ul><h4>2. "用心"的四个维度</h4><p>##### 📈 维度一：职业发展用心</p><p><strong>我们提供</strong>：
-<ul>
-<li>系统化培训体系（新人 + 在职 + 管理）</li>
-<li>个性化职业发展规划（IDP）</li>
-<li>双通道发展（管理线 + 专业线）</li>
-<li>内部晋升优先（80% 管理岗内部晋升）</li>
-<li>导师制与技能传承</li>
-</ul><p><strong>案例分享</strong>：
-> 小李，2024年应届生入职，担任初级算法工程师。
-> - 入职第 1 个月：导师 1v1 辅导，快速上手
-> - 入职第 6 个月：参与核心项目，技能提升
-> - 入职第 12 个月：晋升中级工程师
-> - 入职第 18 个月：成为新人导师，传承经验
-> 
-> 小李说："公司不仅给我工作，更给我成长的路径。"</p><p>##### 🏢 维度二：工作环境用心</p><p><strong>我们提供</strong>：
-<ul>
-<li>舒适的办公空间（人体工学座椅、双屏显示器）</li>
-<li>先进的工作设备（高配电脑、开发工具）</li>
-<li>灵活的工作安排（弹性工作制、远程办公）</li>
-<li>高效的协作工具（项目管理、沟通平台）</li>
-<li>休闲区域（咖啡吧、休息室、健身房）</li>
-</ul><p>##### 💰 维度三：生活关怀用心</p><p><strong>我们提供</strong>：
-<ul>
-<li>具有竞争力的薪酬（行业中上水平）</li>
-<li>完善的福利体系：</li>
-</ul>
+---
+
+### 📋 培训信息
+- **培训对象**: 全体员工（必修）
+- **培训时长**: 90 分钟
+- **培训形式**: 线下集中培训 + 线上学习平台
+- **考核方式**: 培训后测试（80分及格）
+- **发布日期**: 2026年3月22日
+
+---
+
+## 培训目标
+
+完成本次培训后，学员应能够：
+1. ✅ 准确复述公司标语
+2. ✅ 深入理解标语的双重含义
+3. ✅ 将标语精神应用到日常工作中
+4. ✅ 成为标语文化的传播者与践行者
+
+---
+
+## 第一部分：标语诞生记（15分钟）
+
+### 🎬 开场视频：CEO 寄语
+
+&gt; **视频脚本**（建议由 CEO 录制）：
+&gt; 
+&gt; &quot;各位同事，大家好！
+&gt; 
+&gt; 今天，我很荣幸地向大家宣布，经过深思熟虑，我们确定了公司的官方标语：**&#x27;科技养虾，用心养人&#x27;**。
+&gt; 
+&gt; 这八个字，凝聚了我们的使命与承诺。
+&gt; 
+&gt; **科技养虾**，是我们的事业。我们用 AI、IoT、大数据等前沿技术，革新传统养殖产业，让科技真正服务于民生。
+&gt; 
+&gt; **用心养人**，是我们的文化。我们像呵护养殖对象一样，精心培养每一位员工，让每个人都能在这里成长、发光。
+&gt; 
+&gt; 我希望，这句标语不只是墙上的口号，而是我们每一天的行动指南。
+&gt; 
+&gt; 让我们一起，用科技改变产业，用真心对待彼此！&quot;
+
+### 📖 标语诞生背景
+
+**为什么需要标语？**
+- 明确公司使命与价值观
+- 凝聚团队共识
+- 塑造独特的企业文化
+- 对外传播品牌形象
+
+**为什么是这句标语？**
+- **&quot;养虾&quot;**：聚焦核心业务，体现行业专注度
+- **&quot;科技&quot;**：强调创新驱动，区别于传统养殖
+- **&quot;养人&quot;**：呼应&quot;养虾&quot;，形成文化符号
+- **&quot;用心&quot;**：体现人文关怀，有温度的科技公司
+
+---
+
+## 第二部分：标语深度解读（30分钟）
+
+### 🦐 &quot;科技养虾&quot; —— 我们的业务使命
+
+#### 1. 我们在做什么？
+
+**传统养虾的痛点**：
+- ❌ 靠经验，缺乏科学依据
+- ❌ 病害频发，损失惨重
+- ❌ 水质难控，环境污染
+- ❌ 效率低下，成本高昂
+
+**我们的科技解决方案**：
+- ✅ **智能监测**：24/7 水质、溶氧、温度实时监控
+- ✅ **AI 预警**：病害早期识别，提前干预
+- ✅ **自动化**：智能投喂、增氧、换水
+- ✅ **数据驱动**：养殖全流程数字化管理
+
+#### 2. 我们的价值
+
+- 🌍 **社会价值**：保障食品安全，推动产业升级
+- 🌱 **环境价值**：减少污染，可持续发展
+- 💰 **经济价值**：提升养殖效率，增加养殖户收入
+- 🚀 **创新价值**：引领水产养殖科技化趋势
+
+#### 3. 对员工的意义
+
+- 我们从事的是有意义的事业
+- 每个人的工作都在推动产业进步
+- 技术创新是我们的核心竞争力
+- 我们有机会成为行业引领者
+
+---
+
+### 💚 &quot;用心养人&quot; —— 我们的人才理念
+
+#### 1. 为什么是&quot;养人&quot;？
+
+**&quot;养&quot;的三层含义**：
+1. **培养**：提供成长的土壤与养分
+2. **滋养**：关注身心健康与幸福感
+3. **涵养**：塑造价值观与职业素养
+
+**为什么用&quot;养&quot;而不是&quot;管&quot;？**
+- &quot;管&quot;是控制，&quot;养&quot;是呵护
+- &quot;管&quot;是短期，&quot;养&quot;是长期
+- &quot;管&quot;是单向，&quot;养&quot;是双向
+
+#### 2. &quot;用心&quot;的四个维度
+
+##### 📈 维度一：职业发展用心
+
+**我们提供**：
+- 系统化培训体系（新人 + 在职 + 管理）
+- 个性化职业发展规划（IDP）
+- 双通道发展（管理线 + 专业线）
+- 内部晋升优先（80% 管理岗内部晋升）
+- 导师制与技能传承
+
+**案例分享**：
+&gt; 小李，2024年应届生入职，担任初级算法工程师。
+&gt; - 入职第 1 个月：导师 1v1 辅导，快速上手
+&gt; - 入职第 6 个月：参与核心项目，技能提升
+&gt; - 入职第 12 个月：晋升中级工程师
+&gt; - 入职第 18 个月：成为新人导师，传承经验
+&gt; 
+&gt; 小李说：&quot;公司不仅给我工作，更给我成长的路径。&quot;
+
+##### 🏢 维度二：工作环境用心
+
+**我们提供**：
+- 舒适的办公空间（人体工学座椅、双屏显示器）
+- 先进的工作设备（高配电脑、开发工具）
+- 灵活的工作安排（弹性工作制、远程办公）
+- 高效的协作工具（项目管理、沟通平台）
+- 休闲区域（咖啡吧、休息室、健身房）
+
+##### 💰 维度三：生活关怀用心
+
+**我们提供**：
+- 具有竞争力的薪酬（行业中上水平）
+- 完善的福利体系：
   - 五险一金 + 补充商业保险
   - 年度体检（含家属）
   - 健身房会员 / 运动补贴
   - 带薪年假（10-20 天）
   - 弹性工作制 + 远程办公
-<ul>
-<li>家庭关怀：</li>
-</ul>
+- 家庭关怀：
   - 子女教育补贴
   - 父母体检补贴
-  - 家庭日活动</p><p>##### 🤝 维度四：情感连接用心</p><p><strong>我们提供</strong>：
-<ul>
-<li>倾听机制（HR 下午茶、CEO 信箱、匿名意见箱）</li>
-<li>及时认可（"用心时刻"表彰、感谢卡、季度之星）</li>
-<li>团队活动（月度团建、季度活动、年度家庭日）</li>
-<li>关键时刻关怀（生日、转正、晋升、结婚、生育等）</li>
-<li>开放包容的文化（鼓励创新、包容失败）</li>
-</ul><h4>3. "用心养人"的成果</h4><p><strong>对员工</strong>：
-<ul>
-<li>职业成长更快</li>
-<li>工作幸福感更高</li>
-<li>归属感更强</li>
-<li>工作生活更平衡</li>
-</ul><p><strong>对公司</strong>：
-<ul>
-<li>吸引优秀人才</li>
-<li>降低流失率</li>
-<li>提升团队战斗力</li>
-<li>打造雇主品牌</li>
-</ul><hr><h2>第三部分：标语在工作中的应用（25分钟）</h2><h3>🎯 场景一：日常工作</h3><h4>作为员工，如何践行标语？</h4><p><strong>践行"科技养虾"</strong>：
-<ul>
-<li>✅ 保持技术敏感度，关注行业前沿</li>
-<li>✅ 在工作中寻找创新优化的机会</li>
-<li>✅ 积极学习新技术、新工具</li>
-<li>✅ 将科技思维融入工作流程</li>
-</ul><p><strong>践行"用心养人"</strong>：
-<ul>
-<li>✅ 尊重每一位同事</li>
-<li>✅ 主动分享知识与经验</li>
-<li>✅ 关心团队成员的成长与困难</li>
-<li>✅ 营造积极向上的团队氛围</li>
-</ul><h4>作为管理者，如何践行标语？</h4><p><strong>践行"科技养虾"</strong>：
-<ul>
-<li>✅ 鼓励团队创新，提供试错空间</li>
-<li>✅ 投入资源支持技术研发</li>
-<li>✅ 关注行业动态,保持竞争力</li>
-</ul><p><strong>践行"用心养人"</strong>：
-<ul>
-<li>✅ 关注每个人的成长需求</li>
-<li>✅ 定期 1v1 沟通，倾听反馈</li>
-<li>✅ 及时认可与激励</li>
-<li>✅ 以身作则，传递文化</li>
-</ul><hr><h3>🎯 场景二：决策时刻</h3><p><strong>案例 1：招聘决策</strong></p><p>❌ <strong>错误做法</strong>：
-只看技能，忽略文化匹配度</p><p>✅ <strong>正确做法</strong>：
-<ul>
-<li>评估候选人是否认同"用心"理念</li>
-<li>考察是否有学习热情（科技养虾需要持续学习）</li>
-<li>关注团队协作能力（用心对待同事）</li>
-</ul><p><strong>案例 2：项目排期</strong></p><p>❌ <strong>错误做法</strong>：
-压缩时间，要求加班赶工</p><p>✅ <strong>正确做法</strong>：
-<ul>
-<li>合理评估工作量</li>
-<li>优先级排序，聚焦核心</li>
-<li>必要时调整资源，而非压榨员工</li>
-<li>体现"用心养人"（关注员工健康与工作生活平衡）</li>
-</ul><p><strong>案例 3：绩效评估</strong></p><p>❌ <strong>错误做法</strong>：
-只看结果，忽略过程与成长</p><p>✅ <strong>正确做法</strong>：
-<ul>
-<li>关注员工的成长与进步</li>
-<li>提供建设性反馈</li>
-<li>制定发展计划</li>
-<li>体现"用心养人"（关注长期发展）</li>
-</ul><hr><h3>🎯 场景三：冲突处理</h3><p><strong>案例：团队成员之间产生矛盾</strong></p><p>❌ <strong>错误做法</strong>：
-<ul>
-<li>回避问题，让矛盾发酵</li>
-<li>简单粗暴地批评一方</li>
-<li>只关注工作进度，忽略情绪</li>
-</ul><p>✅ <strong>正确做法</strong>：
-<ol>
-<li><strong>倾听</strong>：分别听取双方意见</li>
-<li><strong>理解</strong>：站在对方角度思考</li>
-<li><strong>调解</strong>：寻找共同点，化解矛盾</li>
-<li><strong>跟进</strong>：后续关注，确保问题解决</li>
-<li><strong>体现"用心"</strong>：关注员工情绪与团队和谐</li>
-</ol><hr><h2>第四部分：互动环节（15分钟）</h2><h3>🎮 活动一：标语接龙</h3><p><strong>规则</strong>：
-<ul>
-<li>主持人说"科技养虾"，学员接"用心养人"</li>
-<li>学员说出一个践行标语的具体行为</li>
-<li>例如："我会主动帮助新同事" / "我会持续学习新技术"</li>
-</ul><p><strong>目的</strong>：加深记忆，激发思考</p><hr><h3>🎮 活动二：案例讨论</h3><p><strong>案例</strong>：
-> 小王是技术部门的资深工程师，最近发现新人小张在项目中遇到困难，但小张不好意思求助。小王应该怎么做？</p><p><strong>讨论问题</strong>：
-<ol>
-<li>这个场景与标语哪个部分相关？</li>
-<li>小王有哪些"用心"的做法？</li>
-<li>如果你是小王，你会怎么做？</li>
-</ol><p><strong>参考答案</strong>：
-<ul>
-<li>主动询问小张是否需要帮助（用心关注）</li>
-<li>分享自己的经验与资源（用心培养）</li>
-<li>定期 check-in，持续支持（用心陪伴）</li>
-<li>营造开放的团队氛围，鼓励求助（用心营造环境）</li>
-</ul><hr><h3>🎮 活动三：承诺墙</h3><p><strong>活动形式</strong>：
-<ul>
-<li>每位学员写下一个践行标语的具体承诺</li>
-<li>贴在"承诺墙"上</li>
-<li>拍照留念，后续跟进</li>
-</ul><p><strong>示例承诺</strong>：
-<ul>
-<li>"我承诺每月分享 1 次技术心得"</li>
-<li>"我承诺主动关心团队成员的困难"</li>
-<li>"我承诺持续学习，保持技术领先"</li>
-</ul><hr><h2>第五部分：文化落地行动（5分钟）</h2><h3>📅 接下来会发生什么？</h3><p><strong>短期（1个月内）</strong>：
-<ul>
-<li>✅ 全员完成标语培训</li>
-<li>✅ 办公区域张贴标语海报</li>
-<li>✅ 内部平台更新标语元素</li>
-<li>✅ 启动"用心时刻"表彰机制</li>
-</ul><p><strong>中期（3个月内）</strong>：
-<ul>
-<li>✅ 各部门开展标语主题活动</li>
-<li>✅ 福利政策升级落地</li>
-<li>✅ 培训体系全面启动</li>
-<li>✅ 首次员工满意度调查</li>
-</ul><p><strong>长期（6-12个月）</strong>：
-<ul>
-<li>✅ 标语融入绩效考核</li>
-<li>✅ 打造标杆案例</li>
-<li>✅ 对外传播企业文化</li>
-<li>✅ 成为行业"最佳雇主"</li>
-</ul><hr><h3>🎯 你可以做什么？</h3><p><strong>作为员工</strong>：
-<ol>
-<li>理解并认同标语精神</li>
-<li>在工作中践行标语</li>
-<li>向外界传播公司文化</li>
-<li>提出改进建议</li>
-</ol><p><strong>作为管理者</strong>：
-<ol>
-<li>以身作则，率先垂范</li>
-<li>在团队中传播标语文化</li>
-<li>将标语融入管理决策</li>
-<li>关注团队成员的成长与幸福</li>
-</ol><hr><h2>第六部分：测试与考核（课后）</h2><h3>📝 培训测试题（10题，每题10分）</h3><p><strong>一、选择题（每题10分，共50分）</strong></p><ol>
-<li>公司标语是？</li>
-</ol>
+  - 家庭日活动
+
+##### 🤝 维度四：情感连接用心
+
+**我们提供**：
+- 倾听机制（HR 下午茶、CEO 信箱、匿名意见箱）
+- 及时认可（&quot;用心时刻&quot;表彰、感谢卡、季度之星）
+- 团队活动（月度团建、季度活动、年度家庭日）
+- 关键时刻关怀（生日、转正、晋升、结婚、生育等）
+- 开放包容的文化（鼓励创新、包容失败）
+
+#### 3. &quot;用心养人&quot;的成果
+
+**对员工**：
+- 职业成长更快
+- 工作幸福感更高
+- 归属感更强
+- 工作生活更平衡
+
+**对公司**：
+- 吸引优秀人才
+- 降低流失率
+- 提升团队战斗力
+- 打造雇主品牌
+
+---
+
+## 第三部分：标语在工作中的应用（25分钟）
+
+### 🎯 场景一：日常工作
+
+#### 作为员工，如何践行标语？
+
+**践行&quot;科技养虾&quot;**：
+- ✅ 保持技术敏感度，关注行业前沿
+- ✅ 在工作中寻找创新优化的机会
+- ✅ 积极学习新技术、新工具
+- ✅ 将科技思维融入工作流程
+
+**践行&quot;用心养人&quot;**：
+- ✅ 尊重每一位同事
+- ✅ 主动分享知识与经验
+- ✅ 关心团队成员的成长与困难
+- ✅ 营造积极向上的团队氛围
+
+#### 作为管理者，如何践行标语？
+
+**践行&quot;科技养虾&quot;**：
+- ✅ 鼓励团队创新，提供试错空间
+- ✅ 投入资源支持技术研发
+- ✅ 关注行业动态,保持竞争力
+
+**践行&quot;用心养人&quot;**：
+- ✅ 关注每个人的成长需求
+- ✅ 定期 1v1 沟通，倾听反馈
+- ✅ 及时认可与激励
+- ✅ 以身作则，传递文化
+
+---
+
+### 🎯 场景二：决策时刻
+
+**案例 1：招聘决策**
+
+❌ **错误做法**：
+只看技能，忽略文化匹配度
+
+✅ **正确做法**：
+- 评估候选人是否认同&quot;用心&quot;理念
+- 考察是否有学习热情（科技养虾需要持续学习）
+- 关注团队协作能力（用心对待同事）
+
+**案例 2：项目排期**
+
+❌ **错误做法**：
+压缩时间，要求加班赶工
+
+✅ **正确做法**：
+- 合理评估工作量
+- 优先级排序，聚焦核心
+- 必要时调整资源，而非压榨员工
+- 体现&quot;用心养人&quot;（关注员工健康与工作生活平衡）
+
+**案例 3：绩效评估**
+
+❌ **错误做法**：
+只看结果，忽略过程与成长
+
+✅ **正确做法**：
+- 关注员工的成长与进步
+- 提供建设性反馈
+- 制定发展计划
+- 体现&quot;用心养人&quot;（关注长期发展）
+
+---
+
+### 🎯 场景三：冲突处理
+
+**案例：团队成员之间产生矛盾**
+
+❌ **错误做法**：
+- 回避问题，让矛盾发酵
+- 简单粗暴地批评一方
+- 只关注工作进度，忽略情绪
+
+✅ **正确做法**：
+1. **倾听**：分别听取双方意见
+2. **理解**：站在对方角度思考
+3. **调解**：寻找共同点，化解矛盾
+4. **跟进**：后续关注，确保问题解决
+5. **体现&quot;用心&quot;**：关注员工情绪与团队和谐
+
+---
+
+## 第四部分：互动环节（15分钟）
+
+### 🎮 活动一：标语接龙
+
+**规则**：
+- 主持人说&quot;科技养虾&quot;，学员接&quot;用心养人&quot;
+- 学员说出一个践行标语的具体行为
+- 例如：&quot;我会主动帮助新同事&quot; / &quot;我会持续学习新技术&quot;
+
+**目的**：加深记忆，激发思考
+
+---
+
+### 🎮 活动二：案例讨论
+
+**案例**：
+&gt; 小王是技术部门的资深工程师，最近发现新人小张在项目中遇到困难，但小张不好意思求助。小王应该怎么做？
+
+**讨论问题**：
+1. 这个场景与标语哪个部分相关？
+2. 小王有哪些&quot;用心&quot;的做法？
+3. 如果你是小王，你会怎么做？
+
+**参考答案**：
+- 主动询问小张是否需要帮助（用心关注）
+- 分享自己的经验与资源（用心培养）
+- 定期 check-in，持续支持（用心陪伴）
+- 营造开放的团队氛围，鼓励求助（用心营造环境）
+
+---
+
+### 🎮 活动三：承诺墙
+
+**活动形式**：
+- 每位学员写下一个践行标语的具体承诺
+- 贴在&quot;承诺墙&quot;上
+- 拍照留念，后续跟进
+
+**示例承诺**：
+- &quot;我承诺每月分享 1 次技术心得&quot;
+- &quot;我承诺主动关心团队成员的困难&quot;
+- &quot;我承诺持续学习，保持技术领先&quot;
+
+---
+
+## 第五部分：文化落地行动（5分钟）
+
+### 📅 接下来会发生什么？
+
+**短期（1个月内）**：
+- ✅ 全员完成标语培训
+- ✅ 办公区域张贴标语海报
+- ✅ 内部平台更新标语元素
+- ✅ 启动&quot;用心时刻&quot;表彰机制
+
+**中期（3个月内）**：
+- ✅ 各部门开展标语主题活动
+- ✅ 福利政策升级落地
+- ✅ 培训体系全面启动
+- ✅ 首次员工满意度调查
+
+**长期（6-12个月）**：
+- ✅ 标语融入绩效考核
+- ✅ 打造标杆案例
+- ✅ 对外传播企业文化
+- ✅ 成为行业&quot;最佳雇主&quot;
+
+---
+
+### 🎯 你可以做什么？
+
+**作为员工**：
+1. 理解并认同标语精神
+2. 在工作中践行标语
+3. 向外界传播公司文化
+4. 提出改进建议
+
+**作为管理者**：
+1. 以身作则，率先垂范
+2. 在团队中传播标语文化
+3. 将标语融入管理决策
+4. 关注团队成员的成长与幸福
+
+---
+
+## 第六部分：测试与考核（课后）
+
+### 📝 培训测试题（10题，每题10分）
+
+**一、选择题（每题10分，共50分）**
+
+1. 公司标语是？
    - A. 科技兴农，用心服务
    - B. 科技养虾，用心养人 ✅
    - C. 创新养殖，以人为本
-   - D. 智慧养虾，关爱员工</p><ol>
-<li>"科技养虾"主要体现了公司的？</li>
-</ol>
+   - D. 智慧养虾，关爱员工
+
+2. &quot;科技养虾&quot;主要体现了公司的？
    - A. 业务使命 ✅
    - B. 管理理念
    - C. 福利政策
-   - D. 团队文化</p><ol>
-<li>"用心养人"的"用心"不包括以下哪个维度？</li>
-</ol>
+   - D. 团队文化
+
+3. &quot;用心养人&quot;的&quot;用心&quot;不包括以下哪个维度？
    - A. 职业发展用心
    - B. 工作环境用心
    - C. 生活关怀用心
-   - D. 业绩考核用心 ✅</p><ol>
-<li>公司承诺每年至少多少小时的带薪培训时间？</li>
-</ol>
+   - D. 业绩考核用心 ✅
+
+4. 公司承诺每年至少多少小时的带薪培训时间？
    - A. 20 小时
    - B. 30 小时
    - C. 40 小时 ✅
-   - D. 50 小时</p><ol>
-<li>以下哪项不是"用心养人"的具体体现？</li>
-</ol>
+   - D. 50 小时
+
+5. 以下哪项不是&quot;用心养人&quot;的具体体现？
    - A. 年度体检
    - B. 弹性工作制
    - C. 强制加班 ✅
-   - D. 职业发展规划</p><p><strong>二、判断题（每题10分,共30分）</strong></p><ol>
-<li>标语只是口号，不需要在日常工作中践行。（❌）</li>
-</ol><ol>
-<li>"用心养人"意味着公司会像养虾一样精心培养每一位员工。（✅）</li>
-</ol><ol>
-<li>只有 HR 部门需要践行"用心养人"，其他部门只需关注业务。（❌）</li>
-</ol><p><strong>三、简答题（每题10分，共20分）</strong></p><ol>
-<li>请列举至少 3 个你在日常工作中可以践行"用心养人"的具体行为。</li>
-</ol><p><strong>参考答案</strong>：
-<ul>
-<li>主动帮助新同事适应环境</li>
-<li>定期分享知识与经验</li>
-<li>关心团队成员的困难</li>
-<li>营造积极向上的团队氛围</li>
-<li>及时给予同事认可与鼓励</li>
-</ul>
-（任意 3 个即可）</p><ol>
-<li>作为管理者，在做决策时如何体现"用心养人"？</li>
-</ol><p><strong>参考答案</strong>：
-<ul>
-<li>关注决策对员工的影响</li>
-<li>倾听员工的意见与反馈</li>
-<li>平衡业务目标与员工发展</li>
-<li>提供必要的资源与支持</li>
-<li>关注员工的工作生活平衡</li>
-</ul>
-（答出核心要点即可）</p><hr><h2>附录：学习资源</h2><h3>📚 延伸阅读</h3>
-<ul>
-<li>《标语文化解读手册》（完整版）</li>
-<li>《员工手册 - 标语章节》</li>
-<li>《HR 文化落地方案》</li>
-</ul><h3>🎥 视频资源</h3>
-<ul>
-<li>CEO 标语寄语视频</li>
-<li>员工成长故事系列</li>
-<li>文化活动精彩回顾</li>
-</ul><h3>💬 交流渠道</h3>
-<ul>
-<li>内部论坛"文化建设"板块</li>
-<li>文化建设邮箱：culture@company.com</li>
-<li>HR 咨询：hr@company.com / 内线 8888</li>
-</ul><hr><h2>培训反馈</h2><p>请扫描二维码填写培训反馈问卷，帮助我们持续改进！</p><p><strong>问卷内容</strong>：
-<ol>
-<li>培训内容是否清晰易懂？</li>
-<li>培训形式是否生动有趣？</li>
-<li>你对标语的理解程度？</li>
-<li>你对标语的认同程度？</li>
-<li>你有哪些建议？</li>
-</ol><hr><h2>结语</h2><p><strong>亲爱的同事们</strong>：</p><p>感谢你完成这次培训！</p><p>"科技养虾，用心养人"不只是八个字，更是我们共同的承诺。</p><p>从今天开始，让我们一起：
-<ul>
-<li>用科技改变产业</li>
-<li>用真心对待彼此</li>
-<li>用行动践行文化</li>
-</ul><p>让我们一起，创造一个有温度的科技公司！</p><hr><p><strong>培训结束，文化开始！</strong> 💚</p><hr><h3>📞 联系方式</h3>
-<ul>
-<li><strong>培训负责人</strong>: 人力资源部 - 培训专员</li>
-<li><strong>文化咨询</strong>: culture@company.com</li>
-<li><strong>HR 热线</strong>: 内线 8888</li>
-</ul><hr><p><em>本培训材料将根据反馈持续优化</em>
-</p>
-    </div>
-  </div>
+   - D. 职业发展规划
 
-  <!-- 返回顶部按钮 -->
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
-    ↑
-  </button>
+**二、判断题（每题10分,共30分）**
 
-  <!-- 页脚 -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <div class="mb-4">
-        <div class="inline-flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
-          <span class="text-2xl font-bold">RainBox 数字科技</span>
-        </div>
-      </div>
-      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
-      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
-    </div>
-  </footer>
+6. 标语只是口号，不需要在日常工作中践行。（❌）
+
+7. &quot;用心养人&quot;意味着公司会像养虾一样精心培养每一位员工。（✅）
+
+8. 只有 HR 部门需要践行&quot;用心养人&quot;，其他部门只需关注业务。（❌）
+
+**三、简答题（每题10分，共20分）**
+
+9. 请列举至少 3 个你在日常工作中可以践行&quot;用心养人&quot;的具体行为。
+
+**参考答案**：
+- 主动帮助新同事适应环境
+- 定期分享知识与经验
+- 关心团队成员的困难
+- 营造积极向上的团队氛围
+- 及时给予同事认可与鼓励
+（任意 3 个即可）
+
+10. 作为管理者，在做决策时如何体现&quot;用心养人&quot;？
+
+**参考答案**：
+- 关注决策对员工的影响
+- 倾听员工的意见与反馈
+- 平衡业务目标与员工发展
+- 提供必要的资源与支持
+- 关注员工的工作生活平衡
+（答出核心要点即可）
+
+---
+
+## 附录：学习资源
+
+### 📚 延伸阅读
+- 《标语文化解读手册》（完整版）
+- 《员工手册 - 标语章节》
+- 《HR 文化落地方案》
+
+### 🎥 视频资源
+- CEO 标语寄语视频
+- 员工成长故事系列
+- 文化活动精彩回顾
+
+### 💬 交流渠道
+- 内部论坛&quot;文化建设&quot;板块
+- 文化建设邮箱：culture@company.com
+- HR 咨询：hr@company.com / 内线 8888
+
+---
+
+## 培训反馈
+
+请扫描二维码填写培训反馈问卷，帮助我们持续改进！
+
+**问卷内容**：
+1. 培训内容是否清晰易懂？
+2. 培训形式是否生动有趣？
+3. 你对标语的理解程度？
+4. 你对标语的认同程度？
+5. 你有哪些建议？
+
+---
+
+## 结语
+
+**亲爱的同事们**：
+
+感谢你完成这次培训！
+
+&quot;科技养虾，用心养人&quot;不只是八个字，更是我们共同的承诺。
+
+从今天开始，让我们一起：
+- 用科技改变产业
+- 用真心对待彼此
+- 用行动践行文化
+
+让我们一起，创造一个有温度的科技公司！
+
+---
+
+**培训结束，文化开始！** 💚
+
+---
+
+### 📞 联系方式
+- **培训负责人**: 人力资源部 - 培训专员
+- **文化咨询**: culture@company.com
+- **HR 热线**: 内线 8888
+
+---
+
+*本培训材料将根据反馈持续优化*
+</pre></div></div>
+<footer class="bg-gray-900 text-white py-8 text-center">
+<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
+</footer>
 </body>
 </html>

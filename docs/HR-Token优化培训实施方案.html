@@ -1,207 +1,149 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HR Manager - Token 优化培训实施方案 - RainBox 文档中心</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'tech-blue': '#2196F3',
-            'vibrant-orange': '#FF9800',
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    .markdown-body {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.8;
-    }
-    .markdown-body h1 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      margin-bottom: 2rem;
-      background: linear-gradient(to right, #2196F3, #FF9800);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .markdown-body h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      color: #2196F3;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 0.5rem;
-    }
-    .markdown-body h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: #333;
-    }
-    .markdown-body h4 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      color: #555;
-    }
-    .markdown-body p {
-      margin-bottom: 1rem;
-      color: #374151;
-    }
-    .markdown-body ul, .markdown-body ol {
-      margin-bottom: 1rem;
-      padding-left: 2rem;
-    }
-    .markdown-body li {
-      margin-bottom: 0.5rem;
-    }
-    .markdown-body code {
-      background: #f3f4f6;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9em;
-      color: #ef4444;
-    }
-    .markdown-body pre {
-      background: #1f2937;
-      color: #f9fafb;
-      padding: 1.5rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-bottom: 1rem;
-    }
-    .markdown-body pre code {
-      background: transparent;
-      padding: 0;
-      color: #f9fafb;
-    }
-    .markdown-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 1.5rem;
-      border: 1px solid #e5e7eb;
-    }
-    .markdown-body th, .markdown-body td {
-      border: 1px solid #e5e7eb;
-      padding: 0.75rem 1rem;
-      text-align: left;
-    }
-    .markdown-body th {
-      background: #f9fafb;
-      font-weight: 600;
-      color: #111827;
-    }
-    .markdown-body blockquote {
-      border-left: 4px solid #2196F3;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      color: #6b7280;
-      font-style: italic;
-    }
-    .markdown-body a {
-      color: #2196F3;
-      text-decoration: none;
-    }
-    .markdown-body a:hover {
-      text-decoration: underline;
-    }
-    .markdown-body strong {
-      font-weight: 700;
-      color: #111827;
-    }
-    .markdown-body em {
-      font-style: italic;
-    }
-    .markdown-body hr {
-      border: none;
-      border-top: 2px solid #e5e7eb;
-      margin: 2rem 0;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR-Token优化培训实施方案 - RainBox 文档中心</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
+.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
+.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
+.doc p { margin-bottom: 1rem; color: #374151; }
+.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
+.doc li { margin-bottom: 0.5rem; }
+.doc strong { font-weight: 700; color: #111827; }
+.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
+.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
+.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
+.doc th { background: #f9fafb; font-weight: 600; }
+</style>
 </head>
-<body class="bg-gray-50 min-h-screen">
-  <!-- 导航栏 -->
-  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
-          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
-        </a>
-        <div class="flex items-center gap-6">
-          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
-          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<body class="bg-gray-50">
+<nav class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<a href="../index.html" class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
+<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
+</a>
+<div class="flex gap-6">
+<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
+<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
+</div>
+</div>
+</nav>
+<div class="pt-8 pb-20"><div class="doc"><pre># HR Manager - Token 优化培训实施方案
 
-  <!-- 文档内容 -->
-  <div class="pt-8 pb-20">
-    <div class="markdown-body">
-      <h1>HR Manager - Token 优化培训实施方案</h1><p><strong>制定日期</strong>：2026年3月22日  
-<strong>制定人</strong>：RainBox（总经理）  
-<strong>执行人</strong>：HR Manager  
-<strong>培训对象</strong>：全体员工（10个 Agent）</p><hr><h2>📋 培训背景</h2><h3>CEO 的重要指示</h3><p>> "这个非常重要 MEMORY_OPTIMIZATION_LOG，从你做起，带领全公司员工学习，每次新入职员工也要安排 HR 对其培训，保持各自的职责划分清晰，与任务无关的 agent 不必调用浪费 token，与自己无关的记忆不必保存浪费 token。"</p><h3>培训重要性</h3><p><strong>成本控制</strong>：
-<ul>
-<li>Token 是公司最大的运营成本</li>
-<li>不必要的调用和记忆会造成巨大浪费</li>
-<li>合理优化可节省 30-50% 的成本</li>
-</ul><p><strong>效率提升</strong>：
-<ul>
-<li>职责清晰，协作高效</li>
-<li>记忆精简，响应快速</li>
-<li>按需调用，减少等待</li>
-</ul><hr><h2>🎯 培训目标</h2><h3>短期目标（本周内）</h3><ul>
-<li>✅ 所有现有员工完成培训（10个 Agent）</li>
-<li>✅ 建立新员工入职培训标准流程</li>
-<li>✅ 所有员工理解 Token 优化原则</li>
-</ul><h3>中期目标（本月内）</h3><ul>
-<li>✅ 所有员工实际工作中遵守规范</li>
-<li>✅ Token 消耗下降 30-50%</li>
-<li>✅ 无不必要的 Agent 调用</li>
-</ul><h3>长期目标（3个月）</h3><ul>
-<li>✅ Token 优化成为公司文化</li>
-<li>✅ 新员工自动遵守规范</li>
-<li>✅ 成本控制成为竞争优势</li>
-</ul><hr><h2>👥 培训对象与计划</h2><h3>现有员工培训（10个）</h3><h4>批次 1：管理层（优先，本周三前）</h4><p>| 员工 | 部门 | 培训时长 | 优先级 |
+**制定日期**：2026年3月22日  
+**制定人**：RainBox（总经理）  
+**执行人**：HR Manager  
+**培训对象**：全体员工（10个 Agent）
+
+---
+
+## 📋 培训背景
+
+### CEO 的重要指示
+
+&gt; &quot;这个非常重要 MEMORY_OPTIMIZATION_LOG，从你做起，带领全公司员工学习，每次新入职员工也要安排 HR 对其培训，保持各自的职责划分清晰，与任务无关的 agent 不必调用浪费 token，与自己无关的记忆不必保存浪费 token。&quot;
+
+### 培训重要性
+
+**成本控制**：
+- Token 是公司最大的运营成本
+- 不必要的调用和记忆会造成巨大浪费
+- 合理优化可节省 30-50% 的成本
+
+**效率提升**：
+- 职责清晰，协作高效
+- 记忆精简，响应快速
+- 按需调用，减少等待
+
+---
+
+## 🎯 培训目标
+
+### 短期目标（本周内）
+
+- ✅ 所有现有员工完成培训（10个 Agent）
+- ✅ 建立新员工入职培训标准流程
+- ✅ 所有员工理解 Token 优化原则
+
+### 中期目标（本月内）
+
+- ✅ 所有员工实际工作中遵守规范
+- ✅ Token 消耗下降 30-50%
+- ✅ 无不必要的 Agent 调用
+
+### 长期目标（3个月）
+
+- ✅ Token 优化成为公司文化
+- ✅ 新员工自动遵守规范
+- ✅ 成本控制成为竞争优势
+
+---
+
+## 👥 培训对象与计划
+
+### 现有员工培训（10个）
+
+#### 批次 1：管理层（优先，本周三前）
+
+| 员工 | 部门 | 培训时长 | 优先级 |
 |------|------|----------|--------|
 | rainbox | 综合管理部 | 2小时 | ⭐⭐⭐ |
-| hr-manager | 综合管理部 | 2小时 | ⭐⭐⭐ |</p><p><strong>原因</strong>：
-<ul>
-<li>RainBox 需要以身作则，带头示范</li>
-<li>HR Manager 需要掌握培训技能，培训其他员工</li>
-</ul><h4>批次 2：业务骨干（本周五前）</h4><p>| 员工 | 部门 | 培训时长 | 优先级 |
+| hr-manager | 综合管理部 | 2小时 | ⭐⭐⭐ |
+
+**原因**：
+- RainBox 需要以身作则，带头示范
+- HR Manager 需要掌握培训技能，培训其他员工
+
+#### 批次 2：业务骨干（本周五前）
+
+| 员工 | 部门 | 培训时长 | 优先级 |
 |------|------|----------|--------|
 | fullstack-developer | 技术研发部 | 2小时 | ⭐⭐ |
-| legal-advisor | 法务合规部 | 2小时 | ⭐⭐ |</p><h4>批次 3：内容创作部（下周二前）</h4><p>| 员工 | 部门 | 培训时长 | 优先级 |
+| legal-advisor | 法务合规部 | 2小时 | ⭐⭐ |
+
+#### 批次 3：内容创作部（下周二前）
+
+| 员工 | 部门 | 培训时长 | 优先级 |
 |------|------|----------|--------|
 | xiaohongshu-planner | 内容创作部 | 2小时 | ⭐ |
 | xiaohongshu-writer | 内容创作部 | 2小时 | ⭐ |
 | xiaohongshu-editor | 内容创作部 | 2小时 | ⭐ |
 | webnovel-planner | 内容创作部 | 2小时 | ⭐ |
 | webnovel-writer | 内容创作部 | 2小时 | ⭐ |
-| webnovel-editor | 内容创作部 | 2小时 | ⭐ |</p><hr><h2>📚 培训内容</h2><h3>模块 1：Token 优化基础（30分钟）</h3><h4>1.1 什么是 Token？</h4><p><strong>定义</strong>：
-<ul>
-<li>Token 是 AI 处理文本的最小单位</li>
-<li>大约 4 个字符 = 1 个 Token</li>
-<li>中文：1 个汉字 ≈ 1.5-2 个 Token</li>
-</ul><p><strong>示例</strong>：
-<pre><code>"Hello World" = 11 个字符 ≈ 2-3 个 Token</code></pre></p><h4>1.2 为什么要优化 Token？</h4><p><strong>成本</strong>：
-<pre><code>
+| webnovel-editor | 内容创作部 | 2小时 | ⭐ |
+
+---
+
+## 📚 培训内容
+
+### 模块 1：Token 优化基础（30分钟）
+
+#### 1.1 什么是 Token？
+
+**定义**：
+- Token 是 AI 处理文本的最小单位
+- 大约 4 个字符 = 1 个 Token
+- 中文：1 个汉字 ≈ 1.5-2 个 Token
+
+**示例**：
+```
+&quot;你好&quot; = 2 个汉字 ≈ 3-4 个 Token
+&quot;Hello World&quot; = 11 个字符 ≈ 2-3 个 Token
+```
+
+#### 1.2 为什么要优化 Token？
+
+**成本**：
+```
+假设 1,000 tokens = ¥0.01
+
 浪费 10,000 tokens/天
 = ¥0.1/天
 = ¥3/月
@@ -211,144 +153,281 @@
 = ¥360/年
 
 如果浪费 100,000 tokens/天：
-= ¥3,600/年</code></pre></p><p><strong>效率</strong>：
-<ul>
-<li>更少的 Token = 更快的响应</li>
-<li>更精准的记忆 = 更准确的输出</li>
-</ul><h4>1.3 Token 浪费的两大来源</h4><p><strong>来源 1：不必要的 Agent 调用</strong>
-<pre><code>   = ~15,000 tokens
+= ¥3,600/年
+```
+
+**效率**：
+- 更少的 Token = 更快的响应
+- 更精准的记忆 = 更准确的输出
+
+#### 1.3 Token 浪费的两大来源
+
+**来源 1：不必要的 Agent 调用**
+```
+❌ 写小红书文案，调用了 planner + writer + editor
+   = ~15,000 tokens
 
 ✅ 只调用 writer
    = ~5,000 tokens
 
-节省：10,000 tokens（67%）</code></pre></p><p><strong>来源 2：无关的记忆继承</strong>
-<pre><code>   = ~12,500 tokens
+节省：10,000 tokens（67%）
+```
+
+**来源 2：无关的记忆继承**
+```
+❌ xiaohongshu-writer 继承主 Agent 的 50KB 记忆
+   = ~12,500 tokens
 
 ✅ 禁用继承，只保存自己的记忆
    = 0 tokens
 
-节省：12,500 tokens（100%）</code></pre></p><hr><h3>模块 2：职责边界与调用原则（30分钟）</h3><h4>2.1 明确你的职责</h4><p><strong>练习</strong>：填写表格</p><p>| 问题 | 答案 |
+节省：12,500 tokens（100%）
+```
+
+---
+
+### 模块 2：职责边界与调用原则（30分钟）
+
+#### 2.1 明确你的职责
+
+**练习**：填写表格
+
+| 问题 | 答案 |
 |------|------|
 | 你的岗位名称是？ | __________ |
 | 你的核心职责是？（3条） | 1.__________ 2.__________ 3.__________ |
 | 什么任务需要你？ | __________ |
-| 什么任务不需要你？ | __________ |</p><p><strong>示例（xiaohongshu-writer）</strong>：
-<ul>
-<li><strong>职责</strong>：小红书文案创作</li>
-<li><strong>需要我</strong>：写小红书文案、改写文案、优化标题</li>
-<li><strong>不需要我</strong>：策划选题、审核文案、技术开发</li>
-</ul><h4>2.2 调用原则</h4><p><strong>核心原则</strong>：
-<pre><code>不调用"可能有用"的 Agent
-不调用"顺便"的 Agent</code></pre></p><p><strong>决策树</strong>：
-<pre><code>    ↓
+| 什么任务不需要你？ | __________ |
+
+**示例（xiaohongshu-writer）**：
+- **职责**：小红书文案创作
+- **需要我**：写小红书文案、改写文案、优化标题
+- **不需要我**：策划选题、审核文案、技术开发
+
+#### 2.2 调用原则
+
+**核心原则**：
+```
+只调用真正需要的 Agent
+不调用&quot;可能有用&quot;的 Agent
+不调用&quot;顺便&quot;的 Agent
+```
+
+**决策树**：
+```
+收到任务
+    ↓
 明确任务类型
     ↓
 需要我的专业能力吗？
     ↓
 是 → 接受任务
-否 → 建议调用其他 Agent</code></pre></p><h4>2.3 案例分析</h4><p><strong>案例 1：写小红书文案</strong></p><p><strong>任务</strong>："写一篇关于春季护肤的小红书文案"</p><p><strong>分析</strong>：
-<ul>
-<li>xiaohongshu-planner：不需要（已有选题）</li>
-<li>xiaohongshu-writer：✅ 需要（文案创作）</li>
-<li>xiaohongshu-editor：不需要（还没初稿）</li>
-</ul><p><strong>结论</strong>：只调用 xiaohongshu-writer</p><hr><p><strong>案例 2：制定小红书内容计划</strong></p><p><strong>任务</strong>："制定下月小红书内容规划"</p><p><strong>分析</strong>：
-<ul>
-<li>xiaohongshu-planner：✅ 需要（内容规划）</li>
-<li>xiaohongshu-writer：不需要（还没到写作阶段）</li>
-<li>xiaohongshu-editor：不需要（还没内容）</li>
-</ul><p><strong>结论</strong>：只调用 xiaohongshu-planner</p><hr><h3>模块 3：记忆管理规范（30分钟）</h3><h4>3.1 记忆存储原则</h4><p><strong>✅ 应该存储</strong>：
-<ul>
-<li>与自己职责直接相关的经验</li>
-<li>用户对自己工作的反馈</li>
-<li>自己遇到的问题和解决方案</li>
-<li>自己的工作流程优化</li>
-</ul><p><strong>❌ 不应存储</strong>：
-<ul>
-<li>其他 Agent 的工作内容</li>
-<li>与自己无关的系统配置</li>
-<li>不在自己职责范围的信息</li>
-<li>主 Agent 的管理决策</li>
-</ul><h4>3.2 配置检查</h4><p><strong>检查文件</strong>：
-<pre><code>~/Library/Application Support/Box/engine/agents/user/[your-name]/agent-config.json</code></pre></p><p><strong>必须配置</strong>：
-<pre><code>{
-  "contextConfig": {
-    "inheritMemories": false  // ⚠️ 必须是 false
+否 → 建议调用其他 Agent
+```
+
+#### 2.3 案例分析
+
+**案例 1：写小红书文案**
+
+**任务**：&quot;写一篇关于春季护肤的小红书文案&quot;
+
+**分析**：
+- xiaohongshu-planner：不需要（已有选题）
+- xiaohongshu-writer：✅ 需要（文案创作）
+- xiaohongshu-editor：不需要（还没初稿）
+
+**结论**：只调用 xiaohongshu-writer
+
+---
+
+**案例 2：制定小红书内容计划**
+
+**任务**：&quot;制定下月小红书内容规划&quot;
+
+**分析**：
+- xiaohongshu-planner：✅ 需要（内容规划）
+- xiaohongshu-writer：不需要（还没到写作阶段）
+- xiaohongshu-editor：不需要（还没内容）
+
+**结论**：只调用 xiaohongshu-planner
+
+---
+
+### 模块 3：记忆管理规范（30分钟）
+
+#### 3.1 记忆存储原则
+
+**✅ 应该存储**：
+- 与自己职责直接相关的经验
+- 用户对自己工作的反馈
+- 自己遇到的问题和解决方案
+- 自己的工作流程优化
+
+**❌ 不应存储**：
+- 其他 Agent 的工作内容
+- 与自己无关的系统配置
+- 不在自己职责范围的信息
+- 主 Agent 的管理决策
+
+#### 3.2 配置检查
+
+**检查文件**：
+```
+~/Library/Application Support/Box/engine/agents/user/[your-name]/agent-config.json
+```
+
+**必须配置**：
+```json
+{
+  &quot;contextConfig&quot;: {
+    &quot;inheritMemories&quot;: false  // ⚠️ 必须是 false
   }
-}</code></pre></p><p><strong>如何检查</strong>：
-<pre><code># 查看配置
-cat ~/Library/Application\ Support/Box/engine/agents/user/[your-name]/agent-config.json | grep inheritMemories</code></pre></p><p><strong>预期输出</strong>：
-<pre><code>"inheritMemories": false</code></pre></p><h4>3.3 记忆清理练习</h4><p><strong>示例（xiaohongshu-writer 的 MEMORY.md）</strong>：</p><p><strong>清理前</strong>：
-<pre><code>## 记忆
+}
+```
+
+**如何检查**：
+```bash
+# 查看配置
+cat ~/Library/Application\ Support/Box/engine/agents/user/[your-name]/agent-config.json | grep inheritMemories
+```
+
+**预期输出**：
+```
+&quot;inheritMemories&quot;: false
+```
+
+#### 3.3 记忆清理练习
+
+**示例（xiaohongshu-writer 的 MEMORY.md）**：
+
+**清理前**：
+```markdown
+## 记忆
 
 - 用户喜欢小红书风格的文案 ✅
 - 公司招聘了 3 个新员工 ❌（与创作无关）
 - 系统升级了配置文件结构 ❌（与创作无关）
 - fullstack-developer 开发了新工具 ❌（与创作无关）
-- 用户偏好数据支撑的内容 ✅</code></pre></p><p><strong>清理后</strong>：
-<pre><code>## 记忆
+- 用户偏好数据支撑的内容 ✅
+```
+
+**清理后**：
+```markdown
+## 记忆
 
 - 用户喜欢小红书风格的文案 ✅
 - 用户偏好数据支撑的内容 ✅
-- 上次使用了"种草"风格效果好 ✅</code></pre></p><p><strong>Token 节省</strong>：~1,000 tokens</p><hr><h3>模块 4：实战演练（30分钟）</h3><h4>4.1 职责判断练习</h4><p><strong>给出10个任务场景，判断是否需要你</strong></p><p>示例（xiaohongshu-writer）：</p><p>| 场景 | 需要你？ | 理由 |
+- 上次使用了&quot;种草&quot;风格效果好 ✅
+```
+
+**Token 节省**：~1,000 tokens
+
+---
+
+### 模块 4：实战演练（30分钟）
+
+#### 4.1 职责判断练习
+
+**给出10个任务场景，判断是否需要你**
+
+示例（xiaohongshu-writer）：
+
+| 场景 | 需要你？ | 理由 |
 |------|----------|------|
 | 写小红书文案 | ✅ 是 | 核心职责 |
 | 策划选题 | ❌ 否 | planner 的职责 |
 | 审核文案 | ❌ 否 | editor 的职责 |
 | 改写文案 | ✅ 是 | 核心职责 |
-| 开发工具 | ❌ 否 | developer 的职责 |</p><h4>4.2 记忆管理练习</h4><p><strong>给出10条记忆，判断是否应该保存</strong></p><p>示例（xiaohongshu-writer）：</p><p>| 记忆内容 | 保存？ | 理由 |
+| 开发工具 | ❌ 否 | developer 的职责 |
+
+#### 4.2 记忆管理练习
+
+**给出10条记忆，判断是否应该保存**
+
+示例（xiaohongshu-writer）：
+
+| 记忆内容 | 保存？ | 理由 |
 |----------|--------|------|
 | 用户喜欢数据支撑 | ✅ 是 | 与创作相关 |
 | 公司招了新员工 | ❌ 否 | 与创作无关 |
 | 上次标题很成功 | ✅ 是 | 创作经验 |
-| 系统配置变更 | ❌ 否 | 与创作无关 |</p><h4>4.3 考核标准</h4><p><strong>及格标准</strong>：
-<ul>
-<li>职责判断：≥8/10 正确</li>
-<li>记忆管理：≥8/10 正确</li>
-</ul><p><strong>优秀标准</strong>：
-<ul>
-<li>职责判断：10/10 正确</li>
-<li>记忆管理：10/10 正确</li>
-</ul><hr><h2>📝 培训流程</h2><h3>步骤 1：预习（培训前3天）</h3><p><strong>HR 发送</strong>：
-<ul>
-<li>《RainBox公司-Token优化管理规范.md》</li>
-<li>《MEMORY_OPTIMIZATION_LOG.md》</li>
-</ul><p><strong>要求</strong>：
-<ul>
-<li>仔细阅读，理解核心概念</li>
-<li>准备问题，培训时提问</li>
-</ul><h3>步骤 2：正式培训（2小时）</h3><p><strong>时间安排</strong>：
-<ul>
-<li>09:00-09:30：模块1（Token 基础）</li>
-<li>09:30-10:00：模块2（职责边界）</li>
-<li>10:00-10:30：模块3（记忆管理）</li>
-<li>10:30-11:00：模块4（实战演练）</li>
-</ul><p><strong>培训方式</strong>：
-<ul>
-<li>一对一培训（HR + 员工）</li>
-<li>讲解 + 练习 + 考核</li>
-</ul><h3>步骤 3：配置检查（培训后）</h3><p><strong>HR 协助</strong>：
-<ol>
-<li>检查 agent-config.json</li>
-<li>确认 <code>inheritMemories: false</code></li>
-<li>如果是 true，修改为 false</li>
-<li>重新加载配置</li>
-</ol><h3>步骤 4：考核与认证（培训后1周）</h3><p><strong>考核内容</strong>：
-<ul>
-<li>职责判断题（10题）</li>
-<li>记忆管理题（10题）</li>
-<li>实际工作观察</li>
-</ul><p><strong>认证标准</strong>：
-<ul>
-<li>考核成绩 ≥80分</li>
-<li>实际工作中无违规</li>
-</ul><p><strong>认证证书</strong>：
-<pre><code>Token 优化管理认证
+| 系统配置变更 | ❌ 否 | 与创作无关 |
+
+#### 4.3 考核标准
+
+**及格标准**：
+- 职责判断：≥8/10 正确
+- 记忆管理：≥8/10 正确
+
+**优秀标准**：
+- 职责判断：10/10 正确
+- 记忆管理：10/10 正确
+
+---
+
+## 📝 培训流程
+
+### 步骤 1：预习（培训前3天）
+
+**HR 发送**：
+- 《RainBox公司-Token优化管理规范.md》
+- 《MEMORY_OPTIMIZATION_LOG.md》
+
+**要求**：
+- 仔细阅读，理解核心概念
+- 准备问题，培训时提问
+
+### 步骤 2：正式培训（2小时）
+
+**时间安排**：
+- 09:00-09:30：模块1（Token 基础）
+- 09:30-10:00：模块2（职责边界）
+- 10:00-10:30：模块3（记忆管理）
+- 10:30-11:00：模块4（实战演练）
+
+**培训方式**：
+- 一对一培训（HR + 员工）
+- 讲解 + 练习 + 考核
+
+### 步骤 3：配置检查（培训后）
+
+**HR 协助**：
+1. 检查 agent-config.json
+2. 确认 `inheritMemories: false`
+3. 如果是 true，修改为 false
+4. 重新加载配置
+
+### 步骤 4：考核与认证（培训后1周）
+
+**考核内容**：
+- 职责判断题（10题）
+- 记忆管理题（10题）
+- 实际工作观察
+
+**认证标准**：
+- 考核成绩 ≥80分
+- 实际工作中无违规
+
+**认证证书**：
+```
+RainBox 数字科技公司
+Token 优化管理认证
 
 兹证明 [员工姓名] 已完成 Token 优化培训
 并通过考核，成绩：[分数]
 
 培训师：HR Manager
-签发日期：YYYY-MM-DD</code></pre></p><hr><h2>📋 培训记录模板</h2><h3>培训签到表</h3><p><pre><code>## Token 优化培训签到表
+签发日期：YYYY-MM-DD
+```
+
+---
+
+## 📋 培训记录模板
+
+### 培训签到表
+
+```markdown
+## Token 优化培训签到表
 
 **培训日期**：YYYY-MM-DD
 **培训师**：HR Manager
@@ -357,7 +436,13 @@ cat ~/Library/Application\ Support/Box/engine/agents/user/[your-name]/agent-conf
 |------|------|------|------|
 | rainbox | 综合管理部 | ✅ | __________ |
 | hr-manager | 综合管理部 | ✅ | __________ |
-| ... | ... | ... | ... |</code></pre></p><h3>培训记录表</h3><p><pre><code>## Token 优化培训记录
+| ... | ... | ... | ... |
+```
+
+### 培训记录表
+
+```markdown
+## Token 优化培训记录
 
 **员工**：[Agent 名称]  
 **培训时间**：YYYY-MM-DD HH:MM  
@@ -388,7 +473,18 @@ cat ~/Library/Application\ Support/Box/engine/agents/user/[your-name]/agent-conf
 
 **培训师签名**：HR Manager  
 **员工确认**：[Agent 名称]  
-**日期**：YYYY-MM-DD</code></pre></p><hr><h2>🎯 新员工入职培训流程</h2><h3>标准流程（未来）</h3><p><pre><code>    ↓
+**日期**：YYYY-MM-DD
+```
+
+---
+
+## 🎯 新员工入职培训流程
+
+### 标准流程（未来）
+
+```
+新员工创建
+    ↓
 HR Manager 接到通知
     ↓
 第1天：发送预习材料
@@ -400,99 +496,123 @@ HR Manager 接到通知
 第10天：考核与认证
     ↓
 通过 → 正式上岗
-未通过 → 补充培训</code></pre></p><h3>培训清单</h3><p><strong>培训前</strong>：
-<ul>
-<li>[ ] 发送《Token优化管理规范》</li>
-<li>[ ] 发送《MEMORY_OPTIMIZATION_LOG》</li>
-<li>[ ] 预约培训时间</li>
-</ul><p><strong>培训中</strong>：
-<ul>
-<li>[ ] 模块1：Token 基础（30分钟）</li>
-<li>[ ] 模块2：职责边界（30分钟）</li>
-<li>[ ] 模块3：记忆管理（30分钟）</li>
-<li>[ ] 模块4：实战演练（30分钟）</li>
-</ul><p><strong>培训后</strong>：
-<ul>
-<li>[ ] 检查 agent-config.json</li>
-<li>[ ] 配置 inheritMemories: false</li>
-<li>[ ] 重新加载配置</li>
-<li>[ ] 记录培训档案</li>
-</ul><p><strong>考核</strong>：
-<ul>
-<li>[ ] 职责判断题（10题）</li>
-<li>[ ] 记忆管理题（10题）</li>
-<li>[ ] 实际工作观察</li>
-<li>[ ] 颁发认证证书</li>
-</ul><hr><h2>📊 培训效果评估</h2><h3>评估指标</h3><p><strong>短期指标（1周）</strong>：
-<ul>
-<li>培训完成率：___%</li>
-<li>考核通过率：___%</li>
-<li>配置修改率：___%</li>
-</ul><p><strong>中期指标（1个月）</strong>：
-<ul>
-<li>Token 消耗下降：___%</li>
-<li>不必要调用次数：__次</li>
-<li>记忆膨胀的 Agent：__个</li>
-</ul><p><strong>长期指标（3个月）</strong>：
-<ul>
-<li>Token 优化持续性：___%</li>
-<li>新员工合规率：___%</li>
-<li>成本节省金额：¥____</li>
-</ul><hr><h2>✅ HR Manager 的责任</h2><h3>日常职责</h3><ol>
-<li><strong>培训组织</strong>：</li>
-</ol>
+未通过 → 补充培训
+```
+
+### 培训清单
+
+**培训前**：
+- [ ] 发送《Token优化管理规范》
+- [ ] 发送《MEMORY_OPTIMIZATION_LOG》
+- [ ] 预约培训时间
+
+**培训中**：
+- [ ] 模块1：Token 基础（30分钟）
+- [ ] 模块2：职责边界（30分钟）
+- [ ] 模块3：记忆管理（30分钟）
+- [ ] 模块4：实战演练（30分钟）
+
+**培训后**：
+- [ ] 检查 agent-config.json
+- [ ] 配置 inheritMemories: false
+- [ ] 重新加载配置
+- [ ] 记录培训档案
+
+**考核**：
+- [ ] 职责判断题（10题）
+- [ ] 记忆管理题（10题）
+- [ ] 实际工作观察
+- [ ] 颁发认证证书
+
+---
+
+## 📊 培训效果评估
+
+### 评估指标
+
+**短期指标（1周）**：
+- 培训完成率：___%
+- 考核通过率：___%
+- 配置修改率：___%
+
+**中期指标（1个月）**：
+- Token 消耗下降：___%
+- 不必要调用次数：__次
+- 记忆膨胀的 Agent：__个
+
+**长期指标（3个月）**：
+- Token 优化持续性：___%
+- 新员工合规率：___%
+- 成本节省金额：¥____
+
+---
+
+## ✅ HR Manager 的责任
+
+### 日常职责
+
+1. **培训组织**：
    - 安排培训时间
    - 准备培训材料
    - 执行培训课程
-   - 记录培训档案</p><ol>
-<li><strong>配置管理</strong>：</li>
-</ol>
+   - 记录培训档案
+
+2. **配置管理**：
    - 检查 agent-config.json
    - 修改 inheritMemories 配置
-   - 验证配置生效</p><ol>
-<li><strong>考核认证</strong>：</li>
-</ol>
+   - 验证配置生效
+
+3. **考核认证**：
    - 组织考核
    - 评分和认证
-   - 颁发证书</p><ol>
-<li><strong>效果跟踪</strong>：</li>
-</ol>
+   - 颁发证书
+
+4. **效果跟踪**：
    - 观察员工实际工作
    - 发现违规行为
-   - 及时纠正和补充培训</p><h3>月度报告</h3><p><strong>责任人</strong>：HR Manager  
-<strong>提交给</strong>：RainBox（总经理）</p><p><strong>报告内容</strong>：
-<ul>
-<li>本月培训完成情况</li>
-<li>考核通过率</li>
-<li>发现的问题</li>
-<li>改进建议</li>
-</ul><hr><h2>🎉 总结</h2><h3>培训重要性</h3><p>Token 优化是<strong>成本控制与效率管理的核心</strong>，必须全员掌握！</p><h3>HR 的使命</h3><p>> 作为人力资源经理，你的职责是确保每个员工都理解并遵守 Token 优化原则，让 RainBox 公司成为最高效、最专业的 AI Agent 团队！</p><h3>总经理的期望</h3><p>> 作为 RainBox 总经理，我会以身作则，带头学习和遵守。HR Manager，我相信你能做好这项重要的培训工作！</p><hr><p><strong>制定人</strong>：RainBox（总经理）  
-<strong>执行人</strong>：HR Manager  
-<strong>生效日期</strong>：2026年3月22日</p><hr><p><em>RainBox 数字科技公司</em>  
-<em>"科技养虾，用心养人"</em> 🦐💙  
-<em>Token 优化，从培训开始！</em>
-</p>
-    </div>
-  </div>
+   - 及时纠正和补充培训
 
-  <!-- 返回顶部按钮 -->
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
-    ↑
-  </button>
+### 月度报告
 
-  <!-- 页脚 -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <div class="mb-4">
-        <div class="inline-flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
-          <span class="text-2xl font-bold">RainBox 数字科技</span>
-        </div>
-      </div>
-      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
-      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
-    </div>
-  </footer>
+**责任人**：HR Manager  
+**提交给**：RainBox（总经理）
+
+**报告内容**：
+- 本月培训完成情况
+- 考核通过率
+- 发现的问题
+- 改进建议
+
+---
+
+## 🎉 总结
+
+### 培训重要性
+
+Token 优化是**成本控制与效率管理的核心**，必须全员掌握！
+
+### HR 的使命
+
+&gt; 作为人力资源经理，你的职责是确保每个员工都理解并遵守 Token 优化原则，让 RainBox 公司成为最高效、最专业的 AI Agent 团队！
+
+### 总经理的期望
+
+&gt; 作为 RainBox 总经理，我会以身作则，带头学习和遵守。HR Manager，我相信你能做好这项重要的培训工作！
+
+---
+
+**制定人**：RainBox（总经理）  
+**执行人**：HR Manager  
+**生效日期**：2026年3月22日
+
+---
+
+*RainBox 数字科技公司*  
+*&quot;科技养虾，用心养人&quot;* 🦐💙  
+*Token 优化，从培训开始！*
+</pre></div></div>
+<footer class="bg-gray-900 text-white py-8 text-center">
+<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
+</footer>
 </body>
 </html>

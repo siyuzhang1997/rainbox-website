@@ -1,160 +1,53 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Level 3 架构协作流程图 - RainBox 文档中心</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'tech-blue': '#2196F3',
-            'vibrant-orange': '#FF9800',
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    .markdown-body {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.8;
-    }
-    .markdown-body h1 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      margin-bottom: 2rem;
-      background: linear-gradient(to right, #2196F3, #FF9800);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .markdown-body h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      color: #2196F3;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 0.5rem;
-    }
-    .markdown-body h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: #333;
-    }
-    .markdown-body h4 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      color: #555;
-    }
-    .markdown-body p {
-      margin-bottom: 1rem;
-      color: #374151;
-    }
-    .markdown-body ul, .markdown-body ol {
-      margin-bottom: 1rem;
-      padding-left: 2rem;
-    }
-    .markdown-body li {
-      margin-bottom: 0.5rem;
-    }
-    .markdown-body code {
-      background: #f3f4f6;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9em;
-      color: #ef4444;
-    }
-    .markdown-body pre {
-      background: #1f2937;
-      color: #f9fafb;
-      padding: 1.5rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-bottom: 1rem;
-    }
-    .markdown-body pre code {
-      background: transparent;
-      padding: 0;
-      color: #f9fafb;
-    }
-    .markdown-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 1.5rem;
-      border: 1px solid #e5e7eb;
-    }
-    .markdown-body th, .markdown-body td {
-      border: 1px solid #e5e7eb;
-      padding: 0.75rem 1rem;
-      text-align: left;
-    }
-    .markdown-body th {
-      background: #f9fafb;
-      font-weight: 600;
-      color: #111827;
-    }
-    .markdown-body blockquote {
-      border-left: 4px solid #2196F3;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      color: #6b7280;
-      font-style: italic;
-    }
-    .markdown-body a {
-      color: #2196F3;
-      text-decoration: none;
-    }
-    .markdown-body a:hover {
-      text-decoration: underline;
-    }
-    .markdown-body strong {
-      font-weight: 700;
-      color: #111827;
-    }
-    .markdown-body em {
-      font-style: italic;
-    }
-    .markdown-body hr {
-      border: none;
-      border-top: 2px solid #e5e7eb;
-      margin: 2rem 0;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>06_协作流程图 - RainBox 文档中心</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
+.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
+.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
+.doc p { margin-bottom: 1rem; color: #374151; }
+.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
+.doc li { margin-bottom: 0.5rem; }
+.doc strong { font-weight: 700; color: #111827; }
+.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
+.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
+.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
+.doc th { background: #f9fafb; font-weight: 600; }
+</style>
 </head>
-<body class="bg-gray-50 min-h-screen">
-  <!-- 导航栏 -->
-  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
-          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
-        </a>
-        <div class="flex items-center gap-6">
-          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
-          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<body class="bg-gray-50">
+<nav class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<a href="../index.html" class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
+<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
+</a>
+<div class="flex gap-6">
+<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
+<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
+</div>
+</div>
+</nav>
+<div class="pt-8 pb-20"><div class="doc"><pre># Level 3 架构协作流程图
 
-  <!-- 文档内容 -->
-  <div class="pt-8 pb-20">
-    <div class="markdown-body">
-      <h1>Level 3 架构协作流程图</h1><p><strong>项目名称</strong>：内容创作部门 Level 3 架构升级  
-<strong>创建日期</strong>：2026-03-22  
-<strong>创建者</strong>：HR Manager（招贤）</p><hr><h2>🎯 整体架构图</h2><p><pre><code>│                    rainsyzhang（老板）                        │
+**项目名称**：内容创作部门 Level 3 架构升级  
+**创建日期**：2026-03-22  
+**创建者**：HR Manager（招贤）
+
+---
+
+## 🎯 整体架构图
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    rainsyzhang（老板）                        │
 │                  所有任务的发起者和最终受益者                  │
 └──────────────────────────┬──────────────────────────────────┘
                            │
@@ -176,8 +69,19 @@
 ┌───────────────────┐              ┌───────────────────┐
 │  小红书业务线      │              │  网文业务线        │
 │  (3 人 + 编排器)   │              │  (3 人 + 编排器)   │
-└───────────────────┘              └───────────────────┘</code></pre></p><hr><h2>📋 小红书业务线协作流程</h2><h3>完整流程图</h3><p><pre><code>│                    主 Agent 委托任务                          │
-│              "写一篇关于 XX 的小红书文案"                      │
+└───────────────────┘              └───────────────────┘
+```
+
+---
+
+## 📋 小红书业务线协作流程
+
+### 完整流程图
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    主 Agent 委托任务                          │
+│              &quot;写一篇关于 XX 的小红书文案&quot;                      │
 └──────────────────────────┬──────────────────────────────────┘
                            │
                            ↓
@@ -343,7 +247,7 @@
                   ↓
 ┌─────────────────────────────────────────────────────────────┐
 │                    编排器整合结果                             │
-│  • 标记为"已完成"                                             │
+│  • 标记为&quot;已完成&quot;                                             │
 │  • 整合最终版本                                               │
 │  • 返回给主 Agent                                             │
 └──────────────────────────┬──────────────────────────────────┘
@@ -355,8 +259,19 @@
 │  • 整合结果                                                   │
 │  • 质量把控                                                   │
 │  • 交付最终版本                                               │
-└─────────────────────────────────────────────────────────────┘</code></pre></p><hr><h2>📋 网文业务线协作流程</h2><h3>完整流程图</h3><p><pre><code>│                    主 Agent 委托任务                          │
-│              "写一章修仙小说，主角突破筑基期"                   │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📋 网文业务线协作流程
+
+### 完整流程图
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    主 Agent 委托任务                          │
+│              &quot;写一章修仙小说，主角突破筑基期&quot;                   │
 └──────────────────────────┬──────────────────────────────────┘
                            │
                            ↓
@@ -537,7 +452,7 @@
                   ↓
 ┌─────────────────────────────────────────────────────────────┐
 │                    编排器整合结果                             │
-│  • 标记为"已完成"                                             │
+│  • 标记为&quot;已完成&quot;                                             │
 │  • 整合最终版本                                               │
 │  • 更新系列进度                                               │
 │  • 返回给主 Agent                                             │
@@ -550,35 +465,61 @@
 │  • 整合结果                                                   │
 │  • 质量把控                                                   │
 │  • 交付最终版本                                               │
-└─────────────────────────────────────────────────────────────┘</code></pre></p><hr><h2>🎯 关键流程节点</h2><h3>Gate 检查点</h3><p><strong>编排器负责的 Gate 检查</strong>：</p><ol>
-<li><strong>策划 → 写手</strong></li>
-</ol>
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎯 关键流程节点
+
+### Gate 检查点
+
+**编排器负责的 Gate 检查**：
+
+1. **策划 → 写手**
    - 大纲是否完整？
    - 大纲是否可执行？
-   - 世界观是否自洽？（网文）</p><ol>
-<li><strong>写手（初稿）→ 编辑</strong></li>
-</ol>
+   - 世界观是否自洽？（网文）
+
+2. **写手（初稿）→ 编辑**
    - 初稿是否完整？
    - 是否覆盖所有要点/剧情点？
-   - 是否符合基本质量标准？</p><ol>
-<li><strong>写手（定稿）→ 编辑</strong></li>
-</ol>
+   - 是否符合基本质量标准？
+
+3. **写手（定稿）→ 编辑**
    - 定稿是否完整？
-   - 是否根据反馈修改到位？</p><ol>
-<li><strong>编辑 → 最终交付</strong></li>
-</ol>
+   - 是否根据反馈修改到位？
+
+4. **编辑 → 最终交付**
    - 是否通过检查清单验证？
-   - 是否达到发布标准？</p><h3>修改循环控制</h3><p><strong>最多 3 轮修改</strong>：
-<pre><code>第 2 轮：写手修改 → 编辑审核
+   - 是否达到发布标准？
+
+### 修改循环控制
+
+**最多 3 轮修改**：
+```
+第 1 轮：写手修改 → 编辑审核
+第 2 轮：写手修改 → 编辑审核
 第 3 轮：写手修改 → 编辑审核
 
 如果第 3 轮仍不通过：
-→ 反馈给策划，可能需要调整大纲</code></pre></p><p><strong>为什么限制 3 轮？</strong>
-<ul>
-<li>避免无限循环</li>
-<li>提升效率</li>
-<li>如果 3 轮还不行，可能是大纲或能力问题</li>
-</ul><hr><h2>📊 职责边界总结</h2><h3>三个角色的硬边界</h3><p><pre><code>│                    策划（Planner）                            │
+→ 反馈给策划，可能需要调整大纲
+```
+
+**为什么限制 3 轮？**
+- 避免无限循环
+- 提升效率
+- 如果 3 轮还不行，可能是大纲或能力问题
+
+---
+
+## 📊 职责边界总结
+
+### 三个角色的硬边界
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    策划（Planner）                            │
 │                                                              │
 │  ✅ 做：                                                      │
 │    • 选题策划                                                 │
@@ -619,7 +560,18 @@
 │    • 不直接改文章（硬边界！）                                  │
 │    • 不替写手做决定                                           │
 │    • 不越过策划修改大纲                                        │
-└─────────────────────────────────────────────────────────────┘</code></pre></p><hr><h2>🔄 编排器的作用</h2><h3>编排器的职责</h3><p><pre><code>│              编排器（Orchestrator）                           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔄 编排器的作用
+
+### 编排器的职责
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│              编排器（Orchestrator）                           │
 │                                                              │
 │  1. 任务分配和调度                                            │
 │     • 接收主 Agent 的任务                                     │
@@ -645,66 +597,70 @@
 │  5. 结果整合                                                 │
 │     • 整合最终版本                                            │
 │     • 返回给主 Agent                                          │
-└─────────────────────────────────────────────────────────────┘</code></pre></p><hr><h2>📈 流程优势</h2><h3>相比升级前的优势</h3><p><strong>升级前（全能型 Agent）</strong>：
-<pre><code>       ↓
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📈 流程优势
+
+### 相比升级前的优势
+
+**升级前（全能型 Agent）**：
+```
+任务 → 全能型 Agent → 完成
+       ↓
     自己策划
     自己写作
     自己审核
        ↓
-    容易"自我和解"
-    质量不稳定</code></pre></p><p><strong>升级后（Level 3 架构）</strong>：
-<pre><code>       ↓        ↓      ↓      ↓           ↓
+    容易&quot;自我和解&quot;
+    质量不稳定
+```
+
+**升级后（Level 3 架构）**：
+```
+任务 → 编排器 → 策划 → 写手 → 编辑 → 写手 ↔ 编辑 → 完成
+       ↓        ↓      ↓      ↓           ↓
     调度     大纲   初稿   分析      定稿
     把关                  报告
        ↓
     职责边界清晰
     质量稳定
-    系统化把控</code></pre></p><h3>质量保证机制</h3><ol>
-<li><strong>职责边界清晰</strong></li>
-</ol>
+    系统化把控
+```
+
+### 质量保证机制
+
+1. **职责边界清晰**
    - 策划不写正文
    - 写手不审核
    - 编辑不改文章
-   - 避免"自我和解"</p><ol>
-<li><strong>多重检查</strong></li>
-</ol>
+   - 避免&quot;自我和解&quot;
+
+2. **多重检查**
    - 编排器的 Gate 检查
    - 编辑的深度分析
-   - 编辑的检查清单验证</p><ol>
-<li><strong>标准化流程</strong></li>
-</ol>
+   - 编辑的检查清单验证
+
+3. **标准化流程**
    - 控制态大纲（~400 行）
    - 四步体检
-   - 检查清单验证（55/69 项）</p><ol>
-<li><strong>修改循环控制</strong></li>
-</ol>
+   - 检查清单验证（55/69 项）
+
+4. **修改循环控制**
    - 最多 3 轮修改
    - 避免无限循环
-   - 提升效率</p><hr><p><strong>创建日期</strong>：2026-03-22  
-<strong>创建者</strong>：HR Manager（招贤）  
-<strong>文档版本</strong>：v1.0
-</p>
-    </div>
-  </div>
+   - 提升效率
 
-  <!-- 返回顶部按钮 -->
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
-    ↑
-  </button>
+---
 
-  <!-- 页脚 -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <div class="mb-4">
-        <div class="inline-flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
-          <span class="text-2xl font-bold">RainBox 数字科技</span>
-        </div>
-      </div>
-      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
-      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
-    </div>
-  </footer>
+**创建日期**：2026-03-22  
+**创建者**：HR Manager（招贤）  
+**文档版本**：v1.0
+</pre></div></div>
+<footer class="bg-gray-900 text-white py-8 text-center">
+<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
+</footer>
 </body>
 </html>

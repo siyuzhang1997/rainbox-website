@@ -1,279 +1,209 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>标语文化解读手册 - RainBox 文档中心</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'tech-blue': '#2196F3',
-            'vibrant-orange': '#FF9800',
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    .markdown-body {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.8;
-    }
-    .markdown-body h1 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      margin-bottom: 2rem;
-      background: linear-gradient(to right, #2196F3, #FF9800);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .markdown-body h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      color: #2196F3;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 0.5rem;
-    }
-    .markdown-body h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: #333;
-    }
-    .markdown-body h4 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      color: #555;
-    }
-    .markdown-body p {
-      margin-bottom: 1rem;
-      color: #374151;
-    }
-    .markdown-body ul, .markdown-body ol {
-      margin-bottom: 1rem;
-      padding-left: 2rem;
-    }
-    .markdown-body li {
-      margin-bottom: 0.5rem;
-    }
-    .markdown-body code {
-      background: #f3f4f6;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9em;
-      color: #ef4444;
-    }
-    .markdown-body pre {
-      background: #1f2937;
-      color: #f9fafb;
-      padding: 1.5rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-bottom: 1rem;
-    }
-    .markdown-body pre code {
-      background: transparent;
-      padding: 0;
-      color: #f9fafb;
-    }
-    .markdown-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 1.5rem;
-      border: 1px solid #e5e7eb;
-    }
-    .markdown-body th, .markdown-body td {
-      border: 1px solid #e5e7eb;
-      padding: 0.75rem 1rem;
-      text-align: left;
-    }
-    .markdown-body th {
-      background: #f9fafb;
-      font-weight: 600;
-      color: #111827;
-    }
-    .markdown-body blockquote {
-      border-left: 4px solid #2196F3;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      color: #6b7280;
-      font-style: italic;
-    }
-    .markdown-body a {
-      color: #2196F3;
-      text-decoration: none;
-    }
-    .markdown-body a:hover {
-      text-decoration: underline;
-    }
-    .markdown-body strong {
-      font-weight: 700;
-      color: #111827;
-    }
-    .markdown-body em {
-      font-style: italic;
-    }
-    .markdown-body hr {
-      border: none;
-      border-top: 2px solid #e5e7eb;
-      margin: 2rem 0;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>标语文化解读手册 - RainBox 文档中心</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.doc { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
+.doc h1 { font-size: 2.5rem; font-weight: 900; margin: 2rem 0 1.5rem; background: linear-gradient(to right, #2196F3, #FF9800); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.doc h2 { font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem; color: #2196F3; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
+.doc h3 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #333; }
+.doc p { margin-bottom: 1rem; color: #374151; }
+.doc ul, .doc ol { margin: 1rem 0; padding-left: 2rem; }
+.doc li { margin-bottom: 0.5rem; }
+.doc strong { font-weight: 700; color: #111827; }
+.doc code { background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; color: #ef4444; }
+.doc pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
+.doc table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.doc th, .doc td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
+.doc th { background: #f9fafb; font-weight: 600; }
+</style>
 </head>
-<body class="bg-gray-50 min-h-screen">
-  <!-- 导航栏 -->
-  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
-          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
-        </a>
-        <div class="flex items-center gap-6">
-          <a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">📚 所有文档</a>
-          <a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-tech-blue transition-colors">🏠 返回首页</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<body class="bg-gray-50">
+<nav class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<a href="../index.html" class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center text-white font-bold">R</div>
+<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent">RainBox</span>
+</a>
+<div class="flex gap-6">
+<a href="all-documents.html" class="text-sm font-medium text-gray-700 hover:text-blue-500">📚 所有文档</a>
+<a href="../index.html#documents" class="text-sm font-medium text-gray-700 hover:text-blue-500">🏠 返回首页</a>
+</div>
+</div>
+</nav>
+<div class="pt-8 pb-20"><div class="doc"><pre># 标语文化解读手册
+## &quot;科技养虾，用心养人&quot;
 
-  <!-- 文档内容 -->
-  <div class="pt-8 pb-20">
-    <div class="markdown-body">
-      <h1>标语文化解读手册</h1>
-<h2>"科技养虾，用心养人"</h2><hr><h3>📋 文档信息</h3>
-<ul>
-<li><strong>发布日期</strong>: 2026年3月22日</li>
-<li><strong>版本</strong>: v1.0</li>
-<li><strong>发布部门</strong>: 人力资源部</li>
-<li><strong>适用范围</strong>: 全体员工</li>
-</ul><hr><h2>一、标语诞生背景</h2><p>在公司快速发展的关键时期，CEO 亲自确定了这一标语，旨在明确公司的双重使命：
-<ul>
-<li><strong>业务层面</strong>：以科技创新驱动水产养殖产业升级</li>
-<li><strong>人才层面</strong>：以人文关怀构建卓越组织文化</li>
-</ul><hr><h2>二、标语深度解读</h2><h3>🦐 "科技养虾" —— 业务使命</h3><p><strong>核心含义</strong>：
-<ul>
-<li>运用前沿科技（AI、IoT、大数据）革新传统养虾产业</li>
-<li>通过数字化、智能化手段提升养殖效率与品质</li>
-<li>成为水产养殖科技领域的创新引领者</li>
-</ul><p><strong>体现方式</strong>：
-<ul>
-<li>智能水质监测系统</li>
-<li>AI 病害预警平台</li>
-<li>自动化投喂与环境调控</li>
-<li>数据驱动的养殖决策支持</li>
-</ul><p><strong>对员工的意义</strong>：
-<ul>
-<li>我们从事的是有社会价值的事业（食品安全、产业升级）</li>
-<li>每个人的工作都在推动传统产业的科技转型</li>
-<li>技术创新是公司的核心竞争力</li>
-</ul><hr><h3>💚 "用心养人" —— 人才理念</h3><p><strong>核心含义</strong>：
-<ul>
-<li>像养虾一样精心呵护每一位员工的成长</li>
-<li>关注员工的全面发展（职业、生活、身心健康）</li>
-<li>构建有温度、有关怀的组织文化</li>
-</ul><p><strong>"用心"的四个维度</strong>：</p><h4>1. <strong>职业发展用心</strong></h4>
-<ul>
-<li>个性化职业发展规划</li>
-<li>系统化培训与学习机会</li>
-<li>公平透明的晋升机制</li>
-<li>导师制与技能传承</li>
-</ul><h4>2. <strong>工作环境用心</strong></h4>
-<ul>
-<li>舒适的办公空间</li>
-<li>先进的工作设备</li>
-<li>灵活的工作安排</li>
-<li>高效的协作工具</li>
-</ul><h4>3. <strong>生活关怀用心</strong></h4>
-<ul>
-<li>具有竞争力的薪酬福利</li>
-<li>完善的健康保障体系</li>
-<li>工作与生活平衡支持</li>
-<li>员工家庭关怀计划</li>
-</ul><h4>4. <strong>情感连接用心</strong></h4>
-<ul>
-<li>倾听员工的声音</li>
-<li>及时的反馈与认可</li>
-<li>团队凝聚力建设</li>
-<li>开放包容的沟通文化</li>
-</ul><hr><h2>三、标语与公司价值观的关系</h2><p>| 价值观维度 | 标语体现 | 行为准则 |
+---
+
+### 📋 文档信息
+- **发布日期**: 2026年3月22日
+- **版本**: v1.0
+- **发布部门**: 人力资源部
+- **适用范围**: 全体员工
+
+---
+
+## 一、标语诞生背景
+
+在公司快速发展的关键时期，CEO 亲自确定了这一标语，旨在明确公司的双重使命：
+- **业务层面**：以科技创新驱动水产养殖产业升级
+- **人才层面**：以人文关怀构建卓越组织文化
+
+---
+
+## 二、标语深度解读
+
+### 🦐 &quot;科技养虾&quot; —— 业务使命
+
+**核心含义**：
+- 运用前沿科技（AI、IoT、大数据）革新传统养虾产业
+- 通过数字化、智能化手段提升养殖效率与品质
+- 成为水产养殖科技领域的创新引领者
+
+**体现方式**：
+- 智能水质监测系统
+- AI 病害预警平台
+- 自动化投喂与环境调控
+- 数据驱动的养殖决策支持
+
+**对员工的意义**：
+- 我们从事的是有社会价值的事业（食品安全、产业升级）
+- 每个人的工作都在推动传统产业的科技转型
+- 技术创新是公司的核心竞争力
+
+---
+
+### 💚 &quot;用心养人&quot; —— 人才理念
+
+**核心含义**：
+- 像养虾一样精心呵护每一位员工的成长
+- 关注员工的全面发展（职业、生活、身心健康）
+- 构建有温度、有关怀的组织文化
+
+**&quot;用心&quot;的四个维度**：
+
+#### 1. **职业发展用心**
+- 个性化职业发展规划
+- 系统化培训与学习机会
+- 公平透明的晋升机制
+- 导师制与技能传承
+
+#### 2. **工作环境用心**
+- 舒适的办公空间
+- 先进的工作设备
+- 灵活的工作安排
+- 高效的协作工具
+
+#### 3. **生活关怀用心**
+- 具有竞争力的薪酬福利
+- 完善的健康保障体系
+- 工作与生活平衡支持
+- 员工家庭关怀计划
+
+#### 4. **情感连接用心**
+- 倾听员工的声音
+- 及时的反馈与认可
+- 团队凝聚力建设
+- 开放包容的沟通文化
+
+---
+
+## 三、标语与公司价值观的关系
+
+| 价值观维度 | 标语体现 | 行为准则 |
 |-----------|---------|---------|
-| <strong>创新</strong> | 科技养虾 | 持续探索新技术，勇于尝试新方法 |
-| <strong>专业</strong> | 科技养虾 | 精通业务，追求卓越品质 |
-| <strong>关怀</strong> | 用心养人 | 尊重每个人，关注成长需求 |
-| <strong>责任</strong> | 用心养人 | 对员工负责，对社会负责 |
-| <strong>协作</strong> | 两者结合 | 科技创新需要团队，人才成长需要互助 |</p><hr><h2>四、标语在日常工作中的应用</h2><h3>对管理者：</h3>
-✅ 制定决策时，问自己："这是否体现了'用心养人'？"  
-✅ 团队建设时，思考："如何让科技创新与人文关怀并重？"  
-✅ 绩效评估时，关注："员工是否在成长？团队是否有温度？"</p><h3>对员工：</h3>
-✅ 工作创新时，践行"科技养虾"的使命  
-✅ 团队协作时，体现"用心"对待同事  
-✅ 自我发展时，主动利用公司提供的"养人"资源</p><h3>对 HR 部门：</h3>
+| **创新** | 科技养虾 | 持续探索新技术，勇于尝试新方法 |
+| **专业** | 科技养虾 | 精通业务，追求卓越品质 |
+| **关怀** | 用心养人 | 尊重每个人，关注成长需求 |
+| **责任** | 用心养人 | 对员工负责，对社会负责 |
+| **协作** | 两者结合 | 科技创新需要团队，人才成长需要互助 |
+
+---
+
+## 四、标语在日常工作中的应用
+
+### 对管理者：
+✅ 制定决策时，问自己：&quot;这是否体现了&#x27;用心养人&#x27;？&quot;  
+✅ 团队建设时，思考：&quot;如何让科技创新与人文关怀并重？&quot;  
+✅ 绩效评估时，关注：&quot;员工是否在成长？团队是否有温度？&quot;
+
+### 对员工：
+✅ 工作创新时，践行&quot;科技养虾&quot;的使命  
+✅ 团队协作时，体现&quot;用心&quot;对待同事  
+✅ 自我发展时，主动利用公司提供的&quot;养人&quot;资源
+
+### 对 HR 部门：
 ✅ 招聘：寻找认同标语理念的人才  
 ✅ 培训：围绕标语设计成长体系  
-✅ 福利：将"用心"转化为具体关怀措施  
-✅ 文化：让标语成为日常工作的指引</p><hr><h2>五、标语文化落地检验标准</h2><h3>短期指标（3个月）：</h3>
-<ul>
-<li>[ ] 100% 员工能准确复述标语</li>
-<li>[ ] 80% 员工能解释标语含义</li>
-<li>[ ] 各部门至少开展 1 次标语主题活动</li>
-</ul><h3>中期指标（6个月）：</h3>
-<ul>
-<li>[ ] 员工满意度提升 15%</li>
-<li>[ ] 员工流失率下降 10%</li>
-<li>[ ] 内部推荐率提升 20%</li>
-</ul><h3>长期指标（12个月）：</h3>
-<ul>
-<li>[ ] 标语成为企业文化的核心标识</li>
-<li>[ ] 外部合作伙伴认可公司文化</li>
-<li>[ ] 员工自发传播标语理念</li>
-</ul><hr><h2>六、常见问题解答（FAQ）</h2><p><strong>Q1: 为什么是"养虾"而不是其他？</strong>  
-A: 养虾是公司的核心业务场景，体现了我们的行业专注度。同时，"养"字贯穿业务与人才两端，形成独特的文化符号。</p><p><strong>Q2: "用心养人"具体会有哪些举措？</strong>  
-A: 详见《HR 文化落地方案》，包括职业发展、福利升级、健康关怀、文化活动等多个维度的具体措施。</p><p><strong>Q3: 如何确保标语不只是口号？</strong>  
-A: 我们将标语融入绩效考核、管理决策、日常运营的各个环节，并定期评估落地效果。</p><p><strong>Q4: 员工如何参与标语文化建设？</strong>  
-A: 欢迎通过内部平台提出建议，参与文化活动，在工作中践行标语精神。</p><hr><h2>七、行动呼吁</h2><p><strong>致全体员工</strong>：</p><p>这不仅是一句标语，更是我们共同的承诺：
-<ul>
-<li>我们用科技改变产业</li>
-<li>我们用真心对待彼此</li>
-<li>我们一起创造有温度的科技公司</li>
-</ul><p>让我们从今天开始，让"科技养虾，用心养人"成为每一天工作的指引！</p><hr><p><strong>联系方式</strong>：  
+✅ 福利：将&quot;用心&quot;转化为具体关怀措施  
+✅ 文化：让标语成为日常工作的指引
+
+---
+
+## 五、标语文化落地检验标准
+
+### 短期指标（3个月）：
+- [ ] 100% 员工能准确复述标语
+- [ ] 80% 员工能解释标语含义
+- [ ] 各部门至少开展 1 次标语主题活动
+
+### 中期指标（6个月）：
+- [ ] 员工满意度提升 15%
+- [ ] 员工流失率下降 10%
+- [ ] 内部推荐率提升 20%
+
+### 长期指标（12个月）：
+- [ ] 标语成为企业文化的核心标识
+- [ ] 外部合作伙伴认可公司文化
+- [ ] 员工自发传播标语理念
+
+---
+
+## 六、常见问题解答（FAQ）
+
+**Q1: 为什么是&quot;养虾&quot;而不是其他？**  
+A: 养虾是公司的核心业务场景，体现了我们的行业专注度。同时，&quot;养&quot;字贯穿业务与人才两端，形成独特的文化符号。
+
+**Q2: &quot;用心养人&quot;具体会有哪些举措？**  
+A: 详见《HR 文化落地方案》，包括职业发展、福利升级、健康关怀、文化活动等多个维度的具体措施。
+
+**Q3: 如何确保标语不只是口号？**  
+A: 我们将标语融入绩效考核、管理决策、日常运营的各个环节，并定期评估落地效果。
+
+**Q4: 员工如何参与标语文化建设？**  
+A: 欢迎通过内部平台提出建议，参与文化活动，在工作中践行标语精神。
+
+---
+
+## 七、行动呼吁
+
+**致全体员工**：
+
+这不仅是一句标语，更是我们共同的承诺：
+- 我们用科技改变产业
+- 我们用真心对待彼此
+- 我们一起创造有温度的科技公司
+
+让我们从今天开始，让&quot;科技养虾，用心养人&quot;成为每一天工作的指引！
+
+---
+
+**联系方式**：  
 如有任何疑问或建议，请联系人力资源部  
 📧 hr@company.com  
-📞 内线：8888</p><hr><p><em>本手册将根据实践反馈持续更新</em>
-</p>
-    </div>
-  </div>
+📞 内线：8888
 
-  <!-- 返回顶部按钮 -->
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-          class="fixed bottom-8 right-8 w-12 h-12 bg-tech-blue text-white rounded-full shadow-lg hover:bg-blue-600 transition-all hover:scale-110 flex items-center justify-center text-xl">
-    ↑
-  </button>
+---
 
-  <!-- 页脚 -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <div class="mb-4">
-        <div class="inline-flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl">R</div>
-          <span class="text-2xl font-bold">RainBox 数字科技</span>
-        </div>
-      </div>
-      <p class="text-gray-400 mb-2">科技养虾，用心养人</p>
-      <p class="text-gray-500 text-sm">© 2026 RainBox Digital Technology. All rights reserved.</p>
-    </div>
-  </footer>
+*本手册将根据实践反馈持续更新*
+</pre></div></div>
+<footer class="bg-gray-900 text-white py-8 text-center">
+<p class="text-gray-400">© 2026 RainBox 数字科技公司 | 科技养虾，用心养人</p>
+</footer>
 </body>
 </html>
