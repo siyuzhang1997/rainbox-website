@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RainBox 数字科技公司 - 科技养虾，用心养人</title>
-  <meta name="description" content="RainBox 数字科技公司，专注AI Agent研发、数字化转型、智能办公与企业AI应用。科技养虾，用心养人。">
+  <meta name="description" content="RainBox 数字科技公司，成立于2026年3月。拥有12个专业AI Agent，专注于内容创作、网文创作、技术研发等领域。">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -39,6 +39,7 @@
           <a href="#about" class="nav-link text-sm font-medium hover:text-tech-blue transition-colors">关于我们</a>
           <a href="#services" class="nav-link text-sm font-medium hover:text-tech-blue transition-colors">核心业务</a>
           <a href="#team" class="nav-link text-sm font-medium hover:text-tech-blue transition-colors">团队展示</a>
+          <a href="#documents" class="nav-link text-sm font-medium hover:text-tech-blue transition-colors">文档中心</a>
           <a href="#contact" class="nav-link text-sm font-medium hover:text-tech-blue transition-colors">联系我们</a>
         </div>
         <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
@@ -53,131 +54,138 @@
         <a href="#about" class="block py-2 px-3 rounded-lg text-sm font-medium hover:bg-tech-blue-light hover:text-tech-blue transition-colors">关于我们</a>
         <a href="#services" class="block py-2 px-3 rounded-lg text-sm font-medium hover:bg-tech-blue-light hover:text-tech-blue transition-colors">核心业务</a>
         <a href="#team" class="block py-2 px-3 rounded-lg text-sm font-medium hover:bg-tech-blue-light hover:text-tech-blue transition-colors">团队展示</a>
+        <a href="#documents" class="block py-2 px-3 rounded-lg text-sm font-medium hover:bg-tech-blue-light hover:text-tech-blue transition-colors">文档中心</a>
         <a href="#contact" class="block py-2 px-3 rounded-lg text-sm font-medium hover:bg-tech-blue-light hover:text-tech-blue transition-colors">联系我们</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero区 -->
-  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="hero-bg absolute inset-0">
-      <img src="https://zhiyan-ai-agent-with-1258344702.cos.ap-guangzhou.tencentcos.cn/with/768394c9-45b0-4555-98c3-2cd2e9e7a550/image_1774232690_2_1.jpg" alt="科技背景" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-tech-blue/40 to-gray-900/70"></div>
-    </div>
-    <!-- 粒子动画容器 -->
-    <div id="particles-container" class="absolute inset-0 pointer-events-none"></div>
-    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-      <div class="animate-fade-in-up">
-        <div class="mb-8 inline-flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl shadow-lg">R</div>
-          <span class="text-white text-2xl font-bold tracking-wider">RainBox 数字科技</span>
-        </div>
+  <!-- Hero 区 -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <!-- 背景渐变 -->
+    <div class="absolute inset-0 bg-gradient-to-br from-tech-blue via-purple-600 to-vibrant-orange"></div>
+    
+    <!-- 粒子效果容器 -->
+    <div id="particles-container" class="absolute inset-0"></div>
+    
+    <!-- 内容 -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-20">
+      <div class="mb-8 inline-flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 animate-fade-in-up">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl shadow-lg">R</div>
+        <span class="text-white text-2xl font-bold tracking-wider">RainBox 数字科技</span>
       </div>
-      <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight animate-fade-in-up animation-delay-200">
-        科技养虾<span class="text-vibrant-orange">，</span>用心养人
+      
+      <h1 class="text-5xl md:text-7xl font-black mb-8 animate-fade-in-up animation-delay-200 leading-tight">
+        科技养虾，用心养人
       </h1>
-      <p class="text-lg sm:text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto animate-fade-in-up animation-delay-400">
-        以AI驱动创新，用技术赋能未来。我们致力于打造行业领先的AI Agent生态，
-        为企业提供全方位的数字化转型解决方案。
+      
+      <p class="text-xl md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto animate-fade-in-up animation-delay-400 leading-relaxed">
+        RainBox 数字科技公司，成立于 2026 年 3 月 22 日<br class="hidden md:block">
+        拥有 12 个专业 AI Agent，分布在 6 个部门<br class="hidden md:block">
+        专注于内容创作、网文创作、技术研发等领域
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-600">
-        <a href="#services" class="px-8 py-4 bg-gradient-to-r from-tech-blue to-tech-blue-dark text-white rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-600 mb-20">
+        <a href="#services" class="px-8 py-4 bg-white text-tech-blue rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all">
           探索服务 <i class="fas fa-arrow-right ml-2"></i>
         </a>
-        <a href="#contact" class="px-8 py-4 bg-white/15 backdrop-blur-md text-white border border-white/30 rounded-full font-semibold text-lg hover:bg-white/25 hover:scale-105 transition-all duration-300">
-          联系我们 <i class="fas fa-phone ml-2"></i>
+        <a href="#documents" class="px-8 py-4 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 rounded-full font-semibold text-lg hover:bg-white/20 transition-all">
+          查看文档 <i class="fas fa-book ml-2"></i>
         </a>
       </div>
+      
       <!-- 统计数据 -->
-      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in-up animation-delay-800">
-        <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15">
-          <div class="text-3xl md:text-4xl font-bold text-vibrant-orange counter" data-target="12">0</div>
-          <div class="text-sm text-gray-300 mt-1">AI Agent</div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto animate-fade-in-up animation-delay-800">
+        <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+          <div class="text-5xl font-black mb-2">12</div>
+          <div class="text-white/80">AI Agents</div>
         </div>
-        <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15">
-          <div class="text-3xl md:text-4xl font-bold text-vibrant-orange counter" data-target="4">0</div>
-          <div class="text-sm text-gray-300 mt-1">核心部门</div>
+        <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+          <div class="text-5xl font-black mb-2">6</div>
+          <div class="text-white/80">核心部门</div>
         </div>
-        <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15">
-          <div class="text-3xl md:text-4xl font-bold text-vibrant-orange counter" data-target="200">0</div>
-          <div class="text-sm text-gray-300 mt-1">合作企业</div>
+        <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+          <div class="text-5xl font-black mb-2">2026</div>
+          <div class="text-white/80">成立年份</div>
         </div>
-        <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15">
-          <div class="text-3xl md:text-4xl font-bold text-vibrant-orange counter" data-target="99">0</div>
-          <div class="text-sm text-gray-300 mt-1">客户满意度%</div>
+        <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+          <div class="text-5xl font-black mb-2">100%</div>
+          <div class="text-white/80">AI 驱动</div>
         </div>
       </div>
     </div>
+    
     <!-- 滚动提示 -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <div class="w-8 h-12 rounded-full border-2 border-white/40 flex items-start justify-center pt-2">
-        <div class="w-1.5 h-3 bg-white/60 rounded-full animate-scroll-dot"></div>
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-fade-in-up animation-delay-1000">
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-sm">向下滚动探索更多</span>
+        <div class="w-6 h-10 border-2 border-white/40 rounded-full flex items-start justify-center p-2">
+          <div class="w-1.5 h-3 bg-white/60 rounded-full animate-scroll-dot"></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- 关于我们 -->
-  <section id="about" class="py-20 md:py-28 bg-white">
+  <section id="about" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 scroll-animate">
-        <span class="inline-block px-4 py-1.5 bg-tech-blue/10 text-tech-blue rounded-full text-sm font-semibold mb-4">关于我们</span>
-        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">以创新驱动数字未来</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">RainBox 数字科技公司成立于数字化浪潮之中，始终秉承"科技养虾，用心养人"的理念</p>
+        <h2 class="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          关于 RainBox
+        </h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          一家由 AI Agent 组成的创新型数字科技公司
+        </p>
       </div>
+      
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="scroll-animate">
-          <div class="relative">
-            <img src="https://zhiyan-ai-agent-with-1258344702.cos.ap-guangzhou.tencentcos.cn/with/f792a460-5027-43e3-b832-e3610f9d0459/image_1774232705_1_1.jpg" alt="数字化转型" class="rounded-2xl shadow-2xl w-full object-cover aspect-video">
-            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-vibrant-orange to-vibrant-orange-dark rounded-2xl flex items-center justify-center shadow-xl">
-              <div class="text-center text-white">
-                <div class="text-3xl font-bold">12</div>
-                <div class="text-xs mt-1">AI Agent</div>
-              </div>
-            </div>
+          <div class="bg-gradient-to-br from-tech-blue/10 to-vibrant-orange/10 rounded-3xl p-8 border border-tech-blue/20">
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">公司简介</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              RainBox 数字科技公司成立于 <strong>2026 年 3 月 22 日</strong>，是一家由 AI Agent 组成的创新型数字科技公司。
+            </p>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              我们拥有 <strong>12 个专业 AI Agent</strong>，分布在 <strong>6 个核心部门</strong>：
+              内容创作部、网文创作部、技术研发部、人力资源部、法务合规部和管理层。
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              公司采用<strong>三层记忆架构</strong>（IDENTITY + SOUL + 运行时记忆），
+              建立了完善的 Token 优化管理体系和协作流程。
+            </p>
           </div>
         </div>
-        <div class="scroll-animate space-y-6">
-          <h3 class="text-2xl md:text-3xl font-bold text-gray-900">构建AI Agent智能生态</h3>
-          <p class="text-gray-600 leading-relaxed text-lg">
-            RainBox 数字科技公司拥有<span class="text-tech-blue font-semibold">12个自主研发的AI Agent</span>，覆盖企业运营的各个环节。
-            我们设有<span class="text-vibrant-orange font-semibold">4个核心部门</span>：AI研发中心、数字化解决方案部、智能办公事业部和企业服务部，
-            每个部门都由行业顶尖人才带队，致力于为客户提供最优质的数字化服务。
-          </p>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="flex items-center gap-3 p-4 bg-tech-blue/5 rounded-xl border border-tech-blue/10 hover:shadow-md transition-all">
-              <div class="w-10 h-10 bg-tech-blue/10 rounded-lg flex items-center justify-center">
-                <i class="fas fa-brain text-tech-blue"></i>
+        
+        <div class="scroll-animate">
+          <div class="space-y-6">
+            <div class="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-tech-blue-dark flex items-center justify-center text-white flex-shrink-0">
+                <i class="fas fa-lightbulb text-xl"></i>
               </div>
-              <span class="font-medium text-gray-700">AI研发中心</span>
-            </div>
-            <div class="flex items-center gap-3 p-4 bg-vibrant-orange/5 rounded-xl border border-vibrant-orange/10 hover:shadow-md transition-all">
-              <div class="w-10 h-10 bg-vibrant-orange/10 rounded-lg flex items-center justify-center">
-                <i class="fas fa-chart-line text-vibrant-orange"></i>
+              <div>
+                <h4 class="font-bold text-lg mb-2">创新驱动</h4>
+                <p class="text-gray-600">采用最新的 AI 技术和三层记忆架构，打造智能化工作流程</p>
               </div>
-              <span class="font-medium text-gray-700">数字化方案部</span>
             </div>
-            <div class="flex items-center gap-3 p-4 bg-tech-blue/5 rounded-xl border border-tech-blue/10 hover:shadow-md transition-all">
-              <div class="w-10 h-10 bg-tech-blue/10 rounded-lg flex items-center justify-center">
-                <i class="fas fa-building text-tech-blue"></i>
+            
+            <div class="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-vibrant-orange to-vibrant-orange-dark flex items-center justify-center text-white flex-shrink-0">
+                <i class="fas fa-users text-xl"></i>
               </div>
-              <span class="font-medium text-gray-700">智能办公部</span>
-            </div>
-            <div class="flex items-center gap-3 p-4 bg-vibrant-orange/5 rounded-xl border border-vibrant-orange/10 hover:shadow-md transition-all">
-              <div class="w-10 h-10 bg-vibrant-orange/10 rounded-lg flex items-center justify-center">
-                <i class="fas fa-handshake text-vibrant-orange"></i>
+              <div>
+                <h4 class="font-bold text-lg mb-2">专业团队</h4>
+                <p class="text-gray-600">12 个专业 AI Agent，各司其职，协同合作</p>
               </div>
-              <span class="font-medium text-gray-700">企业服务部</span>
             </div>
-          </div>
-          <div class="flex gap-4 pt-2">
-            <div class="flex items-center gap-2 text-sm text-gray-500">
-              <i class="fas fa-check-circle text-green-500"></i> 自主知识产权
-            </div>
-            <div class="flex items-center gap-2 text-sm text-gray-500">
-              <i class="fas fa-check-circle text-green-500"></i> 行业认证
-            </div>
-            <div class="flex items-center gap-2 text-sm text-gray-500">
-              <i class="fas fa-check-circle text-green-500"></i> 安全合规
+            
+            <div class="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white flex-shrink-0">
+                <i class="fas fa-rocket text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-2">高效执行</h4>
+                <p class="text-gray-600">完善的管理规范和协作流程，确保高质量交付</p>
+              </div>
             </div>
           </div>
         </div>
@@ -186,190 +194,632 @@
   </section>
 
   <!-- 核心业务 -->
-  <section id="services" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
+  <section id="services" class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 scroll-animate">
-        <span class="inline-block px-4 py-1.5 bg-vibrant-orange/10 text-vibrant-orange rounded-full text-sm font-semibold mb-4">核心业务</span>
-        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">四大业务板块赋能未来</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">从研发到落地，从办公到生态，全方位助力企业智能化升级</p>
+        <h2 class="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          核心业务
+        </h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          专注于内容创作、网文创作、技术研发和企业管理
+        </p>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="services-grid">
-        <!-- 服务卡片由JS动态生成 -->
-      </div>
-    </div>
-  </section>
-
-  <!-- AI Agent 展示 -->
-  <section id="agents" class="py-20 md:py-28 bg-gray-900 text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-tech-blue rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-vibrant-orange rounded-full blur-3xl"></div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-16 scroll-animate">
-        <span class="inline-block px-4 py-1.5 bg-tech-blue/20 text-tech-blue-light rounded-full text-sm font-semibold mb-4">AI Agent</span>
-        <h2 class="text-3xl md:text-5xl font-bold mb-4">12个AI Agent全面覆盖</h2>
-        <p class="text-gray-400 text-lg max-w-2xl mx-auto">每一个Agent都是我们精心打磨的智能产品，为不同场景提供精准解决方案</p>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="agents-grid">
-        <!-- Agent卡片由JS动态生成 -->
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- 内容创作 -->
+        <div class="service-card bg-white rounded-2xl p-8 shadow-lg scroll-animate">
+          <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white text-3xl mb-6 mx-auto">
+            <i class="fas fa-pen-fancy"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">🎨 内容创作</h3>
+          <p class="text-gray-600 text-center mb-4">
+            小红书内容策划、写作、编辑全流程服务
+          </p>
+          <div class="text-sm text-gray-500 text-center">
+            <div>xiaohongshu-planner</div>
+            <div>xiaohongshu-writer</div>
+            <div>xiaohongshu-editor</div>
+          </div>
+        </div>
+        
+        <!-- 网文创作 -->
+        <div class="service-card bg-white rounded-2xl p-8 shadow-lg scroll-animate">
+          <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white text-3xl mb-6 mx-auto">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">📖 网文创作</h3>
+          <p class="text-gray-600 text-center mb-4">
+            修仙类网文策划、创作、编辑服务
+          </p>
+          <div class="text-sm text-gray-500 text-center">
+            <div>webnovel-planner</div>
+            <div>webnovel-writer</div>
+            <div>webnovel-editor</div>
+          </div>
+        </div>
+        
+        <!-- 技术研发 -->
+        <div class="service-card bg-white rounded-2xl p-8 shadow-lg scroll-animate">
+          <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-tech-blue to-cyan-600 flex items-center justify-center text-white text-3xl mb-6 mx-auto">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">💻 技术研发</h3>
+          <p class="text-gray-600 text-center mb-4">
+            全栈开发、网站建设、技术架构设计
+          </p>
+          <div class="text-sm text-gray-500 text-center">
+            <div>fullstack-developer</div>
+            <div>（码道）</div>
+          </div>
+        </div>
+        
+        <!-- 企业管理 -->
+        <div class="service-card bg-white rounded-2xl p-8 shadow-lg scroll-animate">
+          <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-vibrant-orange to-amber-600 flex items-center justify-center text-white text-3xl mb-6 mx-auto">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">🏢 企业管理</h3>
+          <p class="text-gray-600 text-center mb-4">
+            人力资源管理、法务合规、公司运营
+          </p>
+          <div class="text-sm text-gray-500 text-center">
+            <div>hr-manager</div>
+            <div>legal-advisor</div>
+            <div>rainbox（总经理）</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- 团队展示 -->
-  <section id="team" class="py-20 md:py-28 bg-white">
+  <section id="team" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 scroll-animate">
-        <span class="inline-block px-4 py-1.5 bg-tech-blue/10 text-tech-blue rounded-full text-sm font-semibold mb-4">精英团队</span>
-        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">汇聚行业顶尖人才</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">来自世界顶级科技企业和高校的核心成员，引领技术创新浪潮</p>
+        <h2 class="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          我们的团队
+        </h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          12 个专业 AI Agent + 5 个系统支持 Agent
+        </p>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="team-grid">
-        <!-- 团队成员由JS动态生成 -->
+      
+      <!-- 内容创作部 -->
+      <div class="mb-12 scroll-animate">
+        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white">
+            <i class="fas fa-pen-fancy"></i>
+          </span>
+          内容创作部
+        </h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="agent-card bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-6 border-2 border-pink-200">
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2">xiaohongshu-planner</h4>
+              <p class="text-gray-600 text-sm">小红书内容策划专家</p>
+            </div>
+          </div>
+          <div class="agent-card bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-6 border-2 border-pink-200">
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                <i class="fas fa-pen"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2">xiaohongshu-writer</h4>
+              <p class="text-gray-600 text-sm">小红书内容写作专家</p>
+            </div>
+          </div>
+          <div class="agent-card bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-6 border-2 border-pink-200">
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                <i class="fas fa-edit"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2">xiaohongshu-editor</h4>
+              <p class="text-gray-600 text-sm">小红书内容编辑专家</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 网文创作部 -->
+      <div class="mb-12 scroll-animate">
+        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white">
+            <i class="fas fa-book-open"></i>
+          </span>
+          网文创作部
+        </h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="agent-card bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 border-2 border-purple-200">
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                <i class="fas fa-compass"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2">webnovel-planner</h4>
+              <p class="text-gray-600 text-sm">网文策划专家</p>
+            </div>
+          </div>
+          <div class="agent-card bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 border-2 border-purple-200">
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                <i class="fas fa-feather-alt"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2">webnovel-writer</h4>
+              <p class="text-gray-600 text-sm">网文写作专家</p>
+            </div>
+          </div>
+          <div class="agent-card bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 border-2 border-purple-200">
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2">webnovel-editor</h4>
+              <p class="text-gray-600 text-sm">网文编辑专家</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 技术研发部 -->
+      <div class="mb-12 scroll-animate">
+        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-cyan-600 flex items-center justify-center text-white">
+            <i class="fas fa-code"></i>
+          </span>
+          技术研发部
+        </h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="agent-card bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border-2 border-blue-200">
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-tech-blue to-cyan-600 flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2">fullstack-developer</h4>
+              <p class="text-gray-600 text-sm">全栈工程师（码道）</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 人力资源部 -->
+      <div class="mb-12 scroll-animate">
+        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white">
+            <i class="fas fa-user-tie"></i>
+          </span>
+          人力资源部
+        </h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="agent-card bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border-2 border-green-200">
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                <i class="fas fa-users-cog"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2">hr-manager</h4>
+              <p class="text-gray-600 text-sm">人力资源专家</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 法务合规部 -->
+      <div class="mb-12 scroll-animate">
+        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center text-white">
+            <i class="fas fa-balance-scale"></i>
+          </span>
+          法务合规部
+        </h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="agent-card bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl p-6 border-2 border-gray-200">
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                <i class="fas fa-gavel"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2">legal-advisor</h4>
+              <p class="text-gray-600 text-sm">法务专家</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 管理层 -->
+      <div class="mb-12 scroll-animate">
+        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-vibrant-orange to-amber-600 flex items-center justify-center text-white">
+            <i class="fas fa-crown"></i>
+          </span>
+          管理层
+        </h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="agent-card bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-6 border-2 border-orange-200">
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-vibrant-orange to-amber-600 flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                <i class="fas fa-user-shield"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2">rainbox</h4>
+              <p class="text-gray-600 text-sm">公司总经理，统筹全局</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 系统支持 -->
+      <div class="scroll-animate">
+        <div class="bg-gradient-to-br from-gray-100 to-slate-100 rounded-2xl p-8 text-center border-2 border-gray-200">
+          <h3 class="text-xl font-bold mb-4 flex items-center justify-center gap-3">
+            <i class="fas fa-cogs text-gray-600"></i>
+            系统支持
+          </h3>
+          <p class="text-gray-600">
+            另有 <strong>5 个内置 Agent</strong> 提供系统级支持<br>
+            <span class="text-sm text-gray-500">
+              (dir-explorer, skill-safety-review, xiaohongshu-editor, hr-manager, legal-advisor)
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 合作伙伴 -->
-  <section class="py-16 bg-gray-50">
+  <!-- 文档中心 -->
+  <section id="documents" class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 scroll-animate">
-        <h3 class="text-xl text-gray-500 font-medium">值得信赖的合作伙伴</h3>
+      <div class="text-center mb-16 scroll-animate">
+        <h2 class="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          📚 文档中心
+        </h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          公司成立以来的重要文档、规范、培训资料
+        </p>
       </div>
-      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 scroll-animate" id="partners">
-        <!-- 合作伙伴由JS动态生成 -->
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- A. 公司管理规范 -->
+        <div class="doc-category bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all scroll-animate">
+          <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+            <i class="fas fa-clipboard-check text-tech-blue text-2xl"></i>
+            公司管理规范
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="docs/三层记忆架构标准.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>三层记忆架构标准</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/Token优化管理规范.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>Token优化管理规范</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/目录结构规范.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>目录结构合规整改报告</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/三层记忆架构整改.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>三层记忆架构全员整改完成报告</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- B. 组织架构 -->
+        <div class="doc-category bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all scroll-animate">
+          <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+            <i class="fas fa-sitemap text-tech-blue text-2xl"></i>
+            组织架构
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="docs/组织架构.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>公司组织架构</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/更新后的组织架构.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>更新后的组织架构文档</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/Agent创建报告.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>Agent 创建完成报告</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/Agent安装报告.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>Agent 安装完成报告</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- C. 岗位与招聘 -->
+        <div class="doc-category bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all scroll-animate">
+          <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+            <i class="fas fa-user-tie text-tech-blue text-2xl"></i>
+            岗位与招聘
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="docs/小红书业务线岗位.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>小红书业务线岗位描述</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/网文业务线岗位.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>网文业务线岗位描述</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/招聘总结.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>招聘总结报告</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/Agent招聘总结.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>Agent 招聘总结报告</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- D. 员工培训 -->
+        <div class="doc-category bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all scroll-animate">
+          <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+            <i class="fas fa-graduation-cap text-vibrant-orange text-2xl"></i>
+            员工培训
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="docs/员工入职配置.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>员工入职配置文档</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/全员培训材料.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>全员培训材料</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/Token优化培训.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>HR-Token优化培训实施方案</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/员工手册更新.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>员工手册标语章节更新</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- E. 企业文化 -->
+        <div class="doc-category bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all scroll-animate">
+          <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+            <i class="fas fa-heart text-vibrant-orange text-2xl"></i>
+            企业文化
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="docs/公司标语确立.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>公司标语确立通知</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/标语文化解读.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>标语文化解读手册</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/文化落地方案.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>HR文化落地方案</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/标语落地行动计划.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>标语落地行动计划与时间表</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/口号讨论会议纪要.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>公司口号讨论会议纪要</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- F. 项目文档 -->
+        <div class="doc-category bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all scroll-animate">
+          <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+            <i class="fas fa-project-diagram text-tech-blue text-2xl"></i>
+            项目文档
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="docs/Level3架构设计.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>Level 3 架构设计方案</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/Level3架构完成报告.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>Level 3 架构完成报告</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/协作流程图.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>协作流程图</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/官网建设方案.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>官网建设最终执行方案</span>
+              </a>
+            </li>
+            <li>
+              <a href="docs/官网部署报告.html" class="doc-link flex items-center gap-2 text-gray-700 hover:text-tech-blue transition-colors">
+                <i class="fas fa-file-alt text-sm"></i>
+                <span>官网部署完成报告</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- 查看全部文档按钮 -->
+      <div class="text-center mt-12 scroll-animate">
+        <a href="docs/all-documents.html" class="inline-block px-8 py-4 bg-gradient-to-r from-tech-blue to-vibrant-orange text-white rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all">
+          查看全部 40+ 文档 <i class="fas fa-arrow-right ml-2"></i>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- 联系我们 -->
-  <section id="contact" class="py-20 md:py-28 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-5">
-      <div class="absolute top-1/4 left-0 w-[600px] h-[600px] bg-tech-blue rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-vibrant-orange rounded-full blur-3xl"></div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <section id="contact" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 scroll-animate">
-        <span class="inline-block px-4 py-1.5 bg-vibrant-orange/20 text-vibrant-orange-light rounded-full text-sm font-semibold mb-4">联系我们</span>
-        <h2 class="text-3xl md:text-5xl font-bold mb-4">开启数字化转型之旅</h2>
-        <p class="text-gray-400 text-lg max-w-2xl mx-auto">无论您有什么需求，我们的专业团队随时为您提供咨询服务</p>
+        <h2 class="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+          联系我们
+        </h2>
+        <p class="text-gray-600 text-lg">
+          有任何问题或合作意向，欢迎与我们联系
+        </p>
       </div>
-      <div class="grid lg:grid-cols-2 gap-12">
-        <div class="scroll-animate space-y-8">
-          <div class="flex items-start gap-5 p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
-            <div class="w-14 h-14 bg-tech-blue/20 rounded-xl flex items-center justify-center shrink-0">
-              <i class="fas fa-map-marker-alt text-tech-blue text-xl"></i>
+      
+      <div class="bg-gradient-to-br from-tech-blue/5 to-vibrant-orange/5 rounded-3xl p-8 md:p-12 scroll-animate">
+        <form id="contact-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">姓名</label>
+              <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-tech-blue focus:outline-none transition-colors">
             </div>
             <div>
-              <h4 class="font-semibold text-lg mb-1">公司地址</h4>
-              <p class="text-gray-400">北京市海淀区中关村科技园区创新大厦 A座 18层</p>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">邮箱</label>
+              <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-tech-blue focus:outline-none transition-colors">
             </div>
           </div>
-          <div class="flex items-start gap-5 p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
-            <div class="w-14 h-14 bg-vibrant-orange/20 rounded-xl flex items-center justify-center shrink-0">
-              <i class="fas fa-phone text-vibrant-orange text-xl"></i>
-            </div>
-            <div>
-              <h4 class="font-semibold text-lg mb-1">联系电话</h4>
-              <p class="text-gray-400">400-888-9999</p>
-              <p class="text-gray-500 text-sm">周一至周五 9:00 - 18:00</p>
-            </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">主题</label>
+            <input type="text" name="subject" required class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-tech-blue focus:outline-none transition-colors">
           </div>
-          <div class="flex items-start gap-5 p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
-            <div class="w-14 h-14 bg-tech-blue/20 rounded-xl flex items-center justify-center shrink-0">
-              <i class="fas fa-envelope text-tech-blue text-xl"></i>
-            </div>
-            <div>
-              <h4 class="font-semibold text-lg mb-1">电子邮件</h4>
-              <p class="text-gray-400">contact@rainbox.tech</p>
-              <p class="text-gray-500 text-sm">我们将在24小时内回复</p>
-            </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">留言</label>
+            <textarea name="message" rows="5" required class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-tech-blue focus:outline-none transition-colors resize-none"></textarea>
           </div>
-        </div>
-        <div class="scroll-animate">
-          <form id="contact-form" class="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 space-y-5">
-            <h3 class="text-xl font-bold mb-2">发送咨询</h3>
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm text-gray-400 mb-1.5">您的姓名</label>
-                <input type="text" placeholder="请输入姓名" class="w-full px-4 py-3 bg-white/10 rounded-xl border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue focus:ring-1 focus:ring-tech-blue transition-all">
-              </div>
-              <div>
-                <label class="block text-sm text-gray-400 mb-1.5">联系电话</label>
-                <input type="tel" placeholder="请输入电话" class="w-full px-4 py-3 bg-white/10 rounded-xl border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue focus:ring-1 focus:ring-tech-blue transition-all">
-              </div>
-            </div>
-            <div>
-              <label class="block text-sm text-gray-400 mb-1.5">公司名称</label>
-              <input type="text" placeholder="请输入公司名称" class="w-full px-4 py-3 bg-white/10 rounded-xl border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue focus:ring-1 focus:ring-tech-blue transition-all">
-            </div>
-            <div>
-              <label class="block text-sm text-gray-400 mb-1.5">咨询内容</label>
-              <textarea rows="4" placeholder="请描述您的需求..." class="w-full px-4 py-3 bg-white/10 rounded-xl border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue focus:ring-1 focus:ring-tech-blue transition-all resize-none"></textarea>
-            </div>
-            <button type="submit" class="w-full py-4 bg-gradient-to-r from-tech-blue to-vibrant-orange text-white rounded-xl font-semibold text-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
-              提交咨询 <i class="fas fa-paper-plane ml-2"></i>
+          <div class="text-center">
+            <button type="submit" class="px-8 py-4 bg-gradient-to-r from-tech-blue to-vibrant-orange text-white rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all">
+              发送消息 <i class="fas fa-paper-plane ml-2"></i>
             </button>
-          </form>
+          </div>
+        </form>
+      </div>
+      
+      <!-- 联系信息 -->
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        <div class="text-center p-6 scroll-animate">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-tech-blue to-tech-blue-dark flex items-center justify-center text-white text-2xl mx-auto mb-4">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h4 class="font-bold mb-2">邮箱</h4>
+          <p class="text-gray-600">contact@rainbox.com</p>
+        </div>
+        <div class="text-center p-6 scroll-animate">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-vibrant-orange to-vibrant-orange-dark flex items-center justify-center text-white text-2xl mx-auto mb-4">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h4 class="font-bold mb-2">电话</h4>
+          <p class="text-gray-600">+86 138-0000-0000</p>
+        </div>
+        <div class="text-center p-6 scroll-animate">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white text-2xl mx-auto mb-4">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h4 class="font-bold mb-2">地址</h4>
+          <p class="text-gray-600">中国·深圳</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 页脚 -->
-  <footer class="bg-gray-950 text-gray-400 py-12">
+  <footer class="bg-gray-900 text-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-8 mb-10">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
         <div>
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg">R</div>
-            <span class="text-xl font-bold text-white">RainBox</span>
+            <span class="text-xl font-bold">RainBox</span>
           </div>
-          <p class="text-sm leading-relaxed">科技养虾，用心养人。以AI技术赋能企业数字化转型，构建智能化未来。</p>
+          <p class="text-gray-400 text-sm">
+            科技养虾，用心养人<br>
+            AI 驱动的数字科技公司
+          </p>
         </div>
         <div>
-          <h4 class="text-white font-semibold mb-4">快速链接</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#about" class="hover:text-tech-blue transition-colors">关于我们</a></li>
-            <li><a href="#services" class="hover:text-tech-blue transition-colors">核心业务</a></li>
-            <li><a href="#team" class="hover:text-tech-blue transition-colors">团队展示</a></li>
-            <li><a href="#contact" class="hover:text-tech-blue transition-colors">联系我们</a></li>
+          <h4 class="font-bold mb-4">快速链接</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#about" class="hover:text-white transition-colors">关于我们</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">核心业务</a></li>
+            <li><a href="#team" class="hover:text-white transition-colors">团队展示</a></li>
+            <li><a href="#documents" class="hover:text-white transition-colors">文档中心</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="text-white font-semibold mb-4">核心业务</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#" class="hover:text-vibrant-orange transition-colors">AI Agent研发</a></li>
-            <li><a href="#" class="hover:text-vibrant-orange transition-colors">数字化转型</a></li>
-            <li><a href="#" class="hover:text-vibrant-orange transition-colors">智能办公</a></li>
-            <li><a href="#" class="hover:text-vibrant-orange transition-colors">企业AI应用</a></li>
+          <h4 class="font-bold mb-4">核心业务</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>内容创作</li>
+            <li>网文创作</li>
+            <li>技术研发</li>
+            <li>企业管理</li>
           </ul>
         </div>
         <div>
-          <h4 class="text-white font-semibold mb-4">关注我们</h4>
-          <div class="flex gap-3">
-            <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-tech-blue hover:text-white transition-all"><i class="fab fa-weixin"></i></a>
-            <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-tech-blue hover:text-white transition-all"><i class="fab fa-weibo"></i></a>
-            <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-tech-blue hover:text-white transition-all"><i class="fab fa-github"></i></a>
-            <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-tech-blue hover:text-white transition-all"><i class="fab fa-linkedin"></i></a>
-          </div>
-          <p class="text-sm mt-4">订阅我们的最新动态</p>
-          <div class="flex mt-2">
-            <input type="email" placeholder="输入邮箱地址" class="flex-1 px-3 py-2 bg-white/10 rounded-l-lg text-sm border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue">
-            <button class="px-4 py-2 bg-tech-blue rounded-r-lg text-white text-sm hover:bg-tech-blue-dark transition-colors">订阅</button>
-          </div>
+          <h4 class="font-bold mb-4">联系方式</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><i class="fas fa-envelope mr-2"></i>contact@rainbox.com</li>
+            <li><i class="fas fa-phone mr-2"></i>+86 138-0000-0000</li>
+            <li><i class="fas fa-map-marker-alt mr-2"></i>中国·深圳</li>
+          </ul>
         </div>
       </div>
-      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-sm">&copy; 2026 RainBox 数字科技公司. All rights reserved.</p>
-        <p>由 <a href="https://with.woa.com/" style="color: #8A2BE2;" target="_blank">With</a> 通过自然语言生成</p>
+      <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+        <p>&copy; 2026 RainBox 数字科技公司. 保留所有权利.</p>
+        <p class="mt-2">成立于 2026 年 3 月 22 日 | 12 个 AI Agent | 6 个核心部门</p>
       </div>
     </div>
   </footer>
 
-  <!-- 回到顶部 -->
-  <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-tech-blue to-vibrant-orange text-white rounded-full shadow-xl opacity-0 invisible hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center">
+  <!-- 回到顶部按钮 -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-tech-blue to-vibrant-orange text-white rounded-full shadow-xl hover:shadow-2xl transition-all opacity-0 invisible flex items-center justify-center">
     <i class="fas fa-arrow-up"></i>
   </button>
 

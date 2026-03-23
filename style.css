@@ -1,11 +1,24 @@
-/* ========== 自定义动画与基础样式 ========== */
+/* ========== 基础样式与重置 ========== */
 
-/* 平滑滚动 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-/* 导航栏样式 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: hidden;
+}
+
+/* ========== 导航栏样式 ========== */
+
 #navbar {
   background: transparent;
   transition: all 0.3s ease;
@@ -28,6 +41,28 @@ html {
 #navbar:not(.scrolled) #mobile-menu-btn {
   color: white;
 }
+
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #2196F3, #FF9800);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ========== 动画定义 ========== */
 
 /* 淡入上移动画 */
 @keyframes fadeInUp {
@@ -65,6 +100,11 @@ html {
   opacity: 0;
 }
 
+.animation-delay-1000 {
+  animation-delay: 1s;
+  opacity: 0;
+}
+
 /* 滚动提示点动画 */
 @keyframes scrollDot {
   0%, 100% {
@@ -93,11 +133,66 @@ html {
   transform: translateY(0);
 }
 
-/* 服务卡片悬停效果 */
+/* 脉冲动画 */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(33, 150, 243, 0);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 粒子浮动动画 */
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: float-particle linear infinite;
+}
+
+/* ========== 卡片样式 ========== */
+
+/* 统计卡片 */
+.stat-card {
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* 服务卡片 */
 .service-card {
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .service-card::before {
@@ -129,7 +224,7 @@ html {
   transform: scale(1.15) rotate(5deg);
 }
 
-/* Agent卡片动画 */
+/* Agent 卡片 */
 .agent-card {
   transition: all 0.3s ease;
   cursor: pointer;
@@ -140,88 +235,142 @@ html {
   box-shadow: 0 12px 30px rgba(33, 150, 243, 0.2);
 }
 
-/* 团队卡片效果 */
-.team-card {
-  transition: all 0.4s ease;
-}
-
-.team-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
-}
-
-.team-card .team-avatar {
-  transition: all 0.4s ease;
-}
-
-.team-card:hover .team-avatar {
-  transform: scale(1.05);
-}
-
-.team-card .team-overlay {
-  opacity: 0;
-  transition: all 0.4s ease;
-}
-
-.team-card:hover .team-overlay {
-  opacity: 1;
-}
-
-/* 统计数据卡片 */
-.stat-card {
+/* 文档分类卡片 */
+.doc-category {
   transition: all 0.3s ease;
 }
 
-.stat-card:hover {
+.doc-category:hover {
   transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.18);
 }
 
-/* 粒子样式 */
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  animation: float-particle linear infinite;
+.doc-link {
+  transition: all 0.2s ease;
+  padding: 4px 0;
+  display: inline-block;
 }
 
-@keyframes float-particle {
-  0% {
-    transform: translateY(100vh) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100px) rotate(720deg);
-    opacity: 0;
-  }
+.doc-link:hover {
+  transform: translateX(4px);
 }
 
-/* 合作伙伴 Logo 样式 */
-.partner-logo {
+/* ========== 回到顶部按钮 ========== */
+
+#back-to-top {
   transition: all 0.3s ease;
-  filter: grayscale(100%) opacity(0.5);
 }
 
-.partner-logo:hover {
-  filter: grayscale(0%) opacity(1);
-  transform: scale(1.1);
-}
-
-/* 回到顶部按钮 */
 #back-to-top.visible {
   opacity: 1;
   visibility: visible;
 }
 
-/* 提交成功提示 */
+#back-to-top:hover {
+  transform: translateY(-4px);
+}
+
+/* ========== 表单样式 ========== */
+
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+/* ========== 选择高亮 ========== */
+
+::selection {
+  background: rgba(33, 150, 243, 0.3);
+  color: inherit;
+}
+
+/* ========== 滚动条美化 ========== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #2196F3, #FF9800);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #1565C0, #E65100);
+}
+
+/* ========== 响应式调整 ========== */
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  #hero p {
+    font-size: 1.125rem;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-card div:first-child {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #hero p {
+    font-size: 1rem;
+  }
+
+  .doc-category {
+    padding: 1.5rem;
+  }
+}
+
+/* ========== 玻璃态效果 ========== */
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ========== 渐变文字 ========== */
+
+.gradient-text {
+  background: linear-gradient(135deg, #2196F3 0%, #FF9800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========== 阴影层次 ========== */
+
+.shadow-soft {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-hard {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== 提示消息 ========== */
+
 .toast {
   position: fixed;
   top: 100px;
@@ -243,51 +392,173 @@ html {
   transform: translateX(-50%) translateY(0);
 }
 
-/* 脉冲动画 */
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.4);
+/* ========== 加载动画 ========== */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ========== 打字机效果 ========== */
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
   50% {
-    box-shadow: 0 0 0 12px rgba(33, 150, 243, 0);
+    border-color: transparent;
   }
 }
 
-.pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
 }
 
-/* 响应式调整 */
-@media (max-width: 768px) {
-  #hero h1 {
-    font-size: 2.25rem;
+/* ========== 网格背景 ========== */
+
+.grid-background {
+  background-image: 
+    linear-gradient(rgba(33, 150, 243, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 150, 243, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* ========== 发光效果 ========== */
+
+.glow-effect {
+  box-shadow: 0 0 20px rgba(33, 150, 243, 0.5);
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 30px rgba(33, 150, 243, 0.8);
+}
+
+/* ========== 渐变边框 ========== */
+
+.gradient-border {
+  position: relative;
+  background: white;
+  border-radius: 1rem;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 2px;
+  background: linear-gradient(135deg, #2196F3, #FF9800);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* ========== 悬浮卡片效果 ========== */
+
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ========== 文字阴影 ========== */
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-strong {
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== 按钮样式增强 ========== */
+
+button,
+a.button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::before,
+a.button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+button:hover::before,
+a.button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ========== 图片优化 ========== */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========== 无障碍优化 ========== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ========== 打印样式 ========== */
+
+@media print {
+  #navbar,
+  #back-to-top,
+  .no-print {
+    display: none !important;
   }
 
-  .service-card:hover {
-    transform: translateY(-4px);
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    text-decoration: underline;
   }
 }
 
-/* 选择高亮 */
-::selection {
-  background: rgba(33, 150, 243, 0.3);
-  color: inherit;
-}
+/* ========== 深色模式支持（预留） ========== */
 
-/* 滚动条美化 */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #2196F3, #FF9800);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #1565C0, #E65100);
+@media (prefers-color-scheme: dark) {
+  /* 深色模式样式可以在这里添加 */
 }

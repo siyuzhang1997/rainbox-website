@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全部文档 - RainBox 数字科技公司</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'vibrant-orange': '#FF9800',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .doc-item {
+      transition: all 0.3s ease;
+    }
+    .doc-item:hover {
+      transform: translateX(8px);
+      background: rgba(33, 150, 243, 0.05);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- 导航栏 -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg">R</div>
+          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
+        </a>
+        <a href="../index.html#documents" class="text-gray-600 hover:text-tech-blue transition-colors">
+          <i class="fas fa-arrow-left mr-2"></i>返回首页
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- 标题 -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">
+        📚 全部文档
+      </h1>
+      <p class="text-gray-600 text-lg">
+        RainBox 公司成立以来的所有重要文档（共 40+ 份）
+      </p>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="mb-8 max-w-2xl mx-auto">
+      <div class="relative">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="搜索文档..." 
+          class="w-full px-6 py-4 rounded-full border-2 border-gray-200 focus:border-tech-blue focus:outline-none text-lg"
+        >
+        <i class="fas fa-search absolute right-6 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl"></i>
+      </div>
+    </div>
+
+    <!-- 文档列表 -->
+    <div class="space-y-8">
+      <!-- A. 公司管理规范 -->
+      <section>
+        <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-cyan-600 flex items-center justify-center text-white">
+            <i class="fas fa-clipboard-check"></i>
+          </span>
+          公司管理规范
+        </h2>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="divide-y divide-gray-100">
+            <a href="../../RainBox公司管理规范-三层记忆架构标准.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-tech-blue text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">RainBox公司管理规范-三层记忆架构标准</h3>
+                    <p class="text-sm text-gray-500">定义公司 AI Agent 的三层记忆架构标准</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../RainBox公司-Token优化管理规范.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-tech-blue text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">RainBox公司-Token优化管理规范</h3>
+                    <p class="text-sm text-gray-500">Token 使用优化和管理规范</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../RainBox公司-目录结构合规整改报告.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-tech-blue text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">目录结构合规整改报告</h3>
+                    <p class="text-sm text-gray-500">公司目录结构规范化整改报告</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../三层记忆架构全员整改完成报告.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-tech-blue text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">三层记忆架构全员整改完成报告</h3>
+                    <p class="text-sm text-gray-500">全员三层记忆架构整改完成情况</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- B. 组织架构 -->
+      <section>
+        <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white">
+            <i class="fas fa-sitemap"></i>
+          </span>
+          组织架构
+        </h2>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="divide-y divide-gray-100">
+            <a href="../../组织架构.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-purple-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">组织架构</h3>
+                    <p class="text-sm text-gray-500">公司组织架构图和部门设置</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../04_更新后的组织架构文档.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-purple-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">更新后的组织架构文档</h3>
+                    <p class="text-sm text-gray-500">最新的组织架构更新版本</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../RainBox_Agent创建完成报告.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-purple-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">RainBox Agent 创建完成报告</h3>
+                    <p class="text-sm text-gray-500">所有 Agent 创建过程和结果</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../RainBox_Agent安装完成报告.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-purple-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">RainBox Agent 安装完成报告</h3>
+                    <p class="text-sm text-gray-500">Agent 安装部署完成情况</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- C. 岗位与招聘 -->
+      <section>
+        <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white">
+            <i class="fas fa-user-tie"></i>
+          </span>
+          岗位与招聘
+        </h2>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="divide-y divide-gray-100">
+            <a href="../../01_岗位描述_小红书业务线.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-green-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">岗位描述 - 小红书业务线</h3>
+                    <p class="text-sm text-gray-500">小红书内容创作团队岗位说明</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../02_岗位描述_网文业务线.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-green-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">岗位描述 - 网文业务线</h3>
+                    <p class="text-sm text-gray-500">网文创作团队岗位说明</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../05_招聘总结报告.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-green-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">招聘总结报告</h3>
+                    <p class="text-sm text-gray-500">公司招聘工作总结</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../RainBox_Agent_招聘总结报告.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-green-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">RainBox Agent 招聘总结报告</h3>
+                    <p class="text-sm text-gray-500">Agent 招聘详细总结</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- D. 员工培训 -->
+      <section>
+        <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-vibrant-orange to-amber-600 flex items-center justify-center text-white">
+            <i class="fas fa-graduation-cap"></i>
+          </span>
+          员工培训
+        </h2>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="divide-y divide-gray-100">
+            <a href="../../03_员工入职配置文档.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-vibrant-orange text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">员工入职配置文档</h3>
+                    <p class="text-sm text-gray-500">新员工入职配置指南</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../全员培训材料.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-vibrant-orange text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">全员培训材料</h3>
+                    <p class="text-sm text-gray-500">公司全员培训课程材料</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../HR-Token优化培训实施方案.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-vibrant-orange text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">HR-Token优化培训实施方案</h3>
+                    <p class="text-sm text-gray-500">Token 优化专项培训方案</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../员工手册_标语章节更新.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-vibrant-orange text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">员工手册 - 标语章节更新</h3>
+                    <p class="text-sm text-gray-500">员工手册标语相关内容更新</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- E. 企业文化 -->
+      <section>
+        <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white">
+            <i class="fas fa-heart"></i>
+          </span>
+          企业文化
+        </h2>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="divide-y divide-gray-100">
+            <a href="../../公司标语确立通知.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-pink-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">公司标语确立通知</h3>
+                    <p class="text-sm text-gray-500">"科技养虾，用心养人"标语确立</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../标语文化解读手册.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-pink-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">标语文化解读手册</h3>
+                    <p class="text-sm text-gray-500">公司标语深度解读</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../HR文化落地方案.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-pink-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">HR文化落地方案</h3>
+                    <p class="text-sm text-gray-500">企业文化落地实施方案</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../标语落地行动计划与时间表.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-pink-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">标语落地行动计划与时间表</h3>
+                    <p class="text-sm text-gray-500">标语文化落地详细计划</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../RainBox公司口号讨论会议纪要.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-pink-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">公司口号讨论会议纪要</h3>
+                    <p class="text-sm text-gray-500">标语讨论会议记录</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- F. 项目文档 -->
+      <section>
+        <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-white">
+            <i class="fas fa-project-diagram"></i>
+          </span>
+          项目文档
+        </h2>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="divide-y divide-gray-100">
+            <a href="../../Level3写作班子架构设计方案.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-blue-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">Level 3 写作班子架构设计方案</h3>
+                    <p class="text-sm text-gray-500">Level 3 架构设计详细方案</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../RainBox公司-Level3架构完成报告.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-blue-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">Level 3 架构完成报告</h3>
+                    <p class="text-sm text-gray-500">Level 3 架构实施完成报告</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../06_协作流程图.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-blue-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">协作流程图</h3>
+                    <p class="text-sm text-gray-500">公司内部协作流程详解</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../RainBox官网建设-最终执行方案.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-blue-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">官网建设最终执行方案</h3>
+                    <p class="text-sm text-gray-500">官网建设详细方案</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../with-woa-com部署完成报告.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-blue-500 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">官网部署完成报告</h3>
+                    <p class="text-sm text-gray-500">官网部署上线报告</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- G. 其他重要文档 -->
+      <section>
+        <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center text-white">
+            <i class="fas fa-folder-open"></i>
+          </span>
+          其他重要文档
+        </h2>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="divide-y divide-gray-100">
+            <a href="../../KM文章学习-V3写作元规范架构.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-gray-600 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">KM文章学习 - V3写作元规范架构</h3>
+                    <p class="text-sm text-gray-500">写作规范学习文档</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../写作元规范Skill创建总结.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-gray-600 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">写作元规范 Skill 创建总结</h3>
+                    <p class="text-sm text-gray-500">写作规范 Skill 开发总结</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../RainBox委派能力测试场景.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-gray-600 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">RainBox 委派能力测试场景</h3>
+                    <p class="text-sm text-gray-500">总经理委派能力测试</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+            <a href="../../RainBox总经理能力升级报告.md" class="doc-item block px-6 py-4 hover:bg-gray-50" download>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-file-alt text-gray-600 text-xl"></i>
+                  <div>
+                    <h3 class="font-semibold text-gray-800">RainBox 总经理能力升级报告</h3>
+                    <p class="text-sm text-gray-500">总经理能力提升报告</p>
+                  </div>
+                </div>
+                <i class="fas fa-download text-gray-400"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 统计信息 -->
+    <div class="mt-12 text-center">
+      <div class="inline-block bg-gradient-to-r from-tech-blue to-vibrant-orange text-white rounded-full px-8 py-4 shadow-xl">
+        <p class="text-lg font-semibold">
+          <i class="fas fa-check-circle mr-2"></i>
+          共计 <span id="doc-count" class="text-2xl font-black">40+</span> 份文档
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p>&copy; 2026 RainBox 数字科技公司. 保留所有权利.</p>
+      <p class="mt-2 text-gray-400 text-sm">科技养虾，用心养人 🦐💙</p>
+    </div>
+  </footer>
+
+  <script>
+    // 搜索功能
+    const searchInput = document.getElementById('search-input');
+    const docItems = document.querySelectorAll('.doc-item');
+
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      
+      docItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        const section = item.closest('section');
+        
+        if (text.includes(searchTerm)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      // 隐藏没有可见文档的分类
+      document.querySelectorAll('section').forEach(section => {
+        const visibleItems = section.querySelectorAll('.doc-item[style="display: block;"], .doc-item:not([style])');
+        if (searchTerm && visibleItems.length === 0) {
+          section.style.display = 'none';
+        } else {
+          section.style.display = 'block';
+        }
+      });
+    });
+
+    // 统计文档数量
+    const docCount = document.querySelectorAll('.doc-item').length;
+    document.getElementById('doc-count').textContent = docCount;
+  </script>
+</body>
+</html>
