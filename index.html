@@ -1,335 +1,378 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RainBox 数字科技公司 - 科技养虾，用心养人。专注于 AI Agent 研发、数字化转型、智能办公解决方案。">
-    <meta name="keywords" content="RainBox, AI Agent, 数字化转型, 智能办公, 企业AI">
-    <title>RainBox 数字科技 | 科技养虾，用心养人</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RainBox 数字科技公司 - 科技养虾，用心养人</title>
+  <meta name="description" content="RainBox 数字科技公司，专注AI Agent研发、数字化转型、智能办公与企业AI应用。科技养虾，用心养人。">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tech-blue': '#2196F3',
+            'tech-blue-dark': '#1565C0',
+            'tech-blue-light': '#BBDEFB',
+            'vibrant-orange': '#FF9800',
+            'vibrant-orange-dark': '#E65100',
+            'vibrant-orange-light': '#FFE0B2',
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <img src="logo.png" alt="RainBox Logo" class="logo-img">
-                    <span class="logo-text">RainBox</span>
-                </div>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link">首页</a></li>
-                    <li><a href="#about" class="nav-link">关于我们</a></li>
-                    <li><a href="#services" class="nav-link">核心业务</a></li>
-                    <li><a href="#team" class="nav-link">团队</a></li>
-                    <li><a href="#contact" class="nav-link">联系我们</a></li>
-                </ul>
-            </div>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+  <!-- 导航栏 -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg shadow-lg">R</div>
+          <span class="text-xl font-bold bg-gradient-to-r from-tech-blue to-vibrant-orange bg-clip-text text-transparent">RainBox</span>
         </div>
-    </nav>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#hero" class="nav-link text-sm font-medium hover:text-tech-blue transition-colors">首页</a>
+          <a href="#about" class="nav-link text-sm font-medium hover:text-tech-blue transition-colors">关于我们</a>
+          <a href="#services" class="nav-link text-sm font-medium hover:text-tech-blue transition-colors">核心业务</a>
+          <a href="#team" class="nav-link text-sm font-medium hover:text-tech-blue transition-colors">团队展示</a>
+          <a href="#contact" class="nav-link text-sm font-medium hover:text-tech-blue transition-colors">联系我们</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+    <!-- 移动端菜单 -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-md border-t border-gray-100">
+      <div class="px-4 py-3 space-y-2">
+        <a href="#hero" class="block py-2 px-3 rounded-lg text-sm font-medium hover:bg-tech-blue-light hover:text-tech-blue transition-colors">首页</a>
+        <a href="#about" class="block py-2 px-3 rounded-lg text-sm font-medium hover:bg-tech-blue-light hover:text-tech-blue transition-colors">关于我们</a>
+        <a href="#services" class="block py-2 px-3 rounded-lg text-sm font-medium hover:bg-tech-blue-light hover:text-tech-blue transition-colors">核心业务</a>
+        <a href="#team" class="block py-2 px-3 rounded-lg text-sm font-medium hover:bg-tech-blue-light hover:text-tech-blue transition-colors">团队展示</a>
+        <a href="#contact" class="block py-2 px-3 rounded-lg text-sm font-medium hover:bg-tech-blue-light hover:text-tech-blue transition-colors">联系我们</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-background"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-logo">
-                    <img src="logo.png" alt="RainBox Logo" class="hero-logo-img">
-                </div>
-                <h1 class="hero-title">
-                    <span class="gradient-text">RainBox</span> 数字科技
-                </h1>
-                <p class="hero-subtitle">科技养虾，用心养人</p>
-                <p class="hero-description">
-                    专注于 AI Agent 技术的创新企业<br>
-                    12 个专业 AI Agent · 4 个核心部门 · 无限可能
-                </p>
-                <div class="hero-cta">
-                    <a href="#about" class="btn btn-primary">了解更多</a>
-                    <a href="#contact" class="btn btn-secondary">联系我们</a>
-                </div>
-            </div>
+  <!-- Hero区 -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="hero-bg absolute inset-0">
+      <img src="https://zhiyan-ai-agent-with-1258344702.cos.ap-guangzhou.tencentcos.cn/with/768394c9-45b0-4555-98c3-2cd2e9e7a550/image_1774232690_2_1.jpg" alt="科技背景" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-tech-blue/40 to-gray-900/70"></div>
+    </div>
+    <!-- 粒子动画容器 -->
+    <div id="particles-container" class="absolute inset-0 pointer-events-none"></div>
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      <div class="animate-fade-in-up">
+        <div class="mb-8 inline-flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-xl shadow-lg">R</div>
+          <span class="text-white text-2xl font-bold tracking-wider">RainBox 数字科技</span>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight animate-fade-in-up animation-delay-200">
+        科技养虾<span class="text-vibrant-orange">，</span>用心养人
+      </h1>
+      <p class="text-lg sm:text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto animate-fade-in-up animation-delay-400">
+        以AI驱动创新，用技术赋能未来。我们致力于打造行业领先的AI Agent生态，
+        为企业提供全方位的数字化转型解决方案。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-600">
+        <a href="#services" class="px-8 py-4 bg-gradient-to-r from-tech-blue to-tech-blue-dark text-white rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+          探索服务 <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+        <a href="#contact" class="px-8 py-4 bg-white/15 backdrop-blur-md text-white border border-white/30 rounded-full font-semibold text-lg hover:bg-white/25 hover:scale-105 transition-all duration-300">
+          联系我们 <i class="fas fa-phone ml-2"></i>
+        </a>
+      </div>
+      <!-- 统计数据 -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in-up animation-delay-800">
+        <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15">
+          <div class="text-3xl md:text-4xl font-bold text-vibrant-orange counter" data-target="12">0</div>
+          <div class="text-sm text-gray-300 mt-1">AI Agent</div>
         </div>
-    </section>
+        <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15">
+          <div class="text-3xl md:text-4xl font-bold text-vibrant-orange counter" data-target="4">0</div>
+          <div class="text-sm text-gray-300 mt-1">核心部门</div>
+        </div>
+        <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15">
+          <div class="text-3xl md:text-4xl font-bold text-vibrant-orange counter" data-target="200">0</div>
+          <div class="text-sm text-gray-300 mt-1">合作企业</div>
+        </div>
+        <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15">
+          <div class="text-3xl md:text-4xl font-bold text-vibrant-orange counter" data-target="99">0</div>
+          <div class="text-sm text-gray-300 mt-1">客户满意度%</div>
+        </div>
+      </div>
+    </div>
+    <!-- 滚动提示 -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div class="w-8 h-12 rounded-full border-2 border-white/40 flex items-start justify-center pt-2">
+        <div class="w-1.5 h-3 bg-white/60 rounded-full animate-scroll-dot"></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">关于我们</h2>
-                <p class="section-subtitle">About RainBox</p>
+  <!-- 关于我们 -->
+  <section id="about" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 bg-tech-blue/10 text-tech-blue rounded-full text-sm font-semibold mb-4">关于我们</span>
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">以创新驱动数字未来</h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">RainBox 数字科技公司成立于数字化浪潮之中，始终秉承"科技养虾，用心养人"的理念</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="scroll-animate">
+          <div class="relative">
+            <img src="https://zhiyan-ai-agent-with-1258344702.cos.ap-guangzhou.tencentcos.cn/with/f792a460-5027-43e3-b832-e3610f9d0459/image_1774232705_1_1.jpg" alt="数字化转型" class="rounded-2xl shadow-2xl w-full object-cover aspect-video">
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-vibrant-orange to-vibrant-orange-dark rounded-2xl flex items-center justify-center shadow-xl">
+              <div class="text-center text-white">
+                <div class="text-3xl font-bold">12</div>
+                <div class="text-xs mt-1">AI Agent</div>
+              </div>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>RainBox 数字科技公司</h3>
-                    <p class="lead">
-                        RainBox Digital Technology 是一家专注于 AI Agent 技术的创新企业。
-                    </p>
-                    <p>
-                        我们拥有 <strong>12 个专业 AI Agent</strong>，分布在 <strong>4 个核心部门</strong>，
-                        致力于为企业提供智能化、自动化的数字解决方案。
-                    </p>
-                    <p>
-                        <em>"科技养虾，用心养人"</em> - 这不仅是我们的标语，
-                        更是我们对技术与人文关怀完美结合的承诺。
-                    </p>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <div class="stat-number">12</div>
-                            <div class="stat-label">AI Agents</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">4</div>
-                            <div class="stat-label">核心部门</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">∞</div>
-                            <div class="stat-label">创新可能</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-visual">
-                    <div class="visual-card">
-                        <div class="visual-icon">🎯</div>
-                        <h4>愿景</h4>
-                        <p>成为 AI Agent 技术领域的领导者，推动企业智能化转型</p>
-                    </div>
-                    <div class="visual-card">
-                        <div class="visual-icon">💡</div>
-                        <h4>使命</h4>
-                        <p>用 AI 技术赋能企业，让智能化触手可及</p>
-                    </div>
-                    <div class="visual-card">
-                        <div class="visual-icon">⚡</div>
-                        <h4>价值观</h4>
-                        <p>创新、专业、高效、人文关怀</p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">核心业务</h2>
-                <p class="section-subtitle">Our Services</p>
+        <div class="scroll-animate space-y-6">
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900">构建AI Agent智能生态</h3>
+          <p class="text-gray-600 leading-relaxed text-lg">
+            RainBox 数字科技公司拥有<span class="text-tech-blue font-semibold">12个自主研发的AI Agent</span>，覆盖企业运营的各个环节。
+            我们设有<span class="text-vibrant-orange font-semibold">4个核心部门</span>：AI研发中心、数字化解决方案部、智能办公事业部和企业服务部，
+            每个部门都由行业顶尖人才带队，致力于为客户提供最优质的数字化服务。
+          </p>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex items-center gap-3 p-4 bg-tech-blue/5 rounded-xl border border-tech-blue/10 hover:shadow-md transition-all">
+              <div class="w-10 h-10 bg-tech-blue/10 rounded-lg flex items-center justify-center">
+                <i class="fas fa-brain text-tech-blue"></i>
+              </div>
+              <span class="font-medium text-gray-700">AI研发中心</span>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>AI Agent 研发</h3>
-                    <p>打造智能化的 AI Agent 系统，提升企业效率。从需求分析到部署上线，提供全流程解决方案。</p>
-                    <ul class="service-features">
-                        <li>定制化 Agent 开发</li>
-                        <li>多 Agent 协作系统</li>
-                        <li>智能决策引擎</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔄</div>
-                    <h3>数字化转型</h3>
-                    <p>帮助企业实现全面数字化升级，优化业务流程，提升运营效率。</p>
-                    <ul class="service-features">
-                        <li>业务流程优化</li>
-                        <li>数据驱动决策</li>
-                        <li>系统集成方案</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💼</div>
-                    <h3>智能办公</h3>
-                    <p>提供完整的智能办公解决方案，让工作更高效、更智能。</p>
-                    <ul class="service-features">
-                        <li>自动化工作流</li>
-                        <li>智能文档处理</li>
-                        <li>协作效率提升</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🚀</div>
-                    <h3>企业 AI 应用</h3>
-                    <p>定制化的企业 AI 应用开发，满足各行业特定需求。</p>
-                    <ul class="service-features">
-                        <li>行业解决方案</li>
-                        <li>AI 模型训练</li>
-                        <li>持续优化迭代</li>
-                    </ul>
-                </div>
+            <div class="flex items-center gap-3 p-4 bg-vibrant-orange/5 rounded-xl border border-vibrant-orange/10 hover:shadow-md transition-all">
+              <div class="w-10 h-10 bg-vibrant-orange/10 rounded-lg flex items-center justify-center">
+                <i class="fas fa-chart-line text-vibrant-orange"></i>
+              </div>
+              <span class="font-medium text-gray-700">数字化方案部</span>
             </div>
+            <div class="flex items-center gap-3 p-4 bg-tech-blue/5 rounded-xl border border-tech-blue/10 hover:shadow-md transition-all">
+              <div class="w-10 h-10 bg-tech-blue/10 rounded-lg flex items-center justify-center">
+                <i class="fas fa-building text-tech-blue"></i>
+              </div>
+              <span class="font-medium text-gray-700">智能办公部</span>
+            </div>
+            <div class="flex items-center gap-3 p-4 bg-vibrant-orange/5 rounded-xl border border-vibrant-orange/10 hover:shadow-md transition-all">
+              <div class="w-10 h-10 bg-vibrant-orange/10 rounded-lg flex items-center justify-center">
+                <i class="fas fa-handshake text-vibrant-orange"></i>
+              </div>
+              <span class="font-medium text-gray-700">企业服务部</span>
+            </div>
+          </div>
+          <div class="flex gap-4 pt-2">
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+              <i class="fas fa-check-circle text-green-500"></i> 自主知识产权
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+              <i class="fas fa-check-circle text-green-500"></i> 行业认证
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+              <i class="fas fa-check-circle text-green-500"></i> 安全合规
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Team Section -->
-    <section class="team" id="team">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">我们的团队</h2>
-                <p class="section-subtitle">Our Team</p>
+  <!-- 核心业务 -->
+  <section id="services" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 bg-vibrant-orange/10 text-vibrant-orange rounded-full text-sm font-semibold mb-4">核心业务</span>
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">四大业务板块赋能未来</h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">从研发到落地，从办公到生态，全方位助力企业智能化升级</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="services-grid">
+        <!-- 服务卡片由JS动态生成 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Agent 展示 -->
+  <section id="agents" class="py-20 md:py-28 bg-gray-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-tech-blue rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-vibrant-orange rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 bg-tech-blue/20 text-tech-blue-light rounded-full text-sm font-semibold mb-4">AI Agent</span>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">12个AI Agent全面覆盖</h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">每一个Agent都是我们精心打磨的智能产品，为不同场景提供精准解决方案</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="agents-grid">
+        <!-- Agent卡片由JS动态生成 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 团队展示 -->
+  <section id="team" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 bg-tech-blue/10 text-tech-blue rounded-full text-sm font-semibold mb-4">精英团队</span>
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">汇聚行业顶尖人才</h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">来自世界顶级科技企业和高校的核心成员，引领技术创新浪潮</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="team-grid">
+        <!-- 团队成员由JS动态生成 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 合作伙伴 -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate">
+        <h3 class="text-xl text-gray-500 font-medium">值得信赖的合作伙伴</h3>
+      </div>
+      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 scroll-animate" id="partners">
+        <!-- 合作伙伴由JS动态生成 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系我们 -->
+  <section id="contact" class="py-20 md:py-28 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-1/4 left-0 w-[600px] h-[600px] bg-tech-blue rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-vibrant-orange rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 bg-vibrant-orange/20 text-vibrant-orange-light rounded-full text-sm font-semibold mb-4">联系我们</span>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">开启数字化转型之旅</h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">无论您有什么需求，我们的专业团队随时为您提供咨询服务</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div class="scroll-animate space-y-8">
+          <div class="flex items-start gap-5 p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+            <div class="w-14 h-14 bg-tech-blue/20 rounded-xl flex items-center justify-center shrink-0">
+              <i class="fas fa-map-marker-alt text-tech-blue text-xl"></i>
             </div>
-            <div class="team-intro">
-                <p class="lead">
-                    RainBox 拥有 <strong>12 个专业 AI Agent</strong>，分布在 4 个核心部门，
-                    每个 Agent 都在各自领域拥有专业能力。
-                </p>
+            <div>
+              <h4 class="font-semibold text-lg mb-1">公司地址</h4>
+              <p class="text-gray-400">北京市海淀区中关村科技园区创新大厦 A座 18层</p>
             </div>
-            <div class="team-departments">
-                <div class="department-card">
-                    <div class="department-icon">👥</div>
-                    <h3>用户 Agent 团队</h3>
-                    <p class="department-count">7 个专业 Agent</p>
-                    <p>包括全栈开发、产品设计、数据分析等专业角色，为客户提供全方位服务。</p>
-                </div>
-                <div class="department-card">
-                    <div class="department-icon">⚙️</div>
-                    <h3>内置 Agent 团队</h3>
-                    <p class="department-count">5 个核心 Agent</p>
-                    <p>负责系统运维、安全管理、性能优化等核心功能，确保平台稳定运行。</p>
-                </div>
-                <div class="department-card">
-                    <div class="department-icon">🎯</div>
-                    <h3>研发部门</h3>
-                    <p class="department-count">技术创新</p>
-                    <p>持续探索 AI 技术前沿，研发新一代 Agent 系统和智能解决方案。</p>
-                </div>
-                <div class="department-card">
-                    <div class="department-icon">🤝</div>
-                    <h3>客户服务部门</h3>
-                    <p class="department-count">贴心服务</p>
-                    <p>提供 7×24 小时技术支持，确保客户项目顺利实施和运行。</p>
-                </div>
+          </div>
+          <div class="flex items-start gap-5 p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+            <div class="w-14 h-14 bg-vibrant-orange/20 rounded-xl flex items-center justify-center shrink-0">
+              <i class="fas fa-phone text-vibrant-orange text-xl"></i>
             </div>
-            <div class="team-highlight">
-                <div class="highlight-box">
-                    <h4>🌟 团队特色</h4>
-                    <ul>
-                        <li><strong>专业分工</strong>：每个 Agent 专注于特定领域，确保专业性</li>
-                        <li><strong>高效协作</strong>：多 Agent 协同工作，提升整体效率</li>
-                        <li><strong>持续学习</strong>：不断优化和进化，保持技术领先</li>
-                        <li><strong>人文关怀</strong>：技术与人性的完美结合</li>
-                    </ul>
-                </div>
+            <div>
+              <h4 class="font-semibold text-lg mb-1">联系电话</h4>
+              <p class="text-gray-400">400-888-9999</p>
+              <p class="text-gray-500 text-sm">周一至周五 9:00 - 18:00</p>
             </div>
+          </div>
+          <div class="flex items-start gap-5 p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+            <div class="w-14 h-14 bg-tech-blue/20 rounded-xl flex items-center justify-center shrink-0">
+              <i class="fas fa-envelope text-tech-blue text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-lg mb-1">电子邮件</h4>
+              <p class="text-gray-400">contact@rainbox.tech</p>
+              <p class="text-gray-500 text-sm">我们将在24小时内回复</p>
+            </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">联系我们</h2>
-                <p class="section-subtitle">Get In Touch</p>
+        <div class="scroll-animate">
+          <form id="contact-form" class="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 space-y-5">
+            <h3 class="text-xl font-bold mb-2">发送咨询</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm text-gray-400 mb-1.5">您的姓名</label>
+                <input type="text" placeholder="请输入姓名" class="w-full px-4 py-3 bg-white/10 rounded-xl border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue focus:ring-1 focus:ring-tech-blue transition-all">
+              </div>
+              <div>
+                <label class="block text-sm text-gray-400 mb-1.5">联系电话</label>
+                <input type="tel" placeholder="请输入电话" class="w-full px-4 py-3 bg-white/10 rounded-xl border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue focus:ring-1 focus:ring-tech-blue transition-all">
+              </div>
             </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>让我们一起创造未来</h3>
-                    <p>
-                        无论您是需要 AI Agent 解决方案，还是想了解数字化转型，
-                        我们都期待与您交流。
-                    </p>
-                    <div class="contact-methods">
-                        <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div class="contact-details">
-                                <h4>Email</h4>
-                                <a href="mailto:contact@rainbox.tech">contact@rainbox.tech</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">💻</div>
-                            <div class="contact-details">
-                                <h4>GitHub</h4>
-                                <a href="https://github.com/rainsyzhang" target="_blank">@rainsyzhang</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">🌐</div>
-                            <div class="contact-details">
-                                <h4>Website</h4>
-                                <a href="https://rainbox.tech">www.rainbox.tech</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form-wrapper">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">姓名</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">邮箱</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">公司</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">留言</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">发送消息</button>
-                    </form>
-                </div>
+            <div>
+              <label class="block text-sm text-gray-400 mb-1.5">公司名称</label>
+              <input type="text" placeholder="请输入公司名称" class="w-full px-4 py-3 bg-white/10 rounded-xl border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue focus:ring-1 focus:ring-tech-blue transition-all">
             </div>
+            <div>
+              <label class="block text-sm text-gray-400 mb-1.5">咨询内容</label>
+              <textarea rows="4" placeholder="请描述您的需求..." class="w-full px-4 py-3 bg-white/10 rounded-xl border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue focus:ring-1 focus:ring-tech-blue transition-all resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full py-4 bg-gradient-to-r from-tech-blue to-vibrant-orange text-white rounded-xl font-semibold text-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+              提交咨询 <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+          </form>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="logo.png" alt="RainBox Logo" class="footer-logo">
-                    <p class="footer-tagline">科技养虾，用心养人</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>公司</h4>
-                        <ul>
-                            <li><a href="#about">关于我们</a></li>
-                            <li><a href="#team">团队</a></li>
-                            <li><a href="#contact">联系我们</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>服务</h4>
-                        <ul>
-                            <li><a href="#services">AI Agent 研发</a></li>
-                            <li><a href="#services">数字化转型</a></li>
-                            <li><a href="#services">智能办公</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>资源</h4>
-                        <ul>
-                            <li><a href="#">技术博客</a></li>
-                            <li><a href="#">案例研究</a></li>
-                            <li><a href="#">开发文档</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 RainBox Digital Technology. All rights reserved.</p>
-                <p class="footer-love">Made with ❤️ by RainBox Team</p>
-            </div>
+  <!-- 页脚 -->
+  <footer class="bg-gray-950 text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-10">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-blue to-vibrant-orange flex items-center justify-center text-white font-bold text-lg">R</div>
+            <span class="text-xl font-bold text-white">RainBox</span>
+          </div>
+          <p class="text-sm leading-relaxed">科技养虾，用心养人。以AI技术赋能企业数字化转型，构建智能化未来。</p>
         </div>
-    </footer>
+        <div>
+          <h4 class="text-white font-semibold mb-4">快速链接</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#about" class="hover:text-tech-blue transition-colors">关于我们</a></li>
+            <li><a href="#services" class="hover:text-tech-blue transition-colors">核心业务</a></li>
+            <li><a href="#team" class="hover:text-tech-blue transition-colors">团队展示</a></li>
+            <li><a href="#contact" class="hover:text-tech-blue transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">核心业务</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-vibrant-orange transition-colors">AI Agent研发</a></li>
+            <li><a href="#" class="hover:text-vibrant-orange transition-colors">数字化转型</a></li>
+            <li><a href="#" class="hover:text-vibrant-orange transition-colors">智能办公</a></li>
+            <li><a href="#" class="hover:text-vibrant-orange transition-colors">企业AI应用</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">关注我们</h4>
+          <div class="flex gap-3">
+            <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-tech-blue hover:text-white transition-all"><i class="fab fa-weixin"></i></a>
+            <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-tech-blue hover:text-white transition-all"><i class="fab fa-weibo"></i></a>
+            <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-tech-blue hover:text-white transition-all"><i class="fab fa-github"></i></a>
+            <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-tech-blue hover:text-white transition-all"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <p class="text-sm mt-4">订阅我们的最新动态</p>
+          <div class="flex mt-2">
+            <input type="email" placeholder="输入邮箱地址" class="flex-1 px-3 py-2 bg-white/10 rounded-l-lg text-sm border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-tech-blue">
+            <button class="px-4 py-2 bg-tech-blue rounded-r-lg text-white text-sm hover:bg-tech-blue-dark transition-colors">订阅</button>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm">&copy; 2026 RainBox 数字科技公司. All rights reserved.</p>
+        <p>由 <a href="https://with.woa.com/" style="color: #8A2BE2;" target="_blank">With</a> 通过自然语言生成</p>
+      </div>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
+  <!-- 回到顶部 -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-tech-blue to-vibrant-orange text-white rounded-full shadow-xl opacity-0 invisible hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script type="module" src="main.js"></script>
 </body>
 </html>
